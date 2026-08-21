@@ -1,89 +1,90 @@
-# The Openness Scorecard (blank)
+# Openness scorecard
 
-*(Pure)Land fork kit, component 2 of 5. Score a practice, an archive, an organization, or an estate. Pair every reading with the [extraction check](EXTRACTION-CHECK.md); an openness score without one is exposure accounting.*
+This experimental instrument measures four kinds of access. It does not produce a composite score or certification. Pair every use with the [extraction check](EXTRACTION-CHECK.md).
 
-## How to use this
+## Rules
 
-Openness here is not one number. It decomposes into four accesses, each with its own question, its own way of counting, and its own failure mode. You will produce four separate readings.
+1. Name the unit, set, time window, and denominator before counting.
+2. Attach evidence for every classification.
+3. Keep the four measures separate.
+4. Record `unmeasurable` when evidence is absent.
+5. Ask a second reader to score the same material when possible. Keep disagreements.
 
-Three rules before you start:
+## Context
 
-1. **Name your denominator before you count.** Decide what the whole set is (every repository, every published artifact, every method document) and write it down first. A score with a chosen-after denominator is a story, not a measurement.
-2. **Never average the four accesses.** The denominators differ. A composite openness index launders four different questions into one false one. Report four numbers or none.
-3. **Unmeasurable is a finding, not a zero.** If a question cannot be answered from the record, write "unmeasurable" and say what record would be needed. A gap is a gap, not a pass.
-
-## The four accesses
-
-### 1. Legibility
-
-*Can someone outside the core parse what is here?*
-
-Count: artifacts that are public AND carry a plain-language description of what they are, over all artifacts in the named set. Plain language means a stranger can tell what the thing is and whether it concerns them without insider vocabulary.
-
-| | |
+| Field | Entry |
 |---|---|
-| Set (denominator) | |
-| Legible artifacts (numerator) | |
-| Score | / |
-| What blocked the rest | |
+| Practice or system | |
+| Unit being assessed | |
+| Set and denominator | |
+| Time window | |
+| Assessor and relationship to the system | |
+| Second reader | |
+| Known exclusions | |
 
-Extraction pairing: raising legibility lowers search and targeting cost for everyone, including crawlers and model-training collectors. Before raising it, ask who gains the map.
+## 1. Legibility
 
-### 2. Permeability
+Can a person outside the core understand what exists, what it does, and whether it concerns them?
 
-*Can information actually move in and out, in both directions?*
+Count artifacts that are reachable and have a plain-language description over the named set.
 
-Count two things separately: the fraction of the set publicly reachable at all, and the depth of the permission gradient (how many tiers, how many permission boundaries, between the public surface and the working core; count both endpoints as tiers, count each permission change as a boundary).
+| Result | Evidence | Uncertainty or disagreement |
+|---|---|---|
+| / | | |
 
-| | |
-|---|---|
-| Set (denominator) | |
-| Publicly reachable (numerator) | |
-| Score | / |
-| Deepest traced path (tiers / boundaries) | |
-| Inbound: how does a request from outside reach the core, and how fast is it answered? | |
+Extraction question: who benefits when the system becomes easier to map?
 
-Extraction pairing: publishing past a privacy boundary can collapse the distinction between a finished artifact, a participant's words, and raw working material. They carried different consent. Check that the boundary you are opening was not holding someone else's.
+## 2. Permeability
 
-### 3. Forkability
+Can information, questions, and corrections move across the boundary in both directions?
 
-*Can others take the material and build on it without permission or an existing relationship?*
+Report these separately:
 
-Count: artifacts that are public AND carry an explicit license permitting reuse without asking, over the named set. An artifact that is public but unlicensed is readable, not forkable.
+| Measure | Result | Evidence | Uncertainty or disagreement |
+|---|---|---|---|
+| Publicly reachable artifacts / set | / | | |
+| Documented inbound routes | | | |
+| Median response time, if measured | | | |
+| Permission boundaries on one traced path | | | |
 
-| | |
-|---|---|
-| Set (denominator) | |
-| Explicitly licensed for permissionless reuse (numerator) | |
-| Score | / |
-| Licenses in use | |
+Extraction question: did opening the boundary expose material that carried different consent?
 
-Extraction pairing: a permissionless license authorizes reuse outside the relationship that produced the material. Reciprocity does not automatically travel with an open license; if it matters here, it must be written in (see [LICENSE.md](LICENSE.md) for how this kit does it).
+## 3. Forkability
 
-### 4. Provenance
+Can another person legally and practically adapt the material without an existing relationship?
 
-*Can a claim or artifact be traced to where it came from?*
+Report licensing and usability separately. A public artifact without reuse permission is readable, not legally forkable. A licensed artifact with missing instructions may be legally forkable but practically unusable.
 
-Count: records whose source is verified against the origin (not merely cited, verified), over all records in the named set. Report the verified, partially verified, and unverified counts separately; a schema field that exists is not a verification that happened.
+| Measure | Result | Evidence | Uncertainty or disagreement |
+|---|---|---|---|
+| Artifacts with explicit reuse permission / set | / | | |
+| Artifacts with enough instructions to adapt / set | / | | |
 
-| | |
-|---|---|
-| Set (denominator) | |
-| Verified (numerator) | |
-| Partially verified | |
-| Unverified | |
-| Score | / |
+Extraction question: which obligations and benefits survive the fork?
 
-Extraction pairing: stronger identity-to-claim joins improve accountability and also improve re-identification and surveillance. Where provenance touches people, use public-safe identifiers and keep a revocation path; a provenance trail that makes deletion impossible has traded one harm for another.
+## 4. Provenance
 
-## Closure rationale
+Can a claim or artifact be traced to an appropriate source and transformation record?
 
-For anything you measured as closed, record why, in your own words, before anyone asks. Closure is a decision somebody made; the scorecard's job is to make the decision visible, not to shame it. A closed artifact with a stated reason is in better condition than an open one nobody decided about.
+Count verified, partly verified, unverified, and intentionally anonymous items separately. Anonymity is not automatically a provenance failure. The evidence may be held through a protected identifier or trusted steward.
 
-| Closed artifact or set | Stated reason for closure |
-|---|---|
-| | |
+| Status | Count | Evidence | Risk |
+|---|---|---|---|
+| Verified | | | |
+| Partly verified | | | |
+| Unverified | | | |
+| Intentionally anonymous | | | |
 
-## Reading the result
+Extraction question: does traceability create a re-identification or surveillance risk?
 
-Four numbers, a depth trace, and a closure table. No composite. The instrument behind this scorecard is specified and has been run once by its authors; it is not validated. If your reading surprises you, the reading might be wrong, the instrument might be wrong, or the surprise might be real. Send what you find (see [README.md](README.md)); disagreement with this scorecard is one of the things it exists to collect.
+## Closure decisions
+
+| Closed material | Who decided | Reason | Review date | Who bears the cost |
+|---|---|---|---|---|
+| | | | | |
+
+## Interpretation
+
+Report the evidence, missing records, reader disagreements, and one proposed change. Do not average the measures. Do not compare systems unless their units, denominators, and time windows are compatible.
+
+This scorecard is unvalidated. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md) and submit results using [FIELD-TESTING.md](FIELD-TESTING.md).
