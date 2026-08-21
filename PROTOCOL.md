@@ -1,67 +1,80 @@
-# The Facilitation Protocol
+# Facilitation protocol
 
-*(Pure)Land fork kit, component 1 of 5. Read [README.md](README.md) first. License and reciprocity terms in [LICENSE.md](LICENSE.md).*
+Use this protocol for a recorded relational encounter. Pair it with the [rights and consent guide](RIGHTS-AND-CONSENT.md).
 
-## The atom
+## Before recording
 
-The unit of this practice is one recorded relational encounter: a conversation between people who matter to each other, held in a deliberate container, recorded with layered consent, and returned to the person it came from. Not an interview. An interview extracts answers from a subject. An encounter is a meeting where something arises that belonged to neither person before it happened, and the recording exists to hold that arising without killing it.
+### Name the encounter
 
-The protocol works one threshold: the moment a camera or a microphone enters a relationship. Everything below is about crossing that threshold without the recording becoming a taking.
+Write the question the participants are living inside. State the purpose of recording it, the intended audience, and every foreseeable use. Name the facilitator's stake. Do not present the recorder as neutral.
 
-## Before
+### Hold a pre-conversation
 
-**Confirm the thread.** You are not booking a topic. You are naming a direction of travel: the question the two of you are actually living inside. Write down questions to live with, not questions to ask. Write down what you will track in your own listening.
+Meet off the record. Explain the process in plain language. Ask what must remain outside the record. Decide how a participant can pause or mark material off the record during the encounter.
 
-**Hold a pre-conversation.** Thirty minutes, off the record, before anything else. Set the container. Say what the recording is for, where it could go, and what the other person controls. The pre-conversation is already a draft of the encounter; do not over-correct that.
+### Make separate consent decisions
 
-**Register consent in writing, before the recorder goes on.** A marked document with separate asks, each one answerable on its own:
+Record a yes, no, or not-yet answer for each use:
 
-1. Record this conversation
-2. Publish the audio
-3. Publish the video
-4. Publish a written companion (the person sees it before it ships)
-5. Publish short excerpts or clips (the person sees them before they ship)
-6. Quote them in future work, with a heads-up each time
+- record audio;
+- record video;
+- retain raw files for a named period;
+- create a transcript;
+- share a rough cut with named reviewers;
+- publish a complete work;
+- publish clips or quotations;
+- use material in research;
+- process material with a named AI or machine-learning service;
+- use material to train or fine-tune a model;
+- permit a named future use.
 
-Boundaries that hold no matter what was signed: off the record on request, at any moment, retroactively. Named sensitive material stays out unless the person opens it themselves. Consent can be revoked at any time; after revocation, nothing new is derived from the material, ever. The person reviews the rough cut before anything publishes.
+Silence is not consent. Agreement to record is not agreement to publish. Agreement to use an AI transcription service is not agreement to train a model.
 
-**Name the terms of the record itself, up front.** Who holds the files. Whether the person gets their own copy of everything, including unedited material. What happens to the record if the relationship ends or either of you dies. Deciding this after the recording exists is already too late; the leverage has moved.
+### Record custody and limits
 
-## During
+Write down:
 
-Ground together off the record first. Then record.
+- who controls the raw files and backups;
+- where files are stored and which third parties receive them;
+- the retention date and deletion method;
+- whether the participant receives raw and edited copies;
+- how review works and how long the participant has to respond;
+- what can still be removed after publication;
+- what happens if the relationship ends or a participant dies.
 
-The conversation is the encounter, not a performance of one. If the recording is more formal than the pre-conversation was, the form has failed. Humor is load-bearing. Silence is allowed. You are a participant with a stake, not a neutral instrument; say so on the record when it matters.
+Use the [consent register template](templates/consent-register.md). Do not promise deletion from copies, caches, archives, or downstream uses you do not control.
 
-One rule inside the room: follow the aliveness. When the conversation is generative, surprising, connected, stay. When it goes credentialed and inert, name that or move.
+## During recording
 
-## After
+Ground together before the recorder starts. State the consent boundary on the record. Remind participants that they can pause.
 
-**Return something within 48 hours.** A letter, a note, a voice memo: what the encounter left in you once it had a few days to work. The recording is the lived event; the return is what you metabolized. This is not a courtesy. It is the first repayment, and the practice runs on it.
+Follow the aliveness of the encounter without treating disclosure as the measure of success. Humor and silence are allowed. When the form becomes more formal than the relationship, name the change. If new sensitive material or a new use appears, stop and ask again.
 
-**The person sees every derived artifact before it ships.** Edits, excerpts, companion text, all of it. Their approval is final, and it is approval of the artifact, not of a description of it.
+## After recording
 
-**Keep one living document per person, and keep it clean.** Nothing goes in it the person could not read over your shoulder. It is a record of a relationship, not a file on a contact. If material lacks confirmed consent, it stays out until consent is confirmed.
+### Return before publishing
 
-## Consent tiers for anything beyond the encounter itself
+Within 48 hours, send a short acknowledgement of what the encounter changed or clarified for you. This is an initial return, not compensation and not proof of reciprocity.
 
-If the practice learns from its encounters in aggregate, that learning has its own consent structure:
+Provide every proposed public artifact for review. The participant approves the artifact itself. A description of a future edit is not approval.
 
-- **Tier 1, every participant:** material informs your internal learning only.
-- **Tier 2, opt-in:** anonymized, aggregated patterns may refine the published method.
-- **Tier 3, explicit permission plus compensation:** identified material may appear in public work. Permission names the artifact, not the category.
+### Handle withdrawal honestly
 
-Standing rights at every tier: the person can request their raw material at any time, can modify or delete their contributions, holds final approval on any public use, and can withdraw from public use retroactively. Retroactive withdrawal removes the material from everything not yet shipped and stops new derivation from what was.
+A participant may withdraw permission for future uses at any time. Stop new processing and remove controlled, unpublished copies within the agreed period. For published or distributed material, document what you can retract, what you cannot retrieve, and what notice you will issue. A consent process is not honest if it promises control the project does not possess.
 
-## Then measure
+### Keep a decision record
 
-After the encounter is complete and returned, score the practice that held it, not the person inside it:
+Keep the minimum record needed to prove the current permissions. Separate relationship notes from production records. Do not keep sensitive detail merely because storage is cheap.
 
-1. Run the [openness scorecard](SCORECARD.md) on the record you produced: who can read it, reach it, reuse it, trace it.
-2. Run the [extraction check](EXTRACTION-CHECK.md) on your own practice: where the value flowed, and whether consent, attribution, and return traveled with it.
+## Aggregate learning tiers
 
-The scorecard without the extraction check is exposure accounting. The extraction check without the scorecard is virtue with no surface. Run both or neither.
+- **Internal learning:** material informs the practitioner's private reflection only.
+- **Anonymized method learning:** an explicit opt-in permits patterns to improve the public method. Describe the re-identification risk.
+- **Identified public use:** artifact-specific permission plus negotiated compensation or return.
+- **Model development:** separate, explicit permission naming the model, purpose, access, retention, and withdrawal limits.
 
-## What this protocol does not do
+## After the encounter
 
-It does not make an encounter meaningful; that depends on the relationship it enters. It does not certify your practice as non-extractive; the extraction check exists because no protocol can promise that from inside. And it does not require film. A phone on a table and a written consent page satisfy every clause above. The threshold is the same at any production value.
+Run the [openness scorecard](SCORECARD.md) on the practice, not the participant. Then run the [extraction check](EXTRACTION-CHECK.md). Record the evidence and the unresolved disagreement.
+
+This protocol does not certify a practice as safe or non-extractive. It creates decisions that another person can inspect and contest.

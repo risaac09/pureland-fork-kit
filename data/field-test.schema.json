@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/risaac09/pureland-fork-kit/data/field-test.schema.json",
+  "title": "PureLand field-test record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["kit_version", "context", "instrument", "evidence", "failures", "privacy_review"],
+  "properties": {
+    "kit_version": {"type": "string", "minLength": 1},
+    "context": {"type": "string", "minLength": 1},
+    "instrument": {"enum": ["practice-frame", "protocol", "scorecard", "extraction-check", "ai-system-annex"]},
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "failures": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "reader_disagreements": {"type": "array", "items": {"type": "string"}},
+    "adaptation": {"type": ["string", "null"]},
+    "ai_assistance": {"type": ["string", "null"]},
+    "privacy_review": {"const": true}
+  }
+}

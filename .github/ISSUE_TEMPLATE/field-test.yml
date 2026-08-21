@@ -1,0 +1,51 @@
+name: Field test
+description: Report where a PureLand instrument worked, failed, or created burden.
+title: "Field test: "
+labels: [field-test]
+body:
+  - type: markdown
+    attributes:
+      value: "Do not include participant material, identifying data, or confidential records."
+  - type: input
+    id: version
+    attributes:
+      label: Kit version or commit
+    validations:
+      required: true
+  - type: dropdown
+    id: instrument
+    attributes:
+      label: Instrument
+      options:
+        - Practice frame
+        - Protocol
+        - Scorecard
+        - Extraction check
+        - AI system annex
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and system boundary
+    validations:
+      required: true
+  - type: textarea
+    id: failure
+    attributes:
+      label: Failure, disagreement, or burden
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public-safe evidence
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy review
+      options:
+        - label: I included no participant material or identifying data and can share every linked artifact.
+          required: true
