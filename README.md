@@ -1,6 +1,6 @@
 # (Pure)Land: a fork kit
 
-You were sent this. That's the whole distribution plan. No launch, no list, no feed. Four people got this, by hand, and you're one of them.
+Public, open source, licensed [CC BY-SA 4.0](LICENSE.md). Fork it, run it on your own practice, argue with it.
 
 ## What's here
 
@@ -40,6 +40,6 @@ Not a finished instrument. The scorecard has been run once, informally, on the p
 
 Use it, break it, or ignore it. If you use it: fork it under the terms in [LICENSE.md](LICENSE.md), which means whatever you build on this stays open too. If you find something, a place the scorecard didn't fit, a place the protocol assumed something about your situation that wasn't true, a disagreement with the whole premise, send it back. A question, a fork with a real change, an application to your own work, a disagreement you can back up: all of that counts as contact. A star or a quiet download doesn't, not because it isn't appreciated, but because this kit only learns whether any of this is real from someone outside the room where it was built actually pushing on it.
 
-Reply however reaches you: `[contact method, Isaac's to fill in before sending]`
+Open an [issue](https://github.com/risaac09/pureland-fork-kit/issues) or a [discussion](https://github.com/risaac09/pureland-fork-kit/discussions) on this repo, or send a pull request with the change itself.
 
-This kit went out under (Pure)Land, an open source facilitation and film practice. If you want the fuller argument behind it, ask when you write back.
+Built by [Isaac Rubinstein](https://rubinsteinproductions.com) under (Pure)Land, an open source facilitation and film practice.
