@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pure(Land)</title>
+<meta name="description" content="A designed visual essay and front door for the Pure(Land) project.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --color-ink: #1C1815;
+    --color-bone: #F3EDE0;
+    --color-brass: #B4945F;
+    --color-oxblood: #7B2D26;
+    --color-celadon: #8FAE9B;
+    --color-graphite: #6B6257;
+
+    --color-ground: var(--color-bone);
+    --color-ground-raised: #EAE2D0;
+    --color-text: var(--color-ink);
+    --color-text-secondary: var(--color-graphite);
+    --color-accent: var(--color-brass);
+    --color-extraction: var(--color-oxblood);
+    --color-return: var(--color-celadon);
+    --color-rule: var(--color-graphite);
+
+    --font-display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+    --font-body: "EB Garamond", Georgia, "Times New Roman", serif;
+    --font-ledger: "IBM Plex Mono", "Courier Prime", "Courier New", monospace;
+
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2.5rem;
+    --space-xxl: 4.5rem;
+
+    --measure: 62ch;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --color-ground: var(--color-ink);
+      --color-ground-raised: #262019;
+      --color-text: var(--color-bone);
+      --color-text-secondary: #A79E8F;
+      --color-rule: #A79E8F;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --color-ground: var(--color-ink);
+    --color-ground-raised: #262019;
+    --color-text: var(--color-bone);
+    --color-text-secondary: #A79E8F;
+    --color-rule: #A79E8F;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { color-scheme: light dark; }
+
+  body {
+    margin: 0;
+    background: var(--color-ground);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--color-brass); color: var(--color-ink); }
+
+  a { color: var(--color-text); text-decoration-color: var(--color-accent); text-underline-offset: 0.2em; }
+  a:hover { text-decoration-color: var(--color-text); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+
+  .eyebrow {
+    font-family: var(--font-ledger);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+
+  .rule {
+    border: none;
+    border-top: 1px solid var(--color-rule);
+    opacity: 0.35;
+    margin: 0;
+  }
+
+  .rule--key {
+    border-top: 2px solid var(--color-accent);
+    opacity: 1;
+  }
+
+  /* ---------- persistent horizon ---------- */
+  /* A single hairline crosses the full viewport width and stays fixed at
+     the same height through the entire scroll: the horizon is given at
+     the start and never taken away. */
+  .horizon {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 42vh;
+    height: 1px;
+    background: var(--color-rule);
+    opacity: 0.3;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  main, header, footer { position: relative; z-index: 1; }
+
+  /* ---------- header ---------- */
+  header {
+    max-width: 74rem;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg) var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .mark {
+    width: 40px;
+    height: 40px;
+    flex: none;
+  }
+  .mark path:first-child { stroke: var(--color-text); }
+  .mark path:not(:first-child) { stroke: var(--color-accent); }
+
+  .wordmark {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15em;
+  }
+
+  .wordmark h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .wordmark .eyebrow { letter-spacing: 0.14em; }
+
+  header .rule--key { flex: 1; align-self: center; margin-left: var(--space-md); }
+
+  /* ---------- hero ---------- */
+  .hero {
+    max-width: 74rem;
+    margin: 0 auto;
+    padding: min(22vh, 9rem) var(--space-lg) var(--space-xxl);
+  }
+
+  .hero h2 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-style: italic;
+    font-size: clamp(1.9rem, 4.4vw, 3.1rem);
+    line-height: 1.2;
+    max-width: 18ch;
+    margin: 0 0 var(--space-lg);
+  }
+
+  .hero .goals {
+    font-family: var(--font-ledger);
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    color: var(--color-text-secondary);
+    max-width: 46ch;
+    display: grid;
+    gap: 0.55em;
+    padding: 0;
+    list-style: none;
+    margin: var(--space-lg) 0 0;
+  }
+  .hero .goals li::before { content: "→ "; color: var(--color-accent); }
+
+  /* ---------- spreads (content + marginalia) ---------- */
+  .spread {
+    max-width: 74rem;
+    margin: 0 auto;
+    padding: var(--space-xxl) var(--space-lg);
+    display: grid;
+    grid-template-columns: minmax(0, 15rem) minmax(0, var(--measure)) minmax(0, 15rem);
+    column-gap: var(--space-xl);
+    align-items: start;
+  }
+  .spread + .spread { border-top: 1px solid var(--color-rule); border-image: none; }
+  .spread > .rule-top { display: none; }
+
+  .spread .content { grid-column: 2; }
+  .spread .marginalia[data-side="left"] { grid-column: 1; grid-row: 1; }
+  .spread .marginalia[data-side="right"] { grid-column: 3; grid-row: 1; }
+
+  .content h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+    letter-spacing: 0.02em;
+    margin: 0 0 var(--space-lg);
+    text-wrap: balance;
+  }
+
+  .content p { margin: 0 0 var(--space-md); }
+  .content p:last-child { margin-bottom: 0; }
+
+  .content blockquote {
+    margin: var(--space-lg) 0;
+    padding-left: var(--space-md);
+    border-left: 2px solid var(--color-accent);
+    font-style: italic;
+    color: var(--color-text-secondary);
+  }
+
+  .ledger {
+    font-family: var(--font-ledger);
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    margin: var(--space-lg) 0;
+  }
+  .ledger-row {
+    display: grid;
+    grid-template-columns: 2.4em 1fr;
+    gap: 0.75em;
+    padding: 0.6em 0;
+    border-top: 1px solid var(--color-rule);
+    opacity: 1;
+  }
+  .ledger-row:first-child { border-top: none; }
+  .ledger-numeral { color: var(--color-accent); }
+  .ledger-label { text-transform: uppercase; color: var(--color-text); }
+  .ledger-desc {
+    grid-column: 2;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--color-text-secondary);
+    margin-top: 0.35em;
+  }
+
+  .fork-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    margin: var(--space-lg) 0;
+  }
+  .fork-col {
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--color-rule);
+  }
+  .fork-col .eyebrow { display: block; margin-bottom: 0.6em; }
+  .fork-col .eyebrow.out::before { content: "→ "; color: var(--color-accent); }
+  .fork-col .eyebrow.back::before { content: "← "; color: var(--color-return); }
+  .fork-col p { font-size: 0.98rem; }
+
+  /* ---------- marginalia ---------- */
+  .marginalia {
+    font-family: var(--font-ledger);
+    font-size: 0.76rem;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    color: var(--color-text-secondary);
+    padding-top: 0.3em;
+  }
+  .marginalia .m-label {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text);
+    margin-bottom: 0.4em;
+  }
+  .marginalia .m-label::before { content: "→ "; color: var(--color-accent); }
+  .marginalia[data-side="right"] .m-label::before { content: "← "; }
+  .marginalia s {
+    color: var(--color-extraction);
+    text-decoration-color: var(--color-extraction);
+  }
+  .marginalia cite { font-style: normal; }
+
+  /* ---------- closing / colophon ---------- */
+  .closing {
+    max-width: 74rem;
+    margin: 0 auto;
+    padding: var(--space-xxl) var(--space-lg) var(--space-xl);
+    border-top: 1px solid var(--color-rule);
+  }
+  .closing .content { max-width: var(--measure); }
+
+  footer.colophon {
+    max-width: 74rem;
+    margin: 0 auto;
+    padding: 0 var(--space-lg) var(--space-xxl);
+  }
+  .colophon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-lg);
+    font-family: var(--font-ledger);
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    color: var(--color-text-secondary);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-rule);
+  }
+  .colophon-grid .m-label {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text);
+    margin-bottom: 0.5em;
+  }
+
+  .exit-line {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+    max-width: 34ch;
+    margin: 0 0 var(--space-xl);
+    text-wrap: balance;
+  }
+
+  /* ---------- responsive: marginalia folds below its passage ---------- */
+  @media (max-width: 860px) {
+    .spread {
+      grid-template-columns: 1fr;
+      row-gap: var(--space-md);
+      padding: var(--space-xl) var(--space-md);
+    }
+    .spread .content,
+    .spread .marginalia { grid-column: 1; }
+    .spread .marginalia { grid-row: auto; padding: var(--space-md) 0 0; border-top: 1px dashed var(--color-rule); }
+    header { padding: var(--space-lg) var(--space-md); }
+    .hero { padding: 4rem var(--space-md) var(--space-xl); }
+    .fork-table { grid-template-columns: 1fr; }
+    .colophon-grid { grid-template-columns: 1fr; }
+    .horizon { top: 30vh; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    a, s { transition: text-decoration-color 0.15s ease; }
+  }
+</style>
+</head>
+<body>
+
+<div class="horizon" aria-hidden="true"></div>
+
+<header>
+  <svg class="mark" viewBox="0 0 100 100" role="img" aria-label="PureLand ensō-fork mark">
+    <title>PureLand ensō-fork mark</title>
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 79.23 36.99 A 32 32 0 1 1 63.01 20.77" stroke-width="4"/>
+      <path d="M 50 92 L 50 66" stroke-width="4"/>
+      <path d="M 50 66 C 62 60, 72 55, 85 60" stroke-width="3.5"/>
+      <path d="M 50 66 C 40 60, 38 50, 46 50" stroke-width="3.5"/>
+    </g>
+  </svg>
+  <div class="wordmark">
+    <h1>Pure(Land)</h1>
+    <span class="eyebrow">an open method for information practices, v0.1 research prototype</span>
+  </div>
+  <hr class="rule rule--key">
+</header>
+
+<main>
+  <section class="hero">
+    <h2>Can an information practice increase attention sovereignty without increasing exposure or extractability?</h2>
+    <p style="max-width: 46ch; color: var(--color-text-secondary);">That is the question PureLand tests, not a claim it has already answered. It combines contemplative self-observation, information-practice analysis, bounded adaptation, and accountable return.</p>
+    <ul class="goals">
+      <li>increase attention sovereignty</li>
+      <li>increase useful access without increasing exposure or extractability</li>
+      <li>build consent, attribution, and value return into information practices</li>
+      <li>make the practice contestable, so affected people can question, change, or refuse it</li>
+      <li>return reusable methods and rights-cleared research to a commons</li>
+    </ul>
+  </section>
+
+  <div class="spread">
+    <div class="content">
+      <h3>What it studies</h3>
+      <p>Evaluation without attention or relationship can become another extraction apparatus. Contemplative and somatic practice without evidence can become private conviction. Information theory without consent, attribution, and return can describe movement while ignoring who bears its cost.</p>
+      <p>PureLand is a synthesis informed by Buddhist practice, information theory, evaluation, and somatic practice. It does not claim that Buddhist categories are technical taxonomies, or that Shannon's theory explains meaning or ethics.</p>
+      <blockquote>Open source is the release phase of the practice, not the whole practice.</blockquote>
+      <p>Generosity means increasing another person's ability to understand, adapt, contest, or refuse. It does not mean publishing everything. Participant material, protected knowledge, and relationship records may need to remain private.</p>
+    </div>
+    <aside class="marginalia" data-side="left">
+      <span class="m-label">forkability</span>
+      <p>“The legal and practical ability to adapt a method without an existing relationship.” One of four accesses PureLand reads a practice through, alongside legibility, permeability, and provenance.</p>
+    </aside>
+  </div>
+
+  <div class="spread">
+    <div class="content">
+      <h3>The method</h3>
+      <p>Name one practice. Define its boundary and affected people. Establish consent. Notice what happens in attention and in the body. Read the practice through legibility, permeability, forkability, and provenance. Trace extraction, consent, attribution, and value return. Choose one bounded adaptation. Observe the burden, disagreement, and result. Return the learning where rights and consent permit.</p>
+      <p>Recording is optional. The first pilot does not require participant recordings.</p>
+      <div class="ledger">
+        <div class="ledger-row">
+          <span class="ledger-numeral">I</span>
+          <div>
+            <span class="ledger-label">Contemplative diagnosis</span>
+          </div>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-numeral">II</span>
+          <div>
+            <span class="ledger-label">Observable practice</span>
+          </div>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-numeral">III</span>
+          <div>
+            <span class="ledger-label">Bounded adaptation</span>
+          </div>
+        </div>
+      </div>
+      <p style="color: var(--color-text-secondary); font-size: 0.95rem;">The method's three layers, named in the kit's own visual language rather than invented here.</p>
+    </div>
+    <aside class="marginalia" data-side="right">
+      <span class="m-label">precedent</span>
+      <p>The closest identified precedent for combining participatory media and evaluation is InsightShare's <cite>Participatory Video and the Most Significant Change</cite>. PureLand does not claim to originate that combination.</p>
+    </aside>
+  </div>
+
+  <div class="spread">
+    <div class="content">
+      <h3>The fork travels both ways</h3>
+      <p>A fork is judged by both directions of travel. Code and method can leave the origin. Something, learning, credit, correction, a returned report, has to travel back for the fork to be more than extraction with a license file attached.</p>
+      <div class="fork-table">
+        <div class="fork-col">
+          <span class="eyebrow out">leaves the origin</span>
+          <p>Fork the instruments. Submit a public-safe field test. Document a failure or refusal. Propose a correction through the contribution process.</p>
+        </div>
+        <div class="fork-col">
+          <span class="eyebrow back">returns</span>
+          <p>A public-safe field report when permitted, plus a correction, disagreement, refusal, or method revision, recorded, not smoothed over.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="marginalia" data-side="left">
+      <span class="m-label">license</span>
+      <p>The kit's eligible text and templates use CC BY-SA 4.0. Code and configuration use MIT. A license does not create permission for participant or third-party material.</p>
+    </aside>
+  </div>
+
+  <div class="spread">
+    <div class="content">
+      <h3>What remains untested</h3>
+      <p>The instruments have no independent field trial, reliability estimate, validity result, benchmark, threshold, certification, or outcome estimate. The field-trial ledger is empty. The next research gate is five to ten independent applications across at least three contexts, with two readers where practical.</p>
+      <p>The project is currently maintained by Isaac Rubinstein, who holds merge and release authority. That concentration is a project risk, not a mature commons.</p>
+    </div>
+    <aside class="marginalia" data-side="right">
+      <span class="m-label">correction, recorded</span>
+      <p><s>The unvalidated extraction coefficient and composite thresholds</s> were retired. Missing evidence stays <code style="font-family: inherit;">unmeasurable</code>; there is no composite score.</p>
+    </aside>
+  </div>
+
+  <div class="spread closing">
+    <div class="content">
+      <h3>Where this leaves you</h3>
+      <p>This page does not ask you to stay. Bring one real practice, a boundary, a doubt, or a place where access and extraction pull against each other, and PureLand will scope what can be inspected, what must remain private, and what result would count against the method. Or don't. The record is here either way, and scroll position on this page earns you nothing.</p>
+      <p class="exit-line">When you're done reading, close the tab and go look at an actual horizon.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="colophon">
+  <hr class="rule">
+  <div class="colophon-grid">
+    <div>
+      <span class="m-label">status</span>
+      <p>Version 0.1 research prototype. Not validated. Does not certify openness or safety. Makes no independent field-result claim.</p>
+    </div>
+    <div>
+      <span class="m-label">license</span>
+      <p>Text and templates: CC BY-SA 4.0. Code and configuration: MIT. Design: original marks and text, licensed the same as the kit's text.</p>
+    </div>
+    <div>
+      <span class="m-label">visual language</span>
+      <p>Ink &amp; Bone. Quiet over grabby. Archival honesty. Revision stays visible. Nothing certifies.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
