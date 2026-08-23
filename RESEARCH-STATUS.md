@@ -13,7 +13,7 @@ Version 0.1 is a hypothesis-generating prototype. It is not validated and does n
 
 ## Current evidence
 
-- One synthetic worked example.
+- No worked field example.
 - No published independent field trial.
 - No reliability, validity, or outcome estimate.
 - No basis for a composite score, threshold, benchmark, or certification.
