@@ -1,0 +1,55 @@
+/*
+  Ink & Bone: design tokens for the PureLand fork kit.
+  See design/VISUAL-LANGUAGE.md for the full spec.
+*/
+
+:root {
+  /* Palette */
+  --color-ink: #1C1815;
+  --color-bone: #F3EDE0;
+  --color-brass: #B4945F;
+  --color-oxblood: #7B2D26;
+  --color-celadon: #8FAE9B;
+  --color-graphite: #6B6257;
+
+  /* Roles (light ground by default) */
+  --color-ground: var(--color-bone);
+  --color-text: var(--color-ink);
+  --color-text-secondary: var(--color-graphite);
+  --color-accent: var(--color-brass);
+  --color-extraction: var(--color-oxblood);
+  --color-return: var(--color-celadon);
+
+  /* Typography */
+  --font-display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  --font-body: "EB Garamond", Georgia, "Times New Roman", serif;
+  --font-ledger: "IBM Plex Mono", "Courier Prime", "Courier New", monospace;
+
+  --letter-spacing-display: 0.08em;
+  --letter-spacing-ledger: 0.12em;
+
+  /* Spacing scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-xxl: 64px;
+
+  /* Rules */
+  --rule-hairline-weight: 1px;
+  --rule-hairline-color: var(--color-graphite);
+  --rule-hairline-opacity: 0.35;
+  --rule-key-weight: 2px;
+  --rule-key-color: var(--color-brass);
+}
+
+/* Swap ground/text roles for dark contexts. Accents stay the same:
+   brass, oxblood, and celadon are accent-only on either ground. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-ground: var(--color-ink);
+    --color-text: var(--color-bone);
+    --color-text-secondary: var(--color-graphite);
+  }
+}
