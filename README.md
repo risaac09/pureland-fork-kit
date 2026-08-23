@@ -1,3 +1,8 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="design/assets/banner-dark.svg">
+  <img src="design/assets/banner-light.svg" alt="PureLand. An open method for attention sovereignty." width="100%">
+</picture>
+
 # PureLand
 
 PureLand is an open method for asking whether an information practice makes attention more sovereign without making people easier to extract from.
@@ -22,6 +27,7 @@ This is a PureLand synthesis. It is informed by Buddhist teachings, but it is no
 | Run and report a field test | [FIELD-TESTING.md](FIELD-TESTING.md) |
 | See what is supported and what is still a hypothesis | [RESEARCH-STATUS.md](RESEARCH-STATUS.md) |
 | Contribute a change | [CONTRIBUTING.md](CONTRIBUTING.md) |
+| See the visual language | [design/VISUAL-LANGUAGE.md](design/VISUAL-LANGUAGE.md) |
 
 ## The method
 

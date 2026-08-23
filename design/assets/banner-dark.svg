@@ -1,0 +1,24 @@
+<svg viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PureLand. An open method for attention sovereignty.">
+  <title>PureLand. An open method for attention sovereignty.</title>
+  <rect x="0" y="0" width="1200" height="300" fill="#1C1815"/>
+
+  <!-- ensō-fork mark -->
+  <g transform="translate(70,80) scale(1.4)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 79.23 36.99 A 32 32 0 1 1 63.01 20.77" stroke="#F3EDE0" stroke-width="4"/>
+    <path d="M 50 92 L 50 66" stroke="#F3EDE0" stroke-width="4"/>
+    <path d="M 50 66 C 62 60, 72 55, 85 60" stroke="#B4945F" stroke-width="3.5"/>
+    <path d="M 50 66 C 40 60, 38 50, 46 50" stroke="#B4945F" stroke-width="3.5"/>
+  </g>
+
+  <!-- title -->
+  <text x="252" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="56" letter-spacing="8" fill="#F3EDE0">PURELAND</text>
+
+  <!-- hairline rule -->
+  <line x1="252" y1="174" x2="950" y2="174" stroke="#B4945F" stroke-width="1.5" opacity="0.9"/>
+
+  <!-- caption -->
+  <text x="252" y="206" font-family="'Courier New', monospace" font-size="16" letter-spacing="3" fill="#6B6257">AN OPEN METHOD FOR ATTENTION SOVEREIGNTY</text>
+
+  <!-- restrained roman-numeral annotation -->
+  <text x="1140" y="270" text-anchor="end" font-family="'Courier New', monospace" font-size="14" letter-spacing="2" fill="#6B6257">I &#183; II &#183; III</text>
+</svg>
