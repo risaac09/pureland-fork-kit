@@ -19,6 +19,7 @@
   --color-accent: var(--color-brass);
   --color-extraction: var(--color-oxblood);
   --color-return: var(--color-celadon);
+  --color-rule: var(--color-graphite);
 
   /* Typography */
   --font-display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
@@ -36,6 +37,9 @@
   --space-xl: 40px;
   --space-xxl: 64px;
 
+  /* Layout */
+  --measure: 62ch;
+
   /* Rules */
   --rule-hairline-weight: 1px;
   --rule-hairline-color: var(--color-graphite);
@@ -45,11 +49,15 @@
 }
 
 /* Swap ground/text roles for dark contexts. Accents stay the same:
-   brass, oxblood, and celadon are accent-only on either ground. */
+   brass, oxblood, and celadon are accent-only on either ground.
+   Text-secondary and rule are lightened toward bone: graphite on ink
+   is 2.95:1, which fails WCAG AA for text. The mix keeps the same
+   graphite hue instead of introducing a seventh palette color. */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-ground: var(--color-ink);
     --color-text: var(--color-bone);
-    --color-text-secondary: var(--color-graphite);
+    --color-text-secondary: color-mix(in srgb, var(--color-graphite), var(--color-bone) 40%);
+    --color-rule: color-mix(in srgb, var(--color-graphite), var(--color-bone) 40%);
   }
 }
