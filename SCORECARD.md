@@ -1,6 +1,6 @@
 # Openness scorecard
 
-This experimental instrument measures four kinds of access: whether a practice is understandable, reachable, adaptable, and traceable from the outside. The formal names are legibility, permeability, forkability, and provenance. It does not produce a combined score or a certification. Pair every use with the [extraction check](EXTRACTION-CHECK.md).
+This experimental instrument measures four kinds of access: whether a practice is understandable, reachable, adaptable, and traceable from the outside. It does not produce a combined score or a certification. Pair every use with the [extraction check](EXTRACTION-CHECK.md).
 
 ## Rules
 
@@ -22,9 +22,9 @@ This experimental instrument measures four kinds of access: whether a practice i
 | Second reader | |
 | Known exclusions | |
 
-## 1. Understandable (legibility)
+## 1. Understandable
 
-Can a person outside the core tell what exists, what it does, and whether it concerns them?
+What can be known? Can a person outside the core tell what exists, what it does, and whether it concerns them?
 
 Count the artifacts that are reachable and carry a plain-language description, out of the named set.
 
@@ -34,9 +34,9 @@ Count the artifacts that are reachable and carry a plain-language description, o
 
 Extraction question: who benefits when the system becomes easier to map?
 
-## 2. Reachable (permeability)
+## 2. Reachable
 
-Can information, questions, and corrections move across the boundary in both directions?
+Is it within arm's reach? Can information, questions, and corrections move across the boundary in both directions, the way things move through the space around your body?
 
 Report these separately:
 
@@ -49,9 +49,9 @@ Report these separately:
 
 Extraction question: did opening the boundary expose material that carried different consent?
 
-## 3. Adaptable (forkability)
+## 3. Adaptable
 
-Can another person legally and practically change the material for their own use, without already knowing you?
+Does it accept and investigate the reality of change? Can another person legally and practically change the material for their own use, without already knowing you?
 
 Report the legal side and the practical side separately. A public artifact without reuse permission is readable, not legally adaptable. A licensed artifact with missing instructions may be legally adaptable but practically unusable.
 
@@ -62,9 +62,9 @@ Report the legal side and the practical side separately. A public artifact witho
 
 Extraction question: which obligations and benefits survive the fork?
 
-## 4. Traceable (provenance)
+## 4. Traceable
 
-Can a claim or artifact be followed back to a real source, with a record of how it changed?
+Can we see what happened? Can a claim or artifact be followed back to its attributed source, through an open record of how it changed?
 
 Count verified, partly verified, unverified, and intentionally anonymous items separately. Anonymity is not automatically a traceability failure. The evidence may be held through a protected identifier or a trusted steward.
 

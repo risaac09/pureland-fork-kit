@@ -1,8 +1,8 @@
 # PureLand Field Pilot
 
-The present offering is a small, bounded inquiry into one real information practice, done together. It is a field pilot. It is not a mature consultancy, a certification, a treatment, an audit clearance, or a guaranteed transformation.
+The present offering is a small, bounded inquiry into one real information practice, done together. It is a field pilot. It is not a mature consultancy, a certification, a treatment, or an audit clearance, and it does not guarantee any outcome.
 
-The future consultancy is an application layer on a 10-to-15-year horizon. The present phase is outside criticism and bounded field proof.
+The future consultancy is an application layer on a 10-to-15-year horizon. The present phase is criticism from outside and small field proofs.
 
 ## Who the pilot is for
 

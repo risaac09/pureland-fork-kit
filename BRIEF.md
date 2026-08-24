@@ -1,6 +1,6 @@
 # Pure(Land): a brief for testing the method
 
-PureLand shares the whole practice, not just the polished parts. Two reasons. No single part can keep itself honest alone. And work built from other people's teachings, attention, and expression owes back more than an output.
+PureLand shares the whole practice, including the unfinished parts. Two reasons. No single part can keep itself honest alone. And work built from other people's teachings, attention, and expression owes back more than an output.
 
 ## What problem is this working on?
 
@@ -36,7 +36,7 @@ The method is:
 2. Draw its boundary and name the people it affects.
 3. Get the permission the inquiry needs.
 4. Notice what happens in your attention and in your body.
-5. Read the practice through the four access questions: is it understandable, reachable, adaptable, and traceable?
+5. Read the practice through the four access questions: is it understandable, reachable, adaptable, traceable?
 6. Trace what gets taken, what permission covers, who gets credit, and what comes back.
 7. Choose one small change and test it.
 8. Watch the cost, the disagreement, and the result.
@@ -63,14 +63,14 @@ The collaboration is complete only when the cost and the disagreement are on rec
 
 ### The four access questions and the extraction check
 
-| Question | Plain form |
+| Question | What it asks |
 |---|---|
-| Is it understandable? | Can someone outside the core tell what exists, what it does, and whether it concerns them? |
-| Is it reachable? | Can information, questions, and corrections cross the boundary in both directions? |
-| Is it adaptable? | Can another person legally and practically copy and change the material? |
-| Is it traceable? | Can someone follow a claim or artifact back to a real source and see how it changed along the way? |
+| Is it understandable? | What can be known here? Can someone outside the core tell what exists, what it does, and whether it concerns them? |
+| Is it reachable? | Is it within arm's reach? Like the physical space around your body: can you get to it, and can what you send back actually arrive? |
+| Is it adaptable? | Does it accept and investigate the reality of change? Can another person change the material, legally and practically? |
+| Is it traceable? | Can we see what happened? Do sources carry their attribution, and does the trail connect to an open record? |
 
-The formal names for these four are legibility, permeability, forkability, and provenance. Keep the four readings separate. Pair them with the [extraction check](EXTRACTION-CHECK.md). When evidence is missing, write `unmeasurable`. There is no combined score.
+Keep the four readings separate. Pair them with the [extraction check](EXTRACTION-CHECK.md). When evidence is missing, write `unmeasurable`. There is no combined score.
 
 ### Key definitions
 
@@ -78,10 +78,10 @@ The formal names for these four are legibility, permeability, forkability, and p
 - **Information theory:** the technical study of how information gets transmitted. Here it helps separate three things: what moved, what it meant, and what someone can do next.
 - **Evaluation:** disciplined inquiry that names a claim, the evidence, a baseline, the limits, and what would prove it wrong.
 - **Body-based (somatic) practice:** paying attention to what the body registers, as information for reflection, not diagnosis.
-- **Understandable (legibility):** an outsider can tell what exists and why it matters.
-- **Reachable (permeability):** information, questions, and corrections can cross the boundary in both directions.
-- **Adaptable (forkability):** a stranger can legally and practically change the method for their own use.
-- **Traceable (provenance):** anyone can follow the trail of where something came from, how it changed, and on whose authority.
+- **Understandable:** what can be known. An outsider can tell what exists, what it does, and why it matters.
+- **Reachable:** within arm's reach. The sense of physical space around your body: you can get to it, and what you send back arrives.
+- **Adaptable:** accepting and investigating the reality of change. A stranger can legally and practically change the method for their own use.
+- **Traceable:** we can see what happened. Sources carry their attribution, and the trail connects to an open record.
 - **Consent:** permission for a specific use, informed enough to be a real choice, open to revision, and withdrawable within stated limits.
 - **Attribution:** keeping the origin and the changes visible without forcing anyone to identify themselves or creating a surveillance risk.
 - **Value:** whatever leaves a contributor or participant and piles up somewhere else. That includes attention, data, labor, money, status, relationship, and decision power.
@@ -97,7 +97,7 @@ The project is currently maintained by Isaac Rubinstein, who holds merge and rel
 
 The present offering is the [PureLand Field Pilot](OFFERING.md): a small, bounded inquiry into one real information practice, done together. You can also fork the instruments, submit a public-safe field test, document a failure or a refusal, or propose a correction through the contribution process.
 
-The future consultancy is an application layer on a 10-to-15-year horizon. PureLand is not presenting itself as a mature consultancy now. The present phase is outside criticism and bounded field proof.
+The future consultancy is an application layer on a 10-to-15-year horizon. PureLand is not presenting itself as a mature consultancy now. The present phase is criticism from outside and small field proofs.
 
 ## What do we know, and what remains untested?
 
