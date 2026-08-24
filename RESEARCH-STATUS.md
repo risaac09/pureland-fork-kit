@@ -10,6 +10,7 @@ Version 0.1 is a prototype for generating hypotheses. It is not validated, and i
 | The four access questions distinguish useful properties | Instrument hypothesis | Independent scoring, disagreement between readers, revision of the constructs |
 | Consent, attribution, and value-return profiles expose overlooked asymmetries | Instrument hypothesis | Cases across contexts, plus participant review |
 | A small tested change can increase a person's control over their attention | Untested causal hypothesis | A predefined outcome, a baseline, a follow-up, and evidence that could disprove it |
+| One curated sequence (the journey) beats a menu of instruments for first-time completion and report quality | Untested design hypothesis | Whole-journey field tests, drop-off points, comparison with single-instrument entries |
 
 ## Current evidence
 

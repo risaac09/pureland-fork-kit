@@ -8,7 +8,7 @@
   "properties": {
     "kit_version": {"type": "string", "minLength": 1},
     "context": {"type": "string", "minLength": 1},
-    "instrument": {"enum": ["practice-frame", "protocol", "scorecard", "extraction-check", "ai-system-annex"]},
+    "instrument": {"enum": ["journey", "practice-frame", "protocol", "scorecard", "extraction-check", "ai-system-annex"]},
     "evidence": {"type": "array", "items": {"type": "string"}},
     "failures": {"type": "array", "items": {"type": "string"}, "minItems": 1},
     "reader_disagreements": {"type": "array", "items": {"type": "string"}},

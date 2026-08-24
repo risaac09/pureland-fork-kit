@@ -44,6 +44,8 @@ The method is:
 
 Recording is optional. The first pilot does not require participant recordings.
 
+The walkable form of this method is [the journey](JOURNEY.md): six stations that sequence the kit's instruments in this order.
+
 ### Field map
 
 | Field | Question it keeps alive | Boundary |
@@ -57,7 +59,7 @@ Recording is optional. The first pilot does not require participant recordings.
 
 | Collaborator brings | Together | Isaac brings | What returns |
 |---|---|---|---|
-| One real practice, its boundary, the people it affects, and what must stay private | Scope the question, the permission needed, the evidence, and a result that could count against the method | One relevant instrument, the rights and extraction questions, and a review of what stays public and what stays private | A public-safe field report when permitted, plus a correction, a disagreement, a refusal, or a revision of the method |
+| One real practice, its boundary, the people it affects, and what must stay private | Scope the question, the permission needed, the evidence, and a result that could count against the method | The journey scoped to the practice, the rights and extraction questions, and a review of what stays public and what stays private | A public-safe field report when permitted, plus a correction, a disagreement, a refusal, or a revision of the method |
 
 The collaboration is complete only when the cost and the disagreement are on record, and someone affected by the change can challenge the reading. It does not require participant footage or a public release of participant material.
 

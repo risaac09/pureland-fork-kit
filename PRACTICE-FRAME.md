@@ -1,5 +1,7 @@
 # Practice frame: attention, poison, hindrance, response
 
+This is the observe station of [the journey](JOURNEY.md).
+
 ## The claim
 
 Control over your own attention is not a state you recover once. It is a practice: recognizing the conditions that capture attention, and choosing a response that does not deepen them.

@@ -1,6 +1,6 @@
 # PureLand Field Pilot
 
-The present offering is a small, bounded inquiry into one real information practice, done together. It is a field pilot. It is not a mature consultancy, a certification, a treatment, or an audit clearance, and it does not guarantee any outcome.
+The present offering is a small, bounded inquiry into one real information practice, done together. It walks [the journey](JOURNEY.md), the kit's one curated path, on the collaborator's practice. It is a field pilot. It is not a mature consultancy, a certification, a treatment, or an audit clearance, and it does not guarantee any outcome.
 
 The future consultancy is an application layer on a 10-to-15-year horizon. The present phase is criticism from outside and small field proofs.
 
@@ -21,7 +21,7 @@ There are no published eligibility rules, certification requirements, or guarant
 ## What Isaac brings
 
 - a bounded frame for the inquiry;
-- one or more relevant instruments from the kit;
+- [the journey](JOURNEY.md), walked in order at the depth the practice needs;
 - the consent, rights, credit, and value-return questions;
 - a review of what stays public and what stays private;
 - a second-reader arrangement where practical; and
@@ -29,12 +29,13 @@ There are no published eligibility rules, certification requirements, or guarant
 
 ## What happens together
 
-1. Name the question, the system boundary, the affected people, and the evidence.
+1. Name the question, the system boundary, the affected people, the evidence, and one result that would count against the method.
 2. Establish the consent and rights the inquiry needs. Recording is optional.
-3. Read the practice through the four access questions and the extraction check.
-4. Choose one small change to test, and name a plausible new harm it could cause.
-5. Watch the cost, the disagreement, and the result.
-6. Decide what learning can go public and what must stay private.
+3. Notice what happens in attention and in the body, using the practice frame.
+4. Read the practice through the four access questions and the extraction check.
+5. Choose one small change to test, and name a plausible new harm it could cause.
+6. Watch the cost, the disagreement, and the result.
+7. Decide what learning can go public and what must stay private.
 
 ## What the pilot may produce
 

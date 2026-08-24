@@ -1,6 +1,6 @@
 # Facilitation protocol
 
-Use this protocol for a recorded encounter between people. Pair it with the [rights and consent guide](RIGHTS-AND-CONSENT.md).
+This is a branch of [the journey](JOURNEY.md), taken when the work records an encounter with other people. Use this protocol for a recorded encounter between people. Pair it with the [rights and consent guide](RIGHTS-AND-CONSENT.md).
 
 ## Before recording
 
