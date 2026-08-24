@@ -14,7 +14,7 @@ Version 0.1 is a hypothesis-generating prototype. It is not validated and does n
 
 ## Current evidence
 
-- No worked field example.
+- One worked field example: [FT-001](research/field-tests/ft-001-alchemy.md), the journey walked on Alchemy by the maintainer's side. Not independent; it does not count toward the version 0.2 gate.
 - No published independent field trial.
 - No reliability, validity, or outcome estimate.
 - No basis for a composite score, threshold, benchmark, or certification.

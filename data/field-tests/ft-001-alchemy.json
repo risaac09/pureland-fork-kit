@@ -1,0 +1,25 @@
+{
+  "kit_version": "62259ec (2026-08-24)",
+  "context": "The Alchemy repository at commit b7ae829, read as one published information-metabolism practice across seven public surfaces (PWA, embed funnel, Obsidian plugin, Chrome extension, iOS wrapper, bookmarklet, embodied service). Assessor: an AI agent directed by the practice's owner and the kit's maintainer; not independent; does not count toward the version 0.2 gate. Full report: research/field-tests/ft-001-alchemy.md.",
+  "instrument": "journey",
+  "evidence": [
+    "https://github.com/risaac09/alchemy/blob/b7ae829/README.md",
+    "https://github.com/risaac09/alchemy/blob/b7ae829/HONEST-ACCOUNT.md",
+    "https://github.com/risaac09/alchemy/blob/b7ae829/docs/PRODUCT.md",
+    "https://github.com/risaac09/alchemy/blob/b7ae829/embodied-service/README.md",
+    "https://github.com/risaac09/alchemy/blob/b7ae829/app.js",
+    "https://github.com/risaac09/alchemy/blob/b7ae829/embed-funnel.js",
+    "https://github.com/risaac09/alchemy/blob/b7ae829/LICENSE"
+  ],
+  "failures": [
+    "The observe station cannot be executed as designed by an AI assessor: no somatic self-observation is available, so station 2 ran as design analysis and needs a human redo.",
+    "No second reader: every count is single-assessor. The two category disagreements the walk surfaced (provenance versus designed ephemerality; decay read as a cost of absence) are one reader's, preserved in the report, and the schema has no field for single-reader category disagreements, so they are recorded here rather than under reader_disagreements.",
+    "Legibility was judged from inside the practice's orbit; the outside-the-core reading was simulated, so scores may be generous.",
+    "The journey gives no guidance on bounding a multi-surface repository; the seven-surface set was the assessor's choice and a different bounding changes every denominator.",
+    "The scorecard's provenance access has no category for designed ephemerality: Alchemy's decay deletes material unrecoverably on purpose, and the instrument reads that only as a gap.",
+    "Most headline findings (the Chrome extension documentation gap, the pull-request posture) were already documented by the practice itself; the walk's new findings came from the extraction check's framing, not the counting."
+  ],
+  "adaptation": "Proposed, not executed, pending owner consent: one README paragraph in the Alchemy repo documenting an inbound route for corrections and field reports (issues, linked to the kit's journey and field-test form). Baseline: zero inbound reports, PRs deprioritized. Window: 90 days; review date 2026-11-22. Plausible new harm: triage burden and an implied support promise the honest account declines.",
+  "ai_assistance": "An AI agent (Claude Code) performed the repository analysis, counting, and drafting on 2026-08-24, directed by the maintainer; disclosed in AI-ASSISTANCE.md. Human verification: the maintainer's review of the pull request landing this record. AI output was checked against the source files cited in evidence.",
+  "privacy_review": true
+}

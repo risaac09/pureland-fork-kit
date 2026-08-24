@@ -105,7 +105,7 @@ The future consultancy is an application layer on a 10-to-15-year horizon. PureL
 
 Known: the kit has a protocol, four-access scorecard, extraction check, provenance record, rights guidance, and governance rules. The closest identified precedent for combining participatory media and evaluation is InsightShare's [Participatory Video and the Most Significant Change](https://insightshare.org/resources/participatory-video-and-the-most-significant-change/). PureLand does not claim to originate that combination.
 
-Untested: the instruments have no independent field trial, reliability estimate, validity result, benchmark, threshold, certification, or outcome estimate. The [field-trial ledger](FIELD-TRIALS.md) is empty. The next research gate is five to ten independent applications across at least three contexts, with two readers where practical. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md).
+Untested: the instruments have no independent field trial, reliability estimate, validity result, benchmark, threshold, certification, or outcome estimate. The [field-trial ledger](FIELD-TRIALS.md) holds one worked example from the maintainer's side and no independent trial. The next research gate is five to ten independent applications across at least three contexts, with two readers where practical. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md).
 
 ## Invitation
 
