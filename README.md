@@ -26,4 +26,4 @@ Everything else in the repository supports the journey:
 - Corrections, field tests, disagreements, and adaptations: [CONTRIBUTING.md](CONTRIBUTING.md) and [GOVERNANCE.md](GOVERNANCE.md).
 - The kit's own visuals follow [design/VISUAL-LANGUAGE.md](design/VISUAL-LANGUAGE.md).
 
-The repository contains methods and templates. It does not contain participant recordings, transcripts, identifying data, confidential records, protected community knowledge, or a worked field example. See [LICENSE.md](LICENSE.md) and [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md).
+The repository contains methods, templates, and public-safe field-test records. It does not contain participant recordings, transcripts, identifying data, confidential records, or protected community knowledge. The one worked field example is [FT-001](research/field-tests/ft-001-alchemy.md), run from the maintainer's side and not independent. See [LICENSE.md](LICENSE.md) and [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md).

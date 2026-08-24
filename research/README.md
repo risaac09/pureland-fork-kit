@@ -26,6 +26,6 @@ Do not publish:
 
 ## Current status
 
-No public research packet has been released yet. The repository currently contains a provenance record, an AI-assistance record, and the [research-status ledger](../RESEARCH-STATUS.md), but not a released public research packet or worked field example.
+No public research packet has been released yet. The repository contains a provenance record, an AI-assistance record, the [research-status ledger](../RESEARCH-STATUS.md), and one worked field example, [FT-001](field-tests/ft-001-alchemy.md), the journey walked on Alchemy from the maintainer's side. FT-001 is not independent and is not a research packet.
 
 Future packets should name their sources, rights basis, search coverage, method, uncertainty, corrections, and unresolved contradictions. A public link alone is not evidence of review or permission.
