@@ -59,7 +59,7 @@ The walkable form of this method is [the journey](JOURNEY.md): six stations that
 
 | Collaborator brings | Together | Isaac brings | What returns |
 |---|---|---|---|
-| One real practice, its boundary, the affected people, and what must stay private | Scope the question, consent, evidence, and a result that could count against the method | One relevant instrument, the rights and extraction questions, and a public/private boundary review | A public-safe field report when permitted, plus a correction, disagreement, refusal, or method revision |
+| One real practice, its boundary, the affected people, and what must stay private | Scope the question, consent, evidence, and a result that could count against the method | The journey scoped to the practice, the rights and extraction questions, and a public/private boundary review | A public-safe field report when permitted, plus a correction, disagreement, refusal, or method revision |
 
 The collaboration is complete only when the burden and disagreement are recorded and someone affected by the change can contest the reading. It does not require participant footage or a public release of participant material.
 

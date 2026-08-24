@@ -11,7 +11,7 @@ This is a version 0.1 research prototype. It is not validated, does not certify 
 
 ## Where should I start?
 
-Walk [the journey](JOURNEY.md): ground, observe, map, trace, adapt, return. It is the one curated path through the kit, and every instrument in this repository is a station on it, not a starting point of its own.
+Walk [the journey](JOURNEY.md): ground, observe, map, trace, adapt, return. It is the one curated path through the kit, and every instrument in this repository sits on it, as a station or a conditional branch, not as a starting point of its own.
 
 There are two ways to walk it. Bring one real practice and start at [JOURNEY.md](JOURNEY.md) yourself, or propose a [PureLand Field Pilot](OFFERING.md), the same journey walked with Isaac as a bounded co-inquiry.
 
@@ -20,7 +20,8 @@ There are two ways to walk it. Bring one real practice and start at [JOURNEY.md]
 Everything else in the repository supports the journey:
 
 - [BRIEF.md](BRIEF.md) holds the goals, method, offering, accountability, and open questions.
-- The stations: the [practice frame](PRACTICE-FRAME.md), the [openness scorecard](SCORECARD.md), and the [extraction check](EXTRACTION-CHECK.md), with the [facilitation protocol](PROTOCOL.md) and the [AI system annex](AI-SYSTEM-ANNEX.md) as conditional branches and [FIELD-TESTING.md](FIELD-TESTING.md) as the testing discipline that runs alongside.
+- The station instruments: the [practice frame](PRACTICE-FRAME.md), the [openness scorecard](SCORECARD.md), and the [extraction check](EXTRACTION-CHECK.md), with the [facilitation protocol](PROTOCOL.md) and the [AI system annex](AI-SYSTEM-ANNEX.md) as conditional branches and [FIELD-TESTING.md](FIELD-TESTING.md) as the testing discipline that runs alongside.
+- The companion app: [Alchemy](https://alchemy.rubinsteinproductions.com), a free, local-only practice tool for personal information metabolism ([source](https://github.com/risaac09/alchemy)). The journey names where it fits.
 - The open-research lane: [research/README.md](research/README.md) and [RESEARCH-STATUS.md](RESEARCH-STATUS.md).
 - Corrections, field tests, disagreements, and adaptations: [CONTRIBUTING.md](CONTRIBUTING.md) and [GOVERNANCE.md](GOVERNANCE.md).
 - The kit's own visuals follow [design/VISUAL-LANGUAGE.md](design/VISUAL-LANGUAGE.md).

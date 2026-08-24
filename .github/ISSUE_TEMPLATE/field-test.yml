@@ -1,5 +1,5 @@
 name: Field test
-description: Report where a PureLand instrument worked, failed, or created burden.
+description: Report where a PureLand instrument, or the whole journey, worked, failed, or created burden.
 title: "Field test: "
 labels: [field-test]
 body:
@@ -15,8 +15,9 @@ body:
   - type: dropdown
     id: instrument
     attributes:
-      label: Instrument
+      label: Scope
       options:
+        - Journey
         - Practice frame
         - Protocol
         - Scorecard
