@@ -15,11 +15,18 @@ IGNORED = {".git"}
 SELF = Path(__file__).resolve()
 
 LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
-ATTR_LINK = re.compile(r'\b(?:src|href|srcset)="([^"]*)"')
+ATTR_LINK = re.compile(r"\b(src|href|srcset)=(['\"])(.*?)\2")
 HEADING = re.compile(r"^(#{1,6})\s+(.+?)\s*$", re.MULTILINE)
 PLACEHOLDER = re.compile(r"\b(TODO|TBD|INSERT[_ -]?HERE)\b", re.IGNORECASE)
 
 FIELD_TEST_SCHEMA = ROOT / "data" / "field-test.schema.json"
+
+# Field-test records are free-text, first-person accounts of what a
+# contributor found, including what is still open. data/README.md and
+# CONTRIBUTING.md ask for exactly that ("PureLand needs documented
+# disagreement more than applause"), so an honest "second reader: TBD" in a
+# submitted record is content, not a placeholder left behind by mistake.
+FIELD_TEST_RECORDS = ROOT / "data" / "field-tests"
 
 # Entry points a reader (or a fork) actually lands on. Orphan detection asks
 # whether every other content file is reachable from here by some chain of
@@ -152,13 +159,25 @@ def heading_slugs(text: str) -> set[str]:
     return slugs
 
 
-def targets_in_attr(raw: str) -> list[str]:
+def targets_in_attr(attr_name: str, raw: str) -> list[str]:
     """Split one src=/href=/srcset= attribute value into link targets.
 
-    srcset packs multiple "url descriptor" entries separated by commas; src
-    and href carry exactly one, which this also handles correctly.
+    Only srcset packs multiple "url descriptor" entries separated by commas;
+    src and href carry exactly one target, which may itself legally contain a
+    comma (a query string, for instance), so it must not be comma-split.
     """
+    if attr_name != "srcset":
+        return [raw.strip()] if raw.strip() else []
     return [entry.strip().split()[0] for entry in raw.split(",") if entry.strip()]
+
+
+def attr_targets(text: str) -> list[str]:
+    """All src=/href=/srcset= link targets in one file's text."""
+    return [
+        target
+        for match in ATTR_LINK.finditer(text)
+        for target in targets_in_attr(match.group(1), match.group(3))
+    ]
 
 
 def check_targets(
@@ -170,10 +189,16 @@ def check_targets(
 ) -> None:
     for target in raw_targets:
         clean, _, fragment = target.partition("#")
-        if not clean or clean.startswith(("http://", "https://", "mailto:", "data:")):
+        if not clean or clean.startswith(("http://", "https://", "mailto:", "data:", "//")):
             continue
-        resolved = (path.parent / clean).resolve()
-        if ROOT not in resolved.parents and resolved != ROOT:
+        # A leading "/" is repo-root-relative (as GitHub treats it), not a
+        # filesystem-root path. Path's "/" operator would otherwise discard
+        # path.parent entirely and resolve against the real filesystem root.
+        if clean.startswith("/"):
+            resolved = (ROOT / clean.lstrip("/")).resolve()
+        else:
+            resolved = (path.parent / clean).resolve()
+        if not resolved.is_relative_to(ROOT):
             errors.append(f"link escapes repository: {path.relative_to(ROOT)} -> {target}")
             continue
         if not resolved.exists():
@@ -236,30 +261,26 @@ def main() -> int:
     for path in files(".md"):
         text = text_by_path[path]
         check_targets(path, LINK.findall(text), text_by_path, errors, graph)
-        attr_targets = [
-            target for match in ATTR_LINK.finditer(text) for target in targets_in_attr(match.group(1))
-        ]
-        check_targets(path, attr_targets, text_by_path, errors, graph)
+        check_targets(path, attr_targets(text), text_by_path, errors, graph)
         if PLACEHOLDER.search(text):
             errors.append(f"placeholder token: {path.relative_to(ROOT)}")
 
     for path in files(".html"):
         text = text_by_path[path]
-        attr_targets = [
-            target for match in ATTR_LINK.finditer(text) for target in targets_in_attr(match.group(1))
-        ]
-        check_targets(path, attr_targets, text_by_path, errors, graph)
+        check_targets(path, attr_targets(text), text_by_path, errors, graph)
 
     # Placeholder tokens beyond Markdown. .py is included deliberately: this
     # script's own source is exempt, because the PLACEHOLDER pattern above
     # literally spells out TODO / TBD / INSERT_HERE and would otherwise flag
     # itself for doing its job, not for actually containing a placeholder.
+    # data/field-tests/ records are exempt too: they are contributors' own
+    # free-text accounts, and an honest "TBD" there is content, not litter.
     for path in ROOT.rglob("*"):
         if not path.is_file() or path.suffix not in PLACEHOLDER_SUFFIXES:
             continue
         if any(part in IGNORED for part in path.parts):
             continue
-        if path in (SELF, ) or path.suffix == ".md":
+        if path == SELF or path.suffix == ".md" or FIELD_TEST_RECORDS in path.parents:
             continue
         text = text_by_path.get(path)
         if text is None:
@@ -304,7 +325,7 @@ def main() -> int:
             errors.append(f"missing required file: {name}")
 
     if warnings:
-        print("Repository check warnings:")
+        print("Repository check warnings (do not fail this check):")
         for warning in warnings:
             print(f"- {warning}")
 
