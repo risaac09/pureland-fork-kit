@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Rewrote the public documents in plainer language at roughly a 12th-grade reading level, keeping every guardrail, claim boundary, and file name intact.
+- Reframed "the four accesses" as "the four access questions" with plain names: understandable (legibility), reachable (permeability), adaptable (forkability), traceable (provenance). The formal terms remain as the technical vocabulary.
+
 - Reorganized the public surface around goals, method, accountability, the present field-pilot offering, and evidence still to be tested.
 - Added `OFFERING.md` for the bounded PureLand Field Pilot and `research/README.md` for the public open-research lane.
 - Kept the workspace research reservoir, participant material, and other protected records outside the public release surface.

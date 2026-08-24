@@ -1,14 +1,14 @@
 # Openness scorecard
 
-This experimental instrument measures four kinds of access. It does not produce a composite score or certification. Pair every use with the [extraction check](EXTRACTION-CHECK.md).
+This experimental instrument measures four kinds of access: whether a practice is understandable, reachable, adaptable, and traceable from the outside. The formal names are legibility, permeability, forkability, and provenance. It does not produce a combined score or a certification. Pair every use with the [extraction check](EXTRACTION-CHECK.md).
 
 ## Rules
 
-1. Name the unit, set, time window, and denominator before counting.
+1. Before counting anything, name what you are counting: the unit, the full set, the time window, and the denominator.
 2. Attach evidence for every classification.
 3. Keep the four measures separate.
-4. Record `unmeasurable` when evidence is absent.
-5. Ask a second reader to score the same material when possible. Keep disagreements.
+4. When evidence is missing, write `unmeasurable`.
+5. When possible, ask a second reader to score the same material. Keep the disagreements.
 
 ## Context
 
@@ -22,11 +22,11 @@ This experimental instrument measures four kinds of access. It does not produce 
 | Second reader | |
 | Known exclusions | |
 
-## 1. Legibility
+## 1. Understandable (legibility)
 
-Can a person outside the core understand what exists, what it does, and whether it concerns them?
+Can a person outside the core tell what exists, what it does, and whether it concerns them?
 
-Count artifacts that are reachable and have a plain-language description over the named set.
+Count the artifacts that are reachable and carry a plain-language description, out of the named set.
 
 | Result | Evidence | Uncertainty or disagreement |
 |---|---|---|
@@ -34,7 +34,7 @@ Count artifacts that are reachable and have a plain-language description over th
 
 Extraction question: who benefits when the system becomes easier to map?
 
-## 2. Permeability
+## 2. Reachable (permeability)
 
 Can information, questions, and corrections move across the boundary in both directions?
 
@@ -43,17 +43,17 @@ Report these separately:
 | Measure | Result | Evidence | Uncertainty or disagreement |
 |---|---|---|---|
 | Publicly reachable artifacts / set | / | | |
-| Documented inbound routes | | | |
+| Documented ways to send something in | | | |
 | Median response time, if measured | | | |
 | Permission boundaries on one traced path | | | |
 
 Extraction question: did opening the boundary expose material that carried different consent?
 
-## 3. Forkability
+## 3. Adaptable (forkability)
 
-Can another person legally and practically adapt the material without an existing relationship?
+Can another person legally and practically change the material for their own use, without already knowing you?
 
-Report licensing and usability separately. A public artifact without reuse permission is readable, not legally forkable. A licensed artifact with missing instructions may be legally forkable but practically unusable.
+Report the legal side and the practical side separately. A public artifact without reuse permission is readable, not legally adaptable. A licensed artifact with missing instructions may be legally adaptable but practically unusable.
 
 | Measure | Result | Evidence | Uncertainty or disagreement |
 |---|---|---|---|
@@ -62,11 +62,11 @@ Report licensing and usability separately. A public artifact without reuse permi
 
 Extraction question: which obligations and benefits survive the fork?
 
-## 4. Provenance
+## 4. Traceable (provenance)
 
-Can a claim or artifact be traced to an appropriate source and transformation record?
+Can a claim or artifact be followed back to a real source, with a record of how it changed?
 
-Count verified, partly verified, unverified, and intentionally anonymous items separately. Anonymity is not automatically a provenance failure. The evidence may be held through a protected identifier or trusted steward.
+Count verified, partly verified, unverified, and intentionally anonymous items separately. Anonymity is not automatically a traceability failure. The evidence may be held through a protected identifier or a trusted steward.
 
 | Status | Count | Evidence | Risk |
 |---|---|---|---|
@@ -85,6 +85,6 @@ Extraction question: does traceability create a re-identification or surveillanc
 
 ## Interpretation
 
-Report the evidence, missing records, reader disagreements, and one proposed change. Do not average the measures. Do not compare systems unless their units, denominators, and time windows are compatible.
+Report the evidence, the missing records, the reader disagreements, and one proposed change. Do not average the measures. Do not compare systems unless their units, denominators, and time windows actually match.
 
 This scorecard is unvalidated. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md) and submit results using [FIELD-TESTING.md](FIELD-TESTING.md).
