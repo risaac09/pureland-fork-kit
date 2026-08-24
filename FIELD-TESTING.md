@@ -1,6 +1,6 @@
 # Field testing
 
-Field tests should try to break the method. Confirmation alone is weak evidence.
+This is the testing discipline that runs alongside [the journey](JOURNEY.md); the ground and return stations use it directly. Field tests should try to break the method. Confirmation alone is weak evidence.
 
 ## Before use
 

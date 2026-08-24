@@ -1,6 +1,6 @@
 # PureLand Field Pilot
 
-The present offering is a bounded co-inquiry into one real information practice. It is a field pilot, not a mature consultancy, certification, treatment, audit clearance, or guaranteed transformation.
+The present offering is a bounded co-inquiry into one real information practice. It walks [the journey](JOURNEY.md), the kit's one curated path, on the collaborator's practice together. It is a field pilot, not a mature consultancy, certification, treatment, audit clearance, or guaranteed transformation.
 
 The future consultancy is an application layer on a 10-to-15-year horizon. The present phase is external criticism and bounded field proof.
 

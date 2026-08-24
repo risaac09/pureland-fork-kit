@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Consolidated the entry path into one curated journey (`JOURNEY.md`). The instruments remain intact as stations on it, and the README now opens with the journey instead of a menu of instruments.
 - Reorganized the public surface around goals, method, accountability, the present field-pilot offering, and evidence still to be tested.
 - Added `OFFERING.md` for the bounded PureLand Field Pilot and `research/README.md` for the public open-research lane.
 - Kept the workspace research reservoir, participant material, and other protected records outside the public release surface.

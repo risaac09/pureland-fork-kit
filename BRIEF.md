@@ -44,6 +44,8 @@ The method is:
 
 Recording is optional. The first pilot does not require participant recordings.
 
+The walkable form of this method is [the journey](JOURNEY.md): six stations that sequence the kit's instruments in this order.
+
 ### Field map
 
 | Field | Question it keeps alive | Boundary |

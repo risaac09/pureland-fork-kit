@@ -1,6 +1,6 @@
 # Extraction check
 
-Use this after the [openness scorecard](SCORECARD.md) or before opening a system further. Apply it to your own practice first.
+This is the trace station of [the journey](JOURNEY.md). Use this after the [openness scorecard](SCORECARD.md) or before opening a system further. Apply it to your own practice first.
 
 ## 1. Trace value
 
