@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- FT-001's bounded adaptation executed on owner consent: the Alchemy README now documents the inbound route for corrections and field reports (alchemy PR #15). The record moves from proposed to executed; the 90-day window runs to the 2026-11-22 review. The record also notes it keeps the access names it was scored under.
 - Rewrote the public documents in plainer language at roughly a 12th-grade reading level, keeping every guardrail, claim boundary, and file name intact.
 - Replaced "the four accesses" and their formal names (legibility, permeability, forkability, provenance) with four plain questions: understandable (what can be known), reachable (within arm's reach), adaptable (accepting and investigating the reality of change), traceable (we can see what happened, sources attributed, connected to an open record).
 - Recorded FT-001, the first worked field example: the journey walked on Alchemy from the maintainer's side, not independent. Report in `research/field-tests/`, structured record in `data/field-tests/`, ledger row in `FIELD-TRIALS.md`, evidence lines updated in `RESEARCH-STATUS.md` and `research/README.md`.
