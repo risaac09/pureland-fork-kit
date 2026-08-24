@@ -5,21 +5,21 @@
 
 # PureLand
 
-PureLand is an open method for increasing attention sovereignty without making people easier to extract from. It combines contemplative self-observation, information-practice analysis, bounded adaptation, and accountable return.
+PureLand is an open method for taking back control of your attention without making yourself easier for other systems to exploit. It combines four things: quiet self-observation drawn from contemplative practice, a close look at how an information practice actually works, one small change tested at a time, and an honest account of what came back.
 
-This is a version 0.1 research prototype. It is not validated, does not certify openness or safety, and makes no independent field-result claim.
+This is a version 0.1 research prototype. It has not been validated. It does not certify that anything is open or safe, and it makes no claim about field results.
 
 ## Where should I start?
 
-Walk [the journey](JOURNEY.md): ground, observe, map, trace, adapt, return. It is the one curated path through the kit, and every instrument in this repository sits on it, as a station or a conditional branch, not as a starting point of its own.
+Walk [the journey](JOURNEY.md): ground, observe, map, trace, adapt, return. It is the one curated path through the kit. Every instrument in this repository sits on it, as a station or a conditional branch, not as a starting point of its own.
 
-There are two ways to walk it. Bring one real practice and start at [JOURNEY.md](JOURNEY.md) yourself, or propose a [PureLand Field Pilot](OFFERING.md), the same journey walked with Isaac as a bounded co-inquiry.
+There are two ways to walk it. Bring one real practice and start at [JOURNEY.md](JOURNEY.md) yourself, or propose a [PureLand Field Pilot](OFFERING.md), the same journey walked with Isaac as a small, bounded inquiry done together.
 
 ## Reference
 
 Everything else in the repository supports the journey:
 
-- [BRIEF.md](BRIEF.md) holds the goals, method, offering, accountability, and open questions.
+- [BRIEF.md](BRIEF.md) holds the goals, the method, the offering, the accountability rules, and the open questions.
 - The station instruments: the [practice frame](PRACTICE-FRAME.md), the [openness scorecard](SCORECARD.md), and the [extraction check](EXTRACTION-CHECK.md), with the [facilitation protocol](PROTOCOL.md) and the [AI system annex](AI-SYSTEM-ANNEX.md) as conditional branches and [FIELD-TESTING.md](FIELD-TESTING.md) as the testing discipline that runs alongside.
 - The companion app: [Alchemy](https://alchemy.rubinsteinproductions.com), a free, local-only practice tool for personal information metabolism ([source](https://github.com/risaac09/alchemy)). The journey names where it fits.
 - The open-research lane: [research/README.md](research/README.md) and [RESEARCH-STATUS.md](RESEARCH-STATUS.md).

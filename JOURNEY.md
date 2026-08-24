@@ -2,9 +2,9 @@
 
 One curated path through the kit. Walk it in order, on one real practice, encounter, or information system of your own. Every instrument in the repository sits on this path, as a station or a conditional branch; none of them is meant as a first door. A field test of a single station stays valid; the journey is the recommended way in, not a new gate.
 
-There are two ways to walk it: yourself, starting at station 1, or with Isaac as a [PureLand Field Pilot](OFFERING.md), which is the same path walked as a bounded co-inquiry.
+There are two ways to walk it: yourself, starting at station 1, or with Isaac as a [PureLand Field Pilot](OFFERING.md), which is the same path walked as a small, bounded inquiry done together.
 
-The journey sequences unvalidated instruments. It does not certify openness, safety, or attention sovereignty. Missing evidence stays `unmeasurable`, and nothing on the path produces a composite score. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md).
+The journey puts unvalidated instruments in an order. It does not certify openness, safety, or attention sovereignty. Missing evidence stays `unmeasurable`, and nothing on the path produces a combined score. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md).
 
 ## Walking it on your own ecosystem
 
@@ -39,7 +39,7 @@ Do not skip this station to reach the tables. The kit's claim is that evaluation
 
 ## 3. Map
 
-Score the four accesses, legibility, permeability, forkability, and provenance, with the [openness scorecard](SCORECARD.md). Name the unit, set, denominator, and time window before counting. Attach evidence to every classification. Keep the four measures separate.
+Score the four access questions, is it understandable, reachable, adaptable, traceable, with the [openness scorecard](SCORECARD.md). Name the unit, the set, the denominator, and the time window before counting. Attach evidence to every classification. Keep the four measures separate.
 
 If the practice includes an AI system, define the audited unit with the [AI system annex](AI-SYSTEM-ANNEX.md) before scoring. A visible repository does not make a whole system open.
 
@@ -49,14 +49,14 @@ Run the [extraction check](EXTRACTION-CHECK.md) on your own practice. Trace what
 
 ## 5. Adapt
 
-Choose one bounded adaptation from what stations 2 through 4 surfaced. Record the baseline, the change, the intended benefit, a plausible new harm, the consent the change requires, the observation window, and a review date. Then observe the burden and the result. Causal claims require more than a before-and-after impression.
+Choose one small change to test from what stations 2 through 4 surfaced. Record the baseline, the change, the intended benefit, a plausible new harm, the consent the change requires, the observation window, and a review date. Then watch the cost and the result. Claiming the change caused the result takes more than a before-and-after impression.
 
 ## 6. Return
 
-Write up what happened with the [field-test template](templates/field-test.md) and submit it as an issue or pull request, following [FIELD-TESTING.md](FIELD-TESTING.md). A useful report includes failure, burden, and context. A report may cover the whole walk or a single station. No participant material, identifying data, or protected community knowledge belongs in a public report.
+Write up what happened with the [field-test template](templates/field-test.md) and submit it as an issue or pull request, following [FIELD-TESTING.md](FIELD-TESTING.md). A useful report includes what failed, what it cost, and the context. A report may cover the whole walk or a single station. No participant material, identifying data, or protected community knowledge belongs in a public report.
 
 Accepted reports join the [field-trial ledger](FIELD-TRIALS.md) as links, not endorsements.
 
 ## When the path ends
 
-The walk is complete only when someone affected by the change can contest your reading. Keep the disagreement. Revise the method. The next walk starts at station 1.
+The walk is complete only when someone affected by the change can challenge your reading. Keep the disagreement. Revise the method. The next walk starts at station 1.

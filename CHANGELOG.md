@@ -2,8 +2,9 @@
 
 ## Unreleased
 
+- Rewrote the public documents in plainer language at roughly a 12th-grade reading level, keeping every guardrail, claim boundary, and file name intact.
+- Replaced "the four accesses" and their formal names (legibility, permeability, forkability, provenance) with four plain questions: understandable (what can be known), reachable (within arm's reach), adaptable (accepting and investigating the reality of change), traceable (we can see what happened, sources attributed, connected to an open record).
 - Recorded FT-001, the first worked field example: the journey walked on Alchemy from the maintainer's side, not independent. Report in `research/field-tests/`, structured record in `data/field-tests/`, ledger row in `FIELD-TRIALS.md`, evidence lines updated in `RESEARCH-STATUS.md` and `research/README.md`.
-
 - Consolidated the entry path into one curated journey (`JOURNEY.md`). The instruments remain intact as stations on it, and the README now opens with the journey instead of a menu of instruments.
 - Connected the Alchemy app into the journey as the companion for walking it on your own information ecosystem: the diagnostic as a station-1 prompt, the capture loop as daily observe practice, the app itself as a station-3 and station-4 subject.
 - Added `journey` to the field-test instrument options in the schema, issue form, and template, so a report can cover the whole walk.
