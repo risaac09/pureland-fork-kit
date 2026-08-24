@@ -1,11 +1,11 @@
 # Field testing
 
-Field tests should try to break the method. Confirmation alone is weak evidence.
+This is the testing discipline that runs alongside [the journey](JOURNEY.md); the ground and return stations use it directly. Field tests should try to break the method. Confirmation alone is weak evidence.
 
 ## Before use
 
 1. Name the practice, system boundary, purpose, and affected people.
-2. Choose one instrument and state why.
+2. Choose your scope, one instrument or the whole [journey](JOURNEY.md), and state why.
 3. Record the evidence available before scoring.
 4. Obtain permission for any participant material. Do not submit private material.
 5. Write one result that would count against the method.

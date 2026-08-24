@@ -1,6 +1,6 @@
 # PureLand Field Pilot
 
-The present offering is a bounded co-inquiry into one real information practice. It is a field pilot, not a mature consultancy, certification, treatment, audit clearance, or guaranteed transformation.
+The present offering is a bounded co-inquiry into one real information practice. It walks [the journey](JOURNEY.md), the kit's one curated path, on the collaborator's practice together. It is a field pilot, not a mature consultancy, certification, treatment, audit clearance, or guaranteed transformation.
 
 The future consultancy is an application layer on a 10-to-15-year horizon. The present phase is external criticism and bounded field proof.
 
@@ -21,7 +21,7 @@ There are no published eligibility rules, certification requirements, or guarant
 ## What Isaac brings
 
 - a bounded inquiry frame;
-- one or more relevant instruments from the kit;
+- [the journey](JOURNEY.md), walked in order at the depth the practice needs;
 - consent, rights, attribution, and value-return questions;
 - a public/private boundary review;
 - a second-reader arrangement where practical; and
@@ -29,12 +29,13 @@ There are no published eligibility rules, certification requirements, or guarant
 
 ## What happens together
 
-1. Name the question, system boundary, affected people, and evidence.
+1. Name the question, system boundary, affected people, evidence, and one result that would count against the method.
 2. Establish the consent and rights needed for the inquiry. Recording is optional.
-3. Read the practice through the four accesses and the extraction check.
-4. Choose one bounded adaptation and name a plausible new harm.
-5. Observe the burden, disagreement, and result.
-6. Decide what learning can return publicly and what must remain private.
+3. Notice what happens in attention and in the body, using the practice frame.
+4. Read the practice through the four accesses and the extraction check.
+5. Choose one bounded adaptation and name a plausible new harm.
+6. Observe the burden, disagreement, and result.
+7. Decide what learning can return publicly and what must remain private.
 
 ## What the pilot may produce
 

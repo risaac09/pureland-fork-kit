@@ -5,8 +5,8 @@
 - Kit version or commit:
 - Practice and system boundary:
 - Assessor's relationship to the practice:
-- Instrument used:
-- Why this instrument:
+- Instrument used, or the whole journey:
+- Why this scope:
 - Public evidence links:
 
 ## Disconfirming condition

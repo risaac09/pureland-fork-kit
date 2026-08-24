@@ -10,6 +10,7 @@ Version 0.1 is a hypothesis-generating prototype. It is not validated and does n
 | The four access dimensions distinguish useful properties | Instrument hypothesis | Independent scoring, inter-reader disagreement, construct revision |
 | Consent, attribution, and value-return profiles expose overlooked asymmetries | Instrument hypothesis | Cross-context cases and participant review |
 | A bounded adaptation can increase attention sovereignty | Untested causal hypothesis | Predefined outcome, baseline, follow-up, disconfirming evidence |
+| One curated sequence (the journey) improves first-use completion and report quality over an instrument menu | Untested design hypothesis | Whole-journey field tests, drop-off points, comparison with single-instrument entries |
 
 ## Current evidence
 

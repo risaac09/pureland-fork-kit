@@ -1,6 +1,6 @@
 # Openness scorecard
 
-This experimental instrument measures four kinds of access. It does not produce a composite score or certification. Pair every use with the [extraction check](EXTRACTION-CHECK.md).
+This is the map station of [the journey](JOURNEY.md). This experimental instrument measures four kinds of access. It does not produce a composite score or certification. Pair every use with the [extraction check](EXTRACTION-CHECK.md).
 
 ## Rules
 
