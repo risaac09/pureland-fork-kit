@@ -33,6 +33,8 @@ Read as design analysis: the practice designs against greed (the 7-item cap, 72-
 
 ## Station 3: Map (four accesses)
 
+Vocabulary note: this record uses the access names current at the assessed kit version (legibility, permeability, forkability, provenance). The kit has since renamed them to the four plain questions (understandable, reachable, adaptable, traceable); the measures are the same and this dated record keeps the names it was scored under.
+
 Unit: a public surface of the repository. Set: the six surfaces named in docs/PRODUCT.md plus the embodied service. Denominator: 7. Window: the named commit. No composite.
 
 **AI system annex, carried into this station per branch question 2.** The audited unit for the AI component was defined before any counting. The embodied service is a Cloudflare Worker with a version-pinned model call and a verbatim version-pinned prompt, a deterministic crisis pre-screen that answers without calling the model, input validation with an allowlist, durable rate limits and a daily spend cap, no content logging, and a static UI. Status: SEL-1, experimental, gate not cleared, and the service says so at /api/status. The system is not an open AI system in the OSAID sense: the weights are a third party's. The open obligation the annex surfaces: the live verifications and the independent re-grade are still owed, and the grader must be someone who did not write the prompt.
@@ -71,7 +73,7 @@ One bounded adaptation, chosen from the trace: the practice invites forks out bu
 
 - Baseline: zero inbound field reports; PRs deprioritized; issues used only by the owner's own ritual.
 - Change to test: one README paragraph in the Alchemy repo naming the inbound route: field reports and corrections as issues, linked to this kit's journey and field-test form.
-- Consent needed: the owner's. The live PWA is public-facing and gated; this walk does not touch it. **Status: proposed, not executed.**
+- Consent needed: the owner's. The live PWA is public-facing and gated; this walk did not touch it. **Status: executed 2026-08-24, after the walk, on the owner's consent ([alchemy PR #15](https://github.com/risaac09/alchemy/pull/15), merged as bf5e411).** The observation window runs from the merge to the 2026-11-22 review.
 - Intended benefit: a return path, closing the loop the practice's own fork-table draws.
 - Plausible new harm: triage burden on a personal tool, and an implied promise of support that the honest account explicitly declines.
 - Observation window: 90 days, one compost cycle. Review date: 2026-11-22. Follow-up evidence: count of inbound reports and what they cost.
@@ -93,7 +95,7 @@ This report and its JSON record are the return, submitted by pull request per FI
 
 ## Adaptation summary
 
-See station 5: proposed README inbound-route paragraph in the Alchemy repo, pending owner consent, 90-day window. Not executed in this walk.
+See station 5: the README inbound-route paragraph was proposed in this walk and executed after it, on the owner's consent, 2026-08-24 ([alchemy PR #15](https://github.com/risaac09/alchemy/pull/15)). The 90-day window runs to the 2026-11-22 review; the follow-up evidence is the count of inbound reports and what they cost.
 
 ## Privacy check
 

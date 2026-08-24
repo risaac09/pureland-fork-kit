@@ -19,7 +19,7 @@
     "The scorecard's provenance access has no category for designed ephemerality: Alchemy's decay deletes material unrecoverably on purpose, and the instrument reads that only as a gap.",
     "Most headline findings (the Chrome extension documentation gap, the pull-request posture) were already documented by the practice itself; the walk's new findings came from the extraction check's framing, not the counting."
   ],
-  "adaptation": "Proposed, not executed, pending owner consent: one README paragraph in the Alchemy repo documenting an inbound route for corrections and field reports (issues, linked to the kit's journey and field-test form). Baseline: zero inbound reports, PRs deprioritized. Window: 90 days; review date 2026-11-22. Plausible new harm: triage burden and an implied support promise the honest account declines.",
+  "adaptation": "Executed 2026-08-24 on owner consent, after being proposed in the walk: one README paragraph in the Alchemy repo documenting the inbound route for corrections and field reports (https://github.com/risaac09/alchemy/pull/15, merged as bf5e411). Baseline: zero inbound reports, PRs deprioritized. Window: 90 days from merge; review date 2026-11-22. Plausible new harm: triage burden and an implied support promise the honest account declines.",
   "ai_assistance": "An AI agent (Claude Code) performed the repository analysis, counting, and drafting on 2026-08-24, directed by the maintainer; disclosed in AI-ASSISTANCE.md. Human verification: the maintainer's review of the pull request landing this record. AI output was checked against the source files cited in evidence.",
   "privacy_review": true
 }
