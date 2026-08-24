@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Made PROVENANCE.md and AI-ASSISTANCE.md reachable from the README by linking them from research/README.md. Reconciled README's description of FIELD-TESTING.md with JOURNEY.md: it is the instrument the ground and return stations use directly, not a discipline that only runs alongside them. Fixed CITATION.cff, which named CC BY-SA 4.0 as the sole license; it now lists both MIT and CC BY-SA 4.0, matching the license split recorded everywhere else. Left the version and release date as they are; the version 0.2 gate in RESEARCH-STATUS.md has not been cleared.
 - FT-001's bounded adaptation executed on owner consent: the Alchemy README now documents the inbound route for corrections and field reports (alchemy PR #15). The record moves from proposed to executed; the 90-day window runs to the 2026-11-22 review. The record also notes it keeps the access names it was scored under.
 - Rewrote the public documents in plainer language at roughly a 12th-grade reading level, keeping every guardrail, claim boundary, and file name intact.
 - Replaced "the four accesses" and their formal names (legibility, permeability, forkability, provenance) with four plain questions: understandable (what can be known), reachable (within arm's reach), adaptable (accepting and investigating the reality of change), traceable (we can see what happened, sources attributed, connected to an open record).

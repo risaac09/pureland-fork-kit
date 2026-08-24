@@ -20,7 +20,7 @@ There are two ways to walk it. Bring one real practice and start at [JOURNEY.md]
 Everything else in the repository supports the journey:
 
 - [BRIEF.md](BRIEF.md) holds the goals, the method, the offering, the accountability rules, and the open questions.
-- The station instruments: the [practice frame](PRACTICE-FRAME.md), the [openness scorecard](SCORECARD.md), and the [extraction check](EXTRACTION-CHECK.md), with the [facilitation protocol](PROTOCOL.md) and the [AI system annex](AI-SYSTEM-ANNEX.md) as conditional branches and [FIELD-TESTING.md](FIELD-TESTING.md) as the testing discipline that runs alongside.
+- The station instruments: the [practice frame](PRACTICE-FRAME.md), the [openness scorecard](SCORECARD.md), and the [extraction check](EXTRACTION-CHECK.md), with the [facilitation protocol](PROTOCOL.md) and the [AI system annex](AI-SYSTEM-ANNEX.md) as conditional branches. [FIELD-TESTING.md](FIELD-TESTING.md) is the discipline the ground and return stations use directly; they have no separate instrument of their own.
 - The companion app: [Alchemy](https://alchemy.rubinsteinproductions.com), a free, local-only practice tool for personal information metabolism ([source](https://github.com/risaac09/alchemy)). The journey names where it fits.
 - The open-research lane: [research/README.md](research/README.md) and [RESEARCH-STATUS.md](RESEARCH-STATUS.md).
 - Corrections, field tests, disagreements, and adaptations: [CONTRIBUTING.md](CONTRIBUTING.md) and [GOVERNANCE.md](GOVERNANCE.md).
