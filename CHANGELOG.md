@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+- Wired `index.html` up as the repository's front page. It links out to the kit's documents instead of standing with none, and it consumes `design/tokens.css` and the marks in `design/assets/` instead of forking them.
+- Dropped the Google Fonts request from `index.html` in favor of the documented fallback stacks, matching the no-servers posture the rest of the kit describes.
+- Replaced `index.html`'s superseded three-layer ledger with the six stations from JOURNEY.md, which holds the canonical list. Corrected `design/VISUAL-LANGUAGE.md`, which still described the roman numerals as standing for three layers.
+- Set the `index.html` hero question in sentence case. In letterspaced capitals it ran to eleven lines and shouted, against the first principle in `design/VISUAL-LANGUAGE.md`. The short section headings stay uppercase.
+- Fixed the `index.html` spread layout below 860px. Right-side marginalia stayed pinned to grid column 3, which collapsed the passage column to about 115px on a phone.
+- Fixed a dark-mode contrast defect in `design/tokens.css`: `--color-text-secondary` was Graphite on Ink at 2.95:1, failing WCAG AA. Added the `--measure` and `--color-rule` tokens `index.html` needed, and made `--rule-hairline-color` an alias of `--color-rule` so the two cannot diverge.
+- Added `.nojekyll` so Pages serves the repository as static files with no build step. Enabling the Pages source is a repository setting and was left alone.
+- Widened `scripts/check_repo.py`. It now reads HTML links, validates field-test records against `data/field-test.schema.json`, resolves anchor fragments, scans more file types for placeholder tokens, and warns when a content file is unreachable from README.md, JOURNEY.md, or BRIEF.md.
+- Fixed the schema validator's `const` and `enum` comparisons, which accepted `"privacy_review": 1` because Python treats `True` and `1` as equal. The validator now also fails on any schema keyword it does not enforce, so a rule added to the schema cannot go silently unapplied.
+- Scoped JOURNEY.md's Alchemy claims to what FT-001 supports, and matched README's description of the app to it. The browser-only claim covers the PWA surface; two other surfaces send material out.
+- Made PROVENANCE.md and AI-ASSISTANCE.md reachable from the README by linking them from research/README.md. Linked the provenance record from BRIEF.md and data/README.md from CONTRIBUTING.md, and pointed README at `index.html`.
+- Reconciled README's description of FIELD-TESTING.md with JOURNEY.md: it is the instrument the ground and return stations use directly, not a discipline that only runs alongside them.
+- Fixed CITATION.cff, which named CC BY-SA 4.0 as the sole license. It now lists both MIT and CC BY-SA 4.0, matching the license split recorded everywhere else. The version and release date are unchanged; the version 0.2 gate in RESEARCH-STATUS.md has not been cleared.
 - FT-001's bounded adaptation executed on owner consent: the Alchemy README now documents the inbound route for corrections and field reports (alchemy PR #15). The record moves from proposed to executed; the 90-day window runs to the 2026-11-22 review. The record also notes it keeps the access names it was scored under.
 - Rewrote the public documents in plainer language at roughly a 12th-grade reading level, keeping every guardrail, claim boundary, and file name intact.
 - Replaced "the four accesses" and their formal names (legibility, permeability, forkability, provenance) with four plain questions: understandable (what can be known), reachable (within arm's reach), adaptable (accepting and investigating the reality of change), traceable (we can see what happened, sources attributed, connected to an open record).
