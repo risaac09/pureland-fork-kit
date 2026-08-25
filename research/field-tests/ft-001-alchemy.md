@@ -1,104 +1,179 @@
-# Field test FT-001: the journey walked on Alchemy
+# Field test FT-001: partial journey dry run on Alchemy
 
-The first recorded walk of [the journey](../../JOURNEY.md), run on the [Alchemy app](https://github.com/risaac09/alchemy) as the assessed practice. This is a worked example, not an independent trial: the assessor is an AI agent working for the kit's maintainer, on the maintainer's own app. It does not count toward the version 0.2 gate, which requires independent applications. Structured record: [data/field-tests/ft-001-alchemy.json](../../data/field-tests/ft-001-alchemy.json).
+FT-001 is a maintainer-side, AI-assisted partial dry run of [the journey](../../JOURNEY.md) on the [Alchemy app](https://github.com/risaac09/alchemy). It is not an independent trial and does not count toward the version 0.2 gate. Structured record: [data/field-tests/ft-001-alchemy.json](../../data/field-tests/ft-001-alchemy.json).
 
-## Context
+## Record identity and status
 
 | Field | Entry |
 |---|---|
-| Kit version or commit | 62259ec, 2026-08-24 |
-| Practice and system boundary | The Alchemy repository at commit b7ae829: seven public surfaces (PWA, embed funnel, Obsidian plugin, Chrome extension, iOS wrapper, bookmarklet, embodied service), read as one published information-metabolism practice |
-| Assessor's relationship to the practice | An AI agent (Claude Code) directed by the practice's owner and maintainer; not independent |
-| Scope | The whole journey |
-| Why this scope | The journey shipped the same day; its first test should be the full sequence, and the kit names Alchemy its companion app, so the companion is the natural first subject |
-| Second reader | None available; recorded as a failure below |
-| Known exclusions | The live deployed site and app stores were not exercised; all evidence is the repository at the named commit plus its own documents |
-| Time window | Snapshot at 2026-08-24; no longitudinal observation |
+| Record ID | FT-001 |
+| Kit version | 62259ec, 2026-08-24 |
+| Status | Partial execution; adaptation executed; follow-up open through 2026-11-22 |
+| Scope | Whole journey |
+| Assessor | An AI agent, Claude Code, directed by the Alchemy owner and PureLand maintainer |
+| Assessor relationship | Maintainer-side; not independent |
+| Second reader | None |
+| Human walker | None |
+| Tested design-hypothesis classification | `unmeasurable`; no comparator was run |
+| Primary-hypothesis status | Not tested; outcome `unmeasurable` |
 
-## Disconfirming condition
+## Tested hypothesis and disconfirming condition
 
-Written before scoring: if the walk surfaces nothing beyond what Alchemy's own README, CLAUDE.md, docs/PRODUCT.md, and HONEST-ACCOUNT.md already state, then the journey adds no analytic value over reading a well-documented repo, and the sequencing hypothesis in [RESEARCH-STATUS.md](../../RESEARCH-STATUS.md) loses its first support.
+FT-001 tested a design hypothesis, not the primary agency hypothesis:
 
-Verdict, written after: partially defeated. Four readings below do not appear in those documents (the provenance-versus-finitude category strain, decay as a designed cost of absence, the diagnostic composite tuning the app's constants as a behavior-shaping loop, and the second-reader parallel between the embodied service and this kit). Two headline findings were already documented by the practice itself (the Chrome extension documentation gap, the pull-request posture). The journey found less that was new than the walk's length suggests, and what it found came mostly from the extraction check's framing, not the counting.
+> The whole journey adds useful analytic value beyond an ordinary review of the same evidence and enough value to justify its additional burden.
 
-## Station 1: Ground
+Before analysis, the assessor recorded this disconfirming condition: if the walk surfaces nothing beyond what Alchemy's README, CLAUDE.md, docs/PRODUCT.md, and HONEST-ACCOUNT.md already state, then the journey adds no analytic value over an ordinary repository review.
 
-Practice named above. Purpose, in the practice's own words: a tool built around human finitude instead of infinite engagement. Affected people: users of the free PWA and plugin, past buyers of The Metabolizer ($29), visitors who meet the embedded diagnostic on the marketing site, users of the embodied reflection service, and the owner. Evidence available before scoring: the repository's own documents (README, CLAUDE.md, docs/PRODUCT.md, HONEST-ACCOUNT.md, embodied-service/README.md), the source files, and stack-data's repo registry. No participant material exists or was used; the protocol branch was not taken. The AI branch was taken for one component, the embodied service.
+Assessment: `mixed`. The assessor identified some readings that were not explicit in the named documents and repeated two known findings. No ordinary-review or single-instrument comparator was run. The record cannot establish that the journey caused the additional readings or justified its burden.
 
-## Station 2: Observe
+## Measurement units
 
-**Method failure, recorded first:** the practice frame assumes a human assessor. An AI agent has no somatic register, so the self-observation this station requires could not be performed. The station ran as design analysis instead, reading the practice against the condition table. A human walker must redo this station for it to count.
+| Unit | FT-001 definition |
+|---|---|
+| Walking person | Absent. An AI assessor performed repository analysis and could not supply human first-person evidence. |
+| Bounded information practice | Alchemy repository commit `b7ae829`, read as one published information-metabolism practice |
+| Affected groups | Local-tool users; funnel visitors; past Metabolizer buyers; embodied-service users; the maintainer |
+| Document-access set | Seven public surfaces chosen by the assessor: PWA, embed funnel, Obsidian plugin, Chrome extension, iOS wrapper, bookmarklet, embodied service |
+| Observation window | Repository snapshot on 2026-08-24; adaptation follow-up from 2026-08-24 through 2026-11-22 |
 
-Read as design analysis: the practice designs against greed (the 7-item cap, 72-hour decay, 90-day compost), against sensual desire (no infinite continuation, no streaks or badges), and against dullness (forced 30-second settle, a one-word body check before reflection). The condition most present in the design is restlessness: a resurfacing loop returns one archived item every 3 days, and opt-in decay notifications nudge before dissolution. Both are bounded and disclosed, and the diagnostic tuning stretches the resurfacing window for users whose return flow reads weak, which moves in the calming direction.
+The seven-surface denominator applies only to artifact-level access readings. It is not a count of people and supports no person-level agency outcome.
 
-## Station 3: Map (four accesses)
+### Boundary rationale and alternative
 
-Vocabulary note: this record uses the access names current at the assessed kit version (legibility, permeability, forkability, provenance). The kit has since renamed them to the four plain questions (understandable, reachable, adaptable, traceable); the measures are the same and this dated record keeps the names it was scored under.
+The assessor grouped the six product surfaces named in `docs/PRODUCT.md` with the embodied service because the repository presents them as one companion practice. This was the assessor's choice, not a participant-agreed boundary.
 
-Unit: a public surface of the repository. Set: the six surfaces named in docs/PRODUCT.md plus the embodied service. Denominator: 7. Window: the named commit. No composite.
+A plausible alternative would treat the repository core, each client surface, and the embodied service as separate practices, or exclude the experimental embodied service. That choice would change every artifact denominator and isolate the third-party model exposure.
 
-**AI system annex, carried into this station per branch question 2.** The audited unit for the AI component was defined before any counting. The embodied service is a Cloudflare Worker with a version-pinned model call and a verbatim version-pinned prompt, a deterministic crisis pre-screen that answers without calling the model, input validation with an allowlist, durable rate limits and a daily spend cap, no content logging, and a static UI. Status: SEL-1, experimental, gate not cleared, and the service says so at /api/status. The system is not an open AI system in the OSAID sense: the weights are a third party's. The open obligation the annex surfaces: the live verifications and the independent re-grade are still owed, and the grader must be someone who did not write the prompt.
+Known exclusions: the live deployed site and app stores were not exercised; store and community-plugin listings were not independently verified; no participant experience or affected-user testimony entered the analysis.
 
-**Legibility: 6/7.** Six surfaces have a reachable plain-language description (README, ios/README.md, embodied-service/README.md, docs/PRODUCT.md). The Chrome extension has no documentation beyond its manifest; the practice's own PRODUCT.md names this gap. Extraction question: mapping this system easier benefits forkers, not an extractor, since there is nothing behind it to reach.
+## Evidence available before analysis
 
-**Permeability.** Publicly reachable: 7/7. Documented inbound routes: forking is explicitly invited; issues are in active use by the practice's own review ritual; pull requests are explicitly deprioritized ("generally not reviewed: this is a personal tool with deliberate constraints"). Median response time: `unmeasurable`, no record. One traced path with its permission boundary: the embed funnel's email travels by postMessage to the host page, which owns capture; the app never stores or sends it, and the field is optional with a visible skip (verified in embed-funnel.js). Extraction question: opening the boundary exposed nothing carrying different consent, because the practice holds no participant material.
+- [README](https://github.com/risaac09/alchemy/blob/b7ae829/README.md)
+- [CLAUDE.md](https://github.com/risaac09/alchemy/blob/b7ae829/CLAUDE.md)
+- [HONEST-ACCOUNT.md](https://github.com/risaac09/alchemy/blob/b7ae829/HONEST-ACCOUNT.md)
+- [docs/PRODUCT.md](https://github.com/risaac09/alchemy/blob/b7ae829/docs/PRODUCT.md)
+- [embodied-service/README.md](https://github.com/risaac09/alchemy/blob/b7ae829/embodied-service/README.md)
+- [app.js](https://github.com/risaac09/alchemy/blob/b7ae829/app.js)
+- [embed-funnel.js](https://github.com/risaac09/alchemy/blob/b7ae829/embed-funnel.js)
+- [LICENSE](https://github.com/risaac09/alchemy/blob/b7ae829/LICENSE)
 
-**Forkability.** Explicit reuse permission: 7/7 (MIT, whole repository). Enough instructions to adapt: 6/7 (the Chrome extension again; the embed contract is documented inside embed-funnel.js). The README actively transfers the practice: "fork it and make it yours."
+No participant material was available or used.
 
-**Provenance**, over a sampled claim set of 7, not exhaustive. Verified 4: the Metabolizer lineage (README plus INTEGRATION-PLAN.md); the no-external-calls claim (a search of app.js finds no fetch, XHR, beacon, or analytics call); the surface separation (index.html loads app.js only; the funnel code states and keeps the boundary); the diagnostic-reactive tuning (app.js lines 66-71). Partly verified 2: the plugin and iOS version claims (files and manifests exist; store and community submission states are unverified, which PRODUCT.md itself flags). Unverified 1: the README claim that the plugin is findable under Obsidian Community Plugins. Intentionally anonymous: 0. Extraction question: traceability here creates no re-identification risk; there is no person in the record.
+## Station completion
 
-**Category disagreement, preserved:** the scorecard's provenance access assumes that keeping records of origin and transformation is a virtue. Alchemy's decay deletes unattended and composted material unrecoverably, on purpose; the practice's own account calls the loss real and sometimes wrong, and still the feature. The instrument and the practice disagree about whether designed ephemerality is a provenance failure. Not resolved here.
+| Station | Required | Status | Evidence |
+|---|---|---|---|
+| Ground | Yes | Complete | Practice, boundary, evidence, affected groups, and disconfirming condition recorded |
+| Observe | Yes | Incomplete | No human walker; AI design analysis does not satisfy first-person Observe work |
+| Map | Yes | Complete | Four separate access readings recorded over the seven-surface set |
+| Trace | Yes | Complete | Consent, attribution, return, exposure, extraction, and burden traced from repository evidence |
+| Adapt | Yes | Complete | Inbound correction route selected and executed through Alchemy pull request 15 |
+| Return | Yes | Complete | Public report and structured record returned without participant material |
 
-## Station 4: Trace (extraction check)
+Because required Observe work is incomplete, this record cannot claim a completed journey.
 
-Value trace. PWA and plugin users: attention and captured content leave the person into their own browser or vault; nothing accumulates with the owner; what returns is the practice itself and the retained gold. Funnel visitors: an optional email leaves to the host page and accumulates with the owner; what returns is the diagnostic report and a follow-up offer, with a working skip. Metabolizer buyers: $29 left them historically; the concept returned to everyone free, and the README addresses those buyers directly. Embodied-service users: a reflection leaves to a third-party model provider under that provider's terms, is not stored or logged by the worker, and a governed reflection returns.
+## Human Observe status
 
-Bands, separate, with no averaging:
+Status: `not-performed`. An AI agent has no somatic or first-person register. The assessor instead analyzed design conditions: the seven-item cap, 72-hour decay, 90-day compost, absence of streaks and badges, 30-second settle, body check, resurfacing loop, and opt-in decay notifications. That analysis may describe the practice. It does not replace a human account of attention or the body.
 
-- **Consent: Usable.** The PWA collects nothing, so there is nothing to consent to; export and deletion are user-held. The funnel email is optional, skippable, and never stored by the app. The embodied service names third-party processing and does not store content. Burden: low. Disagreement: none found.
-- **Attribution: Usable.** Lineage is public (Metabolizer, the absorbed diagnostic repo), MIT keeps origin visible through reuse, and no identification of users is possible because no user record exists.
-- **Value return: Usable, not Shared.** The free tool returns a paid product's concept to everyone, and the honest account returns the failures too. Users do not help govern the terms, and no mechanism exists for them to; that is what keeps this band below Shared.
+## Access readings
 
-Attention sovereignty. Contact is user-initiated; the only outbound cue is an opt-in decay notification. Stopping carries no manufactured loss, no streaks, no penalty mechanics; but stopping does carry a designed real loss: unattended items dissolve at 72 hours, so absence costs captured material. The practice's account owns this ("some of what decays mattered... the loss is not recoverable"). Recorded as the sharpest sovereignty tension in the design: decay is both the anti-hoarding mechanism and a cost imposed on the person who walks away.
+The record keeps the names used at the assessed kit version alongside the current plain-language names. No composite was calculated.
 
-Sovereignty paradox: the protective friction (settle, body check) costs adoption, which the account admits. The user pays time; the owner pays reach. The safeguards increase the participant's agency rather than reducing the owner's liability.
+| Reading | Artifact result | Limits |
+|---|---|---|
+| Understandable, formerly legibility | 6/7 selected surfaces had a reachable plain-language description | The Chrome extension had no documentation beyond its manifest |
+| Reachable, formerly permeability | 7/7 selected surfaces were publicly reachable | Inbound response time was `unmeasurable`; pull requests were deprioritized |
+| Adaptable, formerly forkability | 7/7 had MIT reuse permission; 6/7 had enough instructions for the assessor to judge adaptation support | The Chrome extension remained the documentation gap |
+| Traceable, formerly provenance | 4/7 sampled claims verified; 2/7 partly verified; 1/7 unverified | The instrument could not distinguish missing provenance from intentional, accountable deletion |
 
-Collective lens: largely not applicable to a single-user local tool. The borrowed register ("information metabolism," the liver, the alchemical frame) is disclosed as metaphor by the practice itself.
+### AI system annex
 
-The embodied service's consent posture, traced here rather than in the annex: reflections go to the named third-party provider under its terms, unstored and unlogged by the worker, and the annex's open obligation (the independent re-grade) is recorded at station 3.
+For the embodied-service component, the assessor defined the unit as a Cloudflare Worker with a version-pinned model call and prompt, deterministic crisis pre-screen, input allowlist, durable rate limits, daily spend cap, no content logging, and static UI. The service was SEL-1, experimental, with its gate uncleared. The model weights belonged to a third party. Live verification and an independent re-grade remained open.
 
-## Station 5: Adapt
+## Reciprocity readings
 
-One bounded adaptation, chosen from the trace: the practice invites forks out but documents no return path in. Pull requests are deprioritized by design; nothing tells a user or forker where a correction, a failure report, or a field test of Alchemy should land. The kit's thesis is that a fork is judged by both directions of travel.
+- **Consent, assessor reading: Usable.** The local tool held no owner-side participant record. The funnel email was optional and skippable. The embodied service disclosed third-party processing and no worker-side content storage. No affected user challenged this reading.
+- **Attribution, assessor reading: Usable.** The repository disclosed the Metabolizer and absorbed-diagnostic lineages. No user identification was available because no user record entered the test.
+- **Meaningful return, assessor reading: Usable, not Shared.** The assessor read the free practice, diagnostic report, user-held retained material, and honest account as forms of return. No affected party confirmed that the return was meaningful, and users did not share governance.
 
-- Baseline: zero inbound field reports; PRs deprioritized; issues used only by the owner's own ritual.
-- Change to test: one README paragraph in the Alchemy repo naming the inbound route: field reports and corrections as issues, linked to this kit's journey and field-test form.
-- Consent needed: the owner's. The live PWA is public-facing and gated; this walk did not touch it. **Status: executed 2026-08-24, after the walk, on the owner's consent ([alchemy PR #15](https://github.com/risaac09/alchemy/pull/15), merged as bf5e411).** The observation window runs from the merge to the 2026-11-22 review.
-- Intended benefit: a return path, closing the loop the practice's own fork-table draws.
-- Plausible new harm: triage burden on a personal tool, and an implied promise of support that the honest account explicitly declines.
-- Observation window: 90 days, one compost cycle. Review date: 2026-11-22. Follow-up evidence: count of inbound reports and what they cost.
+These are single-assessor readings. They do not establish meaningful return for affected people.
 
-No causal claim is made or available.
+## Agency action and materiality
 
-## Station 6: Return
+FT-001 did not predefine a person-level agency action. After analysis, the adaptation supplied a candidate action for follow-up:
 
-This report and its JSON record are the return, submitted by pull request per FIELD-TESTING.md and linked from the [field-trial ledger](../../FIELD-TRIALS.md).
+| Field | Entry |
+|---|---|
+| Actor | Local-tool users |
+| Action | Correct |
+| Operational definition | Submit a correction or field report through the named GitHub issue route and receive a maintainer response without relying on a pull request |
+| Predefined before analysis | No |
+| Baseline | Zero inbound field reports; pull requests deprioritized; no dedicated inbound route documented |
+| Follow-up | Pending through 2026-11-22 |
 
-## Failure and burden
+FT-001 also lacked a predeclared materiality rule for exposure, extractability, or shifted burden. The follow-up cannot turn those missing readings into favorable evidence.
 
-- The observe station cannot be executed as designed by an AI assessor; it ran as design analysis and needs a human redo.
-- No second reader existed; every count above is single-assessor and no disagreement could be preserved except the assessor's own, which is structurally weaker.
-- Legibility was judged from inside the practice's orbit; "a person outside the core" was simulated, not real, and the scores may be generous.
-- The journey gave no guidance on bounding a multi-surface repository; the seven-surface set was the assessor's choice, and a different bounding would change every denominator.
-- The provenance access and the practice's designed ephemerality conflict; the instrument has no category for virtuous deletion.
-- Burden: roughly two hours of agent time plus the owner's review; a careful human walk would take substantially longer. Who did the work: the maintainer's side, entirely.
+## Burden, exposure, and extractability by affected group
 
-## Adaptation summary
+| Affected group | Baseline reading | Follow-up status |
+|---|---|---|
+| Local-tool users | Content remained in the user's browser or vault; users paid time and possible loss created by settle, body-check, and decay rules | Public-issue exposure, reuse paths, and correction effort pending |
+| Funnel visitors | Optional email could pass to the host page; the embedded app did not store it | Adaptation not tested with funnel visitors; outcome pending |
+| Past buyers | No buyer record entered the test; buyers had paid $29 for the earlier product before the concept returned free | Adaptation not tested with past buyers; outcome pending |
+| Embodied-service users | Reflections passed to a named model provider without worker-side storage; provider-side behavior was not inspected | Adaptation not tested with service users; outcome pending |
+| Maintainer | Public repository and design account were exposed; the maintainer directed and reviewed the work | Triage burden, criticism exposure, and implied support expectations pending |
 
-See station 5: the README inbound-route paragraph was proposed in this walk and executed after it, on the owner's consent, 2026-08-24 ([alchemy PR #15](https://github.com/risaac09/alchemy/pull/15)). The 90-day window runs to the 2026-11-22 review; the follow-up evidence is the count of inbound reports and what they cost.
+No affected-party follow-up result is available. The record therefore makes no finding about material increase.
 
-## Privacy check
+## Disagreement, objection, and contestability
 
-- [x] No participant material or identifying data is included.
-- [x] The assessor has authority to link every artifact cited; all are public repository files.
-- [x] AI assistance and verification are disclosed: an AI agent (Claude Code) performed the repository analysis, counting, and drafting on 2026-08-24; the human verification is the owner's review of the pull request that lands this report.
+Two assessor-side disagreements remain open:
+
+1. The traceable construct reads missing retained provenance as a gap. Alchemy treats visible, accountable ephemerality as an intentional feature. The instrument needs separate categories without treating deletion as favorable by default.
+2. The assessor interpreted the journey as adding some analytic value. Familiarity, review time, or the extraction-check vocabulary alone may explain the same reading.
+
+Participant-objection status: `not-sought`. No affected user challenged the analysis, correction route, refusal route, or intended benefit.
+
+Contestability status: `not-tested`. [Alchemy pull request 15](https://github.com/risaac09/alchemy/pull/15) added a GitHub issue route for corrections and field reports. The maintainer remained the review authority. No affected party tested whether the route was accessible, timely, or effective, and the test did not exercise a refusal route.
+
+## Adaptation and open follow-up
+
+The assessor selected one README paragraph naming GitHub issues as the inbound route for corrections and field reports and linking to the PureLand journey and field-test form.
+
+- Status: executed on owner consent, 2026-08-24.
+- Evidence: [Alchemy pull request 15](https://github.com/risaac09/alchemy/pull/15), merged as `bf5e411`.
+- Intended benefit: create a visible correction and return path without changing the deliberate pull-request posture.
+- Possible new harm: triage burden and an implied support promise that the honest account declines.
+- Observation window: 2026-08-24 through 2026-11-22.
+- Follow-up evidence: inbound-report count, handling burden, affected-user challenge, and possible new harm.
+- Current follow-up status: open. No follow-up finding is available.
+
+## Rights, privacy, and public return
+
+The test used public repository evidence and no participant material. The owner permitted the repository analysis, AI assistance, research use, and public return. This report does not permit claims about affected-user experience.
+
+Public privacy review:
+
+- [x] No participant recordings, transcripts, identifying data, contact details, or protected knowledge are included.
+- [x] Every linked artifact is public and rights-cleared for this record.
+- [x] AI assistance and human verification are disclosed.
+
+## Outcome
+
+Tested design-hypothesis classification: `unmeasurable`. No ordinary-review or single-instrument comparator was run.
+
+The primary hypothesis is also `unmeasurable`. FT-001 lacks a human Observe result, a predefined person-level action, an observed action follow-up, an affected-user challenge, a predefined materiality rule, an independent reader, and a completed observation window. It supports no causal claim, primary-hypothesis claim, or attention-sovereignty result.
+
+The report and JSON record are a `public-return` of a partial dry run. Public return does not make the return meaningful to affected people and does not turn the test into validation.
+
+## Assessor interpretation and competing explanations
+
+The assessor interpreted the walk as surfacing four readings not explicit in the named Alchemy documents: the provenance-versus-finitude tension, decay as a designed cost of absence, the diagnostic tuning loop, and the second-reader parallel between the embodied service and PureLand. Two headline findings were already documented by Alchemy.
+
+This interpretation competes with the assessor's familiarity with both repositories, the time spent, the extraction-check vocabulary, the assessor-chosen boundary, maintainer-side evidence selection, and the lack of a second reader. FT-001 cannot separate these explanations.
+
+## AI assistance
+
+Claude Code performed repository analysis, artifact counting, and drafting on 2026-08-24 under maintainer direction. The maintainer reviewed the pull request landing the record. AI output was checked against the source files cited above. The record distinguishes the six product surfaces named in `docs/PRODUCT.md` from the seven-surface assessment boundary that adds the embodied service.

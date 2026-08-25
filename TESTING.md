@@ -1,38 +1,50 @@
 # Testing
 
-PureLand tests the method by trying to break it. A confirming story is not enough. Every test begins with a result that would count against the relevant hypothesis.
+PureLand tests the method by trying to break it. A confirming story is not enough. Every test begins with a result that would count against the tested hypothesis.
 
 ## Testing program
 
 | Stage | Purpose | Evidence status |
 |---|---|---|
-| Worked example | Check whether the method can be completed and surface design failures | One maintainer-side example, FT-001 |
+| Partial dry run | Check which required stations and record fields can be executed; surface design failures | One maintainer-side partial execution, FT-001 |
 | Independent application | Test use outside the maintainer's own practice and orbit | None accepted |
 | Second-reader comparison | Expose construct ambiguity and classification disagreement | None completed |
-| Bounded adaptation follow-up | Observe benefit, burden, possible new harm, and durability after a change | One follow-up window open, no outcome yet |
+| Bounded adaptation follow-up | Observe benefit, burden, exposure, possible new harm, and durability after a change | One follow-up window open, no outcome yet |
 | Cross-context comparison | Test whether findings survive different practices and settings | None completed |
 
 ## Before a test
 
-Follow [FIELD-TESTING.md](FIELD-TESTING.md). Name the question, tested hypothesis, practice, boundary, affected people, assessor relationship, evidence, scope, exclusions, time window, and disconfirming condition. Obtain the permission the inquiry needs.
+Follow [FIELD-TESTING.md](FIELD-TESTING.md). Record:
+
+1. the tested hypothesis, practice, measurement unit, boundary, boundary rationale, and plausible alternative boundary;
+2. the walking person and each affected person or group;
+3. the document-access set, denominator, exclusions, and time window;
+4. the assessor relationship, second-reader plan, evidence available before analysis, and disconfirming condition;
+5. one or more concrete actions from `stop`, `continue`, `question`, `correct`, `adapt`, or `refuse`;
+6. the baseline, expected follow-up, and materiality rule for each action and affected party;
+7. permission, rights-review, public-return, research-use, and AI-use status.
 
 If a test includes participant material, the [facilitation protocol](PROTOCOL.md) and [rights and consent guide](RIGHTS-AND-CONSENT.md) control. Public testing does not override consent.
 
 ## During a test
 
 - Keep missing evidence `unmeasurable`.
-- Keep the four access measures separate.
-- Keep consent, attribution, and value return separate.
-- Record burden, disagreement, participant objection, and bounding decisions.
+- Keep the four access readings separate.
+- Keep consent, attribution, and meaningful return separate.
+- Record burden, exposure, extractability, disagreement, participant objection, and bounding decisions by affected party.
+- Mark every required station `complete`, `incomplete`, or `not-started`. Use `not-applicable` only when the recorded scope makes the station unnecessary.
+- Mark Observe incomplete when a required human first-person observation did not occur.
 - Use a second independent reader where practical.
 - Do not treat contemplative categories as labels for participants.
-- Do not calculate a composite score.
+- Do not calculate an average or composite score.
 
 ## After a test
 
-Record the baseline, change, intended benefit, possible new harm, observation window, review date, follow-up evidence, and the limits on causal interpretation. Use the [field-test template](templates/field-test.md) and structured [schema](data/field-test.schema.json).
+Record each action's follow-up, the adaptation, intended benefit, possible new harm, observation window, review date, follow-up evidence, contestability result, rights result, and limits on causal interpretation. Apply the classification rule in [HYPOTHESIS.md](HYPOTHESIS.md).
 
-Accepted public-safe reports enter the [field-trial ledger](FIELD-TRIALS.md) as inspectable records, not endorsements.
+A record with missing required stations may conform to the schema only as a partial execution. It cannot claim completion. A record with missing outcome or rights evidence must classify the hypothesis result as `unmeasurable`.
+
+Use the [field-test template](templates/field-test.md) and structured [schema](data/field-test.schema.json). Accepted public-safe reports enter the [field-trial ledger](FIELD-TRIALS.md) as inspectable records, not endorsements.
 
 ## Version 0.2 evidence gate
 

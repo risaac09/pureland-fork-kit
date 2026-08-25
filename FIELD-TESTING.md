@@ -1,29 +1,54 @@
 # Field testing
 
-This is the operational discipline inside the [testing program](TESTING.md). It runs alongside [the journey](JOURNEY.md); the Ground and Return stations use it directly. Field tests should try to break the method. Confirmation alone is weak evidence.
+This is the operational discipline inside the [testing program](TESTING.md). It runs alongside [the journey](JOURNEY.md). Field tests try to break the method. Confirmation alone is weak evidence.
 
 ## Before use
 
-1. Name the practice, the system boundary, the purpose, and the affected people.
-2. Choose your scope, one instrument or the whole [journey](JOURNEY.md), and say why.
-3. Record what evidence you have before you score anything.
-4. Get permission for any participant material. Do not submit private material.
-5. Write down one result that would count against the method.
+Complete the matching sections in the [Markdown template](templates/field-test.md) and [JSON record](data/field-test.schema.json):
+
+1. Record the record ID, kit version, test status, tested hypothesis, scope, instrument, and disconfirming condition.
+2. Name the walking person or record that no human walker is present.
+3. Name each affected person or group separately.
+4. Record the assessor's relationship to the practice and the second reader's status and independence.
+5. Define the practice, unit, boundary, boundary rationale, plausible alternative boundary, and how that alternative could change the reading.
+6. Define the artifact or surface set used for document-access counts. List its items, denominator, exclusions, and time window.
+7. List the evidence available before analysis.
+8. Mark which stations the scope requires.
+9. Predefine one or more concrete actions from `stop`, `continue`, `question`, `correct`, `adapt`, or `refuse`. Record the action baseline and expected follow-up.
+10. Predefine the context-specific rule for a material increase in exposure, extractability, or shifted burden.
+11. Record permission and rights status for participant material, public return, research use, and AI use.
+
+Do not submit private participant material. If the test includes participant material, the [facilitation protocol](PROTOCOL.md) and [rights and consent guide](RIGHTS-AND-CONSENT.md) control.
 
 ## During use
 
-- When evidence is missing, keep it marked `unmeasurable`.
-- Record how much time the work took and who did it.
-- Ask a second reader to work independently when possible.
-- Keep the category disagreements and the participant objections.
-- Do not calculate a combined score.
+- Record each station as `not-started`, `incomplete`, `complete`, or `not-applicable`.
+- Record required human Observe work as `performed` or `not-performed`. AI design analysis does not count as human Observe.
+- Keep understandable, reachable, adaptable, and traceable readings separate.
+- Keep consent, attribution, and meaningful-return readings separate.
+- Record exposure, extractability, and burden for each affected party at baseline and follow-up.
+- Preserve assessor disagreements, second-reader disagreements, and participant objections. Use explicit statuses when none were sought or none were recorded.
+- Record the correction route, refusal route, review authority, and whether an affected person could use them.
+- Keep missing evidence `unmeasurable`.
+- Do not calculate an average or composite score.
 
 ## After use
 
-Submit the [field-test template](templates/field-test.md) as an issue or pull request. A useful report includes what failed, what it cost, and the context. The maintainer will add accepted reports to [FIELD-TRIALS.md](FIELD-TRIALS.md) with links, not rewrite them as endorsements.
+Record:
+
+- adaptation status, consent, execution evidence, intended benefit, and possible new harm;
+- observation-window dates, review date, follow-up status, and follow-up evidence;
+- each action's follow-up against its baseline;
+- the classification and return disposition defined in [HYPOTHESIS.md](HYPOTHESIS.md);
+- causal-claim status and competing explanations;
+- AI assistance and public privacy review.
+
+A structurally conforming record can document a partial execution. It cannot claim completion when a required station is incomplete or a required human Observe was not performed. Missing action-outcome or rights evidence makes the hypothesis result `unmeasurable`.
+
+Submit both files as an issue or pull request. The maintainer may add a public-safe report to [FIELD-TRIALS.md](FIELD-TRIALS.md) with links. An entry is an inspectable record, not an endorsement.
 
 ## Minimum comparison for a tested change
 
-Record a baseline, the change, the intended benefit, a plausible new harm, the observation window, and the follow-up evidence. Claiming the change caused the result takes more than a before-and-after impression.
+Record an action baseline, the change, the intended benefit, a plausible new harm, the observation window, the action follow-up, and burden and exposure by affected party. A before-and-after impression does not establish that the change caused the result.
 
 No participant recordings, transcripts, names, contact details, or protected community knowledge belong in a public report.

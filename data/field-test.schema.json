@@ -2,18 +2,626 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/risaac09/pureland-fork-kit/data/field-test.schema.json",
   "title": "PureLand field-test record",
+  "description": "Structured evidence record for PureLand version 0.1. Schema conformance does not establish completion, reliability, validity, or a favorable result.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["kit_version", "context", "instrument", "evidence", "failures", "privacy_review"],
+  "required": [
+    "record_id",
+    "kit_version",
+    "test_status",
+    "tested_hypothesis",
+    "scope",
+    "walking_person",
+    "affected_people",
+    "assessor",
+    "second_reader",
+    "practice",
+    "document_access_set",
+    "evidence_available_before_analysis",
+    "disconfirming_condition",
+    "station_completion",
+    "human_observe",
+    "access_readings",
+    "reciprocity_readings",
+    "agency_actions",
+    "party_impacts",
+    "materiality_rule",
+    "disagreements",
+    "participant_objections",
+    "rights_review",
+    "contestability",
+    "adaptation",
+    "follow_up",
+    "outcome",
+    "missing_evidence",
+    "ai_assistance",
+    "public_privacy_review"
+  ],
   "properties": {
+    "record_id": {"type": "string", "pattern": "^FT-[0-9]{3,}$"},
     "kit_version": {"type": "string", "minLength": 1},
-    "context": {"type": "string", "minLength": 1},
-    "instrument": {"enum": ["journey", "practice-frame", "protocol", "scorecard", "extraction-check", "ai-system-annex"]},
-    "evidence": {"type": "array", "items": {"type": "string"}},
-    "failures": {"type": "array", "items": {"type": "string"}, "minItems": 1},
-    "reader_disagreements": {"type": "array", "items": {"type": "string"}},
-    "adaptation": {"type": ["string", "null"]},
-    "ai_assistance": {"type": ["string", "null"]},
-    "privacy_review": {"const": true}
-  }
+    "test_status": {
+      "enum": ["planned", "in-progress", "partial-execution", "follow-up-open", "complete", "closed-private", "unmeasurable", "refused"]
+    },
+    "tested_hypothesis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version", "kind", "statement", "predeclared_before_analysis"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "version": {"type": "string", "minLength": 1},
+        "kind": {"enum": ["primary", "secondary", "design"]},
+        "statement": {"type": "string", "minLength": 1},
+        "predeclared_before_analysis": {"type": "boolean"}
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["coverage", "instrument", "rationale"],
+      "properties": {
+        "coverage": {"enum": ["whole-journey", "single-instrument", "custom"]},
+        "instrument": {
+          "enum": ["journey", "practice-frame", "protocol", "scorecard", "extraction-check", "ai-system-annex", "custom"]
+        },
+        "rationale": {"type": "string", "minLength": 1}
+      }
+    },
+    "walking_person": {"$ref": "#/$defs/walkingPerson"},
+    "affected_people": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/affectedParty"}
+    },
+    "assessor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "description", "relationship_to_practice", "independence"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "description": {"type": "string", "minLength": 1},
+        "relationship_to_practice": {"enum": ["maintainer-side", "affected-person", "external", "mixed", "other"]},
+        "independence": {"enum": ["independent", "not-independent", "unclear"]}
+      }
+    },
+    "second_reader": {"$ref": "#/$defs/secondReader"},
+    "practice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "unit", "boundary", "boundary_rationale", "alternative_boundary", "alternative_boundary_effect"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "unit": {"type": "string", "minLength": 1},
+        "boundary": {"type": "string", "minLength": 1},
+        "boundary_rationale": {"type": "string", "minLength": 1},
+        "alternative_boundary": {"type": "string", "minLength": 1},
+        "alternative_boundary_effect": {"type": "string", "minLength": 1}
+      }
+    },
+    "document_access_set": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "unit", "items", "denominator", "exclusions", "time_window"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "unit": {"type": "string", "minLength": 1},
+        "items": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "denominator": {"type": "integer", "minimum": 1},
+        "exclusions": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "time_window": {"$ref": "#/$defs/timeWindow"}
+      }
+    },
+    "evidence_available_before_analysis": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/evidenceItem"}
+    },
+    "disconfirming_condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["statement", "predeclared_before_analysis", "assessment", "interpretation"],
+      "properties": {
+        "statement": {"type": "string", "minLength": 1},
+        "predeclared_before_analysis": {"type": "boolean"},
+        "assessment": {"enum": ["not-assessed", "met", "partially-met", "not-met", "mixed", "unmeasurable"]},
+        "interpretation": {"type": "string", "minLength": 1}
+      }
+    },
+    "station_completion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ground", "observe", "map", "trace", "adapt", "return"],
+      "properties": {
+        "ground": {"$ref": "#/$defs/stationStatus"},
+        "observe": {"$ref": "#/$defs/stationStatus"},
+        "map": {"$ref": "#/$defs/stationStatus"},
+        "trace": {"$ref": "#/$defs/stationStatus"},
+        "adapt": {"$ref": "#/$defs/stationStatus"},
+        "return": {"$ref": "#/$defs/stationStatus"}
+      }
+    },
+    "human_observe": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "performer", "evidence", "ai_or_design_analysis_substituted"],
+      "properties": {
+        "status": {"enum": ["performed", "not-performed", "not-required"]},
+        "performer": {"type": ["string", "null"]},
+        "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "ai_or_design_analysis_substituted": {"type": "boolean"}
+      }
+    },
+    "access_readings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["understandable", "reachable", "adaptable", "traceable"],
+      "properties": {
+        "understandable": {"$ref": "#/$defs/accessReading"},
+        "reachable": {"$ref": "#/$defs/accessReading"},
+        "adaptable": {"$ref": "#/$defs/accessReading"},
+        "traceable": {"$ref": "#/$defs/accessReading"}
+      }
+    },
+    "reciprocity_readings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["consent", "attribution", "meaningful_return"],
+      "properties": {
+        "consent": {"$ref": "#/$defs/reciprocityReading"},
+        "attribution": {"$ref": "#/$defs/reciprocityReading"},
+        "meaningful_return": {"$ref": "#/$defs/reciprocityReading"}
+      }
+    },
+    "agency_actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/agencyAction"}
+    },
+    "party_impacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/partyImpact"}
+    },
+    "materiality_rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["predeclared_before_analysis", "rule", "dimensions"],
+      "properties": {
+        "predeclared_before_analysis": {"type": "boolean"},
+        "rule": {"type": "string", "minLength": 1},
+        "dimensions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["exposure", "extractability", "shifted-burden"]}
+        }
+      }
+    },
+    "disagreements": {"$ref": "#/$defs/disputeRecord"},
+    "participant_objections": {"$ref": "#/$defs/disputeRecord"},
+    "rights_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "participant_material", "public_return_permission", "research_use_permission", "ai_use_permission", "restrictions", "evidence"],
+      "properties": {
+        "status": {"enum": ["complete", "incomplete", "refused", "unmeasurable"]},
+        "participant_material": {"enum": ["not-used", "authorized", "not-authorized", "unmeasurable"]},
+        "public_return_permission": {"$ref": "#/$defs/permissionStatus"},
+        "research_use_permission": {"$ref": "#/$defs/permissionStatus"},
+        "ai_use_permission": {"$ref": "#/$defs/permissionStatus"},
+        "restrictions": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "contestability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["route_status", "correction_route", "refusal_route", "review_authority", "affected_party_tested", "evidence"],
+      "properties": {
+        "route_status": {"enum": ["usable", "unusable", "absent", "not-tested", "unmeasurable"]},
+        "correction_route": {"type": "string", "minLength": 1},
+        "refusal_route": {"type": "string", "minLength": 1},
+        "review_authority": {"type": "string", "minLength": 1},
+        "affected_party_tested": {"type": "boolean"},
+        "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "adaptation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "description", "consent_status", "executed_on", "evidence", "intended_benefit", "possible_new_harm"],
+      "properties": {
+        "status": {"enum": ["proposed", "approved", "executed", "not-executed", "refused", "not-applicable"]},
+        "description": {"type": "string", "minLength": 1},
+        "consent_status": {"$ref": "#/$defs/permissionStatus"},
+        "executed_on": {"type": ["string", "null"], "format": "date"},
+        "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "intended_benefit": {"type": "string", "minLength": 1},
+        "possible_new_harm": {"type": "string", "minLength": 1}
+      }
+    },
+    "follow_up": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["observation_window", "review_date", "status", "evidence", "finding"],
+      "properties": {
+        "observation_window": {"$ref": "#/$defs/timeWindow"},
+        "review_date": {"type": "string", "format": "date"},
+        "status": {"enum": ["not-started", "open", "complete", "closed-unmeasurable", "refused"]},
+        "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "finding": {"type": "string", "minLength": 1}
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["classification", "return_disposition", "rationale", "causal_claim", "causal_limitations", "competing_explanations"],
+      "properties": {
+        "classification": {"enum": ["supports-tested-context", "weakens-tested-context", "defeats-tested-context", "mixed", "unmeasurable"]},
+        "return_disposition": {"enum": ["public-return", "private-result", "refusal", "unmeasurable", "pending-follow-up"]},
+        "rationale": {"type": "string", "minLength": 1},
+        "causal_claim": {"type": "boolean"},
+        "causal_limitations": {"type": "string", "minLength": 1},
+        "competing_explanations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "missing_evidence": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "ai_assistance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["used", "systems", "tasks", "human_verification", "corrections", "withheld_material"],
+      "properties": {
+        "used": {"type": "boolean"},
+        "systems": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "tasks": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "human_verification": {"type": "string", "minLength": 1},
+        "corrections": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "withheld_material": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "public_privacy_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reviewed_by", "participant_data_included", "safe_for_public_release", "notes"],
+      "properties": {
+        "status": {"const": "complete"},
+        "reviewed_by": {"type": "string", "minLength": 1},
+        "participant_data_included": {"const": false},
+        "safe_for_public_release": {"const": true},
+        "notes": {"type": "string", "minLength": 1}
+      }
+    }
+  },
+  "$defs": {
+    "walkingPerson": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "status", "role", "description"],
+      "properties": {
+        "id": {"type": ["string", "null"]},
+        "status": {"enum": ["present", "absent"]},
+        "role": {"type": "string", "minLength": 1},
+        "description": {"type": "string", "minLength": 1}
+      }
+    },
+    "affectedParty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "description", "role", "relationship_to_practice"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "description": {"type": "string", "minLength": 1},
+        "role": {"enum": ["user", "participant", "worker", "maintainer", "visitor", "buyer", "community", "other"]},
+        "relationship_to_practice": {"type": "string", "minLength": 1}
+      }
+    },
+    "secondReader": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "id", "independent", "relationship_to_practice", "evidence"],
+      "properties": {
+        "status": {"enum": ["none", "planned", "completed"]},
+        "id": {"type": ["string", "null"]},
+        "independent": {"type": ["boolean", "null"]},
+        "relationship_to_practice": {"type": "string", "minLength": 1},
+        "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"const": "completed"}}, "required": ["status"]},
+          "then": {"properties": {"id": {"type": "string", "minLength": 1}, "independent": {"type": "boolean"}}}
+        }
+      ]
+    },
+    "timeWindow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["start", "end", "basis"],
+      "properties": {
+        "start": {"type": ["string", "null"], "format": "date"},
+        "end": {"type": ["string", "null"], "format": "date"},
+        "basis": {"type": "string", "minLength": 1}
+      }
+    },
+    "evidenceItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "description", "source", "available_before_analysis", "public"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "description": {"type": "string", "minLength": 1},
+        "source": {"type": "string", "minLength": 1},
+        "available_before_analysis": {"const": true},
+        "public": {"type": "boolean"}
+      }
+    },
+    "stationStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "status", "evidence"],
+      "properties": {
+        "required": {"type": "boolean"},
+        "status": {"enum": ["not-started", "incomplete", "complete", "not-applicable"]},
+        "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "count": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["category", "count", "denominator"],
+      "properties": {
+        "category": {"type": "string", "minLength": 1},
+        "count": {"type": "integer", "minimum": 0},
+        "denominator": {"type": "integer", "minimum": 1}
+      }
+    },
+    "accessReading": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "finding", "denominator_ref", "counts", "evidence"],
+      "properties": {
+        "status": {"enum": ["observed", "unmeasurable", "not-assessed"]},
+        "finding": {"type": "string", "minLength": 1},
+        "denominator_ref": {"type": ["string", "null"]},
+        "counts": {"type": "array", "items": {"$ref": "#/$defs/count"}},
+        "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "reciprocityReading": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "finding", "affected_party_ids", "evidence"],
+      "properties": {
+        "status": {"enum": ["shared", "usable", "limited", "absent", "unmeasurable", "not-assessed"]},
+        "finding": {"type": "string", "minLength": 1},
+        "affected_party_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "description", "observed_at"],
+      "properties": {
+        "status": {"enum": ["observed", "not-observed", "pending", "unmeasurable", "not-applicable"]},
+        "description": {"type": "string", "minLength": 1},
+        "observed_at": {"type": ["string", "null"], "format": "date"}
+      }
+    },
+    "agencyAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "actor_id", "action", "operational_definition", "predefined_before_analysis", "baseline", "follow_up", "result", "evidence"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "actor_id": {"type": "string", "minLength": 1},
+        "action": {"enum": ["stop", "continue", "question", "correct", "adapt", "refuse"]},
+        "operational_definition": {"type": "string", "minLength": 1},
+        "predefined_before_analysis": {"type": "boolean"},
+        "baseline": {"$ref": "#/$defs/observation"},
+        "follow_up": {"$ref": "#/$defs/observation"},
+        "result": {"enum": ["improved", "weakened", "no-change", "mixed", "unmeasurable", "pending"]},
+        "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "impactReading": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "description", "material_increase", "evidence"],
+      "properties": {
+        "status": {"enum": ["observed", "estimated", "not-observed", "pending", "unmeasurable"]},
+        "description": {"type": "string", "minLength": 1},
+        "material_increase": {"type": ["boolean", "null"]},
+        "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "impactPeriod": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["exposure", "extractability", "shifted_burden"],
+      "properties": {
+        "exposure": {"$ref": "#/$defs/impactReading"},
+        "extractability": {"$ref": "#/$defs/impactReading"},
+        "shifted_burden": {"$ref": "#/$defs/impactReading"}
+      }
+    },
+    "partyImpact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["affected_party_id", "baseline", "follow_up"],
+      "properties": {
+        "affected_party_id": {"type": "string", "minLength": 1},
+        "baseline": {"$ref": "#/$defs/impactPeriod"},
+        "follow_up": {"$ref": "#/$defs/impactPeriod"}
+      }
+    },
+    "disputeItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["party", "issue", "position", "resolution"],
+      "properties": {
+        "party": {"type": "string", "minLength": 1},
+        "issue": {"type": "string", "minLength": 1},
+        "position": {"type": "string", "minLength": 1},
+        "resolution": {"type": "string", "minLength": 1}
+      }
+    },
+    "disputeRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "items"],
+      "properties": {
+        "status": {"enum": ["present", "none-recorded", "not-sought", "unmeasurable"]},
+        "items": {"type": "array", "items": {"$ref": "#/$defs/disputeItem"}}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"const": "present"}}, "required": ["status"]},
+          "then": {"properties": {"items": {"minItems": 1}}}
+        }
+      ]
+    },
+    "permissionStatus": {
+      "enum": ["granted", "not-required", "refused", "unknown", "not-sought"]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "test_status": {"const": "complete"},
+          "station_completion": {"properties": {"ground": {"properties": {"required": {"const": true}}}}}
+        },
+        "required": ["test_status", "station_completion"]
+      },
+      "then": {"properties": {"station_completion": {"properties": {"ground": {"properties": {"status": {"const": "complete"}}}}}}}
+    },
+    {
+      "if": {
+        "properties": {
+          "test_status": {"const": "complete"},
+          "station_completion": {"properties": {"observe": {"properties": {"required": {"const": true}}}}}
+        },
+        "required": ["test_status", "station_completion"]
+      },
+      "then": {
+        "properties": {
+          "station_completion": {"properties": {"observe": {"properties": {"status": {"const": "complete"}}}}},
+          "human_observe": {"properties": {"status": {"const": "performed"}}}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "test_status": {"const": "complete"},
+          "station_completion": {"properties": {"map": {"properties": {"required": {"const": true}}}}}
+        },
+        "required": ["test_status", "station_completion"]
+      },
+      "then": {"properties": {"station_completion": {"properties": {"map": {"properties": {"status": {"const": "complete"}}}}}}}
+    },
+    {
+      "if": {
+        "properties": {
+          "test_status": {"const": "complete"},
+          "station_completion": {"properties": {"trace": {"properties": {"required": {"const": true}}}}}
+        },
+        "required": ["test_status", "station_completion"]
+      },
+      "then": {"properties": {"station_completion": {"properties": {"trace": {"properties": {"status": {"const": "complete"}}}}}}}
+    },
+    {
+      "if": {
+        "properties": {
+          "test_status": {"const": "complete"},
+          "station_completion": {"properties": {"adapt": {"properties": {"required": {"const": true}}}}}
+        },
+        "required": ["test_status", "station_completion"]
+      },
+      "then": {"properties": {"station_completion": {"properties": {"adapt": {"properties": {"status": {"const": "complete"}}}}}}}
+    },
+    {
+      "if": {
+        "properties": {
+          "test_status": {"const": "complete"},
+          "station_completion": {"properties": {"return": {"properties": {"required": {"const": true}}}}}
+        },
+        "required": ["test_status", "station_completion"]
+      },
+      "then": {"properties": {"station_completion": {"properties": {"return": {"properties": {"status": {"const": "complete"}}}}}}}
+    },
+    {
+      "if": {"properties": {"test_status": {"const": "complete"}}, "required": ["test_status"]},
+      "then": {
+        "properties": {
+          "agency_actions": {
+            "contains": {
+              "type": "object",
+              "properties": {"predefined_before_analysis": {"const": true}},
+              "required": ["predefined_before_analysis"]
+            }
+          },
+          "materiality_rule": {"properties": {"predeclared_before_analysis": {"const": true}}},
+          "rights_review": {"properties": {"status": {"const": "complete"}}},
+          "contestability": {
+            "properties": {
+              "route_status": {"const": "usable"},
+              "affected_party_tested": {"const": true}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"rights_review": {"properties": {"status": {"enum": ["incomplete", "refused", "unmeasurable"]}}}}, "required": ["rights_review"]},
+      "then": {"properties": {"outcome": {"properties": {"classification": {"const": "unmeasurable"}}}}}
+    },
+    {
+      "if": {"properties": {"materiality_rule": {"properties": {"predeclared_before_analysis": {"const": false}}}}, "required": ["materiality_rule"]},
+      "then": {"properties": {"outcome": {"properties": {"classification": {"const": "unmeasurable"}}}}}
+    },
+    {
+      "if": {
+        "not": {
+          "properties": {
+            "agency_actions": {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "predefined_before_analysis": {"const": true},
+                  "baseline": {"properties": {"status": {"const": "observed"}}},
+                  "follow_up": {"properties": {"status": {"const": "observed"}}}
+                },
+                "required": ["predefined_before_analysis", "baseline", "follow_up"]
+              }
+            }
+          },
+          "required": ["agency_actions"]
+        }
+      },
+      "then": {"properties": {"outcome": {"properties": {"classification": {"const": "unmeasurable"}}}}}
+    },
+    {
+      "if": {"properties": {"outcome": {"properties": {"classification": {"const": "supports-tested-context"}}}}, "required": ["outcome"]},
+      "then": {
+        "properties": {
+          "rights_review": {"properties": {"status": {"const": "complete"}}},
+          "materiality_rule": {"properties": {"predeclared_before_analysis": {"const": true}}},
+          "contestability": {"properties": {"route_status": {"const": "usable"}, "affected_party_tested": {"const": true}}},
+          "agency_actions": {
+            "contains": {
+              "type": "object",
+              "properties": {
+                "predefined_before_analysis": {"const": true},
+                "baseline": {"properties": {"status": {"const": "observed"}}},
+                "follow_up": {"properties": {"status": {"const": "observed"}}}
+              },
+              "required": ["predefined_before_analysis", "baseline", "follow_up"]
+            }
+          }
+        }
+      }
+    }
+  ]
 }
