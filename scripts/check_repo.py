@@ -135,6 +135,20 @@ def files(suffix: str) -> list[Path]:
     )
 
 
+def record_files() -> list[Path]:
+    """Every JSON under data/ that is a field-test record, not the schema.
+
+    rglob, not glob: records live in data/field-tests/, one level below data/,
+    and a record dropped anywhere else under data/ still has to clear the same
+    privacy boundary. Assumption: every JSON under data/ other than the schema
+    is a field-test record. That holds today. A data file of some other shape
+    would fail against this schema, so add a path filter here before adding one.
+    """
+    return sorted(
+        path for path in (ROOT / "data").rglob("*.json") if path != FIELD_TEST_SCHEMA
+    )
+
+
 def relative(path: Path) -> str:
     return str(path.relative_to(ROOT))
 
@@ -424,8 +438,14 @@ def check_record_rules(path: Path, record: dict[str, Any], errors: list[str]) ->
         errors.append(f"prohibited combined-score field in {record_label}: {key_path}")
 
 
-def check_schema_and_records(json_data: dict[Path, Any], errors: list[str]) -> None:
-    """Validate every field-test record against data/field-test.schema.json."""
+def check_schema_and_records(json_data: dict[Path, Any], errors: list[str]) -> set[Path]:
+    """Validate every field-test record against data/field-test.schema.json.
+
+    Returns the records that conformed. check_record_rules() reads a record by
+    the shape the schema guarantees, so a record that failed here is not handed
+    to it: a contributor who writes a list where the schema says object should
+    get the schema violation, not a traceback.
+    """
     try:
         from jsonschema import Draft202012Validator, FormatChecker
         from jsonschema.exceptions import SchemaError
@@ -433,29 +453,34 @@ def check_schema_and_records(json_data: dict[Path, Any], errors: list[str]) -> N
         errors.append(
             'missing required dependency: install "jsonschema>=4.18" before running scripts/check_repo.py'
         )
-        return
+        return set()
 
     schema = json_data.get(FIELD_TEST_SCHEMA)
     if not isinstance(schema, dict):
         if FIELD_TEST_SCHEMA.exists():
             errors.append("field-test schema present but unreadable; cannot validate data/")
-        return
+        return set()
     try:
         Draft202012Validator.check_schema(schema)
     except SchemaError as exc:
         errors.append(f"invalid field-test schema: {exc.message}")
-        return
+        return set()
 
     validator = Draft202012Validator(schema, format_checker=FormatChecker())
-    for path in sorted(FIELD_TEST_DIR.glob("*.json")):
+    conformant: set[Path] = set()
+    for path in record_files():
         record = json_data.get(path)
         if not isinstance(record, dict):
             continue
-        for violation in sorted(validator.iter_errors(record), key=lambda error: list(error.path)):
+        violations = sorted(validator.iter_errors(record), key=lambda error: list(error.path))
+        for violation in violations:
             location = "/".join(str(part) for part in violation.path) or "<root>"
             errors.append(
                 f"field-test schema violation: {relative(path)}:{location}: {violation.message}"
             )
+        if not violations:
+            conformant.add(path)
+    return conformant
 
 
 def main() -> int:
@@ -481,12 +506,12 @@ def main() -> int:
     # contains; those applicators are exactly where a hand-rolled validator
     # gets it quietly wrong, and this schema is the repo's privacy gate. CI
     # installs the dependency (see .github/workflows/validate.yml).
-    check_schema_and_records(json_data, errors)
+    conformant = check_schema_and_records(json_data, errors)
 
     # Schema conformance is structural. The research arc's rules are semantic:
     # what a record may claim given the rights, contestability, and
     # action-outcome evidence it actually carries. Both have to hold.
-    for path in sorted(FIELD_TEST_DIR.glob("*.json")):
+    for path in sorted(conformant):
         record = json_data.get(path)
         if isinstance(record, dict):
             check_record_rules(path, record, errors)
@@ -571,7 +596,7 @@ def main() -> int:
             print(f"- {error}")
         return 1
 
-    record_count = len(list(FIELD_TEST_DIR.glob("*.json")))
+    record_count = len(record_files())
     print(
         "Repository checks passed: "
         f"{len(files('.md'))} Markdown files, {len(files('.json'))} JSON files, "
