@@ -30,12 +30,13 @@
     "participant_objections",
     "rights_review",
     "contestability",
+    "withdrawal",
     "adaptation",
     "follow_up",
     "outcome",
     "missing_evidence",
     "ai_assistance",
-    "public_privacy_review"
+    "public_safe_review"
   ],
   "properties": {
     "record_id": {"type": "string", "pattern": "^FT-[0-9]{3,}$"},
@@ -202,13 +203,35 @@
     "rights_review": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["status", "participant_material", "public_return_permission", "research_use_permission", "ai_use_permission", "restrictions", "evidence"],
+      "required": [
+        "status",
+        "private_record_status",
+        "participant_material",
+        "community_authority",
+        "recording_permission",
+        "retention_permission",
+        "reviewer_access_permission",
+        "publication_permission",
+        "artifact_approval",
+        "research_use_permission",
+        "ai_processing_permission",
+        "model_training_permission",
+        "restrictions",
+        "evidence"
+      ],
       "properties": {
         "status": {"enum": ["complete", "incomplete", "refused", "unmeasurable"]},
+        "private_record_status": {"enum": ["complete", "incomplete", "not-required", "refused", "unmeasurable"]},
         "participant_material": {"enum": ["not-used", "authorized", "not-authorized", "unmeasurable"]},
-        "public_return_permission": {"$ref": "#/$defs/permissionStatus"},
+        "community_authority": {"enum": ["not-applicable", "established", "absent", "disputed", "unmeasurable"]},
+        "recording_permission": {"$ref": "#/$defs/permissionStatus"},
+        "retention_permission": {"$ref": "#/$defs/permissionStatus"},
+        "reviewer_access_permission": {"$ref": "#/$defs/permissionStatus"},
+        "publication_permission": {"$ref": "#/$defs/permissionStatus"},
+        "artifact_approval": {"$ref": "#/$defs/permissionStatus"},
         "research_use_permission": {"$ref": "#/$defs/permissionStatus"},
-        "ai_use_permission": {"$ref": "#/$defs/permissionStatus"},
+        "ai_processing_permission": {"$ref": "#/$defs/permissionStatus"},
+        "model_training_permission": {"$ref": "#/$defs/permissionStatus"},
         "restrictions": {"type": "array", "items": {"type": "string", "minLength": 1}},
         "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
       }
@@ -216,14 +239,26 @@
     "contestability": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["route_status", "correction_route", "refusal_route", "review_authority", "affected_party_tested", "evidence"],
+      "required": ["route_status", "correction_route", "takedown_route", "refusal_route", "review_authority", "affected_party_tested", "evidence"],
       "properties": {
         "route_status": {"enum": ["usable", "unusable", "absent", "not-tested", "unmeasurable"]},
         "correction_route": {"type": "string", "minLength": 1},
+        "takedown_route": {"type": "string", "minLength": 1},
         "refusal_route": {"type": "string", "minLength": 1},
         "review_authority": {"type": "string", "minLength": 1},
         "affected_party_tested": {"type": "boolean"},
         "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "withdrawal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "route", "actions", "known_limits"],
+      "properties": {
+        "status": {"enum": ["not-requested", "pending", "acted", "partially-acted", "refused", "unmeasurable"]},
+        "route": {"type": "string", "minLength": 1},
+        "actions": {"type": "array", "items": {"$ref": "#/$defs/withdrawalAction"}},
+        "known_limits": {"type": "array", "items": {"type": "string", "minLength": 1}}
       }
     },
     "adaptation": {
@@ -279,16 +314,63 @@
         "withheld_material": {"type": "array", "items": {"type": "string", "minLength": 1}}
       }
     },
-    "public_privacy_review": {
+    "public_safe_review": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["status", "reviewed_by", "participant_data_included", "safe_for_public_release", "notes"],
+      "required": [
+        "artifact_id",
+        "artifact_version",
+        "decision",
+        "reviewer_identity_or_role",
+        "decision_date",
+        "review_date",
+        "categories"
+      ],
       "properties": {
-        "status": {"const": "complete"},
-        "reviewed_by": {"type": "string", "minLength": 1},
-        "participant_data_included": {"const": false},
-        "safe_for_public_release": {"const": true},
-        "notes": {"type": "string", "minLength": 1}
+        "artifact_id": {"type": "string", "minLength": 1},
+        "artifact_version": {"type": "string", "minLength": 1},
+        "decision": {"enum": ["clear", "blocked", "not-yet-clear"]},
+        "reviewer_identity_or_role": {"type": "string", "minLength": 1},
+        "decision_date": {"type": "string", "format": "date"},
+        "review_date": {"type": "string", "format": "date"},
+        "categories": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "participant_material",
+            "direct_identifiers",
+            "indirect_identifiers",
+            "confidential_records",
+            "client_records",
+            "protected_community_knowledge",
+            "third_party_copyright",
+            "privacy_interests",
+            "publicity_interests",
+            "artifact_specific_permission",
+            "reidentification_risk",
+            "attribution_risk",
+            "ai_processing",
+            "model_training",
+            "retention_withdrawal"
+          ],
+          "properties": {
+            "participant_material": {"$ref": "#/$defs/publicSafeCategory"},
+            "direct_identifiers": {"$ref": "#/$defs/publicSafeCategory"},
+            "indirect_identifiers": {"$ref": "#/$defs/publicSafeCategory"},
+            "confidential_records": {"$ref": "#/$defs/publicSafeCategory"},
+            "client_records": {"$ref": "#/$defs/publicSafeCategory"},
+            "protected_community_knowledge": {"$ref": "#/$defs/publicSafeCategory"},
+            "third_party_copyright": {"$ref": "#/$defs/publicSafeCategory"},
+            "privacy_interests": {"$ref": "#/$defs/publicSafeCategory"},
+            "publicity_interests": {"$ref": "#/$defs/publicSafeCategory"},
+            "artifact_specific_permission": {"$ref": "#/$defs/publicSafeCategory"},
+            "reidentification_risk": {"$ref": "#/$defs/publicSafeCategory"},
+            "attribution_risk": {"$ref": "#/$defs/publicSafeCategory"},
+            "ai_processing": {"$ref": "#/$defs/publicSafeCategory"},
+            "model_training": {"$ref": "#/$defs/publicSafeCategory"},
+            "retention_withdrawal": {"$ref": "#/$defs/publicSafeCategory"}
+          }
+        }
       }
     }
   },
@@ -480,6 +562,29 @@
           "then": {"properties": {"items": {"minItems": 1}}}
         }
       ]
+    },
+    "withdrawalAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["request_date", "action", "action_date", "status", "remaining_material_and_reason"],
+      "properties": {
+        "request_date": {"type": ["string", "null"], "format": "date"},
+        "action": {"type": "string", "minLength": 1},
+        "action_date": {"type": ["string", "null"], "format": "date"},
+        "status": {"enum": ["pending", "complete", "partial", "not-possible", "refused"]},
+        "remaining_material_and_reason": {"type": "string", "minLength": 1}
+      }
+    },
+    "publicSafeCategory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "basis_summary_public", "limits", "actions_required"],
+      "properties": {
+        "status": {"enum": ["clear", "blocked", "not-yet-clear", "not-applicable"]},
+        "basis_summary_public": {"type": "string", "minLength": 1},
+        "limits": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "actions_required": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
     },
     "permissionStatus": {
       "enum": ["granted", "not-required", "refused", "unknown", "not-sought"]

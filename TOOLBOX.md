@@ -39,8 +39,6 @@ The toolbox is the forkable part of PureLand. It contains the instruments, templ
 - [CONTRIBUTING.md](CONTRIBUTING.md): corrections, tests, disagreements, refusals, and adaptations.
 - [GOVERNANCE.md](GOVERNANCE.md): review and release authority.
 
-[PURELAND.md](PURELAND.md) remains a compatibility route for older links. It is not a seventh research function.
-
 ## Reuse safely
 
 - [LICENSE.md](LICENSE.md): license boundaries and attribution.

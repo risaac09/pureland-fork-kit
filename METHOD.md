@@ -52,7 +52,7 @@ The journey is the recommended first path. A test of one instrument remains vali
 
 - If the inquiry records an encounter or uses participant material, follow the [facilitation protocol](PROTOCOL.md) and [rights and consent guide](RIGHTS-AND-CONSENT.md).
 - If the practice includes a model, recommender, agent, transcription service, automated decision, or generative interface, define the audited unit with the [AI system annex](AI-SYSTEM-ANNEX.md).
-- Recording is optional. Publication, research use, and AI use are separate permission decisions.
+- Recording is optional. Retention, named-reviewer access, publication, approval of each artifact version, research use, AI processing, and model training are separate decisions.
 
 ## Required record
 
@@ -67,11 +67,11 @@ Every test records:
 - each predefined agency action with its baseline and follow-up;
 - burden, exposure, and extractability for each affected party;
 - materiality rule, disagreement, participant objection, correction route, refusal route, and review authority;
-- permission, rights review, adaptation status, intended benefit, possible new harm, review date, and follow-up;
-- outcome classification, return disposition, AI assistance, and public privacy review.
+- separate permission decisions, community authority where relevant, rights review, withdrawal actions, adaptation status, intended benefit, possible new harm, review date, and follow-up;
+- outcome classification, return disposition, AI assistance, and artifact-version public-safe review.
 
 The method does not produce an average or composite score. It does not convert a before-and-after impression into a causal claim. [The hypothesis](HYPOTHESIS.md) defines the classification rule.
 
 ## Output
 
-The normal public output is a rights-cleared field report plus its structured record. Participant recordings, consent records, identifying information, confidential records, and protected community knowledge do not enter this repository.
+The output may be a cleared public field report, a private result, a refusal, or an `unmeasurable` record. Publication is not required. A report and structured record may enter the public repository only after the exact artifact versions receive a `clear` public-safe decision. Participant recordings, consent records, identifying information, confidential or client records, and protected community knowledge do not enter this repository.

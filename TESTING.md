@@ -22,7 +22,7 @@ Follow [FIELD-TESTING.md](FIELD-TESTING.md). Record:
 4. the assessor relationship, second-reader plan, evidence available before analysis, and disconfirming condition;
 5. one or more concrete actions from `stop`, `continue`, `question`, `correct`, `adapt`, or `refuse`;
 6. the baseline, expected follow-up, and materiality rule for each action and affected party;
-7. permission, rights-review, public-return, research-use, and AI-use status.
+7. separate decisions for recording, retention, named-reviewer access, publication, artifact approval, research use, AI processing, and model training, plus the rights-review status.
 
 If a test includes participant material, the [facilitation protocol](PROTOCOL.md) and [rights and consent guide](RIGHTS-AND-CONSENT.md) control. Public testing does not override consent.
 
@@ -46,9 +46,9 @@ A record with missing required stations may conform to the schema only as a part
 
 Use the [field-test template](templates/field-test.md) and structured [schema](data/field-test.schema.json). Accepted public-safe reports enter the [field-trial ledger](FIELD-TRIALS.md) as inspectable records, not endorsements.
 
-## Version 0.2 evidence gate
+## Provisional version 0.2 planning target
 
-Seek five to ten independent applications across at least three contexts. Use two readers where practical. Preserve disagreements, objections, failed adaptations, missing evidence, and instrument changes. Passing this research gate does not validate the method by itself.
+The current planning target is five to ten independent applications across at least three contexts, with two readers where practical. Those numbers are maintainer-chosen and have no derived empirical basis. Revise them when feasibility or design evidence warrants it. Preserve disagreements, objections, failed adaptations, missing evidence, and instrument changes. Meeting this target would not validate the method by itself.
 
 ## Current open tests
 
@@ -56,4 +56,4 @@ Seek five to ten independent applications across at least three contexts. Use tw
 - Does the full journey add enough value over the extraction check alone to justify its burden?
 - Can the traceable construct distinguish missing provenance from intentional, accountable deletion?
 - Can two readers bound the same practice and produce comparable denominators?
-- Does the applied [PureLand](PURELAND.md) experience improve completion and report quality over the toolbox alone?
+- Does the full journey improve completion and report quality over a single-instrument entry?

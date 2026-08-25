@@ -26,7 +26,6 @@ REQUIRED_ARCHITECTURE = [
     "METHOD.md",
     "TOOLBOX.md",
     "HYPOTHESIS.md",
-    "PURELAND.md",
     "TESTING.md",
     "CURRENT-EVIDENCE.md",
     "RESEARCH-STATUS.md",
@@ -77,6 +76,8 @@ REQUIRED_FT001_PATHS = [
     ("participant_objections", "status"),
     ("rights_review", "status"),
     ("contestability", "route_status"),
+    ("contestability", "takedown_route"),
+    ("withdrawal", "status"),
     ("adaptation", "status"),
     ("adaptation", "intended_benefit"),
     ("adaptation", "possible_new_harm"),
@@ -87,7 +88,9 @@ REQUIRED_FT001_PATHS = [
     ("outcome", "return_disposition"),
     ("outcome", "causal_claim"),
     ("ai_assistance", "used"),
-    ("public_privacy_review", "status"),
+    ("public_safe_review", "artifact_version"),
+    ("public_safe_review", "decision"),
+    ("public_safe_review", "categories", "artifact_specific_permission", "status"),
 ]
 
 
@@ -243,6 +246,40 @@ def check_record_rules(path: Path, record: dict[str, Any], errors: list[str]) ->
         or record.get("contestability", {}).get("affected_party_tested") is not True
     ):
         errors.append(f"{record_label} cannot support the hypothesis without tested, usable contestability")
+
+    rights_review = record.get("rights_review", {})
+    allowed_public_permissions = {"granted", "not-required"}
+    public_safe_review = record.get("public_safe_review", {})
+    public_safe_categories = public_safe_review.get("categories", {})
+    if public_safe_review.get("decision") != "clear":
+        errors.append(f"{record_label} public record lacks a clear artifact-version public-safe decision")
+    unclear_categories = sorted(
+        name
+        for name, category in public_safe_categories.items()
+        if category.get("status") in {"blocked", "not-yet-clear"}
+    )
+    if unclear_categories:
+        errors.append(
+            f"{record_label} public-safe decision conflicts with uncleared categories: "
+            f"{', '.join(unclear_categories)}"
+        )
+    for permission in ("publication_permission", "artifact_approval"):
+        if rights_review.get(permission) not in allowed_public_permissions:
+            errors.append(f"{record_label} public record lacks {permission.replace('_', ' ')}")
+    if (
+        record.get("ai_assistance", {}).get("used") is True
+        and rights_review.get("ai_processing_permission") not in allowed_public_permissions
+    ):
+        errors.append(f"{record_label} records AI use without AI-processing permission")
+    if (
+        rights_review.get("model_training_permission") in {"unknown", "not-sought"}
+        and public_safe_categories.get("model_training", {}).get("status") == "clear"
+    ):
+        errors.append(f"{record_label} clears model training without a recorded decision")
+
+    withdrawal = record.get("withdrawal", {})
+    if withdrawal.get("status") in {"acted", "partially-acted"} and not withdrawal.get("actions"):
+        errors.append(f"{record_label} records withdrawal action without an action history")
 
     access_set = record.get("document_access_set", {})
     if access_set.get("denominator") != len(access_set.get("items", [])):

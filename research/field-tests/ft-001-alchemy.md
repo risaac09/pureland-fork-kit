@@ -131,7 +131,7 @@ No affected-party follow-up result is available. The record therefore makes no f
 
 Two assessor-side disagreements remain open:
 
-1. The traceable construct reads missing retained provenance as a gap. Alchemy treats visible, accountable ephemerality as an intentional feature. The instrument needs separate categories without treating deletion as favorable by default.
+1. The traceable construct at the assessed kit version read missing retained provenance as a gap. Alchemy treats visible, accountable ephemerality as an intentional feature. The current scorecard now separates documented intentional deletion from missing provenance without treating deletion as favorable by default. That revision remains untested.
 2. The assessor interpreted the journey as adding some analytic value. Familiarity, review time, or the extraction-check vocabulary alone may explain the same reading.
 
 Participant-objection status: `not-sought`. No affected user challenged the analysis, correction route, refusal route, or intended benefit.
@@ -152,13 +152,17 @@ The assessor selected one README paragraph naming GitHub issues as the inbound r
 
 ## Rights, privacy, and public return
 
-The test used public repository evidence and no participant material. The owner permitted the repository analysis, AI assistance, research use, and public return. This report does not permit claims about affected-user experience.
+The test used public repository evidence and no participant material. Recording, retention of participant material, named-reviewer access to protected material, participant artifact approval, and model training were not required. The pre-integration record documented owner permission for repository analysis, research use, AI processing of public evidence, and public return. No community authority was implicated. This report does not permit claims about affected-user experience. The maintainer has not authorized a push or release of this local version.
 
-Public privacy review:
+The protected correction and takedown route is defined in [SECURITY.md](../../SECURITY.md). No withdrawal was requested. The project cannot guarantee removal from external copies, archives, backups, model weights, or downstream adaptations it does not control.
 
-- [x] No participant recordings, transcripts, identifying data, contact details, or protected knowledge are included.
-- [x] Every linked artifact is public and rights-cleared for this record.
-- [x] AI assistance and human verification are disclosed.
+Artifact-version public-safe review:
+
+- Artifact: `FT-001-public-report-and-record`, version `FT-001-integrated-v0.1-2026-08-24`.
+- Decision: `clear`, reviewed on 2026-08-24 by the Codex integration reviewer under the maintainer-directed task.
+- No participant material, direct or indirect participant identifiers, confidential or client records, or protected community knowledge is included.
+- Source ownership, third-party copyright boundaries, privacy, publicity, re-identification, attribution, AI processing, model training, retention, and withdrawal were reviewed separately in the structured record.
+- The existing remote FT-001 record is a different version. This content review does not authorize a Git push; human publication approval remains a separate repository action.
 
 ## Outcome
 

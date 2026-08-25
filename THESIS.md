@@ -19,7 +19,7 @@ PureLand therefore uses six public research functions:
 3. the [toolbox](TOOLBOX.md) holds the reusable instruments and controls;
 4. the [hypothesis](HYPOTHESIS.md) names what can be tested and defeated;
 5. [testing](TESTING.md) defines how evidence enters; and
-6. [current evidence](RESEARCH-STATUS.md) records what the project supports, contradicts, or cannot yet measure.
+6. [current evidence](CURRENT-EVIDENCE.md) holds the observed record, counterexplanations, missing evidence, and narrow current conclusion.
 
 The fork kit remains inside this structure as the toolbox. It is not being discarded.
 
@@ -48,10 +48,10 @@ PureLand uses the phrase **attention sovereignty** to name practical agency over
 - Opening a system can increase exposure. The access question has to keep that cost visible.
 - Privacy and closure are not automatic failures. Their reason, authority, cost, and review path matter.
 - Measurement must not erase missing evidence or disagreement.
-- Recording, retention, publication, research, and AI use require separate consent decisions.
+- Recording, retention, named-reviewer access, publication, artifact approval, research use, AI processing, and model training require separate decisions.
 - A fork is incomplete when methods travel outward but learning, credit, correction, or value cannot travel back.
 - A public result must stay inside the rights and consent that permit its release.
 
 ## Status
 
-The thesis is a version 0.1 organizing argument. One maintainer-side partial dry run has exposed problems in the journey. No independent field trial, reliability estimate, validity result, benchmark, threshold, certification, or outcome estimate exists. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md) and [FIELD-TRIALS.md](FIELD-TRIALS.md).
+The thesis is a version 0.1 organizing argument. One maintainer-side partial dry run has exposed problems in the journey. No independent field trial, reliability estimate, validity result, benchmark, threshold, certification, or outcome estimate exists. See [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md), [RESEARCH-STATUS.md](RESEARCH-STATUS.md), and [FIELD-TRIALS.md](FIELD-TRIALS.md).

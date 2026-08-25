@@ -34,6 +34,6 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim.
 
-## Version 0.2 gate
+## Provisional version 0.2 planning target
 
-Seek five to ten independent applications in at least three contexts. Use two readers where practical. Keep the record of disagreement, participant objections, failed adaptations, missing evidence, and changes to the instrument. Do not tune only toward agreement.
+The current planning target is five to ten independent applications in at least three contexts, with two readers where practical. Those numbers are maintainer-chosen and have no derived empirical basis. Keep the record of disagreement, participant objections, failed adaptations, missing evidence, and changes to the instrument. Do not tune only toward agreement.

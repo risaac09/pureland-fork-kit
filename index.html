@@ -237,7 +237,13 @@
   }
   .ledger-row:first-child { border-top: none; }
   .ledger-numeral { color: var(--color-accent); }
-  .ledger-label { text-transform: uppercase; color: var(--color-text); }
+  .ledger-label {
+    display: inline-block;
+    line-height: 1.4;
+    padding: 0.08em 0;
+    text-transform: uppercase;
+    color: var(--color-text);
+  }
   .ledger-desc {
     grid-column: 2;
     font-family: var(--font-body);
@@ -413,7 +419,7 @@
         </div>
         <div class="ledger-row">
           <span class="ledger-numeral">VI</span>
-          <div><a class="ledger-label" href="RESEARCH-STATUS.md">Current evidence</a><div class="ledger-desc">What the record supports, contradicts, or cannot measure.</div></div>
+          <div><a class="ledger-label" href="CURRENT-EVIDENCE.md">Current evidence</a><div class="ledger-desc">Observed record, counterexplanations, missing evidence, and current conclusion.</div></div>
         </div>
       </div>
     </div>
@@ -490,11 +496,11 @@
       <div class="fork-table">
         <div class="fork-col">
           <span class="eyebrow out">leaves the origin</span>
-          <p>Walk the journey, the method's one curated path. Fork the instruments. Submit a public-safe field test. Document a failure or refusal. Propose a correction through the contribution process.</p>
+          <p>Walk the journey, the method's one curated path. Fork the instruments. Open a public-safe Stage 1 scoping issue. Document a failure or refusal. Propose a correction through the contribution process.</p>
         </div>
         <div class="fork-col">
           <span class="eyebrow back">returns</span>
-          <p>A public-safe field report when permitted, plus a correction, disagreement, refusal, or method revision, recorded, not smoothed over.</p>
+          <p>A cleared public report when permitted, or private learning, refusal, unmeasurable, correction, disagreement, or method revision, recorded, not smoothed over.</p>
         </div>
       </div>
     </div>

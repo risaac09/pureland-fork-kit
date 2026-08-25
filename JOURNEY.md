@@ -55,11 +55,11 @@ Choose one small change to test from what stations 2 through 4 surfaced. Record 
 
 ## 6. Return
 
-Write up what happened with the [field-test template](templates/field-test.md) and submit it as an issue or pull request, following [FIELD-TESTING.md](FIELD-TESTING.md). A useful report includes what failed, what it cost, and the context. A report may cover the whole walk or a single station. No participant material, identifying data, or protected community knowledge belongs in a public report.
+Write up what happened with the [field-test template](templates/field-test.md), following [FIELD-TESTING.md](FIELD-TESTING.md). The public issue form is only for Stage 1 scoping. Do not place a completed report, evidence link, or protected detail there. A report may cover the whole walk or a single station, but it may enter a pull request only after the exact report and record versions receive a `clear` public-safe decision.
 
 Collect no participant material by default. Return can remain private or withheld when publication permission, privacy, confidentiality, or community authority requires it. Record the public classification without exposing the protected reason or material.
 
-Accepted reports join the [field-trial ledger](FIELD-TRIALS.md) as links, not endorsements.
+Cleared and accepted reports join the [field-trial ledger](FIELD-TRIALS.md) as links, not endorsements. Private learning, refusal, and `unmeasurable` outcomes may end without a public report.
 
 ## When the path ends
 

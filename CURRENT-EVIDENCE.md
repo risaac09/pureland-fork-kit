@@ -36,7 +36,7 @@ The record cannot separate these explanations.
 - An AI assessor could not perform the body-based Observe station. Design analysis did not substitute for human first-person evidence.
 - No second reader was available.
 - The assessor chose the seven-surface boundary. A different boundary would change the artifact denominators.
-- The traceable construct treated retained provenance as a virtue while Alchemy used intentional deletion as a visible design feature. Missing provenance and accountable ephemerality need separate readings.
+- The assessed traceable construct treated retained provenance as a virtue while Alchemy used intentional deletion as a visible design feature. The current scorecard now separates documented intentional deletion from missing provenance, but no independent test has shown that readers can apply the distinction consistently.
 - No affected user challenged the reading, correction route, refusal route, or proposed benefit.
 - The original test did not predefine a person-level agency action and materiality rule.
 
@@ -74,4 +74,4 @@ The conclusion should strengthen only if independent tests show useful, contesta
 - use two independent readers and preserve their disagreements;
 - test a different boundary and show how the artifact readings change;
 - close the FT-001 follow-up after 2026-11-22 with the inbound-report count, burden, possible harm, and affected-party response;
-- seek five to ten independent applications across at least three contexts, with public records only where rights and consent permit.
+- test whether the maintainer's provisional target of five to ten independent applications across at least three contexts is feasible and useful; the numbers have no derived empirical basis, and public records remain optional where rights and consent permit.

@@ -20,7 +20,7 @@ Read the project in this order:
 3. [The PureLand toolbox](TOOLBOX.md): the forkable instruments, templates, controls, and public-safe records.
 4. [The PureLand hypothesis](HYPOTHESIS.md): the primary testable claim and what would count against it.
 5. [Testing](TESTING.md): the testing program and evidence discipline.
-6. [Current evidence](RESEARCH-STATUS.md): what the record supports, contradicts, or cannot yet measure.
+6. [Current evidence](CURRENT-EVIDENCE.md): the observed record, counterexplanations, missing evidence, and narrow current conclusion.
 
 The [brief](BRIEF.md) gives a shorter external overview.
 
@@ -34,12 +34,12 @@ The toolbox includes the [practice frame](PRACTICE-FRAME.md), [openness scorecar
 
 The only public test record is [FT-001](research/field-tests/ft-001-alchemy.md), a maintainer-side, AI-assisted partial dry run on Alchemy. No human performed Observe. No second reader or affected user challenged the reading. The assessor chose the seven-surface boundary. The assessor interpreted the journey as adding some analysis, but FT-001 cannot separate that effect from familiarity, time spent, or the extraction check alone. It also records a conflict between traceability and intentional deletion, plus one executed adaptation with an open follow-up window.
 
-FT-001 shows no reliability, validity, causal effect, or attention-sovereignty outcome. See the [field-trial ledger](FIELD-TRIALS.md) and [research-status ledger](RESEARCH-STATUS.md).
+FT-001 shows no reliability, validity, causal effect, or attention-sovereignty outcome. See [current evidence](CURRENT-EVIDENCE.md), the [field-trial ledger](FIELD-TRIALS.md), and the [research-status ledger](RESEARCH-STATUS.md).
 
 ## Public boundary
 
 The repository contains methods, templates, and public-safe field-test records. It does not contain participant recordings, transcripts, identifying data, confidential records, consent registers, relationship notes, or protected community knowledge.
 
-Recording, retention, review, publication, research, and AI use require separate consent decisions. A license does not create permission for participant or third-party material. See [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md) and [LICENSE.md](LICENSE.md).
+Recording, retention, access by each named reviewer, publication, approval of each artifact version, research use, AI processing, and model training require separate decisions. A license does not create permission for participant or third-party material. See [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md) and [LICENSE.md](LICENSE.md).
 
 Corrections, field tests, disagreements, refusals, and adaptations are welcome through [CONTRIBUTING.md](CONTRIBUTING.md) and [GOVERNANCE.md](GOVERNANCE.md).

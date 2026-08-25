@@ -15,4 +15,6 @@ python3 scripts/check_repo.py
 
 CI must install that dependency before running `scripts/check_repo.py`. The checker fails with an explicit message when the package is absent. It never skips schema validation.
 
-Field-test JSON may be submitted only when every value is safe for public release. A partial execution may conform when it records incomplete work and an allowed non-completion status. It may not claim completion or turn absent outcome or rights evidence into favorable support.
+Field-test JSON may enter a public pull request only when its exact artifact version has a `clear` public-safe decision. The public issue form is Stage 1 scoping only and must not contain a completed record or evidence link. A partial execution may conform when it records incomplete work and an allowed non-completion status. It may not claim completion or turn absent outcome or rights evidence into favorable support.
+
+Detailed private rights records belong outside this directory. They hold participant decisions, authority, provider and model details, inputs, access, retention, training decisions, withdrawal actions, and known limits. Do not commit a completed private record here.

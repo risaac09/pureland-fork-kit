@@ -376,10 +376,17 @@
   },
   "rights_review": {
     "status": "complete",
+    "private_record_status": "not-required",
     "participant_material": "not-used",
-    "public_return_permission": "granted",
+    "community_authority": "not-applicable",
+    "recording_permission": "not-required",
+    "retention_permission": "not-required",
+    "reviewer_access_permission": "not-required",
+    "publication_permission": "granted",
+    "artifact_approval": "not-required",
     "research_use_permission": "granted",
-    "ai_use_permission": "granted",
+    "ai_processing_permission": "granted",
+    "model_training_permission": "not-required",
     "restrictions": [
       "No participant recordings, transcripts, names, contact details, or protected knowledge may enter the public record.",
       "The record supports repository analysis only, not affected-user experience."
@@ -389,10 +396,20 @@
   "contestability": {
     "route_status": "not-tested",
     "correction_route": "Alchemy pull request 15 added a README route for corrections and field reports through GitHub issues.",
+    "takedown_route": "Protected correction or takedown requests use the confidential route described in PureLand SECURITY.md; no affected party tested it in FT-001.",
     "refusal_route": "No participant material was requested. The test did not ask an affected user to exercise a refusal route for the reading or its return.",
     "review_authority": "The Alchemy and PureLand maintainer",
     "affected_party_tested": false,
     "evidence": ["https://github.com/risaac09/alchemy/pull/15"]
+  },
+  "withdrawal": {
+    "status": "not-requested",
+    "route": "Use the protected correction or takedown route in SECURITY.md for material the project controls.",
+    "actions": [],
+    "known_limits": [
+      "No participant material entered FT-001.",
+      "The project cannot guarantee removal from external copies, archives, backups, model weights, or downstream adaptations it does not control."
+    ]
   },
   "adaptation": {
     "status": "executed",
@@ -450,11 +467,104 @@
     ],
     "withheld_material": ["No private or participant material was provided to the AI assessor or included in the public record."]
   },
-  "public_privacy_review": {
-    "status": "complete",
-    "reviewed_by": "Maintainer-side review",
-    "participant_data_included": false,
-    "safe_for_public_release": true,
-    "notes": "The record uses public repository evidence and contains no participant recordings, transcripts, identifying data, contact details, or protected community knowledge."
+  "public_safe_review": {
+    "artifact_id": "FT-001-public-report-and-record",
+    "artifact_version": "FT-001-integrated-v0.1-2026-08-24",
+    "decision": "clear",
+    "reviewer_identity_or_role": "Codex integration reviewer under maintainer-directed task",
+    "decision_date": "2026-08-24",
+    "review_date": "2026-11-22",
+    "categories": {
+      "participant_material": {
+        "status": "clear",
+        "basis_summary_public": "The draft uses public repository evidence and contains no participant material.",
+        "limits": ["No affected-user testimony was collected or assessed."],
+        "actions_required": []
+      },
+      "direct_identifiers": {
+        "status": "clear",
+        "basis_summary_public": "The draft contains no participant names, contact details, or direct identifiers.",
+        "limits": ["The maintainer and public projects remain named as source owners."],
+        "actions_required": []
+      },
+      "indirect_identifiers": {
+        "status": "clear",
+        "basis_summary_public": "Affected people appear only as broad public-safe groups.",
+        "limits": ["No group description may be expanded with protected context before another review."],
+        "actions_required": []
+      },
+      "confidential_records": {
+        "status": "not-applicable",
+        "basis_summary_public": "No confidential record entered the analysis.",
+        "limits": [],
+        "actions_required": []
+      },
+      "client_records": {
+        "status": "not-applicable",
+        "basis_summary_public": "No client record entered the analysis.",
+        "limits": [],
+        "actions_required": []
+      },
+      "protected_community_knowledge": {
+        "status": "not-applicable",
+        "basis_summary_public": "No protected or community-held knowledge entered the analysis.",
+        "limits": ["No individual can expand this scope on behalf of a community without established authority."],
+        "actions_required": []
+      },
+      "third_party_copyright": {
+        "status": "clear",
+        "basis_summary_public": "The draft summarizes and links public repository evidence without reproducing protected third-party artifacts.",
+        "limits": ["Linked repositories retain their own license boundaries."],
+        "actions_required": []
+      },
+      "privacy_interests": {
+        "status": "clear",
+        "basis_summary_public": "No private person-level record or participant experience is disclosed.",
+        "limits": ["The analysis cannot support claims about affected-user experience."],
+        "actions_required": []
+      },
+      "publicity_interests": {
+        "status": "clear",
+        "basis_summary_public": "The draft names only the maintainer and public projects already identified in the source repositories.",
+        "limits": ["No participant attribution is authorized or implied."],
+        "actions_required": []
+      },
+      "artifact_specific_permission": {
+        "status": "clear",
+        "basis_summary_public": "The integrated report and JSON use project-controlled prose and cited public repository evidence. No participant artifact approval is required because no participant material entered the record.",
+        "limits": ["The existing remote FT-001 record is a different version; this content clearance does not authorize a Git push or release."],
+        "actions_required": []
+      },
+      "reidentification_risk": {
+        "status": "clear",
+        "basis_summary_public": "No person-level participant data or combination of protected details appears in the draft.",
+        "limits": ["Any added affected-party detail requires a new review."],
+        "actions_required": []
+      },
+      "attribution_risk": {
+        "status": "clear",
+        "basis_summary_public": "Source ownership and AI assistance are disclosed without forcing participant attribution.",
+        "limits": ["Attribution does not establish endorsement or participant agreement."],
+        "actions_required": []
+      },
+      "ai_processing": {
+        "status": "clear",
+        "basis_summary_public": "AI processing used public repository material and is disclosed in the record.",
+        "limits": ["No private or participant material was provided to the AI systems."],
+        "actions_required": []
+      },
+      "model_training": {
+        "status": "not-applicable",
+        "basis_summary_public": "FT-001 did not authorize or conduct model training or fine-tuning on participant material.",
+        "limits": ["Provider-side training terms were not assessed as participant evidence because no participant material was used."],
+        "actions_required": []
+      },
+      "retention_withdrawal": {
+        "status": "not-applicable",
+        "basis_summary_public": "No participant material was retained and no withdrawal request was made.",
+        "limits": ["External public repository copies remain outside the project's complete control."],
+        "actions_required": []
+      }
+    }
   }
 }

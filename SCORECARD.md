@@ -66,7 +66,9 @@ Extraction question: which obligations and benefits survive the fork?
 
 Can we see what happened? Can a claim or artifact be followed back to its attributed source, through an open record of how it changed?
 
-Count verified, partly verified, unverified, and intentionally anonymous items separately. Anonymity is not automatically a traceability failure. The evidence may be held through a protected identifier or a trusted steward.
+Count verified, partly verified, unverified, intentionally anonymous, and intentionally deleted items separately. Anonymity is not automatically a traceability failure. The evidence may be held through a protected identifier or a trusted steward.
+
+When deletion protects an affected person, do not preserve the deleted content to improve a traceability result. Record only the public-safe deletion rule, authority, date or window, review route, and any permitted tombstone. Intentional deletion is neither automatically favorable nor automatically a failure. Keep it separate from missing provenance.
 
 | Status | Count | Evidence | Risk |
 |---|---|---|---|
@@ -74,6 +76,7 @@ Count verified, partly verified, unverified, and intentionally anonymous items s
 | Partly verified | | | |
 | Unverified | | | |
 | Intentionally anonymous | | | |
+| Intentionally deleted under a documented rule | | | |
 
 Extraction question: does traceability create a re-identification or surveillance risk?
 

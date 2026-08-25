@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Reframed PureLand as a version 0.1 research-program prototype with six public functions: thesis, method, toolbox, hypothesis, testing, and current evidence. PureLand remains the program name, and the existing forkable instruments remain the toolbox.
+- Integrated the architecture, measurement, and rights lanes; removed four unpublished compatibility layers; made public issues Stage 1 scoping only; replaced the Boolean privacy check with an artifact-version public-safe review; and separated documented intentional deletion from missing provenance.
 - Narrowed FT-001 and Alchemy claims, removed an unsupported information-theory contribution, replaced the three-layer visual motif, and added boundaries around the PureLand name, adapted ensō, generosity definition, and attention-sovereignty language.
 - FT-001's bounded adaptation executed on owner consent: the Alchemy README now documents the inbound route for corrections and field reports (alchemy PR #15). The record moves from proposed to executed; the 90-day window runs to the 2026-11-22 review. The record also notes it keeps the access names it was scored under.
 - Rewrote the public documents in plainer language at roughly a 12th-grade reading level, keeping every guardrail, claim boundary, and file name intact.

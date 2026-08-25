@@ -1,5 +1,17 @@
 # AI assistance record
 
+## 2026-08-24 concurrent-lane integration
+
+| Field | Record |
+|---|---|
+| Tool | OpenAI Codex |
+| Task | Verifying and integrating the architecture, measurement, and rights writer commits; reconciling the public architecture, field-test schema, FT-001 record, intake path, and public-safe review contract; running structural and adversarial acceptance checks |
+| Material provided | Local baseline `252ea70`; writer commits `bb98f2b`, `e228830`, and `81bf2c8`; writer reports and prompts; the public repository only |
+| Source verification | Git established writer ancestry, exclusive file ownership, clean worktrees, and local-only state; repository records and enforcing files were read after integration; no private vault or research workspace was accessed |
+| Corrections after verification | Replaced the Boolean privacy review with an artifact-version public-safe review, separated rights decisions, added withdrawal actions and takedown routing, made public issues Stage 1 scoping only, removed four unpublished compatibility layers, and kept the version 0.2 sample target explicitly provisional |
+| Human review | The integrated branch is local. Maintainer approval remains required before push, pull request, merge, or publication. |
+| Sensitive material | None involved; no participant, client, confidential, consent, or protected community record was accessed |
+
 ## 2026-08-24 research-architecture correction
 
 | Field | Record |

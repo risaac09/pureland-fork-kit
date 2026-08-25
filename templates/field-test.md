@@ -1,6 +1,6 @@
 # Field-test report
 
-Complete this report and a JSON record that conforms to [`data/field-test.schema.json`](../data/field-test.schema.json). Use the same IDs and facts in both files. Do not hide required facts in one context paragraph.
+Complete this report and a JSON record that conforms to [`data/field-test.schema.json`](../data/field-test.schema.json) only after Stage 1 scoping and any required private rights review. Use the same IDs and facts in both files. Do not hide required facts in one context paragraph. Do not paste this completed report into the public Stage 1 issue.
 
 ## Record identity and tested hypothesis
 
@@ -64,7 +64,7 @@ The document denominator supports artifact-level readings only. It is not a pers
 
 Every JSON evidence item must set `available_before_analysis` to `true`.
 
-| Evidence ID | Description | Source or public link | Public-safe |
+| Evidence ID | Description | Public-safe source reference | Artifact-version review status |
 |---|---|---|---|
 | | | | |
 
@@ -160,18 +160,35 @@ Add one block for each affected-party ID. Record baseline and follow-up separate
 ## Permission, rights, and contestability
 
 - Rights-review status:
+- Private rights-record status:
 - Participant-material status:
-- Public-return permission:
+- Community-authority status:
+- Recording permission:
+- Retention permission:
+- Access by each named reviewer:
+- Publication permission:
+- Approval of this exact artifact and version:
 - Research-use permission:
-- AI-use permission:
+- AI-processing permission:
+- Model-training or fine-tuning permission:
 - Restrictions:
 - Rights evidence:
 - Contestability route status:
 - Correction route:
+- Takedown route:
 - Refusal route:
 - Review authority:
 - Tested by an affected party: yes or no
 - Contestability evidence:
+
+Keep each permission separate. `Granted` in one row does not imply permission anywhere else.
+
+## Withdrawal actions
+
+- Status: not-requested, pending, acted, partially-acted, refused, or unmeasurable
+- Protected route:
+- Each request date, action, action date, status, and material that remains with the reason:
+- Known limits on removal from archives, backups, model weights, external copies, or downstream adaptations:
 
 ## Adaptation and follow-up
 
@@ -210,10 +227,33 @@ Missing required action-outcome or rights evidence makes the result `unmeasurabl
 - Corrections after verification:
 - Material withheld:
 
-## Public privacy review
+## Artifact-version public-safe review
 
-- [ ] Review status is complete.
-- [ ] No participant data or identifying material is included.
-- [ ] Every linked artifact is safe and permitted for public release.
-- [ ] The JSON record sets `safe_for_public_release` to `true` only after review.
-- Reviewer and notes:
+- Artifact ID:
+- Exact artifact version:
+- Decision: clear, blocked, or not-yet-clear
+- Reviewer identity or accountable role:
+- Decision date:
+- Next review date:
+
+Record one row for every category. A Boolean privacy checkbox is not a rights review.
+
+| Category | Status: clear, blocked, not-yet-clear, or not-applicable | Public basis summary | Limits | Actions required |
+|---|---|---|---|---|
+| Participant material | | | | |
+| Direct identifiers | | | | |
+| Indirect identifiers | | | | |
+| Confidential records | | | | |
+| Client records | | | | |
+| Protected community knowledge | | | | |
+| Third-party copyright | | | | |
+| Privacy interests | | | | |
+| Publicity interests | | | | |
+| Artifact-specific permission | | | | |
+| Re-identification risk | | | | |
+| Attribution risk | | | | |
+| AI processing | | | | |
+| Model training | | | | |
+| Retention and withdrawal | | | | |
+
+Do not publish a `blocked` or `not-yet-clear` artifact. The detailed private record must hold provider, model, purpose, inputs, access, retention, training decision, withdrawal route, and known limits. Never commit that private record under `data/`.
