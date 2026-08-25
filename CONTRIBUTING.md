@@ -21,6 +21,8 @@ Do not submit participant material, identifying data, confidential records, or c
 4. Run `python3 scripts/check_repo.py`.
 5. Submit a pull request using the template.
 
+A field-test record submitted as JSON has to clear the data boundary first. Read [data/README.md](data/README.md): it says what may not be committed and points at the schema the record must validate against.
+
 By submitting original repository content, you agree to license that contribution under CC BY-SA 4.0. This does not cover third-party or participant material.
 
 Maintainer decisions follow [GOVERNANCE.md](GOVERNANCE.md). Critique the method and the decisions. Do not diagnose contributors with contemplative categories, and do not attack anyone's identity.
