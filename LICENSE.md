@@ -17,6 +17,6 @@ ShareAlike applies to Adapted Material as defined by the license. It does not au
 
 Public access does not create permission. Do not add participant material to this repository. See [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md).
 
-Suggested attribution: `PureLand fork kit by Isaac Rubinstein, CC BY-SA 4.0, with changes described.`
+Suggested attribution: `PureLand method and toolbox by Isaac Rubinstein, CC BY-SA 4.0, with changes described.`
 
 Repository code and configuration files are licensed separately under the [MIT License](LICENSES/MIT.txt). This keeps the method reciprocal while allowing the small validation tools to be reused in ordinary software projects.

@@ -1,5 +1,17 @@
 # AI assistance record
 
+## 2026-08-24 research-spine restructuring
+
+| Field | Record |
+|---|---|
+| Tool | OpenAI Codex |
+| Task | Restructuring PureLand from a fork-kit-first repository into an ordered thesis, method, toolbox, hypothesis, applied PureLand, testing, results, discussion, and conclusion |
+| Material provided | A clean clone of the public `pureland-fork-kit` repository at commit `f57f42f`; an existing read-only PureLand graph used to map prior relationships |
+| Source verification | Every current-result statement was checked against FT-001, its structured record, the field-trial ledger, and the research-status ledger; local links and JSON by `scripts/check_repo.py`; FT-001 against `data/field-test.schema.json`; the site through Python's HTML parser; `CITATION.cff` through Ruby YAML parsing; whitespace by `git diff --check` |
+| Corrections after verification | The working draft initially used the wrong name for the applied layer. The maintainer corrected it to PureLand; the file, links, descriptions, and validation check were changed before handoff. |
+| Human review | Maintainer review remains required before commit, push, or publication. The new primary hypothesis and applied-layer definition are drafts, not evidence. |
+| Sensitive material | None involved; no participant material, consent record, or private research file entered the clean clone |
+
 ## 2026-08-24 journey consolidation and field test FT-001
 
 | Field | Record |

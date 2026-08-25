@@ -2,6 +2,8 @@
 
 PureLand shares the whole practice, including the unfinished parts. Two reasons. No single part can keep itself honest alone. And work built from other people's teachings, attention, and expression owes back more than an output.
 
+The repository now separates the [thesis](THESIS.md), [method](METHOD.md), [toolbox](TOOLBOX.md), [hypothesis](HYPOTHESIS.md), applied [PureLand](PURELAND.md), [testing](TESTING.md), [results](RESULTS.md), [discussion](DISCUSSION.md), and [conclusion](CONCLUSION.md). The former fork-kit surface remains available as the toolbox inside that larger research spine.
+
 ## What problem is this working on?
 
 PureLand asks one question: can a way of handling information give a person more control over their own attention without also making them easier to exploit? Its goals are to:
@@ -44,7 +46,7 @@ The method is:
 
 Recording is optional. The first pilot does not require participant recordings.
 
-The walkable form of this method is [the journey](JOURNEY.md): six stations that sequence the kit's instruments in this order.
+The walkable form of this method is [the journey](JOURNEY.md): six stations that sequence the toolbox's instruments in this order.
 
 ### Field map
 
@@ -68,7 +70,7 @@ The collaboration is complete only when the cost and the disagreement are on rec
 | Question | What it asks |
 |---|---|
 | Is it understandable? | What can be known here? Can someone outside the core tell what exists, what it does, and whether it concerns them? |
-| Is it reachable? | Is it within arm's reach? Like the physical space around your body: can you get to it, and can what you send back actually arrive? |
+| Is it reachable? | Is it within arm's reach? Like the physical space around your body: can you get to it, and can what you send back arrive? |
 | Is it adaptable? | Does it accept and investigate the reality of change? Can another person change the material, legally and practically? |
 | Is it traceable? | Can we see what happened? Do sources carry their attribution, and does the trail connect to an open record? |
 
@@ -93,7 +95,7 @@ Keep the four readings separate. Pair them with the [extraction check](EXTRACTIO
 
 The [protocol](PROTOCOL.md) separates consent for recording, retention, review, publication, research, and AI use. [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md) distinguishes copyright, privacy, confidentiality, and community authority. The [scorecard](SCORECARD.md) does not certify openness. The extraction check does not hand down a moral verdict. [FIELD-TESTING.md](FIELD-TESTING.md) requires missing evidence, cost, disagreement, and disproof to stay visible.
 
-The project is currently maintained by Isaac Rubinstein, who holds merge and release authority. That concentration of power is a risk, recorded in [GOVERNANCE.md](GOVERNANCE.md). The kit's eligible text and templates use [CC BY-SA 4.0](LICENSE); code and configuration use MIT. A license does not create permission for participant or third-party material.
+Isaac Rubinstein maintains the project and holds merge and release authority. That concentration of power is a risk, recorded in [GOVERNANCE.md](GOVERNANCE.md). The toolbox's eligible text and templates use [CC BY-SA 4.0](LICENSE); code and configuration use MIT. A license does not create permission for participant or third-party material.
 
 ## What can you do with it now?
 
@@ -103,7 +105,7 @@ The future consultancy is an application layer on a 10-to-15-year horizon. PureL
 
 ## What do we know, and what remains untested?
 
-Known: the kit has a protocol, a four-question access scorecard, an extraction check, a provenance record, rights guidance, and governance rules. The closest identified precedent for combining participatory media and evaluation is InsightShare's [Participatory Video and the Most Significant Change](https://insightshare.org/resources/participatory-video-and-the-most-significant-change/). PureLand does not claim to originate that combination.
+Known: the toolbox has a protocol, a four-question access scorecard, an extraction check, a provenance record, rights guidance, and governance rules. The closest identified precedent for combining participatory media and evaluation is InsightShare's [Participatory Video and the Most Significant Change](https://insightshare.org/resources/participatory-video-and-the-most-significant-change/). PureLand does not claim to originate that combination.
 
 Untested: the instruments have no independent field trial, no reliability estimate, no validity result, no benchmark, no threshold, no certification, and no outcome estimate. The [field-trial ledger](FIELD-TRIALS.md) holds one worked example from the maintainer's side and no independent trial. The next research gate is five to ten independent applications across at least three contexts, with two readers where practical. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md).
 

@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-message: "If you use this method, cite it and return what you learn."
-title: "PureLand fork kit"
+message: "If you use this method or toolbox, cite it and return what you learn."
+title: "PureLand: thesis, method, toolbox, and testing record"
 type: software
 authors:
   - family-names: Rubinstein

@@ -1,6 +1,6 @@
 # Field testing
 
-This is the testing discipline that runs alongside [the journey](JOURNEY.md); the ground and return stations use it directly. Field tests should try to break the method. Confirmation alone is weak evidence.
+This is the operational discipline inside the [testing program](TESTING.md). It runs alongside [the journey](JOURNEY.md); the Ground and Return stations use it directly. Field tests should try to break the method. Confirmation alone is weak evidence.
 
 ## Before use
 

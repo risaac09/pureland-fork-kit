@@ -1,6 +1,6 @@
 # PureLand Field Pilot
 
-The present offering is a small, bounded inquiry into one real information practice, done together. It walks [the journey](JOURNEY.md), the kit's one curated path, on the collaborator's practice. It is a field pilot. It is not a mature consultancy, a certification, a treatment, or an audit clearance, and it does not guarantee any outcome.
+The present offering is a small, bounded inquiry into one real information practice, done together. It walks [the journey](JOURNEY.md), the method's one curated path, on the collaborator's practice. It is a field pilot. It is not a mature consultancy, a certification, a treatment, or an audit clearance, and it does not guarantee any outcome.
 
 The future consultancy is an application layer on a 10-to-15-year horizon. The present phase is criticism from outside and small field proofs.
 
@@ -13,7 +13,7 @@ There are no published eligibility rules, certification requirements, or guarant
 ## What the collaborator brings
 
 - one real practice, encounter, or information system;
-- the boundary and the affected people, as currently understood;
+- the boundary and the affected people, as the collaborator understands them at proposal time;
 - access to evidence that can be reviewed lawfully;
 - the doubts, burdens, and disagreements already visible; and
 - the authority to discuss the practice, or a clear account of whose permission is still needed.
@@ -53,7 +53,7 @@ The pilot does not require participant recordings, transcripts, names, or film p
 
 ## What remains private
 
-Participant and client material, consent and relationship records, personal notes, protected community knowledge, credentials, identifying data, confidential records, and third-party material without clear reuse rights all stay outside the public kit. The limits on withdrawal must be stated before collection. See [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md).
+Participant and client material, consent and relationship records, personal notes, protected community knowledge, credentials, identifying data, confidential records, and third-party material without clear reuse rights all stay outside the public repository. The limits on withdrawal must be stated before collection. See [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md).
 
 ## What the pilot does not claim
 

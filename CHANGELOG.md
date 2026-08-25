@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Reframed PureLand as a research program rather than only a fork kit. Added an ordered spine for the thesis, method, toolbox, hypothesis, applied PureLand, testing, results, discussion, and conclusion. The existing forkable instruments remain the toolbox layer.
 - FT-001's bounded adaptation executed on owner consent: the Alchemy README now documents the inbound route for corrections and field reports (alchemy PR #15). The record moves from proposed to executed; the 90-day window runs to the 2026-11-22 review. The record also notes it keeps the access names it was scored under.
 - Rewrote the public documents in plainer language at roughly a 12th-grade reading level, keeping every guardrail, claim boundary, and file name intact.
 - Replaced "the four accesses" and their formal names (legibility, permeability, forkability, provenance) with four plain questions: understandable (what can be known), reachable (within arm's reach), adaptable (accepting and investigating the reality of change), traceable (we can see what happened, sources attributed, connected to an open record).

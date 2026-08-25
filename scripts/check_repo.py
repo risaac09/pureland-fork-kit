@@ -46,7 +46,21 @@ def main() -> int:
         if PLACEHOLDER.search(text):
             errors.append(f"placeholder token: {path.relative_to(ROOT)}")
 
-    required = ["LICENSE", "README.md", "RESEARCH-STATUS.md", "FIELD-TRIALS.md"]
+    required = [
+        "LICENSE",
+        "README.md",
+        "THESIS.md",
+        "METHOD.md",
+        "TOOLBOX.md",
+        "HYPOTHESIS.md",
+        "PURELAND.md",
+        "TESTING.md",
+        "RESULTS.md",
+        "DISCUSSION.md",
+        "CONCLUSION.md",
+        "RESEARCH-STATUS.md",
+        "FIELD-TRIALS.md",
+    ]
     for name in required:
         if not (ROOT / name).is_file():
             errors.append(f"missing required file: {name}")

@@ -1,6 +1,6 @@
 # Research status
 
-Version 0.1 is a prototype for generating hypotheses. It is not validated, and it does not certify openness, reciprocity, attention sovereignty, or Buddhist practice.
+Version 0.1 is a prototype for generating hypotheses. It is not validated, and it does not certify openness, reciprocity, attention sovereignty, or Buddhist practice. [HYPOTHESIS.md](HYPOTHESIS.md) defines the primary hypothesis and disconfirming results. [RESULTS.md](RESULTS.md) holds the current evidence summary.
 
 | Claim | Status | Evidence needed next |
 |---|---|---|
@@ -9,7 +9,7 @@ Version 0.1 is a prototype for generating hypotheses. It is not validated, and i
 | The three poisons and five hindrances can prompt useful self-observation in information practice | PureLand hypothesis | Qualitative field applications, dissenting readings, harm review |
 | The four access questions distinguish useful properties | Instrument hypothesis | Independent scoring, disagreement between readers, revision of the constructs |
 | Consent, attribution, and value-return profiles expose overlooked asymmetries | Instrument hypothesis | Cases across contexts, plus participant review |
-| A small tested change can increase a person's control over their attention | Untested causal hypothesis | A predefined outcome, a baseline, a follow-up, and evidence that could disprove it |
+| Walking the method and testing one contestable adaptation can improve practical agency without increasing exposure, extraction, or shifted burden | Primary untested PureLand hypothesis | Independent applications with a predefined outcome, baseline, follow-up, affected-person challenge, burden record, and disconfirming evidence |
 | One curated sequence (the journey) beats a menu of instruments for first-time completion and report quality | Untested design hypothesis | Whole-journey field tests, drop-off points, comparison with single-instrument entries |
 
 ## Current evidence

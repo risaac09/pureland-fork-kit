@@ -1,6 +1,6 @@
 # Field-trial ledger
 
-No independent field trial has been accepted yet. One non-independent trial, run from the maintainer's side, is recorded below; it is a worked example and does not count toward the version 0.2 gate.
+No independent field trial has been accepted. One non-independent trial, run from the maintainer's side, is recorded below; it is a worked example and does not count toward the version 0.2 gate. [RESULTS.md](RESULTS.md) summarizes the current record without turning this ledger into a validation claim.
 
 | Date | Context | Instrument | Contributor | Evidence link | Failure or disagreement | Version |
 |---|---|---|---|---|---|---|

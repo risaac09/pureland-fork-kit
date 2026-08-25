@@ -1,6 +1,6 @@
 # The journey
 
-One curated path through the kit. Walk it in order, on one real practice, encounter, or information system of your own. Every instrument in the repository sits on this path, as a station or a conditional branch; none of them is meant as a first door. A field test of a single station stays valid; the journey is the recommended way in, not a new gate.
+One curated path through the PureLand toolbox. Walk it in order, on one real practice, encounter, or information system of your own. Every instrument in the repository sits on this path, as a station or a conditional branch; none of them is meant as a first door. A field test of a single station stays valid; the journey is the recommended way in, not a new gate.
 
 There are two ways to walk it: yourself, starting at station 1, or with Isaac as a [PureLand Field Pilot](OFFERING.md), which is the same path walked as a small, bounded inquiry done together.
 
@@ -8,9 +8,9 @@ The journey puts unvalidated instruments in an order. It does not certify openne
 
 ## Walking it on your own ecosystem
 
-When the practice you bring is your own information intake, the journey has a live companion: [Alchemy](https://alchemy.rubinsteinproductions.com), a free browser app for information metabolism ([source](https://github.com/risaac09/alchemy), MIT). Nothing leaves the browser: no accounts, no servers, no analytics. The app practices the kit's claim in code, holding attention without extracting from it.
+When the practice you bring is your own information intake, the journey has a live companion: [Alchemy](https://alchemy.rubinsteinproductions.com), a free browser app for information metabolism ([source](https://github.com/risaac09/alchemy), MIT). Nothing leaves the browser: no accounts, no servers, no analytics. The app practices PureLand's claim in code, holding attention without extracting from it.
 
-- Its diagnostic, twelve questions across intake, transformation, expression, and return flow, places you on a 2×2 map. The placement is a composite, the kind of simplification the kit's own instruments refuse, so treat it as a prompt for station 1, not a result.
+- Its diagnostic, twelve questions across intake, transformation, expression, and return flow, places you on a 2×2 map. The placement is a composite, the kind of simplification PureLand's instruments refuse, so treat it as a prompt for station 1, not a result.
 - Its capture loop (settle, one-word body check, reflect, map, release) trains the noticing that station 2 asks for. It does not replace the practice frame.
 - The app is itself a system you can put through stations 3 and 4. It publishes its own [honest account](https://github.com/risaac09/alchemy/blob/main/HONEST-ACCOUNT.md) of claims and failures.
 
@@ -35,7 +35,7 @@ This is the before-use discipline of [field testing](FIELD-TESTING.md). The disc
 
 Run the [practice frame](PRACTICE-FRAME.md). Notice which condition may be present in you before assigning it to the system. The contemplative categories are prompts for self-observation, not scores, and never labels for other people.
 
-Do not skip this station to reach the tables. The kit's claim is that evaluation without attention or relationship can become another extraction apparatus.
+Do not skip this station to reach the tables. PureLand's claim is that evaluation without attention or relationship can become another extraction apparatus.
 
 ## 3. Map
 
