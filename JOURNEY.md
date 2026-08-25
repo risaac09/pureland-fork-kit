@@ -8,10 +8,10 @@ The journey puts unvalidated instruments in an order. It does not certify openne
 
 ## Walking it on your own ecosystem
 
-When the practice you bring is your own information intake, the journey has a live companion: [Alchemy](https://alchemy.rubinsteinproductions.com), a free browser app for information metabolism ([source](https://github.com/risaac09/alchemy), MIT). Nothing leaves the browser: no accounts, no servers, no analytics. The app practices the kit's claim in code, holding attention without extracting from it.
+When the practice you bring is your own information intake, the journey has a live companion: [Alchemy](https://alchemy.rubinsteinproductions.com), a free browser app for information metabolism ([source](https://github.com/risaac09/alchemy), MIT). Its main surface, the PWA, keeps everything in the browser: no accounts, no servers, no analytics. Two other surfaces send material out: the embed funnel's optional email goes to the host page, and the embodied reflection service sends a reflection to a third-party model provider. The app is built to be tested against the kit's claim, not to prove it. [FT-001](research/field-tests/ft-001-alchemy.md), the kit's own field test on Alchemy, banded its value return usable, not shared, and named an unresolved tension in its decay design: the same mechanism that guards against hoarding also costs whoever walks away.
 
 - Its diagnostic, twelve questions across intake, transformation, expression, and return flow, places you on a 2×2 map. The placement is a composite, the kind of simplification the kit's own instruments refuse, so treat it as a prompt for station 1, not a result.
-- Its capture loop (settle, one-word body check, reflect, map, release) trains the noticing that station 2 asks for. It does not replace the practice frame.
+- Its capture loop (settle, one-word body check, reflect, map, release) rehearses the noticing that station 2 asks for. It does not replace the practice frame.
 - The app is itself a system you can put through stations 3 and 4. It publishes its own [honest account](https://github.com/risaac09/alchemy/blob/main/HONEST-ACCOUNT.md) of claims and failures.
 
 Alchemy is a tool with deliberate constraints, not a validated instrument. The journey's epistemics apply to it too.
