@@ -46,6 +46,32 @@ CONTENT_SUFFIXES = {".md", ".html", ".css", ".json", ".cff", ".svg"}
 # File types scanned for TODO/TBD/INSERT_HERE placeholder tokens.
 PLACEHOLDER_SUFFIXES = {".md", ".html", ".json", ".yml", ".yaml", ".py"}
 
+# Keywords validate_against_schema() actually enforces. Anything else in the
+# schema is either an annotation (below) or a rule this script cannot apply,
+# and an unenforced rule is worse than an absent one: it reads as covered.
+SUPPORTED_KEYWORDS = {
+    "type",
+    "required",
+    "additionalProperties",
+    "properties",
+    "enum",
+    "const",
+    "minLength",
+    "minItems",
+    "items",
+}
+
+# Annotations carry no constraint, so ignoring them is correct, not a gap.
+ANNOTATION_KEYWORDS = {
+    "$schema",
+    "$id",
+    "title",
+    "description",
+    "$comment",
+    "examples",
+    "default",
+}
+
 JSON_TYPES = {
     "object": dict,
     "array": list,
@@ -71,18 +97,67 @@ def type_matches(value: object, expected: object) -> bool:
     return False
 
 
+def json_equal(value: object, expected: object) -> bool:
+    """Compare two JSON values the way JSON Schema does, not the way Python does.
+
+    The trap: Python treats True == 1 and False == 0, so a plain == would accept
+    a record carrying "privacy_review": 1 or 1.0 against {"const": true}, which
+    Draft 2020-12 rejects. privacy_review is this repo's privacy gate, so the
+    loose comparison would open it. type_matches() above already guards the same
+    bool/int confusion for the "type" keyword; const and enum need it too.
+    """
+    if isinstance(value, bool) != isinstance(expected, bool):
+        return False
+    if isinstance(value, list) and isinstance(expected, list):
+        return len(value) == len(expected) and all(
+            json_equal(item, other) for item, other in zip(value, expected)
+        )
+    if isinstance(value, dict) and isinstance(expected, dict):
+        return value.keys() == expected.keys() and all(
+            json_equal(value[name], expected[name]) for name in value
+        )
+    return value == expected
+
+
+def unsupported_keywords(schema: object, where: str) -> list[str]:
+    """Name any schema keyword this validator would silently ignore.
+
+    Without this, adding pattern, maxLength, or oneOf to field-test.schema.json
+    would publish a rule that nothing enforces while CI stayed green. Failing
+    loudly here forces the choice: implement the keyword, or do not declare it.
+    """
+    errors: list[str] = []
+    if not isinstance(schema, dict):
+        return errors
+    for name in schema:
+        if name not in SUPPORTED_KEYWORDS and name not in ANNOTATION_KEYWORDS:
+            errors.append(f"{where}: schema keyword '{name}' is declared but not enforced")
+    # additionalProperties is enforced only in its boolean form. Given a
+    # subschema, validate_against_schema() would ignore it, so the keyword
+    # being on the supported list is not enough on its own.
+    if isinstance(schema.get("additionalProperties"), dict):
+        errors.append(f"{where}: additionalProperties as a subschema is declared but not enforced")
+    for name, subschema in schema.get("properties", {}).items():
+        errors.extend(unsupported_keywords(subschema, f"{where}.{name}"))
+    if "items" in schema:
+        errors.extend(unsupported_keywords(schema["items"], f"{where}[]"))
+    return errors
+
+
 def validate_against_schema(value: object, schema: dict, where: str) -> list[str]:
     """Validate one record against the subset of JSON Schema this repo uses.
 
     Deliberately hand-rolled: check_repo.py is dependency-free by design and CI
     installs nothing, so pulling in jsonschema would trade the property that
-    makes this runnable anywhere for keywords the schema does not use. Covers
-    exactly what data/field-test.schema.json declares: type, required,
-    additionalProperties, properties, enum, const, minLength, minItems, items.
+    makes this runnable anywhere for keywords the schema does not use. Enforces
+    the nine keywords in SUPPORTED_KEYWORDS, which is what
+    data/field-test.schema.json declares today; const and enum compare by JSON
+    equality through json_equal(), not by Python ==. Any other keyword added to
+    the schema later is reported by unsupported_keywords() rather than ignored.
     """
     errors: list[str] = []
 
-    if "const" in schema and value != schema["const"]:
+    if "const" in schema and not json_equal(value, schema["const"]):
         errors.append(f"{where}: must be {json.dumps(schema['const'])}, got {json.dumps(value)}")
         return errors
 
@@ -90,7 +165,7 @@ def validate_against_schema(value: object, schema: dict, where: str) -> list[str
         errors.append(f"{where}: expected {schema['type']}, got {json.dumps(value)}")
         return errors
 
-    if "enum" in schema and value not in schema["enum"]:
+    if "enum" in schema and not any(json_equal(value, option) for option in schema["enum"]):
         errors.append(f"{where}: must be one of {schema['enum']}, got {json.dumps(value)}")
     if "minLength" in schema and isinstance(value, str) and len(value) < schema["minLength"]:
         errors.append(f"{where}: must be at least {schema['minLength']} character(s)")
@@ -238,9 +313,17 @@ def main() -> int:
         if FIELD_TEST_SCHEMA.exists():
             errors.append("field-test schema present but unreadable; cannot validate data/")
     else:
+        errors.extend(
+            unsupported_keywords(schema, FIELD_TEST_SCHEMA.relative_to(ROOT).as_posix())
+        )
         # rglob, not glob: submitted records live in data/field-tests/, one
         # level below data/ itself. A non-recursive glob here would only ever
         # see the schema file and validate nothing.
+        #
+        # Assumption: every JSON file under data/ other than the schema is a
+        # field-test record. That holds today. A data file of some other shape
+        # would fail against this schema, so add a path filter here before
+        # adding one.
         for path in sorted((ROOT / "data").rglob("*.json")):
             if path == FIELD_TEST_SCHEMA or path not in parsed:
                 continue
