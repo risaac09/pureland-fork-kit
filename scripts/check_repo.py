@@ -6,13 +6,18 @@ from __future__ import annotations
 import json
 import re
 import sys
+from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
 IGNORED = {".git"}
+SELF = Path(__file__).resolve()
+
 LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+ATTR_LINK = re.compile(r"\b(src|href|srcset)=(['\"])(.*?)\2")
+HEADING = re.compile(r"^(#{1,6})\s+(.+?)\s*$", re.MULTILINE)
 PLACEHOLDER = re.compile(r"\b(TODO|TBD|INSERT[_ -]?HERE)\b", re.IGNORECASE)
 METHOD_COMPLETION = re.compile(r"\bmethod completion\b", re.IGNORECASE)
 FIELD_TEST_SCHEMA = ROOT / "data" / "field-test.schema.json"
@@ -21,7 +26,11 @@ FT001 = FIELD_TEST_DIR / "ft-001-alchemy.json"
 
 REQUIRED_ARCHITECTURE = [
     "LICENSE",
+    "LICENSE.md",
     "README.md",
+    "JOURNEY.md",
+    "BRIEF.md",
+    "OFFERING.md",
     "THESIS.md",
     "METHOD.md",
     "TOOLBOX.md",
@@ -93,6 +102,30 @@ REQUIRED_FT001_PATHS = [
     ("public_safe_review", "categories", "artifact_specific_permission", "status"),
 ]
 
+# Field-test records are free-text, first-person accounts of what a
+# contributor found, including what is still open. data/README.md and
+# CONTRIBUTING.md ask for exactly that ("PureLand needs documented
+# disagreement more than applause"), so an honest "second reader: TBD" in a
+# submitted record is content, not a placeholder left behind by mistake.
+FIELD_TEST_RECORDS = ROOT / "data" / "field-tests"
+
+# Entry points a reader (or a fork) actually lands on. Orphan detection asks
+# whether every other content file is reachable from here by some chain of
+# links, not just whether something happens to point at it.
+LINK_ROOTS = {ROOT / "README.md", ROOT / "JOURNEY.md", ROOT / "BRIEF.md"}
+
+# Files that are legitimately not woven into prose: citation metadata and a
+# changelog are conventionally browsed directly, not linked from the text.
+ORPHAN_ALLOWLIST = {ROOT / "CITATION.cff", ROOT / "CHANGELOG.md"}
+
+# File types that carry repo content, subject to orphan detection. .github/
+# is excluded below: GitHub discovers issue templates, PR templates, and
+# workflows on its own, not through prose links, so it is not part of the
+# "reachable from README" contract.
+CONTENT_SUFFIXES = {".md", ".html", ".css", ".json", ".cff", ".svg"}
+
+# File types scanned for TODO/TBD/INSERT_HERE placeholder tokens.
+PLACEHOLDER_SUFFIXES = {".md", ".html", ".json", ".yml", ".yaml", ".py"}
 
 def files(suffix: str) -> list[Path]:
     return sorted(
@@ -171,20 +204,96 @@ def has_material_increase(record: dict[str, Any]) -> bool:
     return False
 
 
-def check_markdown(errors: list[str]) -> None:
-    for path in files(".md"):
-        text = path.read_text(encoding="utf-8")
-        for target in LINK.findall(text):
-            clean = target.split("#", 1)[0]
-            if not clean or clean.startswith(("http://", "https://", "mailto:")):
-                continue
+def content_files() -> list[Path]:
+    """Every file subject to orphan detection: repo content, not tooling."""
+    return sorted(
+        path
+        for path in ROOT.rglob("*")
+        if path.is_file()
+        and path.suffix in CONTENT_SUFFIXES
+        and not any(part in IGNORED for part in path.parts)
+        and ".github" not in path.parts
+    )
+
+
+def slugify(heading: str) -> str:
+    """Approximate GitHub's heading-to-anchor slug rule."""
+    text = re.sub(r"[^\w\s-]", "", heading.strip().lower())
+    return re.sub(r"\s+", "-", text)
+
+
+def heading_slugs(text: str) -> set[str]:
+    """Anchor slugs a Markdown file's own headings would produce.
+
+    Duplicate headings get GitHub's -1, -2, ... suffix so a link that only
+    resolves because of that suffix is still caught as valid.
+    """
+    seen: dict[str, int] = {}
+    slugs: set[str] = set()
+    for _, title in HEADING.findall(text):
+        slug = slugify(title)
+        count = seen.get(slug, 0)
+        seen[slug] = count + 1
+        slugs.add(slug if count == 0 else f"{slug}-{count}")
+    return slugs
+
+
+def targets_in_attr(attr_name: str, raw: str) -> list[str]:
+    """Split one src=/href=/srcset= attribute value into link targets.
+
+    Only srcset packs multiple "url descriptor" entries separated by commas;
+    src and href carry exactly one target, which may itself legally contain a
+    comma (a query string, for instance), so it must not be comma-split.
+    """
+    if attr_name != "srcset":
+        return [raw.strip()] if raw.strip() else []
+    return [entry.strip().split()[0] for entry in raw.split(",") if entry.strip()]
+
+
+def attr_targets(text: str) -> list[str]:
+    """All src=/href=/srcset= link targets in one file's text."""
+    return [
+        target
+        for match in ATTR_LINK.finditer(text)
+        for target in targets_in_attr(match.group(1), match.group(3))
+    ]
+
+
+def check_targets(
+    path: Path,
+    raw_targets: list[str],
+    text_by_path: dict[Path, str],
+    errors: list[str],
+    graph: dict[Path, set[Path]],
+) -> None:
+    for target in raw_targets:
+        clean, _, fragment = target.partition("#")
+        if not clean or clean.startswith(("http://", "https://", "mailto:", "data:", "//")):
+            continue
+        # A leading "/" is repo-root-relative (as GitHub treats it), not a
+        # filesystem-root path. Path's "/" operator would otherwise discard
+        # path.parent entirely and resolve against the real filesystem root.
+        if clean.startswith("/"):
+            resolved = (ROOT / clean.lstrip("/")).resolve()
+        else:
             resolved = (path.parent / clean).resolve()
-            if ROOT not in resolved.parents and resolved != ROOT:
-                errors.append(f"link escapes repository: {relative(path)} -> {target}")
-            elif not resolved.exists():
-                errors.append(f"broken local link: {relative(path)} -> {target}")
-        if PLACEHOLDER.search(text):
-            errors.append(f"placeholder token: {relative(path)}")
+        if not resolved.is_relative_to(ROOT):
+            errors.append(f"link escapes repository: {path.relative_to(ROOT)} -> {target}")
+            continue
+        if not resolved.exists():
+            errors.append(f"broken local link: {path.relative_to(ROOT)} -> {target}")
+            continue
+        graph[path].add(resolved)
+        if fragment and resolved.suffix == ".md":
+            target_text = text_by_path.get(resolved)
+            if target_text is None:
+                target_text = resolved.read_text(encoding="utf-8")
+                text_by_path[resolved] = target_text
+            if fragment not in heading_slugs(target_text):
+                errors.append(
+                    f"broken anchor: {path.relative_to(ROOT)} -> {target} "
+                    f"(no heading in {resolved.relative_to(ROOT)} produces #{fragment})"
+                )
 
 
 def check_record_rules(path: Path, record: dict[str, Any], errors: list[str]) -> None:
@@ -316,6 +425,7 @@ def check_record_rules(path: Path, record: dict[str, Any], errors: list[str]) ->
 
 
 def check_schema_and_records(json_data: dict[Path, Any], errors: list[str]) -> None:
+    """Validate every field-test record against data/field-test.schema.json."""
     try:
         from jsonschema import Draft202012Validator, FormatChecker
         from jsonschema.exceptions import SchemaError
@@ -327,6 +437,8 @@ def check_schema_and_records(json_data: dict[Path, Any], errors: list[str]) -> N
 
     schema = json_data.get(FIELD_TEST_SCHEMA)
     if not isinstance(schema, dict):
+        if FIELD_TEST_SCHEMA.exists():
+            errors.append("field-test schema present but unreadable; cannot validate data/")
         return
     try:
         Draft202012Validator.check_schema(schema)
@@ -339,16 +451,16 @@ def check_schema_and_records(json_data: dict[Path, Any], errors: list[str]) -> N
         record = json_data.get(path)
         if not isinstance(record, dict):
             continue
-        for validation_error in sorted(validator.iter_errors(record), key=lambda error: list(error.path)):
-            location = "/".join(str(part) for part in validation_error.path) or "<root>"
+        for violation in sorted(validator.iter_errors(record), key=lambda error: list(error.path)):
+            location = "/".join(str(part) for part in violation.path) or "<root>"
             errors.append(
-                f"field-test schema violation: {relative(path)}:{location}: {validation_error.message}"
+                f"field-test schema violation: {relative(path)}:{location}: {violation.message}"
             )
-        check_record_rules(path, record, errors)
 
 
 def main() -> int:
     errors: list[str] = []
+    warnings: list[str] = []
 
     for name in REQUIRED_ARCHITECTURE:
         if not (ROOT / name).is_file():
@@ -358,15 +470,100 @@ def main() -> int:
     for path in files(".json"):
         json_data[path] = load_json(path, errors)
 
-    check_markdown(errors)
+    # data/README.md tells contributors to "validate it against
+    # field-test.schema.json", but nothing did: this check parsed JSON and
+    # stopped, so a submission with privacy_review false, or carrying extra
+    # identifying fields the schema forbids, passed CI green. The schema sets
+    # the repo's privacy boundary, so it has to be enforced, not just published.
+    #
+    # Validation goes through jsonschema rather than a hand-rolled subset. The
+    # research-arc schema uses $ref, $defs, 13 allOf/if/then pairs, not, and
+    # contains; those applicators are exactly where a hand-rolled validator
+    # gets it quietly wrong, and this schema is the repo's privacy gate. CI
+    # installs the dependency (see .github/workflows/validate.yml).
     check_schema_and_records(json_data, errors)
+
+    # Schema conformance is structural. The research arc's rules are semantic:
+    # what a record may claim given the rights, contestability, and
+    # action-outcome evidence it actually carries. Both have to hold.
+    for path in sorted(FIELD_TEST_DIR.glob("*.json")):
+        record = json_data.get(path)
+        if isinstance(record, dict):
+            check_record_rules(path, record, errors)
 
     ft001 = json_data.get(FT001)
     if isinstance(ft001, dict):
-        for path in REQUIRED_FT001_PATHS:
-            if not has_path(ft001, path):
-                rendered = ".".join(str(part) for part in path)
+        for required_path in REQUIRED_FT001_PATHS:
+            if not has_path(ft001, required_path):
+                rendered = ".".join(str(part) for part in required_path)
                 errors.append(f"FT-001 missing required structured field: {rendered}")
+
+    # Links, anchors, and the reachability graph. HTML is scanned via
+    # src=/href=/srcset= attributes, both in .html files and in raw HTML
+    # embedded in Markdown (the README banner uses <picture>, <source>,
+    # <img>, none of which markdown-link syntax would ever see).
+    text_by_path: dict[Path, str] = {}
+    for path in files(".md") + files(".html"):
+        text_by_path[path] = path.read_text(encoding="utf-8")
+
+    graph: dict[Path, set[Path]] = defaultdict(set)
+
+    for path in files(".md"):
+        text = text_by_path[path]
+        check_targets(path, LINK.findall(text), text_by_path, errors, graph)
+        check_targets(path, attr_targets(text), text_by_path, errors, graph)
+        if PLACEHOLDER.search(text):
+            errors.append(f"placeholder token: {relative(path)}")
+
+    for path in files(".html"):
+        text = text_by_path[path]
+        check_targets(path, attr_targets(text), text_by_path, errors, graph)
+
+    # Placeholder tokens beyond Markdown. .py is included deliberately: this
+    # script's own source is exempt, because the PLACEHOLDER pattern above
+    # literally spells out TODO / TBD / INSERT_HERE and would otherwise flag
+    # itself for doing its job, not for actually containing a placeholder.
+    # data/field-tests/ records are exempt too: they are contributors' own
+    # free-text accounts, and an honest "TBD" there is content, not litter.
+    for path in ROOT.rglob("*"):
+        if not path.is_file() or path.suffix not in PLACEHOLDER_SUFFIXES:
+            continue
+        if any(part in IGNORED for part in path.parts):
+            continue
+        if path == SELF or path.suffix == ".md" or FIELD_TEST_RECORDS in path.parents:
+            continue
+        text = text_by_path.get(path)
+        if text is None:
+            text = path.read_text(encoding="utf-8")
+        if PLACEHOLDER.search(text):
+            errors.append(f"placeholder token: {relative(path)}")
+
+    # Orphan detection: every content file should be reachable from README,
+    # JOURNEY, or BRIEF by some chain of links. This is a warning, not a
+    # failure. A few files are legitimately unlinked (see ORPHAN_ALLOWLIST),
+    # and a good-faith field-test PR should never fail CI over an unrelated
+    # file it cannot fix.
+    reachable: set[Path] = set(LINK_ROOTS)
+    queue = list(LINK_ROOTS)
+    while queue:
+        current = queue.pop()
+        for target in graph.get(current, ()):
+            if target not in reachable:
+                reachable.add(target)
+                queue.append(target)
+
+    for path in content_files():
+        if path in reachable or path in ORPHAN_ALLOWLIST:
+            continue
+        warnings.append(
+            f"orphan: {relative(path)} is not reachable from "
+            f"README.md, JOURNEY.md, or BRIEF.md by any link"
+        )
+
+    if warnings:
+        print("Repository check warnings (do not fail this check):")
+        for warning in warnings:
+            print(f"- {warning}")
 
     if errors:
         print("Repository checks failed:")
@@ -378,7 +575,8 @@ def main() -> int:
     print(
         "Repository checks passed: "
         f"{len(files('.md'))} Markdown files, {len(files('.json'))} JSON files, "
-        f"{record_count} schema-conformant field-test record(s)."
+        f"{record_count} schema-conformant field-test record(s), "
+        f"{len(warnings)} warning(s)."
     )
     return 0
 

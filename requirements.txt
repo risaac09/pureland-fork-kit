@@ -1,0 +1,6 @@
+# scripts/check_repo.py validates data/field-tests/*.json against
+# data/field-test.schema.json, which uses $ref, allOf/if/then, not, and
+# contains. Draft 2020-12 support comes from jsonschema, not a hand-rolled
+# subset, because those applicators are where the privacy gate would quietly
+# fail open.
+jsonschema>=4.18

@@ -103,7 +103,7 @@ The future consultancy is an application layer on a 10-to-15-year horizon. PureL
 
 ## What do we know, and what remains untested?
 
-Known: the toolbox has a protocol, a four-question access scorecard, an extraction check, a provenance record, rights guidance, and governance rules. One identified precedent for combining participatory media and evaluation is InsightShare's [Participatory Video and the Most Significant Change](https://insightshare.org/resources/participatory-video-and-the-most-significant-change/). PureLand does not claim to originate that combination.
+Known: the toolbox has a protocol, a four-question access scorecard, an extraction check, a [provenance record](PROVENANCE.md), rights guidance, and governance rules. One identified precedent for combining participatory media and evaluation is InsightShare's [Participatory Video and the Most Significant Change](https://insightshare.org/resources/participatory-video-and-the-most-significant-change/). PureLand does not claim to originate that combination.
 
 Untested: the instruments have no independent field trial, no reliability estimate, no validity result, no benchmark, no threshold, no certification, and no outcome estimate. The [field-trial ledger](FIELD-TRIALS.md) holds one maintainer-side partial dry run and no independent trial. The proposed sample and context targets remain provisional planning choices, not derived evidence gates. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md).
 

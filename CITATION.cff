@@ -6,5 +6,7 @@ authors:
   - family-names: Rubinstein
     given-names: Isaac
 repository-code: "https://github.com/risaac09/pureland-fork-kit"
-license: CC-BY-SA-4.0
+license:
+  - MIT
+  - CC-BY-SA-4.0
 version: 0.1.0

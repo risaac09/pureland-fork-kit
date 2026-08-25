@@ -19,8 +19,10 @@ Do not submit participant material, direct or indirect identifying data, confide
 1. Open an issue describing the context and the proposed change in public-safe terms.
 2. Fork from the current main branch.
 3. Make one bounded change and update the relevant provenance or research-status entry.
-4. Run `python3 scripts/check_repo.py`.
+4. Run `python3 -m pip install -r requirements.txt`, then `python3 scripts/check_repo.py`.
 5. Submit a pull request using the template.
+
+ A field-test record submitted as JSON has to clear the data boundary first. Read [data/README.md](data/README.md): it says what may not be committed and points at the schema the record must validate against.
 
 For a field test involving participant, client, confidential, community-held, or identifying material, the public issue is Stage 1 scoping only. Do not add evidence links or protected details. Stage 2 begins only after the maintainer establishes an appropriate private review channel and confirms the rights basis. See [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md).
 

@@ -5,58 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PureLand research-program prototype</title>
 <meta name="description" content="PureLand is a version 0.1 research-program prototype with a forkable toolbox and one maintainer-side partial dry run.">
+<link rel="stylesheet" href="design/tokens.css">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
-
-  :root {
-    --color-ink: #1C1815;
-    --color-bone: #F3EDE0;
-    --color-brass: #B4945F;
-    --color-oxblood: #7B2D26;
-    --color-celadon: #8FAE9B;
-    --color-graphite: #6B6257;
-
-    --color-ground: var(--color-bone);
-    --color-ground-raised: #EAE2D0;
-    --color-text: var(--color-ink);
-    --color-text-secondary: var(--color-graphite);
-    --color-accent: var(--color-brass);
-    --color-extraction: var(--color-oxblood);
-    --color-return: var(--color-celadon);
-    --color-rule: var(--color-graphite);
-
-    --font-display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
-    --font-body: "EB Garamond", Georgia, "Times New Roman", serif;
-    --font-ledger: "IBM Plex Mono", "Courier Prime", "Courier New", monospace;
-
-    --space-xs: 0.25rem;
-    --space-sm: 0.5rem;
-    --space-md: 1rem;
-    --space-lg: 1.5rem;
-    --space-xl: 2.5rem;
-    --space-xxl: 4.5rem;
-
-    --measure: 62ch;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --color-ground: var(--color-ink);
-      --color-ground-raised: #262019;
-      --color-text: var(--color-bone);
-      --color-text-secondary: #A79E8F;
-      --color-rule: #A79E8F;
-    }
-  }
-
-  :root[data-theme="dark"] {
-    --color-ground: var(--color-ink);
-    --color-ground-raised: #262019;
-    --color-text: var(--color-bone);
-    --color-text-secondary: #A79E8F;
-    --color-rule: #A79E8F;
-  }
-
   * { box-sizing: border-box; }
 
   html { color-scheme: light dark; }
@@ -80,20 +30,20 @@
   .eyebrow {
     font-family: var(--font-ledger);
     font-size: 0.72rem;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--letter-spacing-ledger);
     text-transform: uppercase;
     color: var(--color-text-secondary);
   }
 
   .rule {
     border: none;
-    border-top: 1px solid var(--color-rule);
-    opacity: 0.35;
+    border-top: var(--rule-hairline-weight) solid var(--color-rule);
+    opacity: var(--rule-hairline-opacity);
     margin: 0;
   }
 
   .rule--key {
-    border-top: 2px solid var(--color-accent);
+    border-top: var(--rule-key-weight) solid var(--rule-key-color);
     opacity: 1;
   }
 
@@ -129,9 +79,8 @@
     width: 40px;
     height: 40px;
     flex: none;
+    display: block;
   }
-  .mark path:first-child { stroke: var(--color-text); }
-  .mark path:not(:first-child) { stroke: var(--color-accent); }
 
   .wordmark {
     display: flex;
@@ -144,11 +93,20 @@
     font-family: var(--font-display);
     font-weight: 600;
     font-size: 1.4rem;
-    letter-spacing: 0.14em;
+    letter-spacing: var(--letter-spacing-display);
     text-transform: uppercase;
   }
 
-  .wordmark .eyebrow { letter-spacing: 0.14em; }
+  .subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15em 0.9em;
+    font-family: var(--font-ledger);
+    font-size: 0.7rem;
+    letter-spacing: var(--letter-spacing-ledger);
+    text-transform: uppercase;
+  }
+  .subnav a { color: var(--color-text-secondary); }
 
   header .rule--key { flex: 1; align-self: center; margin-left: var(--space-md); }
 
@@ -159,14 +117,19 @@
     padding: min(22vh, 9rem) var(--space-lg) var(--space-xxl);
   }
 
+  /* Sentence case, not the uppercase display treatment used on the section
+     headings. VISUAL-LANGUAGE.md asks for uppercase titles, meaning short
+     specimen-plate titles; this one is a sentence-length question, and set in
+     letterspaced caps it ran to eleven lines and shouted, against the first
+     principle in that same document. */
   .hero h2 {
     text-wrap: balance;
     font-family: var(--font-display);
     font-weight: 500;
     font-style: italic;
     font-size: clamp(1.9rem, 4.4vw, 3.1rem);
-    line-height: 1.2;
-    max-width: 18ch;
+    line-height: 1.25;
+    max-width: 30ch;
     margin: 0 0 var(--space-lg);
   }
 
@@ -204,8 +167,9 @@
   .content h3 {
     font-family: var(--font-display);
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-display);
     font-size: clamp(1.5rem, 2.6vw, 1.9rem);
-    letter-spacing: 0.02em;
     margin: 0 0 var(--space-lg);
     text-wrap: balance;
   }
@@ -236,7 +200,7 @@
     opacity: 1;
   }
   .ledger-row:first-child { border-top: none; }
-  .ledger-numeral { color: var(--color-accent); }
+  .ledger-numeral { color: var(--color-text); }
   .ledger-label {
     display: inline-block;
     line-height: 1.4;
@@ -245,7 +209,6 @@
     color: var(--color-text);
   }
   .ledger-desc {
-    grid-column: 2;
     font-family: var(--font-body);
     font-size: 0.95rem;
     letter-spacing: normal;
@@ -343,10 +306,16 @@
       row-gap: var(--space-md);
       padding: var(--space-xl) var(--space-md);
     }
+    /* The [data-side] selectors above are more specific than a bare
+       .spread .marginalia, so a plain override here loses to them and the
+       right-side asides stay pinned to column 3. The grid then builds two
+       implicit columns beside the single explicit track and the passage
+       column collapses to about 115px. Match their specificity instead. */
     .spread .content,
-    .spread .marginalia { grid-column: 1; }
-    .spread .marginalia { grid-row: auto; padding: var(--space-md) 0 0; border-top: 1px dashed var(--color-rule); }
-    header { padding: var(--space-lg) var(--space-md); }
+    .spread .marginalia[data-side="left"],
+    .spread .marginalia[data-side="right"] { grid-column: 1; grid-row: auto; }
+    .spread .marginalia { padding: var(--space-md) 0 0; border-top: 1px dashed var(--color-rule); }
+    header { padding: var(--space-lg) var(--space-md); flex-wrap: wrap; }
     .hero { padding: 4rem var(--space-md) var(--space-xl); }
     .fork-table { grid-template-columns: 1fr; }
     .colophon-grid { grid-template-columns: 1fr; }
@@ -363,32 +332,34 @@
 <div class="horizon" aria-hidden="true"></div>
 
 <header>
-  <svg class="mark" viewBox="0 0 100 100" role="img" aria-label="PureLand adapted open-circle fork mark">
-    <title>PureLand adapted open-circle fork mark</title>
-    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M 79.23 36.99 A 32 32 0 1 1 63.01 20.77" stroke-width="4"/>
-      <path d="M 50 92 L 50 66" stroke-width="4"/>
-      <path d="M 50 66 C 62 60, 72 55, 85 60" stroke-width="3.5"/>
-      <path d="M 50 66 C 40 60, 38 50, 46 50" stroke-width="3.5"/>
-    </g>
-  </svg>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="design/assets/mark-dark.svg">
+    <img class="mark" src="design/assets/mark-light.svg" alt="PureLand ensō-fork mark" width="40" height="40">
+  </picture>
   <div class="wordmark">
-    <h1>Pure(Land)</h1>
+    <h1>PureLand</h1>
     <span class="eyebrow">research-program prototype · forkable toolbox · v0.1</span>
+    <nav class="subnav" aria-label="Kit documents">
+      <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/BRIEF.md">brief</a>
+      <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/JOURNEY.md">journey</a>
+      <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/OFFERING.md">offering</a>
+      <a href="https://github.com/risaac09/pureland-fork-kit">repository</a>
+      <a href="https://github.com/risaac09/pureland-fork-kit/issues">issues</a>
+    </nav>
   </div>
   <hr class="rule rule--key">
 </header>
 
 <main>
   <section class="hero">
-    <h2>Can an information practice increase attention sovereignty without increasing exposure or extractability?</h2>
+    <h2>Can a way of handling information give you more control over your own attention without also making you easier to exploit?</h2>
     <p style="max-width: 46ch; color: var(--color-text-secondary);">That is the question PureLand tests, not a claim it has already answered. It combines contemplative self-observation, information-practice analysis, bounded adaptation, and accountable return.</p>
     <ul class="goals">
-      <li>increase attention sovereignty</li>
-      <li>increase useful access without increasing exposure or extractability</li>
-      <li>build consent, attribution, and value return into information practices</li>
-      <li>make the practice contestable, so affected people can question, change, or refuse it</li>
-      <li>return reusable methods and rights-cleared research to a commons</li>
+      <li>give people more control over their attention</li>
+      <li>give people more useful access without exposing them or making them easier to mine</li>
+      <li>build permission, credit, and fair return into how information gets handled</li>
+      <li>keep the practice open to challenge, so the people it affects can question it, change it, or refuse it</li>
+      <li>give reusable methods and rights-cleared research back to a shared commons</li>
     </ul>
   </section>
 
@@ -447,25 +418,48 @@
   <div class="spread">
     <div class="content">
       <h3>The method</h3>
-      <p>Name one practice. Define its boundary and affected people. Establish consent. Notice what happens in attention and in the body. Read the practice through the four access questions: is it understandable, reachable, adaptable, traceable? Trace extraction, consent, attribution, and value return. Choose one bounded adaptation. Observe the burden, disagreement, and result. Return the learning where rights and consent permit.</p>
-      <p>Recording is optional. The first pilot does not require participant recordings.</p>
+      <p>The method walks in six ordered stations, from naming the practice to returning what was learned. Recording is optional. The first pilot does not require participant recordings.</p>
       <div class="ledger">
         <div class="ledger-row">
           <span class="ledger-numeral">I</span>
           <div>
             <span class="ledger-label">Ground</span>
+            <p class="ledger-desc">Name the practice, the boundary, and the people it affects. Write one result that would count against the method.</p>
           </div>
         </div>
         <div class="ledger-row">
           <span class="ledger-numeral">II</span>
           <div>
             <span class="ledger-label">Observe</span>
+            <p class="ledger-desc">Run the practice frame. Notice what's true in you before assigning it to the system.</p>
           </div>
         </div>
         <div class="ledger-row">
           <span class="ledger-numeral">III</span>
           <div>
             <span class="ledger-label">Map</span>
+            <p class="ledger-desc">Read the four access questions with the openness scorecard.</p>
+          </div>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-numeral">IV</span>
+          <div>
+            <span class="ledger-label">Trace</span>
+            <p class="ledger-desc">Run the extraction check. Trace what leaves, where it accumulates, and what returns.</p>
+          </div>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-numeral">V</span>
+          <div>
+            <span class="ledger-label">Adapt</span>
+            <p class="ledger-desc">Choose one bounded change. Watch the cost and the result.</p>
+          </div>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-numeral">VI</span>
+          <div>
+            <span class="ledger-label">Return</span>
+            <p class="ledger-desc">Write up what happened and submit it as a field report.</p>
           </div>
         </div>
         <div class="ledger-row">
@@ -496,11 +490,11 @@
       <div class="fork-table">
         <div class="fork-col">
           <span class="eyebrow out">leaves the origin</span>
-          <p>Walk the journey, the method's one curated path. Fork the instruments. Open a public-safe Stage 1 scoping issue. Document a failure or refusal. Propose a correction through the contribution process.</p>
+          <p>Walk <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/JOURNEY.md">the journey</a>, the method's one curated path. Fork the instruments. Open a public-safe Stage 1 scoping issue. Document a failure or refusal. Propose a correction through the <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CONTRIBUTING.md">contribution process</a>.</p>
         </div>
         <div class="fork-col">
           <span class="eyebrow back">returns</span>
-          <p>A cleared public report when permitted, or private learning, refusal, unmeasurable, correction, disagreement, or method revision, recorded, not smoothed over.</p>
+          <p>A cleared public report when permitted, or private learning, refusal, unmeasurable, correction, disagreement, or method revision. Public reports enter the <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/FIELD-TRIALS.md">field-trial ledger</a>; other returns remain within their rights boundary.</p>
         </div>
       </div>
     </div>
@@ -527,7 +521,7 @@
   <div class="spread closing">
     <div class="content">
       <h3>Where this leaves you</h3>
-      <p>This page does not ask you to stay. Bring one real practice, a boundary, a doubt, or a place where access and extraction pull against each other, and PureLand will scope what can be inspected, what must remain private, and what result would count against the method. Or don't. The record is here either way, and scroll position on this page earns you nothing.</p>
+      <p>This page does not ask you to stay. Bring one real practice, a boundary, a doubt, or a place where access and extraction pull against each other, and PureLand will scope what can be inspected, what must remain private, and what result would count against the method. Or don't. The <a href="https://github.com/risaac09/pureland-fork-kit">record</a> is here either way, and scroll position on this page earns you nothing.</p>
       <p class="exit-line">When you're done reading, close the tab and go look at an actual horizon.</p>
     </div>
   </div>

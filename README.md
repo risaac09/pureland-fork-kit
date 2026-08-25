@@ -26,6 +26,8 @@ The [brief](BRIEF.md) gives a shorter external overview.
 
 ## Use the method
 
+The [front page](index.html) is served at [risaac09.github.io/pureland-fork-kit](https://risaac09.github.io/pureland-fork-kit/). The [open-research lane](research/README.md) indexes provenance, AI-assistance, research-status, and field-test records.
+
 Walk [the journey](JOURNEY.md): Ground, Observe, Map, Trace, Adapt, Return. Bring one real information practice and start on your own, or propose a [PureLand Field Pilot](OFFERING.md), the same journey walked with Isaac as a small, bounded inquiry.
 
 The toolbox includes the [practice frame](PRACTICE-FRAME.md), [openness scorecard](SCORECARD.md), [extraction check](EXTRACTION-CHECK.md), [facilitation protocol](PROTOCOL.md), [AI system annex](AI-SYSTEM-ANNEX.md), and [field-testing discipline](FIELD-TESTING.md).

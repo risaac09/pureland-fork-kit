@@ -28,7 +28,7 @@ List source-backed claims with their sources. List PureLand synthesis separately
 
 ## Verification
 
-- [ ] I ran `python3 scripts/check_repo.py`.
+- [ ] I installed `requirements.txt` and ran `python3 scripts/check_repo.py`.
 - [ ] I added no participant, identifying, confidential, client, or protected community material.
 - [ ] Each included public artifact passed the review described above.
 - [ ] I distinguished source-backed claims from PureLand synthesis in this pull request.
