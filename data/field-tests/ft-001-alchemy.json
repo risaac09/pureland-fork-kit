@@ -1,25 +1,517 @@
 {
+  "record_id": "FT-001",
   "kit_version": "62259ec (2026-08-24)",
-  "context": "The Alchemy repository at commit b7ae829, read as one published information-metabolism practice across seven public surfaces (PWA, embed funnel, Obsidian plugin, Chrome extension, iOS wrapper, bookmarklet, embodied service). Assessor: an AI agent directed by the practice's owner and the kit's maintainer; not independent; does not count toward the version 0.2 gate. Full report: research/field-tests/ft-001-alchemy.md.",
-  "instrument": "journey",
-  "evidence": [
+  "test_status": "partial_dry_run",
+  "tested_hypothesis": {
+    "hypothesis_id": "H-PRIMARY-0.1",
+    "version": "0.1",
+    "statement": "For a named walking person in a bounded information practice, a PureLand-guided adaptation can produce a material increase in practical agency and attention sovereignty for one or more predefined actions, while preserving a usable route to contest or refuse the practice and without a material increase in exposure, extractability, or shifted burden for any affected person or group. The practice should also return something the affected person recognizes as meaningful.",
+    "context_limit": "The Alchemy repository at commit b7ae829, bounded by the assessor as seven public surfaces; no inference extends to Alchemy users or another boundary."
+  },
+  "scope_and_instrument": {
+    "scope": "The whole six-station journey, with the AI system annex carried into Map for the embodied service.",
+    "instrument": "journey",
+    "whole_journey": true
+  },
+  "walking_person": {
+    "role": "AI assessor directed by the practice owner and kit maintainer; no human walking person participated",
+    "is_human": false,
+    "relationship_to_practice": "Maintainer-side assessor working for the owner of both the assessed practice and the kit"
+  },
+  "affected_people": [
+    {
+      "party_id": "local-tool-users",
+      "description": "Users of the free PWA and Obsidian plugin",
+      "relationship_to_practice": "Users whose captured material stays in their browser or vault under the documented design",
+      "participated_in_assessment": false
+    },
+    {
+      "party_id": "funnel-visitors",
+      "description": "Visitors who encounter the embedded diagnostic and optional email field",
+      "relationship_to_practice": "Visitors whose optional email can pass to the host page",
+      "participated_in_assessment": false
+    },
+    {
+      "party_id": "embodied-service-users",
+      "description": "Users of the embodied reflection service",
+      "relationship_to_practice": "Users whose reflection is processed by a named third-party model provider",
+      "participated_in_assessment": false
+    },
+    {
+      "party_id": "past-buyers",
+      "description": "Past buyers of The Metabolizer",
+      "relationship_to_practice": "People who previously paid for a concept now returned through a free tool",
+      "participated_in_assessment": false
+    },
+    {
+      "party_id": "owner-maintainer",
+      "description": "Owner of Alchemy and maintainer of PureLand",
+      "relationship_to_practice": "Owner, adaptation decision-maker, reviewer, and bearer of possible triage burden",
+      "participated_in_assessment": true
+    }
+  ],
+  "assessor_relationship": {
+    "category": "maintainer_side",
+    "description": "An AI agent worked under direction from the owner and kit maintainer. The assessment was not independent."
+  },
+  "second_reader": {
+    "status": "absent",
+    "independent": false,
+    "relationship": "No second reader",
+    "reason": "No second reader was available; every access count and category reading is single-assessor."
+  },
+  "measurement_unit": {
+    "practice": "Alchemy as a published information-metabolism practice",
+    "unit": "One public repository surface for document-access counts; affected people remain separate person or group units for outcomes and harms",
+    "boundary": "Seven public surfaces: PWA, embed funnel, Obsidian plugin, Chrome extension, iOS wrapper, bookmarklet, and embodied service",
+    "boundary_rationale": "The assessor grouped the six surfaces named in docs/PRODUCT.md with the embodied service because the repository and kit present them as one practice.",
+    "alternative_boundary": "Treat the embodied service as a separate AI-mediated practice, or assess only the PWA as the primary user-facing practice; either choice changes the access denominator.",
+    "artifact_set": [
+      "PWA",
+      "embed funnel",
+      "Obsidian plugin",
+      "Chrome extension",
+      "iOS wrapper",
+      "bookmarklet",
+      "embodied service"
+    ],
+    "denominator": 7,
+    "exclusions": [
+      "The live deployed site was not exercised.",
+      "App-store and community-plugin listings were not verified live.",
+      "No participant material or affected-user testimony was included."
+    ],
+    "document_access_time_window": "Repository snapshot at Alchemy commit b7ae829 on 2026-08-24"
+  },
+  "evidence_available_before_analysis": [
     "https://github.com/risaac09/alchemy/blob/b7ae829/README.md",
     "https://github.com/risaac09/alchemy/blob/b7ae829/HONEST-ACCOUNT.md",
     "https://github.com/risaac09/alchemy/blob/b7ae829/docs/PRODUCT.md",
     "https://github.com/risaac09/alchemy/blob/b7ae829/embodied-service/README.md",
     "https://github.com/risaac09/alchemy/blob/b7ae829/app.js",
     "https://github.com/risaac09/alchemy/blob/b7ae829/embed-funnel.js",
-    "https://github.com/risaac09/alchemy/blob/b7ae829/LICENSE"
+    "https://github.com/risaac09/alchemy/blob/b7ae829/LICENSE",
+    "Repository registry metadata provided to the assessor"
   ],
-  "failures": [
-    "The observe station cannot be executed as designed by an AI assessor: no somatic self-observation is available, so station 2 ran as design analysis and needs a human redo.",
-    "No second reader: every count is single-assessor. The two category disagreements the walk surfaced (provenance versus designed ephemerality; decay read as a cost of absence) are one reader's, preserved in the report, and the schema has no field for single-reader category disagreements, so they are recorded here rather than under reader_disagreements.",
-    "Legibility was judged from inside the practice's orbit; the outside-the-core reading was simulated, so scores may be generous.",
-    "The journey gives no guidance on bounding a multi-surface repository; the seven-surface set was the assessor's choice and a different bounding changes every denominator.",
-    "The scorecard's provenance access has no category for designed ephemerality: Alchemy's decay deletes material unrecoverably on purpose, and the instrument reads that only as a gap.",
-    "Most headline findings (the Chrome extension documentation gap, the pull-request posture) were already documented by the practice itself; the walk's new findings came from the extraction check's framing, not the counting."
+  "disconfirming_condition": {
+    "condition": "If the walk surfaced nothing beyond what Alchemy's own README, CLAUDE.md, docs/PRODUCT.md, and HONEST-ACCOUNT.md already stated, the journey would add no analytic value over ordinary repository reading and the sequencing hypothesis would lose its first support.",
+    "recorded_before_analysis": true,
+    "assessment": "mixed",
+    "assessor_interpretation": "The assessor interpreted four tensions as additional analytic value, while two headline gaps were already documented and most new readings came from the extraction-check framing rather than from the full sequence.",
+    "competing_explanations": [
+      "Ordinary review of Alchemy's unusually candid documentation may explain most of the result.",
+      "The extraction check alone may explain the readings the assessor considered new.",
+      "The maintainer-side relationship may have produced generous interpretations.",
+      "A different repository boundary would change every access denominator."
+    ]
+  },
+  "station_completion": [
+    {"station": "ground", "status": "completed", "evidence_or_reason": "Practice, purpose, affected groups, available evidence, permissions, and disconfirming condition were recorded."},
+    {"station": "observe", "status": "not_performed", "evidence_or_reason": "An AI assessor has no somatic register. Design analysis was recorded but does not complete human Observe."},
+    {"station": "map", "status": "partial", "evidence_or_reason": "Access readings were recorded over the assessor-chosen seven-surface set without a second reader or live-site verification."},
+    {"station": "trace", "status": "partial", "evidence_or_reason": "Value and reciprocity were traced from repository evidence without affected-person testimony or challenge."},
+    {"station": "adapt", "status": "partial", "evidence_or_reason": "The adaptation was executed through Alchemy pull request 15, but its follow-up window remains open through 2026-11-22."},
+    {"station": "return", "status": "partial", "evidence_or_reason": "The report and JSON were returned publicly, but no affected user challenged, corrected, or refused the reading."}
   ],
-  "adaptation": "Executed 2026-08-24 on owner consent, after being proposed in the walk: one README paragraph in the Alchemy repo documenting the inbound route for corrections and field reports (https://github.com/risaac09/alchemy/pull/15, merged as bf5e411). Baseline: zero inbound reports, PRs deprioritized. Window: 90 days from merge; review date 2026-11-22. Plausible new harm: triage burden and an implied support promise the honest account declines.",
-  "ai_assistance": "An AI agent (Claude Code) performed the repository analysis, counting, and drafting on 2026-08-24, directed by the maintainer; disclosed in AI-ASSISTANCE.md. Human verification: the maintainer's review of the pull request landing this record. AI output was checked against the source files cited in evidence.",
-  "privacy_review": true
+  "human_observe": {
+    "status": "not_performed",
+    "observer": "No human observer",
+    "evidence_or_reason": "The AI assessor performed system-design analysis only. A human redo is required for a human Observe record."
+  },
+  "access_readings": [
+    {
+      "access": "understandable",
+      "status": "partly_measured",
+      "measures": [
+        {
+          "name": "Reachable surfaces with a plain-language description",
+          "status": "measured",
+          "result": "6/7",
+          "numerator": 6,
+          "denominator": 7,
+          "evidence": [
+            "https://github.com/risaac09/alchemy/blob/b7ae829/README.md",
+            "https://github.com/risaac09/alchemy/blob/b7ae829/docs/PRODUCT.md"
+          ],
+          "uncertainty": ["The assessor simulated an outside-the-core reading; no outside reader tested legibility."]
+        }
+      ]
+    },
+    {
+      "access": "reachable",
+      "status": "partly_measured",
+      "measures": [
+        {
+          "name": "Publicly reachable repository surfaces",
+          "status": "measured",
+          "result": "7/7",
+          "numerator": 7,
+          "denominator": 7,
+          "evidence": ["https://github.com/risaac09/alchemy/tree/b7ae829"],
+          "uncertainty": ["Public repository reach does not show that an affected person's correction will receive a response."]
+        },
+        {
+          "name": "Documented inbound routes",
+          "status": "partly_measured",
+          "result": "Forking was invited, issues were in use, and pull requests were explicitly deprioritized at baseline.",
+          "numerator": null,
+          "denominator": null,
+          "evidence": ["https://github.com/risaac09/alchemy/blob/b7ae829/README.md"],
+          "uncertainty": ["No affected user attempted a correction or refusal route during the dry run."]
+        },
+        {
+          "name": "Median response time",
+          "status": "unmeasurable",
+          "result": "No record available",
+          "numerator": null,
+          "denominator": null,
+          "evidence": [],
+          "uncertainty": ["The follow-up window remains open."]
+        },
+        {
+          "name": "Permission boundary on the embed-email path",
+          "status": "measured",
+          "result": "Optional email passes by postMessage to the host page, which owns capture; the field has a visible skip.",
+          "numerator": null,
+          "denominator": null,
+          "evidence": ["https://github.com/risaac09/alchemy/blob/b7ae829/embed-funnel.js"],
+          "uncertainty": ["The live host page was not exercised."]
+        }
+      ]
+    },
+    {
+      "access": "adaptable",
+      "status": "partly_measured",
+      "measures": [
+        {
+          "name": "Surfaces covered by explicit reuse permission",
+          "status": "measured",
+          "result": "7/7",
+          "numerator": 7,
+          "denominator": 7,
+          "evidence": ["https://github.com/risaac09/alchemy/blob/b7ae829/LICENSE"],
+          "uncertainty": []
+        },
+        {
+          "name": "Surfaces with enough instructions to adapt",
+          "status": "partly_measured",
+          "result": "6/7",
+          "numerator": 6,
+          "denominator": 7,
+          "evidence": [
+            "https://github.com/risaac09/alchemy/blob/b7ae829/README.md",
+            "https://github.com/risaac09/alchemy/blob/b7ae829/docs/PRODUCT.md"
+          ],
+          "uncertainty": ["The Chrome extension lacked documentation beyond its manifest."]
+        }
+      ]
+    },
+    {
+      "access": "traceable",
+      "status": "partly_measured",
+      "measures": [
+        {
+          "name": "Verified sampled claims",
+          "status": "measured",
+          "result": "4 of 7 sampled claims",
+          "numerator": 4,
+          "denominator": 7,
+          "evidence": [
+            "https://github.com/risaac09/alchemy/blob/b7ae829/README.md",
+            "https://github.com/risaac09/alchemy/blob/b7ae829/app.js"
+          ],
+          "uncertainty": ["The sample was assessor-selected and not exhaustive."]
+        },
+        {
+          "name": "Partly verified sampled claims",
+          "status": "partly_measured",
+          "result": "2 of 7 sampled claims",
+          "numerator": 2,
+          "denominator": 7,
+          "evidence": ["https://github.com/risaac09/alchemy/blob/b7ae829/docs/PRODUCT.md"],
+          "uncertainty": ["Store and community-submission states were not verified live."]
+        },
+        {
+          "name": "Unverified sampled claims",
+          "status": "measured",
+          "result": "1 of 7 sampled claims",
+          "numerator": 1,
+          "denominator": 7,
+          "evidence": ["https://github.com/risaac09/alchemy/blob/b7ae829/README.md"],
+          "uncertainty": ["The Obsidian Community Plugins listing was not verified live."]
+        },
+        {
+          "name": "Intentionally anonymous sampled claims",
+          "status": "measured",
+          "result": "0 of 7 sampled claims",
+          "numerator": 0,
+          "denominator": 7,
+          "evidence": ["https://github.com/risaac09/alchemy/tree/b7ae829"],
+          "uncertainty": []
+        }
+      ]
+    }
+  ],
+  "reciprocity_readings": [
+    {
+      "dimension": "consent",
+      "band": "usable",
+      "evidence": [
+        "https://github.com/risaac09/alchemy/blob/b7ae829/embed-funnel.js",
+        "https://github.com/risaac09/alchemy/blob/b7ae829/embodied-service/README.md"
+      ],
+      "burden": "Assessor judged the documented burden low; no affected person tested that judgment.",
+      "disagreement": "No participant disagreement was collected."
+    },
+    {
+      "dimension": "attribution",
+      "band": "usable",
+      "evidence": [
+        "https://github.com/risaac09/alchemy/blob/b7ae829/README.md",
+        "https://github.com/risaac09/alchemy/blob/b7ae829/LICENSE"
+      ],
+      "burden": "Origin and lineage are documented without requiring user identification.",
+      "disagreement": "The instrument's provenance preference conflicts with Alchemy's intentional deletion of unattended material."
+    },
+    {
+      "dimension": "value_return",
+      "band": "usable",
+      "evidence": [
+        "https://github.com/risaac09/alchemy/blob/b7ae829/README.md",
+        "https://github.com/risaac09/alchemy/blob/b7ae829/HONEST-ACCOUNT.md"
+      ],
+      "burden": "The assessor judged that the free tool and honest account return value, but users do not share governance.",
+      "disagreement": "No affected person confirmed that the return was meaningful; the band remains an assessor reading, not a person-level outcome."
+    }
+  ],
+  "agency_actions": [
+    {
+      "action_id": "A-001",
+      "walking_person_or_role": "Potential Alchemy user or forker",
+      "action": "correct",
+      "predefined": true,
+      "baseline": "Before the adaptation, the README invited forks, pull requests were deprioritized, and no public inbound route was named for corrections or field reports.",
+      "observation_method": "Review issues and other records attributable to the new README route during the bounded follow-up window, then record use, response, refusal, and burden without publishing private material.",
+      "materiality_rule": "A meaningful increase requires evidence that an affected person could submit a correction or field report and receive a bounded response without an implied support promise; a new public-exposure risk or unreasonable triage burden weakens the result.",
+      "planned_follow_up": "Review the route and its cost at the end of the 90-day window on 2026-11-22.",
+      "follow_up_status": "pending",
+      "follow_up_result": "Unmeasurable while the observation window remains open; no affected-user attempt was recorded in the dry run.",
+      "evidence": ["https://github.com/risaac09/alchemy/pull/15"]
+    }
+  ],
+  "impacts_by_affected_party": [
+    {
+      "party_id": "local-tool-users",
+      "exposure": {
+        "baseline": "The documented PWA and plugin design keeps captured material in the user's browser or vault.",
+        "follow_up": "No affected-user evidence was collected after the README correction route was added.",
+        "materiality_rule": "Any new actor, use, retention period, or public disclosure caused by the route counts as material.",
+        "status": "unmeasurable",
+        "evidence": ["https://github.com/risaac09/alchemy/pull/15"]
+      },
+      "extractability": {
+        "baseline": "The repository is MIT-licensed, while user-captured content is documented as local to the user.",
+        "follow_up": "No evidence shows whether the new issue route changes what users choose to disclose publicly.",
+        "materiality_rule": "A route that makes user content easier to capture or reuse outside its permission is material.",
+        "status": "unmeasurable",
+        "evidence": ["https://github.com/risaac09/alchemy/pull/15"]
+      },
+      "shifted_burden": {
+        "baseline": "No documented correction route existed, so users lacked a named action but bore no documented submission work.",
+        "follow_up": "No user tested the time, comprehension, or follow-through required by the new route.",
+        "materiality_rule": "A correction process that requires unreasonable documentation, repeated follow-up, or public disclosure is material.",
+        "status": "unmeasurable",
+        "evidence": []
+      }
+    },
+    {
+      "party_id": "funnel-visitors",
+      "exposure": {
+        "baseline": "An optional email could pass to the host page; the field was skippable and the app did not store it.",
+        "follow_up": "The repository review did not test whether the new route changes visitor disclosure.",
+        "materiality_rule": "A new recipient, required identifier, use, or retention period is material.",
+        "status": "unmeasurable",
+        "evidence": ["https://github.com/risaac09/alchemy/blob/b7ae829/embed-funnel.js"]
+      },
+      "extractability": {
+        "baseline": "Optional email capture already depended on the host page's practices.",
+        "follow_up": "No visitor tested or used the correction route.",
+        "materiality_rule": "Easier combination of an email or report with other visitor data outside stated permission is material.",
+        "status": "unmeasurable",
+        "evidence": []
+      },
+      "shifted_burden": {
+        "baseline": "Visitors could skip the email field; no correction-route burden was measured.",
+        "follow_up": "No visitor burden evidence was collected.",
+        "materiality_rule": "Required contact, repeated follow-up, or a support burden shifted to the visitor is material.",
+        "status": "unmeasurable",
+        "evidence": []
+      }
+    },
+    {
+      "party_id": "embodied-service-users",
+      "exposure": {
+        "baseline": "Reflections were documented as sent to a named third-party provider and not stored or logged by the worker.",
+        "follow_up": "No service user participated and no live verification was performed.",
+        "materiality_rule": "Any additional recipient, logging, retention, or use beyond the disclosed provider path is material.",
+        "status": "unmeasurable",
+        "evidence": ["https://github.com/risaac09/alchemy/blob/b7ae829/embodied-service/README.md"]
+      },
+      "extractability": {
+        "baseline": "The provider receives a reflection under its terms; the worker's no-content-logging claim was repository evidence only.",
+        "follow_up": "No user or provider-side evidence was collected after adaptation.",
+        "materiality_rule": "New reuse, combination, human review, or retention beyond the disclosed path is material.",
+        "status": "unmeasurable",
+        "evidence": []
+      },
+      "shifted_burden": {
+        "baseline": "No affected-user account of consent, correction, or refusal burden was available.",
+        "follow_up": "No affected-user evidence was collected.",
+        "materiality_rule": "A correction or refusal path that requires unreasonable disclosure, time, or technical knowledge is material.",
+        "status": "unmeasurable",
+        "evidence": []
+      }
+    },
+    {
+      "party_id": "past-buyers",
+      "exposure": {
+        "baseline": "The public repository record did not include buyer identities or participant material.",
+        "follow_up": "No past buyer participated in the assessment or follow-up.",
+        "materiality_rule": "Identifying a buyer or linking their purchase to a public correction without permission is material.",
+        "status": "unmeasurable",
+        "evidence": []
+      },
+      "extractability": {
+        "baseline": "The concept was returned through a free MIT-licensed tool; no buyer contribution was assessed for reuse permission.",
+        "follow_up": "No buyer evidence was collected.",
+        "materiality_rule": "Reuse of a buyer's contribution beyond its permission is material.",
+        "status": "unmeasurable",
+        "evidence": []
+      },
+      "shifted_burden": {
+        "baseline": "No buyer action or correction burden was measured.",
+        "follow_up": "No buyer tested the route.",
+        "materiality_rule": "Requiring a buyer to monitor or correct the public account without a usable return is material.",
+        "status": "unmeasurable",
+        "evidence": []
+      }
+    },
+    {
+      "party_id": "owner-maintainer",
+      "exposure": {
+        "baseline": "The owner and repository were already public; issues were already available.",
+        "follow_up": "No follow-up record yet shows whether the new route changed disclosure or contact volume.",
+        "materiality_rule": "A new category of personal or protected material entering public issues is material.",
+        "status": "unmeasurable",
+        "evidence": ["https://github.com/risaac09/alchemy/pull/15"]
+      },
+      "extractability": {
+        "baseline": "The practice and its documentation were already public under MIT terms.",
+        "follow_up": "The README route did not receive a completed follow-up review.",
+        "materiality_rule": "A change to reuse rights or a new capture of correction content beyond stated use is material.",
+        "status": "unmeasurable",
+        "evidence": ["https://github.com/risaac09/alchemy/pull/15"]
+      },
+      "shifted_burden": {
+        "baseline": "The owner used issues for an internal ritual and explicitly deprioritized pull requests.",
+        "follow_up": "Possible triage burden and an implied support promise remain unmeasured until 2026-11-22.",
+        "materiality_rule": "Contact volume or response expectations that make the personal tool's stated boundaries untenable are material.",
+        "status": "unmeasurable",
+        "evidence": ["https://github.com/risaac09/alchemy/pull/15"]
+      }
+    }
+  ],
+  "disagreements": [
+    {
+      "disagreement_id": "D-001",
+      "topic": "Provenance and designed ephemerality",
+      "positions": [
+        "The scorecard treats retained origin and transformation records as a traceability virtue.",
+        "Alchemy intentionally deletes unattended material and treats unrecoverable loss as part of the practice."
+      ],
+      "resolution_status": "open",
+      "evidence": ["https://github.com/risaac09/alchemy/blob/b7ae829/HONEST-ACCOUNT.md"]
+    },
+    {
+      "disagreement_id": "D-002",
+      "topic": "Decay as sovereignty protection and cost of absence",
+      "positions": [
+        "Decay limits hoarding and continued engagement pressure.",
+        "Decay can remove captured material from a person who stops, creating a real cost of absence."
+      ],
+      "resolution_status": "open",
+      "evidence": [
+        "https://github.com/risaac09/alchemy/blob/b7ae829/HONEST-ACCOUNT.md",
+        "https://github.com/risaac09/alchemy/blob/b7ae829/app.js"
+      ]
+    }
+  ],
+  "participant_objections": {
+    "status": "not_collected",
+    "items": [],
+    "reason": "No affected user participated in or challenged this maintainer-side repository dry run."
+  },
+  "permission_and_rights": {
+    "participant_material_permission": "not_applicable_no_participant_material",
+    "assessment_permission": "obtained",
+    "adaptation_permission": "obtained",
+    "rights_review": "completed",
+    "public_release_authority": "confirmed",
+    "evidence": [
+      "The owner directed the assessment and reviewed the public record.",
+      "https://github.com/risaac09/alchemy/blob/b7ae829/LICENSE",
+      "https://github.com/risaac09/alchemy/pull/15"
+    ]
+  },
+  "adaptation": {
+    "status": "executed",
+    "description": "On 2026-08-24, after the walk and with owner consent, Alchemy added one README paragraph naming an inbound route for corrections and field reports. The change merged as bf5e411 through Alchemy pull request 15.",
+    "intended_benefit": "Give users and forkers a documented return path for corrections, failure reports, and field tests.",
+    "possible_new_harm": "Create triage burden for a personal tool or imply a support promise that Alchemy's honest account declines.",
+    "evidence": ["https://github.com/risaac09/alchemy/pull/15"]
+  },
+  "follow_up": {
+    "observation_window_start": "2026-08-24",
+    "observation_window_end": "2026-11-22",
+    "review_date": "2026-11-22",
+    "status": "open",
+    "evidence_to_collect": [
+      "Count of inbound reports or corrections attributable to the route",
+      "Whether an affected person could use the route and receive a bounded response",
+      "Time and relational burden of triage",
+      "Any new public-exposure or extractability harm",
+      "Refusals, objections, and non-use without treating silence as approval"
+    ],
+    "evidence": ["https://github.com/risaac09/alchemy/pull/15"]
+  },
+  "outcome": {
+    "classification": "unmeasurable",
+    "practical_agency": "unmeasurable",
+    "attention_sovereignty": "unmeasurable",
+    "contestability": "unmeasurable",
+    "meaningful_return": "unmeasurable",
+    "return_status": "public_record",
+    "causal_claim": false,
+    "reason": "Human Observe, affected-person action evidence, an affected-user challenge, and completed follow-up are absent. Artifact access counts and assessor interpretations cannot substitute for those person-level outcomes."
+  },
+  "ai_assistance": {
+    "status": "used",
+    "system": "Claude Code",
+    "model": "Model not recorded in the original FT-001 record",
+    "date": "2026-08-24",
+    "tasks": ["Repository analysis", "Document-access counting", "Category reading", "Drafting the Markdown report and JSON record"],
+    "material_provided": ["Public PureLand repository", "Public Alchemy repository at commit b7ae829", "Repository registry metadata"],
+    "human_verification": "The maintainer reviewed the pull request that landed the original record and authorized the Alchemy adaptation. Human Observe remains undone.",
+    "corrections_after_verification": [
+      "The structured record preserves the assessor-chosen seven-surface boundary.",
+      "Category disagreements and the incomplete Observe station remain explicit."
+    ],
+    "material_withheld": "No participant material existed or was provided."
+  },
+  "public_privacy_review": {
+    "status": "passed",
+    "reviewer": "Maintainer-side assessor, subject to owner review",
+    "safe_for_public_release": true,
+    "notes": "The record contains public repository evidence and public-safe role descriptions only. It contains no participant material, identifying user data, contact details, or protected community knowledge."
+  }
 }

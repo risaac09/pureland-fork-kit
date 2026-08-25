@@ -1,19 +1,426 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/risaac09/pureland-fork-kit/data/field-test.schema.json",
-  "title": "PureLand field-test record",
+  "title": "PureLand field-test evidence record",
+  "description": "Structural requirements for one public-safe field test. Conformance does not validate the constructs or conclusion.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["kit_version", "context", "instrument", "evidence", "failures", "privacy_review"],
+  "required": [
+    "record_id",
+    "kit_version",
+    "test_status",
+    "tested_hypothesis",
+    "scope_and_instrument",
+    "walking_person",
+    "affected_people",
+    "assessor_relationship",
+    "second_reader",
+    "measurement_unit",
+    "evidence_available_before_analysis",
+    "disconfirming_condition",
+    "station_completion",
+    "human_observe",
+    "access_readings",
+    "reciprocity_readings",
+    "agency_actions",
+    "impacts_by_affected_party",
+    "disagreements",
+    "participant_objections",
+    "permission_and_rights",
+    "adaptation",
+    "follow_up",
+    "outcome",
+    "ai_assistance",
+    "public_privacy_review"
+  ],
   "properties": {
+    "record_id": {"type": "string", "pattern": "^FT-[0-9]{3,}$"},
     "kit_version": {"type": "string", "minLength": 1},
-    "context": {"type": "string", "minLength": 1},
-    "instrument": {"enum": ["journey", "practice-frame", "protocol", "scorecard", "extraction-check", "ai-system-annex"]},
-    "evidence": {"type": "array", "items": {"type": "string"}},
-    "failures": {"type": "array", "items": {"type": "string"}, "minItems": 1},
-    "reader_disagreements": {"type": "array", "items": {"type": "string"}},
-    "adaptation": {"type": ["string", "null"]},
-    "ai_assistance": {"type": ["string", "null"]},
-    "privacy_review": {"const": true}
+    "test_status": {
+      "enum": ["planned", "in_progress", "partial_dry_run", "completed", "closed_unmeasurable", "withdrawn", "refused"]
+    },
+    "tested_hypothesis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hypothesis_id", "version", "statement", "context_limit"],
+      "properties": {
+        "hypothesis_id": {"type": "string", "minLength": 1},
+        "version": {"type": "string", "minLength": 1},
+        "statement": {"type": "string", "minLength": 1},
+        "context_limit": {"type": "string", "minLength": 1}
+      }
+    },
+    "scope_and_instrument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scope", "instrument", "whole_journey"],
+      "properties": {
+        "scope": {"type": "string", "minLength": 1},
+        "instrument": {
+          "enum": ["journey", "practice-frame", "protocol", "scorecard", "extraction-check", "ai-system-annex"]
+        },
+        "whole_journey": {"type": "boolean"}
+      }
+    },
+    "walking_person": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "is_human", "relationship_to_practice"],
+      "properties": {
+        "role": {"type": "string", "minLength": 1},
+        "is_human": {"type": "boolean"},
+        "relationship_to_practice": {"type": "string", "minLength": 1}
+      }
+    },
+    "affected_people": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["party_id", "description", "relationship_to_practice", "participated_in_assessment"],
+        "properties": {
+          "party_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+          "description": {"type": "string", "minLength": 1},
+          "relationship_to_practice": {"type": "string", "minLength": 1},
+          "participated_in_assessment": {"type": "boolean"}
+        }
+      }
+    },
+    "assessor_relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["category", "description"],
+      "properties": {
+        "category": {"enum": ["maintainer_side", "internal", "external", "affected_person", "other"]},
+        "description": {"type": "string", "minLength": 1}
+      }
+    },
+    "second_reader": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "independent", "relationship", "reason"],
+      "properties": {
+        "status": {"enum": ["present", "absent"]},
+        "independent": {"type": "boolean"},
+        "relationship": {"type": "string", "minLength": 1},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    },
+    "measurement_unit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "practice",
+        "unit",
+        "boundary",
+        "boundary_rationale",
+        "alternative_boundary",
+        "artifact_set",
+        "denominator",
+        "exclusions",
+        "document_access_time_window"
+      ],
+      "properties": {
+        "practice": {"type": "string", "minLength": 1},
+        "unit": {"type": "string", "minLength": 1},
+        "boundary": {"type": "string", "minLength": 1},
+        "boundary_rationale": {"type": "string", "minLength": 1},
+        "alternative_boundary": {"type": "string", "minLength": 1},
+        "artifact_set": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "denominator": {"type": "integer", "minimum": 1},
+        "exclusions": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "document_access_time_window": {"type": "string", "minLength": 1}
+      }
+    },
+    "evidence_available_before_analysis": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "disconfirming_condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["condition", "recorded_before_analysis", "assessment", "assessor_interpretation", "competing_explanations"],
+      "properties": {
+        "condition": {"type": "string", "minLength": 1},
+        "recorded_before_analysis": {"type": "boolean"},
+        "assessment": {"enum": ["not_assessed", "supported", "weakened", "defeated", "mixed", "unmeasurable"]},
+        "assessor_interpretation": {"type": "string", "minLength": 1},
+        "competing_explanations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "station_completion": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["station", "status", "evidence_or_reason"],
+        "properties": {
+          "station": {"enum": ["ground", "observe", "map", "trace", "adapt", "return"]},
+          "status": {"enum": ["not_started", "not_performed", "partial", "completed", "not_applicable"]},
+          "evidence_or_reason": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "human_observe": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "observer", "evidence_or_reason"],
+      "properties": {
+        "status": {"enum": ["completed", "not_performed", "partial", "not_applicable"]},
+        "observer": {"type": "string", "minLength": 1},
+        "evidence_or_reason": {"type": "string", "minLength": 1}
+      }
+    },
+    "access_readings": {
+      "type": "array",
+      "minItems": 4,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["access", "status", "measures"],
+        "properties": {
+          "access": {"enum": ["understandable", "reachable", "adaptable", "traceable"]},
+          "status": {"enum": ["measured", "partly_measured", "unmeasurable", "not_applicable"]},
+          "measures": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["name", "status", "result", "numerator", "denominator", "evidence", "uncertainty"],
+              "properties": {
+                "name": {"type": "string", "minLength": 1},
+                "status": {"enum": ["measured", "partly_measured", "unmeasurable", "not_applicable"]},
+                "result": {"type": "string", "minLength": 1},
+                "numerator": {"type": ["integer", "null"], "minimum": 0},
+                "denominator": {"type": ["integer", "null"], "minimum": 1},
+                "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}},
+                "uncertainty": {"type": "array", "items": {"type": "string", "minLength": 1}}
+              }
+            }
+          }
+        }
+      }
+    },
+    "reciprocity_readings": {
+      "type": "array",
+      "minItems": 3,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["dimension", "band", "evidence", "burden", "disagreement"],
+        "properties": {
+          "dimension": {"enum": ["consent", "attribution", "value_return"]},
+          "band": {"enum": ["absent", "formal", "usable", "shared", "unmeasurable", "not_applicable"]},
+          "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "burden": {"type": "string", "minLength": 1},
+          "disagreement": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "agency_actions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "action_id",
+          "walking_person_or_role",
+          "action",
+          "predefined",
+          "baseline",
+          "observation_method",
+          "materiality_rule",
+          "planned_follow_up",
+          "follow_up_status",
+          "follow_up_result",
+          "evidence"
+        ],
+        "properties": {
+          "action_id": {"type": "string", "minLength": 1},
+          "walking_person_or_role": {"type": "string", "minLength": 1},
+          "action": {"enum": ["stop", "continue", "question", "correct", "adapt", "refuse"]},
+          "predefined": {"const": true},
+          "baseline": {"type": "string", "minLength": 1},
+          "observation_method": {"type": "string", "minLength": 1},
+          "materiality_rule": {"type": "string", "minLength": 1},
+          "planned_follow_up": {"type": "string", "minLength": 1},
+          "follow_up_status": {"enum": ["pending", "measured", "unmeasurable", "refused", "private"]},
+          "follow_up_result": {"type": "string", "minLength": 1},
+          "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+        }
+      }
+    },
+    "impacts_by_affected_party": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["party_id", "exposure", "extractability", "shifted_burden"],
+        "properties": {
+          "party_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+          "exposure": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["baseline", "follow_up", "materiality_rule", "status", "evidence"],
+            "properties": {
+              "baseline": {"type": "string", "minLength": 1},
+              "follow_up": {"type": "string", "minLength": 1},
+              "materiality_rule": {"type": "string", "minLength": 1},
+              "status": {"enum": ["material_increase", "no_material_increase", "decreased", "unmeasurable", "not_applicable"]},
+              "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+            }
+          },
+          "extractability": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["baseline", "follow_up", "materiality_rule", "status", "evidence"],
+            "properties": {
+              "baseline": {"type": "string", "minLength": 1},
+              "follow_up": {"type": "string", "minLength": 1},
+              "materiality_rule": {"type": "string", "minLength": 1},
+              "status": {"enum": ["material_increase", "no_material_increase", "decreased", "unmeasurable", "not_applicable"]},
+              "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+            }
+          },
+          "shifted_burden": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["baseline", "follow_up", "materiality_rule", "status", "evidence"],
+            "properties": {
+              "baseline": {"type": "string", "minLength": 1},
+              "follow_up": {"type": "string", "minLength": 1},
+              "materiality_rule": {"type": "string", "minLength": 1},
+              "status": {"enum": ["material_increase", "no_material_increase", "decreased", "unmeasurable", "not_applicable"]},
+              "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+            }
+          }
+        }
+      }
+    },
+    "disagreements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["disagreement_id", "topic", "positions", "resolution_status", "evidence"],
+        "properties": {
+          "disagreement_id": {"type": "string", "minLength": 1},
+          "topic": {"type": "string", "minLength": 1},
+          "positions": {"type": "array", "minItems": 2, "items": {"type": "string", "minLength": 1}},
+          "resolution_status": {"enum": ["open", "resolved", "not_resolved_by_design"]},
+          "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+        }
+      }
+    },
+    "participant_objections": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "items", "reason"],
+      "properties": {
+        "status": {"enum": ["collected_none", "collected_with_objections", "not_collected", "not_applicable", "refused"]},
+        "items": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    },
+    "permission_and_rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["participant_material_permission", "assessment_permission", "adaptation_permission", "rights_review", "public_release_authority", "evidence"],
+      "properties": {
+        "participant_material_permission": {"enum": ["obtained", "not_applicable_no_participant_material", "refused", "private"]},
+        "assessment_permission": {"enum": ["obtained", "not_required", "refused", "not_obtained"]},
+        "adaptation_permission": {"enum": ["obtained", "not_required", "refused", "not_obtained"]},
+        "rights_review": {"enum": ["completed", "incomplete", "refused", "private"]},
+        "public_release_authority": {"enum": ["confirmed", "not_confirmed", "private"]},
+        "evidence": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "adaptation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "description", "intended_benefit", "possible_new_harm", "evidence"],
+      "properties": {
+        "status": {"enum": ["proposed", "authorized", "executed", "declined", "withdrawn", "not_applicable"]},
+        "description": {"type": "string", "minLength": 1},
+        "intended_benefit": {"type": "string", "minLength": 1},
+        "possible_new_harm": {"type": "string", "minLength": 1},
+        "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "follow_up": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["observation_window_start", "observation_window_end", "review_date", "status", "evidence_to_collect", "evidence"],
+      "properties": {
+        "observation_window_start": {"type": "string", "minLength": 1},
+        "observation_window_end": {"type": "string", "minLength": 1},
+        "review_date": {"type": "string", "minLength": 1},
+        "status": {"enum": ["open", "completed", "not_applicable", "refused", "private"]},
+        "evidence_to_collect": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["classification", "practical_agency", "attention_sovereignty", "contestability", "meaningful_return", "return_status", "causal_claim", "reason"],
+      "properties": {
+        "classification": {
+          "enum": ["support_tested_context", "weakened_tested_context", "defeated_tested_context", "mixed", "unmeasurable", "private_result", "refused"]
+        },
+        "practical_agency": {"enum": ["supported", "weakened", "defeated", "mixed", "unmeasurable", "not_applicable"]},
+        "attention_sovereignty": {"enum": ["supported", "weakened", "defeated", "mixed", "unmeasurable", "not_applicable"]},
+        "contestability": {"enum": ["supported", "weakened", "defeated", "mixed", "unmeasurable", "not_applicable"]},
+        "meaningful_return": {"enum": ["supported", "weakened", "defeated", "mixed", "unmeasurable", "not_applicable"]},
+        "return_status": {"enum": ["public_record", "private_result", "refused", "unmeasurable"]},
+        "causal_claim": {"type": "boolean"},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    },
+    "ai_assistance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "system", "model", "date", "tasks", "material_provided", "human_verification", "corrections_after_verification", "material_withheld"],
+      "properties": {
+        "status": {"enum": ["used", "not_used"]},
+        "system": {"type": "string", "minLength": 1},
+        "model": {"type": "string", "minLength": 1},
+        "date": {"type": "string", "minLength": 1},
+        "tasks": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "material_provided": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "human_verification": {"type": "string", "minLength": 1},
+        "corrections_after_verification": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "material_withheld": {"type": "string", "minLength": 1}
+      }
+    },
+    "public_privacy_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reviewer", "safe_for_public_release", "notes"],
+      "properties": {
+        "status": {"enum": ["passed", "failed", "private_review_only", "not_completed"]},
+        "reviewer": {"type": "string", "minLength": 1},
+        "safe_for_public_release": {"type": "boolean"},
+        "notes": {"type": "string", "minLength": 1}
+      }
+    }
   }
 }

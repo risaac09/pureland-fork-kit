@@ -1,6 +1,6 @@
 # Research status
 
-Version 0.1 is a prototype for generating hypotheses. It is not validated, and it does not certify openness, reciprocity, attention sovereignty, or Buddhist practice.
+Version 0.1 defines a testable primary hypothesis and a structured evidence record. Its constructs and instruments remain provisional. It is not validated, and it does not certify openness, reciprocity, attention sovereignty, or Buddhist practice.
 
 | Claim | Status | Evidence needed next |
 |---|---|---|
@@ -9,15 +9,17 @@ Version 0.1 is a prototype for generating hypotheses. It is not validated, and i
 | The three poisons and five hindrances can prompt useful self-observation in information practice | PureLand hypothesis | Qualitative field applications, dissenting readings, harm review |
 | The four access questions distinguish useful properties | Instrument hypothesis | Independent scoring, disagreement between readers, revision of the constructs |
 | Consent, attribution, and value-return profiles expose overlooked asymmetries | Instrument hypothesis | Cases across contexts, plus participant review |
-| A small tested change can increase a person's control over their attention | Untested causal hypothesis | A predefined outcome, a baseline, a follow-up, and evidence that could disprove it |
+| [H-PRIMARY-0.1](HYPOTHESIS.md#primary-hypothesis-h-primary-01): a bounded adaptation can increase practical agency and attention sovereignty without increasing exposure, extractability, or shifted burden | Operationalized, unvalidated hypothesis | Person-level baselines and follow-ups for predefined actions, affected-party harm evidence, usable contestability, meaningful return, and independent applications |
 | One curated sequence (the journey) beats a menu of instruments for first-time completion and report quality | Untested design hypothesis | Whole-journey field tests, drop-off points, comparison with single-instrument entries |
 
 ## Current evidence
 
-- One worked field example: [FT-001](research/field-tests/ft-001-alchemy.md), the journey walked on Alchemy by the maintainer's side. Not independent; it does not count toward the version 0.2 gate.
-- No published independent field trial.
-- No reliability, validity, or outcome estimate.
-- No basis for a combined score, a threshold, a benchmark, or a certification.
+[CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md) keeps the observed record, assessor interpretation, counterexplanations, absent evidence, current conclusion, and next tests together.
+
+- [FT-001](research/field-tests/ft-001-alchemy.md) is a maintainer-side, AI-assisted partial dry run, not an independent field trial. Human Observe was not performed, no affected user challenged the reading, and the adaptation follow-up remains open through 2026-11-22.
+- FT-001 has no practical-agency, attention-sovereignty, or causal result. Its primary-hypothesis result is `unmeasurable` for the tested context.
+- No published independent field trial, reliability estimate, validity result, or outcome estimate exists.
+- No basis exists for a combined score, benchmark, threshold, or certification.
 
 ## AI-assisted research record
 
@@ -34,4 +36,4 @@ AI output is not a source. Cite the document that supports the claim.
 
 ## Version 0.2 gate
 
-Seek five to ten independent applications in at least three contexts. Use two readers where practical. Keep the record of disagreement, participant objections, failed adaptations, missing evidence, and changes to the instrument. Do not tune only toward agreement.
+Seek five to ten independent applications in at least three contexts. Use two readers where practical. Predefine person-level actions, baselines, follow-ups, and materiality rules. Keep the record of disagreement, participant objections, failed adaptations, missing rights evidence, affected-party burden, and changes to the instrument. Do not tune only toward agreement.
