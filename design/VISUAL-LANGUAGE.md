@@ -28,13 +28,13 @@ Contrast notes:
 
 ## Typography
 
-- **Display.** A high-contrast serif in letterspaced capitals, for the engraved or Didone feeling of an old specimen plate. Stack: `"Cormorant Garamond", "EB Garamond", Georgia, serif`. Set titles uppercase with `letter-spacing: 0.08em`.
+- **Display.** A high-contrast serif in letterspaced capitals, for the engraved or Didone feeling of an old specimen plate. Stack: `"Cormorant Garamond", "EB Garamond", Georgia, serif`. Set short titles uppercase with `letter-spacing: 0.08em`. A sentence-length line stays in sentence case; at that length letterspaced capitals shout, which principle 1 rules out.
 - **Body.** A readable old-style serif. Stack: `"EB Garamond", Georgia, "Times New Roman", serif`.
 - **Ledger labels, data, tokens.** Monospace, uppercase, wide tracking, for anything that reads as a field entry rather than prose. Stack: `"IBM Plex Mono", "Courier Prime", "Courier New", monospace` with `letter-spacing: 0.12em`.
 
 ## Motifs
 
-- **Roman numerals I, II, III** for the method's three layers: contemplative diagnosis, observable practice, bounded adaptation.
+- **Roman numerals I through VI** for the method's six stations: ground, observe, map, trace, adapt, return. JOURNEY.md holds the canonical list.
 - **Hairline rules.** 1px, Graphite, reduced opacity. They divide without shouting.
 - **Small arrow annotations.** `→` followed by a monospace caption, used the way a specimen label points to a detail.
 - **Strikethrough in Oxblood** for visible revision. A crossed-out line stays legible; it is a record of what changed, not a deletion.
@@ -54,7 +54,7 @@ The mark is line-work only: no fills, a roughly uniform stroke with slightly tap
 ## Usage
 
 - **README banner.** A quiet header above the title: the mark at left, the kit name in letterspaced serif caps, a short monospace caption beneath a Brass hairline rule. See `design/assets/banner-light.svg` and `design/assets/banner-dark.svg`.
-- **Docs.** Hairline rules to divide sections, monospace labels for field names and data, roman numerals where the three layers are named directly.
+- **Docs.** Hairline rules to divide sections, monospace labels for field names and data, roman numerals where the six stations are named directly.
 - **Field-report artifacts.** Ledger styling for anything that functions as a record: monospace headers, Oxblood strikethrough for corrections, no color used to imply a verdict.
 
 ## What to avoid
@@ -63,6 +63,10 @@ The mark is line-work only: no fills, a roughly uniform stroke with slightly tap
 - Saturated, alarm-toned color used for urgency or attention-bait. Oxblood is a register, not a siren; keep it to short, deliberate emphasis.
 - Dark-pattern layouts: countdowns, forced scroll, infinite continuation, disguised close controls, anything that manufactures an impulse instead of inviting a choice.
 - Buddhist iconography used as decoration. PRACTICE-FRAME.md is careful not to turn Buddhist categories into labels for someone else; the visual language holds the same care and does not use lotus, wheel, or other devotional imagery as ornament. The ensō is used here for its plain meaning, an open, unfinished circle, not as a religious symbol standing in for the kit's authority.
+
+## Tokens
+
+The palette, type stacks, spacing, and rules above are published as [design/tokens.css](tokens.css) for stylesheets and [design/tokens.json](tokens.json) for anything else that needs them. Change this document and the token files together.
 
 ## Licensing note
 
