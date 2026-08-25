@@ -1,21 +1,28 @@
-name: Field test
-description: Report where a PureLand instrument, or the whole journey, worked, failed, or created burden.
-title: "Field test: "
+name: Field-test scoping
+description: Stage 1 public-safe scoping for a possible field test. Do not submit participant or protected material.
+title: "Field-test scope: "
 labels: [field-test]
 body:
   - type: markdown
     attributes:
-      value: "Do not include participant material, identifying data, or confidential records."
+      value: |
+        This public form is Stage 1 scoping only. A proposal is not an acceptance or a promise of work.
+
+        Do not include names, excerpts, recordings, participant evidence, identifying details, client or confidential records, protected community knowledge, or links that expose them. Describe only the category of material that may exist.
+
   - type: input
     id: version
     attributes:
       label: Kit version or commit
+      description: Name the version you expect to use.
     validations:
       required: true
+
   - type: dropdown
     id: instrument
     attributes:
-      label: Scope
+      label: Proposed method scope
+      description: Choose the current starting point. Scoping may change it.
       options:
         - Journey
         - Practice frame
@@ -23,30 +30,113 @@ body:
         - Scorecard
         - Extraction check
         - AI system annex
+        - Not yet decided
     validations:
       required: true
+
   - type: textarea
-    id: context
+    id: practice
     attributes:
-      label: Context and system boundary
+      label: Practice in general terms
+      description: Describe the practice without names, protected details, participant evidence, or identifying combinations.
     validations:
       required: true
+
   - type: textarea
-    id: failure
+    id: importance
     attributes:
-      label: Failure, disagreement, or burden
+      label: Why the question matters
+      description: State why you want to examine the practice now without exposing affected people.
     validations:
       required: true
+
   - type: textarea
-    id: evidence
+    id: proposed_scope
     attributes:
-      label: Public-safe evidence
+      label: Proposed scope
+      description: Name the boundary, affected roles, and what you want to examine. Use roles, not names.
     validations:
       required: true
-  - type: checkboxes
-    id: privacy
+
+  - type: dropdown
+    id: participant_material
     attributes:
-      label: Privacy review
+      label: Participant material
+      description: Does participant material exist within or near the proposed scope?
       options:
-        - label: I included no participant material or identifying data and can share every linked artifact.
-          required: true
+        - No known participant material
+        - Participant material may exist
+        - Unsure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: client_material
+    attributes:
+      label: Client material
+      description: Do client records or client-controlled materials exist within or near the proposed scope?
+      options:
+        - No known client material
+        - Client material may exist
+        - Unsure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: confidential_material
+    attributes:
+      label: Confidential material
+      description: Does confidential material exist within or near the proposed scope?
+      options:
+        - No known confidential material
+        - Confidential material may exist
+        - Unsure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: community_material
+    attributes:
+      label: Community-held material
+      description: Does protected community knowledge or community-held material exist within or near the proposed scope?
+      options:
+        - No known community-held material
+        - Community-held material may exist
+        - Unsure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: identifying_material
+    attributes:
+      label: Identifying material
+      description: Could names or combinations of details identify an affected person?
+      options:
+        - No known identifying material
+        - Identifying material may exist
+        - Unsure
+    validations:
+      required: true
+
+  - type: textarea
+    id: private_boundary
+    attributes:
+      label: What must remain private
+      description: Name categories only. Do not describe or link the protected content.
+    validations:
+      required: true
+
+  - type: textarea
+    id: disconfirming_condition
+    attributes:
+      label: One disconfirming condition
+      description: What result would count against the method or show that this field test should stop?
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        Stage 2 begins only after the maintainer establishes an appropriate private review channel and confirms the rights basis. This repository does not designate a default private system.
+
+        Until the channel and rights basis are resolved, no participant or protected material should enter this issue, a pull request, the repository, or an AI system. Public evidence links are not required when protected material may be involved.
