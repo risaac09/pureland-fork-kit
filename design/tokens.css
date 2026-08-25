@@ -40,9 +40,11 @@
   /* Layout */
   --measure: 62ch;
 
-  /* Rules */
+  /* Rules. --rule-hairline-color is an alias of --color-rule, not a second
+     value: they named the same graphite and would otherwise diverge the moment
+     one of them is adjusted for a dark ground. */
   --rule-hairline-weight: 1px;
-  --rule-hairline-color: var(--color-graphite);
+  --rule-hairline-color: var(--color-rule);
   --rule-hairline-opacity: 0.35;
   --rule-key-weight: 2px;
   --rule-key-color: var(--color-brass);

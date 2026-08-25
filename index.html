@@ -117,16 +117,19 @@
     padding: min(22vh, 9rem) var(--space-lg) var(--space-xxl);
   }
 
+  /* Sentence case, not the uppercase display treatment used on the section
+     headings. VISUAL-LANGUAGE.md asks for uppercase titles, meaning short
+     specimen-plate titles; this one is a sentence-length question, and set in
+     letterspaced caps it ran to eleven lines and shouted, against the first
+     principle in that same document. */
   .hero h2 {
     text-wrap: balance;
     font-family: var(--font-display);
     font-weight: 500;
     font-style: italic;
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-display);
     font-size: clamp(1.9rem, 4.4vw, 3.1rem);
     line-height: 1.25;
-    max-width: 20ch;
+    max-width: 30ch;
     margin: 0 0 var(--space-lg);
   }
 
@@ -200,7 +203,6 @@
   .ledger-numeral { color: var(--color-text); }
   .ledger-label { text-transform: uppercase; color: var(--color-text); }
   .ledger-desc {
-    grid-column: 2;
     font-family: var(--font-body);
     font-size: 0.95rem;
     letter-spacing: normal;
@@ -298,9 +300,15 @@
       row-gap: var(--space-md);
       padding: var(--space-xl) var(--space-md);
     }
+    /* The [data-side] selectors above are more specific than a bare
+       .spread .marginalia, so a plain override here loses to them and the
+       right-side asides stay pinned to column 3. The grid then builds two
+       implicit columns beside the single explicit track and the passage
+       column collapses to about 115px. Match their specificity instead. */
     .spread .content,
-    .spread .marginalia { grid-column: 1; }
-    .spread .marginalia { grid-row: auto; padding: var(--space-md) 0 0; border-top: 1px dashed var(--color-rule); }
+    .spread .marginalia[data-side="left"],
+    .spread .marginalia[data-side="right"] { grid-column: 1; grid-row: auto; }
+    .spread .marginalia { padding: var(--space-md) 0 0; border-top: 1px dashed var(--color-rule); }
     header { padding: var(--space-lg) var(--space-md); flex-wrap: wrap; }
     .hero { padding: 4rem var(--space-md) var(--space-xl); }
     .fork-table { grid-template-columns: 1fr; }
