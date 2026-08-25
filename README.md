@@ -1,15 +1,15 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="design/assets/banner-dark.svg">
-  <img src="design/assets/banner-light.svg" alt="PureLand. An open method for attention sovereignty." width="100%">
+  <img src="design/assets/banner-light.svg" alt="PureLand. Research-program prototype and forkable toolbox." width="100%">
 </picture>
 
 # PureLand
 
-PureLand is a research program and open method for asking whether an information practice can increase a person's control over their attention without also increasing their exposure or extractability.
+PureLand is a research-program prototype for asking whether an information practice can increase a person's control over their attention without also increasing their exposure or extractability.
 
-The forkable instruments, templates, and controls make up the toolbox. The project extends from thesis through conclusion.
+The forkable instruments, templates, and controls make up the toolbox. The public architecture gives six distinct jobs to the argument, method, instruments, testable claim, testing program, and evidence record.
 
-This is a version 0.1 research prototype. It has not been validated. It does not certify that anything is open or safe. It has one maintainer-side worked example and no independent field result.
+This is version 0.1. Its instruments are unvalidated. It does not certify that anything is open or safe. It has one maintainer-side partial dry run and no independent field result.
 
 ## The research spine
 
@@ -19,11 +19,8 @@ Read the project in this order:
 2. [The PureLand method](METHOD.md): the repeatable inquiry from boundary to return.
 3. [The PureLand toolbox](TOOLBOX.md): the forkable instruments, templates, controls, and public-safe records.
 4. [The PureLand hypothesis](HYPOTHESIS.md): the primary testable claim and what would count against it.
-5. [PureLand](PURELAND.md): the applied expression of the thesis, method, toolbox, and hypothesis.
-6. [Testing](TESTING.md): the testing program, evidence discipline, and next gates.
-7. [Results](RESULTS.md): what the current record supports and what is still absent.
-8. [Discussion](DISCUSSION.md): interpretation, competing explanations, and revisions indicated by the evidence.
-9. [Conclusion](CONCLUSION.md): the narrow conclusion the current evidence permits.
+5. [Testing](TESTING.md): the testing program and evidence discipline.
+6. [Current evidence](RESEARCH-STATUS.md): what the record supports, contradicts, or cannot yet measure.
 
 The [brief](BRIEF.md) gives a shorter external overview.
 
@@ -35,9 +32,9 @@ The toolbox includes the [practice frame](PRACTICE-FRAME.md), [openness scorecar
 
 ## Current evidence
 
-The one worked example is [FT-001](research/field-tests/ft-001-alchemy.md), the journey walked on Alchemy from the maintainer's side. It is not independent. It records an unperformable AI Observe station, no second reader, a consequential boundary choice, a conflict between provenance and intentional deletion, and one adaptation with an open follow-up window.
+The only public test record is [FT-001](research/field-tests/ft-001-alchemy.md), a maintainer-side, AI-assisted partial dry run on Alchemy. No human performed Observe. No second reader or affected user challenged the reading. The assessor chose the seven-surface boundary. The assessor interpreted the journey as adding some analysis, but FT-001 cannot separate that effect from familiarity, time spent, or the extraction check alone. It also records a conflict between traceability and intentional deletion, plus one executed adaptation with an open follow-up window.
 
-See [RESULTS.md](RESULTS.md), [FIELD-TRIALS.md](FIELD-TRIALS.md), and [RESEARCH-STATUS.md](RESEARCH-STATUS.md).
+FT-001 shows no reliability, validity, causal effect, or attention-sovereignty outcome. See the [field-trial ledger](FIELD-TRIALS.md) and [research-status ledger](RESEARCH-STATUS.md).
 
 ## Public boundary
 

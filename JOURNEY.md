@@ -6,9 +6,11 @@ There are two ways to walk it: yourself, starting at station 1, or with Isaac as
 
 The journey puts unvalidated instruments in an order. It does not certify openness, safety, or attention sovereignty. Missing evidence stays `unmeasurable`, and nothing on the path produces a combined score. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md).
 
+You may stop or leave at any station. Record the stop, refusal, or missing permission without turning it into failure by the participant. A stopped walk cannot support claims about stations nobody completed.
+
 ## Walking it on your own ecosystem
 
-When the practice you bring is your own information intake, the journey has a live companion: [Alchemy](https://alchemy.rubinsteinproductions.com), a free browser app for information metabolism ([source](https://github.com/risaac09/alchemy), MIT). Nothing leaves the browser: no accounts, no servers, no analytics. The app practices PureLand's claim in code, holding attention without extracting from it.
+When the practice you bring is your own information intake, the journey has a live companion: [Alchemy](https://alchemy.rubinsteinproductions.com), a free browser app for information metabolism ([source](https://github.com/risaac09/alchemy), MIT). Its PWA uses a local-first technical design with no accounts, server-side user store, or analytics. The design intends to reduce extraction. FT-001 did not observe a user outcome, and it found a tension between traceability and Alchemy's intentional deletion.
 
 - Its diagnostic, twelve questions across intake, transformation, expression, and return flow, places you on a 2×2 map. The placement is a composite, the kind of simplification PureLand's instruments refuse, so treat it as a prompt for station 1, not a result.
 - Its capture loop (settle, one-word body check, reflect, map, release) trains the noticing that station 2 asks for. It does not replace the practice frame.
@@ -55,8 +57,10 @@ Choose one small change to test from what stations 2 through 4 surfaced. Record 
 
 Write up what happened with the [field-test template](templates/field-test.md) and submit it as an issue or pull request, following [FIELD-TESTING.md](FIELD-TESTING.md). A useful report includes what failed, what it cost, and the context. A report may cover the whole walk or a single station. No participant material, identifying data, or protected community knowledge belongs in a public report.
 
+Collect no participant material by default. Return can remain private or withheld when publication permission, privacy, confidentiality, or community authority requires it. Record the public classification without exposing the protected reason or material.
+
 Accepted reports join the [field-trial ledger](FIELD-TRIALS.md) as links, not endorsements.
 
 ## When the path ends
 
-The walk is complete only when someone affected by the change can challenge your reading. Keep the disagreement. Revise the method. The next walk starts at station 1.
+An outcome-capable walk needs an affected person to challenge the reading. Without that challenge, record the limit and do not call the method complete. Keep the disagreement. Revise the method. The next walk starts at station 1.

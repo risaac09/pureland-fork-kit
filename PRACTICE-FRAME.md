@@ -10,9 +10,11 @@ The three poisons name greed, aversion, and delusion. The five hindrances name s
 
 Skillful means names adaptation fitted to conditions. It does not mean that any tactic becomes acceptable because the goal sounds compassionate. A response stays accountable to consent, to consequences, and to the agency of the people it touches.
 
-## A working diagnostic
+## Self-observation prompts
 
-| Condition | How it may show up in an information practice | Question for the practitioner | Possible response to test |
+Apply these prompts to your own participation and conditions. Do not use the table to diagnose a participant, audience, community, or system.
+
+| Condition | How you may notice it in your information practice | Question for the practitioner | Possible response to test |
 |---|---|---|---|
 | Greed | Piling up reach, data, archives, or credit beyond the purpose | What am I keeping because more feels safer? | Release a reusable method; limit collection; return value |
 | Aversion | Designing around enemies, outrage, deletion, or avoidance | What contact am I refusing to hold? | Slow the reaction; create a boundary people can challenge |
@@ -27,7 +29,7 @@ These mappings are hypotheses. They should change when practice contradicts them
 
 ## Greed and generosity
 
-Generosity is not publishing everything. An indiscriminate release can expose people, erase context, or feed systems that never return value. Generosity here means giving in a form that increases another person's ability to choose, understand, adapt, or refuse.
+PureLand defines generosity for this project as giving in a form that increases another person's ability to choose, understand, adapt, or refuse. This definition is original synthesis, not a definition established by the Buddhist sources in [PROVENANCE.md](PROVENANCE.md). It does not mean publishing everything. An indiscriminate release can expose people, erase context, or feed systems that never return value.
 
 For an open-source project, test generosity at four points:
 

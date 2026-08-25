@@ -2,7 +2,7 @@
 
 PureLand shares the whole practice, including the unfinished parts. Two reasons. No single part can keep itself honest alone. And work built from other people's teachings, attention, and expression owes back more than an output.
 
-The repository now separates the [thesis](THESIS.md), [method](METHOD.md), [toolbox](TOOLBOX.md), [hypothesis](HYPOTHESIS.md), applied [PureLand](PURELAND.md), [testing](TESTING.md), [results](RESULTS.md), [discussion](DISCUSSION.md), and [conclusion](CONCLUSION.md). The former fork-kit surface remains available as the toolbox inside that larger research spine.
+The repository uses six public functions: [thesis](THESIS.md), [method](METHOD.md), [toolbox](TOOLBOX.md), [hypothesis](HYPOTHESIS.md), [testing](TESTING.md), and [current evidence](RESEARCH-STATUS.md). The former fork-kit surface remains available as the toolbox inside this research-program prototype.
 
 ## What problem is this working on?
 
@@ -14,15 +14,15 @@ PureLand asks one question: can a way of handling information give a person more
 - keep the practice open to challenge, so the people it affects can question it, change it, or refuse it; and
 - give reusable methods and rights-cleared research back to a shared commons.
 
-Each ingredient fails on its own. Measurement without attention or relationship can turn into one more machine for taking things from people. Contemplative and body-based practice without evidence can harden into private conviction. Information theory without permission, credit, and return can describe how data moves while ignoring who pays for the movement.
+Each ingredient fails on its own. Measurement without attention or relationship can turn into one more machine for taking things from people. Contemplative and body-based practice without evidence can harden into private conviction. A map of information movement without permission, credit, and return can ignore who pays for that movement.
 
-PureLand draws on Buddhist practice, information theory, evaluation, and body-based practice. It does not claim that Buddhist categories are technical taxonomies, or that Shannon's theory explains meaning or ethics.
+PureLand draws on Buddhist practice, evaluation, and body-based practice. It treats its mappings from those fields to information practices as original synthesis, not as established doctrine or validated measurement.
 
 ## Why share the whole practice?
 
-Open source is the release phase of the practice, not the whole practice. Generosity means increasing another person's ability to understand, adapt, challenge, or refuse. It does not mean publishing everything. Participant material, protected knowledge, and relationship records may need to stay private.
+Open source is the release phase of the practice, not the whole practice. PureLand defines generosity as increasing another person's ability to understand, adapt, challenge, or refuse. That definition is original synthesis. It does not mean publishing everything. Participant material, protected knowledge, and relationship records may need to stay private.
 
-The whole-practice thesis is this: the diagnosis, the method, the consent process, the rights, the measurement, the research, the licensing, the governance, and the validation all have to travel together. Each supports the method. None can substitute for the others.
+The whole-practice thesis is this: self-observation, method, consent, rights, measurement, research, licensing, governance, and validation all have to travel together. Each supports the method. None can substitute for the others.
 
 ## How does the practice work?
 
@@ -53,7 +53,6 @@ The walkable form of this method is [the journey](JOURNEY.md): six stations that
 | Field | Question it keeps alive | Boundary |
 |---|---|---|
 | Buddhism | What conditions shape attention, and what response may reduce harm? | Self-observation only. Not a diagnosis, and not proof about a system. |
-| Information theory | What moves through a channel, what does it mean, and what can someone do next? | Shannon's technical theory is not a theory of meaning or ethics. |
 | Evaluation | What evidence would support, weaken, or contradict the claim? | The current instruments are hypotheses, not validated measures. |
 | Body-based practice | What does contact do in the body, including urgency, tightness, fatigue, or ease? | Experience informs a reading. It is not a clinical judgment or an objective score. |
 
@@ -79,7 +78,6 @@ Keep the four readings separate. Pair them with the [extraction check](EXTRACTIO
 ### Key definitions
 
 - **Buddhism:** living traditions whose teachings PureLand uses carefully and partially, as prompts for self-observation.
-- **Information theory:** the technical study of how information gets transmitted. Here it helps separate three things: what moved, what it meant, and what someone can do next.
 - **Evaluation:** disciplined inquiry that names a claim, the evidence, a baseline, the limits, and what would prove it wrong.
 - **Body-based (somatic) practice:** paying attention to what the body registers, as information for reflection, not diagnosis.
 - **Understandable:** what can be known. An outsider can tell what exists, what it does, and why it matters.
@@ -101,13 +99,13 @@ Isaac Rubinstein maintains the project and holds merge and release authority. Th
 
 The present offering is the [PureLand Field Pilot](OFFERING.md): a small, bounded inquiry into one real information practice, done together. You can also fork the instruments, submit a public-safe field test, document a failure or a refusal, or propose a correction through the contribution process.
 
-The future consultancy is an application layer on a 10-to-15-year horizon. PureLand is not presenting itself as a mature consultancy now. The present phase is criticism from outside and small field proofs.
+The future consultancy is an application layer on a 10-to-15-year horizon. PureLand is not presenting itself as a mature consultancy now. The present phase is criticism from outside and small field tests.
 
 ## What do we know, and what remains untested?
 
-Known: the toolbox has a protocol, a four-question access scorecard, an extraction check, a provenance record, rights guidance, and governance rules. The closest identified precedent for combining participatory media and evaluation is InsightShare's [Participatory Video and the Most Significant Change](https://insightshare.org/resources/participatory-video-and-the-most-significant-change/). PureLand does not claim to originate that combination.
+Known: the toolbox has a protocol, a four-question access scorecard, an extraction check, a provenance record, rights guidance, and governance rules. One identified precedent for combining participatory media and evaluation is InsightShare's [Participatory Video and the Most Significant Change](https://insightshare.org/resources/participatory-video-and-the-most-significant-change/). PureLand does not claim to originate that combination.
 
-Untested: the instruments have no independent field trial, no reliability estimate, no validity result, no benchmark, no threshold, no certification, and no outcome estimate. The [field-trial ledger](FIELD-TRIALS.md) holds one worked example from the maintainer's side and no independent trial. The next research gate is five to ten independent applications across at least three contexts, with two readers where practical. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md).
+Untested: the instruments have no independent field trial, no reliability estimate, no validity result, no benchmark, no threshold, no certification, and no outcome estimate. The [field-trial ledger](FIELD-TRIALS.md) holds one maintainer-side partial dry run and no independent trial. The proposed sample and context targets remain provisional planning choices, not derived evidence gates. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md).
 
 ## Invitation
 

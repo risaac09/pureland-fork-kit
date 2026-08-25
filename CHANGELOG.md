@@ -2,11 +2,12 @@
 
 ## Unreleased
 
-- Reframed PureLand as a research program rather than only a fork kit. Added an ordered spine for the thesis, method, toolbox, hypothesis, applied PureLand, testing, results, discussion, and conclusion. The existing forkable instruments remain the toolbox layer.
+- Reframed PureLand as a version 0.1 research-program prototype with six public functions: thesis, method, toolbox, hypothesis, testing, and current evidence. PureLand remains the program name, and the existing forkable instruments remain the toolbox.
+- Narrowed FT-001 and Alchemy claims, removed an unsupported information-theory contribution, replaced the three-layer visual motif, and added boundaries around the PureLand name, adapted ensō, generosity definition, and attention-sovereignty language.
 - FT-001's bounded adaptation executed on owner consent: the Alchemy README now documents the inbound route for corrections and field reports (alchemy PR #15). The record moves from proposed to executed; the 90-day window runs to the 2026-11-22 review. The record also notes it keeps the access names it was scored under.
 - Rewrote the public documents in plainer language at roughly a 12th-grade reading level, keeping every guardrail, claim boundary, and file name intact.
 - Replaced "the four accesses" and their formal names (legibility, permeability, forkability, provenance) with four plain questions: understandable (what can be known), reachable (within arm's reach), adaptable (accepting and investigating the reality of change), traceable (we can see what happened, sources attributed, connected to an open record).
-- Recorded FT-001, the first worked field example: the journey walked on Alchemy from the maintainer's side, not independent. Report in `research/field-tests/`, structured record in `data/field-tests/`, ledger row in `FIELD-TRIALS.md`, evidence lines updated in `RESEARCH-STATUS.md` and `research/README.md`.
+- Recorded FT-001, a maintainer-side partial dry run of the journey on Alchemy. It is not independent. The report lives in `research/field-tests/`, its structured record in `data/field-tests/`, and its ledger entry in `FIELD-TRIALS.md`.
 - Consolidated the entry path into one curated journey (`JOURNEY.md`). The instruments remain intact as stations on it, and the README now opens with the journey instead of a menu of instruments.
 - Connected the Alchemy app into the journey as the companion for walking it on your own information ecosystem: the diagnostic as a station-1 prompt, the capture loop as daily observe practice, the app itself as a station-3 and station-4 subject.
 - Added `journey` to the field-test instrument options in the schema, issue form, and template, so a report can cover the whole walk.

@@ -22,23 +22,24 @@ The toolbox is the forkable part of PureLand. It contains the instruments, templ
 - [templates/field-test.md](templates/field-test.md): public-safe report template.
 - [data/field-test.schema.json](data/field-test.schema.json): structured record schema.
 - [FIELD-TRIALS.md](FIELD-TRIALS.md): inspectable test ledger. Listing is not endorsement.
-- [research/field-tests/ft-001-alchemy.md](research/field-tests/ft-001-alchemy.md): the first maintainer-side worked example.
+- [research/field-tests/ft-001-alchemy.md](research/field-tests/ft-001-alchemy.md): the only maintainer-side partial dry run.
 
 ## Inspect evidence and claims
 
 - [HYPOTHESIS.md](HYPOTHESIS.md): primary and secondary testable claims.
 - [TESTING.md](TESTING.md): the testing program and evidence gates.
-- [RESULTS.md](RESULTS.md): the current result set.
 - [RESEARCH-STATUS.md](RESEARCH-STATUS.md): claim-by-claim evidence status.
+- [FIELD-TRIALS.md](FIELD-TRIALS.md): the current public evidence ledger.
 - [PROVENANCE.md](PROVENANCE.md): sources and claim boundaries.
 - [research/README.md](research/README.md): what can enter the public research lane.
 
-## Apply or adapt
+## Use or adapt
 
-- [PURELAND.md](PURELAND.md): the applied expression of the thesis, method, toolbox, and hypothesis.
 - [OFFERING.md](OFFERING.md): the bounded PureLand Field Pilot.
 - [CONTRIBUTING.md](CONTRIBUTING.md): corrections, tests, disagreements, refusals, and adaptations.
 - [GOVERNANCE.md](GOVERNANCE.md): review and release authority.
+
+[PURELAND.md](PURELAND.md) remains a compatibility route for older links. It is not a seventh research function.
 
 ## Reuse safely
 

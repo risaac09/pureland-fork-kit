@@ -4,7 +4,7 @@ PureLand asks whether an information practice can increase a person's control ov
 
 The thesis is:
 
-> Attention sovereignty cannot be separated from the way information is collected, interpreted, changed, returned, and governed. The diagnosis, method, consent, rights, measurement, evidence, licensing, governance, and revision have to travel together.
+> Attention sovereignty cannot be separated from the way information is collected, interpreted, changed, returned, and governed. Self-observation, method, consent, rights, measurement, evidence, licensing, governance, and revision have to travel together.
 
 The thesis guides the shape of the work. Field evidence must determine whether the method succeeds.
 
@@ -12,17 +12,14 @@ The thesis guides the shape of the work. Field evidence must determine whether t
 
 The forkable materials are one release surface. They let another person inspect, adapt, and contest the work. That matters, but a license and a set of instruments cannot establish attention sovereignty on their own.
 
-PureLand therefore has a larger research spine:
+PureLand therefore uses six public research functions:
 
 1. the thesis states the organizing argument;
 2. the [method](METHOD.md) turns it into a repeatable inquiry;
 3. the [toolbox](TOOLBOX.md) holds the reusable instruments and controls;
 4. the [hypothesis](HYPOTHESIS.md) names what can be tested and defeated;
-5. [PureLand](PURELAND.md) is the applied expression of the work;
-6. [testing](TESTING.md) defines how evidence enters;
-7. [results](RESULTS.md) records what happened without inflation;
-8. [discussion](DISCUSSION.md) interprets the record and preserves alternatives; and
-9. the [conclusion](CONCLUSION.md) states what the current evidence permits.
+5. [testing](TESTING.md) defines how evidence enters; and
+6. [current evidence](RESEARCH-STATUS.md) records what the project supports, contradicts, or cannot yet measure.
 
 The fork kit remains inside this structure as the toolbox. It is not being discarded.
 
@@ -41,9 +38,10 @@ I am publishing an openness method while I still control every merge and release
 | Field | Contribution | Boundary |
 |---|---|---|
 | Buddhist practice | Prompts for noticing conditions that shape attention and response | A technical taxonomy, clinical diagnosis, or label for other people |
-| Information theory | Discipline for separating transmission, meaning, and possible action | That Shannon's theory explains meaning or ethics |
 | Evaluation | Claims, evidence, baselines, limits, and disconfirming conditions | That the current instruments are validated measures |
 | Body-based practice | First-person information about what contact does in the body | An objective score or clinical judgment |
+
+PureLand uses the phrase **attention sovereignty** to name practical agency over contact. That language may center an autonomous individual in ways some Buddhist traditions do not. Version 0.1 keeps this tension open. It does not use Buddhist sources to settle it.
 
 ## Implications
 
@@ -56,4 +54,4 @@ I am publishing an openness method while I still control every merge and release
 
 ## Status
 
-The thesis is a version 0.1 organizing argument. One maintainer-side worked example has tested the journey. No independent field trial, reliability estimate, validity result, benchmark, threshold, certification, or outcome estimate exists. See [RESULTS.md](RESULTS.md) and [RESEARCH-STATUS.md](RESEARCH-STATUS.md).
+The thesis is a version 0.1 organizing argument. One maintainer-side partial dry run has exposed problems in the journey. No independent field trial, reliability estimate, validity result, benchmark, threshold, certification, or outcome estimate exists. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md) and [FIELD-TRIALS.md](FIELD-TRIALS.md).
