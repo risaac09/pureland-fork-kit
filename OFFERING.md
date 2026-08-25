@@ -6,17 +6,19 @@ The future consultancy is an application layer on a 10-to-15-year horizon. The p
 
 ## Who the pilot is for
 
-The pilot is for a person or small group who runs, takes part in, or is affected by an information practice. Examples include facilitation, participatory media, evaluation, community archives, organizational knowledge, and AI-enabled workflows. The practice must be specific enough to draw a boundary around, and the collaborator must be able to say what can be inspected and what must stay private.
+The pilot is for a person or small group who runs, takes part in, or is affected by an information practice. Examples include facilitation, participatory media, evaluation, community archives, organizational knowledge, and AI-enabled workflows. The practice must be specific enough to draw a boundary around. A prospective collaborator must be able to describe the practice in public-safe terms and say what must stay private.
 
-There are no published eligibility rules, certification requirements, or guaranteed outcomes.
+There are no published eligibility rules, certification requirements, guaranteed outcomes, or promise that a proposal will be accepted.
 
 ## What the collaborator brings
 
 - one real practice, encounter, or information system;
 - the boundary and the affected people, as the collaborator understands them at proposal time;
-- access to evidence that can be reviewed lawfully;
+- a general description of evidence categories that might be reviewed, with protected material withheld until Stage 2;
 - the doubts, burdens, and disagreements already visible; and
-- the authority to discuss the practice, or a clear account of whose permission is still needed.
+- the authority to discuss the collaborator's own practice and material, plus a clear account of whose permission is still needed.
+
+Collaborator authority is not participant authority or community authority. A collaborator cannot authorize another person's material or protected community knowledge merely by proposing the pilot. Each affected person retains authority over that person's own material. Community-held knowledge requires authority through the relevant community process. If that authority is absent or unclear, the pilot does not use the knowledge.
 
 ## What Isaac brings
 
@@ -29,27 +31,31 @@ There are no published eligibility rules, certification requirements, or guarant
 
 ## What happens together
 
-1. Name the question, the system boundary, the affected people, the evidence, and one result that would count against the method.
-2. Establish the consent and rights the inquiry needs. Recording is optional.
+1. Name the question, the system boundary, the affected people in non-identifying terms, the possible evidence categories, and one result that would count against the method.
+2. Establish the consent and rights the inquiry needs through a private review before any protected material is shared. Recording is optional.
 3. Notice what happens in attention and in the body, using the practice frame.
 4. Read the practice through the four access questions and the extraction check.
-5. Choose one small change to test, and name a plausible new harm it could cause.
-6. Watch the cost, the disagreement, and the result.
-7. Decide what learning can go public and what must stay private.
+5. Decide whether any small change can be tested. Refusal or no change is valid. If a change is chosen, name a plausible new harm it could cause.
+6. If a change is tested, watch the cost, the disagreement, and the result.
+7. Decide whether the learning stays private or whether any specific artifact can go public.
 
 ## What the pilot may produce
 
-Expected outputs may include:
+Possible outputs may include:
 
 - a defined system boundary;
 - a consent and rights plan;
 - a profile across the four access questions;
 - an extraction and reciprocity profile;
 - one tested change;
-- a documented correction, disagreement, refusal, or method revision; and
-- a public-safe field report, only when consent and rights permit one.
+- a documented correction, disagreement, refusal, or method revision;
+- private learning with no public artifact;
+- an unmeasurable result that remains unresolved; or
+- a public-safe field report, only when artifact-specific consent and rights permit one.
 
-The pilot does not require participant recordings, transcripts, names, or film production. No participant material belongs in the public repository by default.
+The pilot does not require participant recordings, transcripts, names, film production, measurable outcomes, or a public field report. Refusal is a valid result. No participant material belongs in the public repository by default.
+
+Publication is not compensation, reciprocity, or proof of collaboration. No participant or community should be pressured to publish, accept attribution, or provide public evidence as a form of return.
 
 ## What remains private
 
@@ -61,12 +67,14 @@ The pilot does not claim validation, causal proof, safety certification, attenti
 
 ## How to propose a pilot
 
-Open an [issue](https://github.com/risaac09/pureland-fork-kit/issues) with a public-safe note containing:
+Stage 1 is a public-safe scoping note. Open an [issue](https://github.com/risaac09/pureland-fork-kit/issues) containing only:
 
 - the practice, and why the question matters now;
-- the boundary and the affected people;
-- the evidence that may be available;
+- the proposed scope;
+- whether participant, client, confidential, community-held, or identifying material exists;
 - what must stay private; and
 - one result that would count against the method.
 
-Do not include participant material, identifying data, confidential records, or protected community knowledge. A proposal is an invitation to scope a pilot. It is not an acceptance or a promise of work.
+Do not include evidence links, excerpts, participant material, identifying or indirectly identifying data, confidential or client records, consent records, or protected community knowledge. A proposal is an invitation to scope a pilot. It is not an acceptance or a promise of work, publication, or outcome.
+
+Stage 2 begins only if the maintainer establishes an appropriate private review channel and confirms the rights basis for the proposed review. Do not send participant or protected material while that channel or authority remains unresolved. See [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md).

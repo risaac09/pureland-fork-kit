@@ -1,11 +1,14 @@
 name: Field test
-description: Report where a PureLand instrument, or the whole journey, worked, failed, or created burden.
-title: "Field test: "
+description: Stage 1 public-safe scoping for a proposed PureLand field test.
+title: "Field-test scope: "
 labels: [field-test]
 body:
   - type: markdown
     attributes:
-      value: "Do not include participant material, identifying data, or confidential records."
+      value: |
+        This issue is public. It begins Stage 1 scoping only. Use general terms. Do not include evidence links, excerpts, participant material, direct or indirect identifiers, client or confidential records, consent records, or protected community knowledge.
+
+        If protected material may be involved, do not place it here. Stage 2 starts only after the maintainer establishes an appropriate private review channel and confirms the rights basis. No participant material should enter a public issue while that channel or authority remains unresolved. Submitting this form does not mean the proposal is accepted.
   - type: input
     id: version
     attributes:
@@ -26,27 +29,96 @@ body:
     validations:
       required: true
   - type: textarea
-    id: context
+    id: practice
     attributes:
-      label: Context and system boundary
+      label: Practice in general terms
+      description: Describe the kind of practice without naming people, clients, communities, locations, cases, or protected records.
     validations:
       required: true
   - type: textarea
-    id: failure
+    id: importance
     attributes:
-      label: Failure, disagreement, or burden
+      label: Why the question matters
+      description: State the reason in public-safe terms. Do not include supporting evidence or protected examples.
     validations:
       required: true
   - type: textarea
-    id: evidence
+    id: proposed_scope
     attributes:
-      label: Public-safe evidence
+      label: Proposed scope
+      description: Name the boundary of the proposed inquiry without identifying affected people or protected material.
     validations:
       required: true
-  - type: checkboxes
-    id: privacy
+  - type: dropdown
+    id: participant_material
     attributes:
-      label: Privacy review
+      label: Could participant material be involved?
+      description: Report presence only. Do not describe the material or participant.
       options:
-        - label: I included no participant material or identifying data and can share every linked artifact.
-          required: true
+        - "Yes"
+        - Unsure
+        - None known
+    validations:
+      required: true
+  - type: dropdown
+    id: client_material
+    attributes:
+      label: Could client material be involved?
+      description: Report presence only. Do not identify a client or record.
+      options:
+        - "Yes"
+        - Unsure
+        - None known
+    validations:
+      required: true
+  - type: dropdown
+    id: confidential_material
+    attributes:
+      label: Could confidential material be involved?
+      description: Report presence only. Do not describe the material.
+      options:
+        - "Yes"
+        - Unsure
+        - None known
+    validations:
+      required: true
+  - type: dropdown
+    id: community_held_material
+    attributes:
+      label: Could community-held material be involved?
+      description: Report presence only. Do not name a community or describe its knowledge.
+      options:
+        - "Yes"
+        - Unsure
+        - None known
+    validations:
+      required: true
+  - type: dropdown
+    id: identifying_material
+    attributes:
+      label: Could identifying material be involved?
+      description: Include indirect identification risk. Do not provide identifying facts.
+      options:
+        - "Yes"
+        - Unsure
+        - None known
+    validations:
+      required: true
+  - type: textarea
+    id: private_boundary
+    attributes:
+      label: What must remain private?
+      description: List categories only, such as participant material or client records. Do not include names, excerpts, links, or identifying facts.
+    validations:
+      required: true
+  - type: textarea
+    id: disconfirming_condition
+    attributes:
+      label: Disconfirming condition
+      description: State one result that would count against the method.
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        After this public scoping step, the maintainer will decide whether an appropriate private rights review can be established. Do not send protected material unless and until that review channel and the relevant authority are confirmed.

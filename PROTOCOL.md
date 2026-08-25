@@ -20,15 +20,24 @@ Record a yes, no, or not-yet answer for each use:
 - record video;
 - keep the raw files for a named period;
 - create a transcript;
-- share a rough cut with named reviewers;
+- permit each named reviewer to receive material;
+- review a rough cut or draft;
+- approve each proposed public artifact;
 - publish a complete work;
-- publish clips or quotations;
+- publish specified clips or quotations;
+- use material for private or internal learning;
 - use material in research;
-- process material with a named AI or machine-learning service;
+- process material with a named AI provider and model for a named purpose;
 - use material to train or fine-tune a model;
-- permit a named future use.
+- permit a named future use;
+- receive a participant copy; and
+- accept the agreed compensation or return.
 
 Silence is not consent. Agreeing to be recorded is not agreeing to be published. Agreeing to an AI transcription service is not agreeing to train a model.
+
+Refusal is a valid outcome. Do not count it as failure, noncooperation, or a lack of reciprocity. A participant may say yes to recording and no to research or publication. Do not turn one permission into another.
+
+Ask who, if anyone, can authorize use of community-held knowledge. One participant can authorize only what that person has authority to authorize. If the necessary community authority is absent or disputed, do not collect, process, or publish that knowledge.
 
 ### Record custody and limits
 
@@ -38,7 +47,7 @@ Write down:
 - where the files live and which third parties receive them;
 - the retention date and how deletion will happen;
 - whether the participant receives raw and edited copies;
-- how review works and how long the participant has to respond;
+- how review works and the participant-agreed response timeframe;
 - what can still be removed after publication;
 - what happens if the relationship ends or a participant dies.
 
@@ -54,17 +63,32 @@ Follow the life of the encounter without treating disclosure as the measure of s
 
 ### Return before publishing
 
-Within 48 hours, send a short note about what the encounter changed or clarified for you. This is a first return, not compensation, and not proof of reciprocity.
+Within a timeframe agreed with the participant, send the return that the participant chose, if any. A note about what the encounter changed or clarified may be one form of return. It is not compensation and does not prove reciprocity. Do not pressure a participant to accept publicity as a return.
 
 Show the participant every proposed public artifact for review. The participant approves the artifact itself. A description of a future edit is not approval.
 
+Approval applies only to the reviewed artifact and version. A material edit, new excerpt, new context, new audience, or new distribution plan requires another decision. Do not publish participant material while approval is no or not yet.
+
+### Preserve disagreement
+
+If an affected person rejects the assessor's interpretation, preserve the objection in the private decision record. Ask whether the person objects to publication, disagrees with the interpretation, or both.
+
+- An objection to publication blocks publication of that person's material.
+- When publication is permitted but the interpretation remains disputed, invite the person to provide or approve the wording of visible dissent. If no wording is approved, say only that the interpretation remains disputed when that statement is public-safe. Do not rewrite disagreement as consensus.
+- Offer the [confidential correction or takedown route](SECURITY.md) for records the project controls.
+- If a dispute involves rights or a decision to close the matter, follow the independent-review process in [GOVERNANCE.md](GOVERNANCE.md).
+
+Do not make agreement with the assessor a condition of receiving a copy, compensation, return, correction, or withdrawal response.
+
 ### Handle withdrawal honestly
 
-A participant may withdraw permission for future uses at any time. Stop new processing and remove the copies you control, unpublished, within the agreed period. For material already published or distributed, document what you can retract, what you cannot retrieve, and what notice you will give. A consent process is not honest if it promises control the project does not have.
+A participant may withdraw permission for future uses at any time through the agreed route. Stop new processing. For unpublished material, remove project-controlled copies within the agreed period unless a previously disclosed retention limit applies. Record the request, the decision affected, each action taken, the action date, and any material that remains.
+
+For material already published or distributed, correct or remove project-controlled public copies when requested unless a previously disclosed limit applies. Document what you retracted, what you cannot retrieve, and what notice you gave. Do not promise deletion from copies, archives, backups, model weights, or downstream adaptations the project does not control. If complete removal is impossible, say why and stop any new use the project can control.
 
 ### Keep a decision record
 
-Keep the minimum record needed to prove the current permissions. Keep relationship notes separate from production records. Do not keep sensitive detail just because storage is cheap.
+Keep the minimum private record needed to prove the current permissions, objections, withdrawals, and actions. Keep relationship notes separate from production records. Do not keep sensitive detail just because storage is cheap. Set a review date for the record itself.
 
 ## Aggregate learning tiers
 
