@@ -23,11 +23,13 @@ METHOD_COMPLETION = re.compile(r"\bmethod completion\b", re.IGNORECASE)
 FIELD_TEST_SCHEMA = ROOT / "data" / "field-test.schema.json"
 FIELD_TEST_DIR = ROOT / "data" / "field-tests"
 FT001 = FIELD_TEST_DIR / "ft-001-alchemy.json"
+LLMS_TXT = ROOT / "llms.txt"
 
 REQUIRED_ARCHITECTURE = [
     "LICENSE",
     "LICENSE.md",
     "README.md",
+    "llms.txt",
     "JOURNEY.md",
     "BRIEF.md",
     "OFFERING.md",
@@ -135,6 +137,11 @@ def files(suffix: str) -> list[Path]:
     )
 
 
+def prose_files() -> list[Path]:
+    """Markdown documents plus the model-facing llms.txt index."""
+    return files(".md") + ([LLMS_TXT] if LLMS_TXT.is_file() else [])
+
+
 def record_files() -> list[Path]:
     """Every JSON under data/ that is a field-test record, not the schema.
 
@@ -224,7 +231,7 @@ def content_files() -> list[Path]:
         path
         for path in ROOT.rglob("*")
         if path.is_file()
-        and path.suffix in CONTENT_SUFFIXES
+        and (path.suffix in CONTENT_SUFFIXES or path == LLMS_TXT)
         and not any(part in IGNORED for part in path.parts)
         and ".github" not in path.parts
     )
@@ -344,11 +351,11 @@ def check_record_rules(path: Path, record: dict[str, Any], errors: list[str]) ->
 
     if incomplete:
         record_id = str(record.get("record_id", "")).lower()
-        for markdown in files(".md"):
-            text = markdown.read_text(encoding="utf-8")
+        for prose in prose_files():
+            text = prose.read_text(encoding="utf-8")
             if record_id and record_id in text.lower() and METHOD_COMPLETION.search(text):
                 errors.append(
-                    f"prohibited completion wording for incomplete {record_label}: {relative(markdown)}"
+                    f"prohibited completion wording for incomplete {record_label}: {relative(prose)}"
                 )
 
     outcome = record.get("outcome", {}).get("classification")
@@ -531,12 +538,12 @@ def main() -> int:
     # embedded in Markdown (the README banner uses <picture>, <source>,
     # <img>, none of which markdown-link syntax would ever see).
     text_by_path: dict[Path, str] = {}
-    for path in files(".md") + files(".html"):
+    for path in prose_files() + files(".html"):
         text_by_path[path] = path.read_text(encoding="utf-8")
 
     graph: dict[Path, set[Path]] = defaultdict(set)
 
-    for path in files(".md"):
+    for path in prose_files():
         text = text_by_path[path]
         check_targets(path, LINK.findall(text), text_by_path, errors, graph)
         check_targets(path, attr_targets(text), text_by_path, errors, graph)
@@ -602,7 +609,8 @@ def main() -> int:
     record_count = len(record_files())
     print(
         "Repository checks passed: "
-        f"{len(files('.md'))} Markdown files, {len(files('.json'))} JSON files, "
+        f"{len(files('.md'))} Markdown files, 1 model index, "
+        f"{len(files('.json'))} JSON files, "
         f"{record_count} schema-conformant field-test record(s), "
         f"{len(warnings)} warning(s)."
     )
