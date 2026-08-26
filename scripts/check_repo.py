@@ -470,7 +470,10 @@ def check_schema_and_records(json_data: dict[Path, Any], errors: list[str]) -> s
     conformant: set[Path] = set()
     for path in record_files():
         record = json_data.get(path)
-        if not isinstance(record, dict):
+        if record is None:
+            # Unparseable JSON already reported by load_json(); a parseable
+            # non-dict record still goes through the validator so the schema's
+            # top-level "type": "object" rejects it instead of a silent skip.
             continue
         violations = sorted(validator.iter_errors(record), key=lambda error: list(error.path))
         for violation in violations:
