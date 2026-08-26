@@ -52,5 +52,6 @@ Notes for a model reading this repository:
 - [Brief](https://risaac09.github.io/pureland-fork-kit/BRIEF.md): the shorter external overview.
 - [Offering](https://risaac09.github.io/pureland-fork-kit/OFFERING.md): the field pilot, the journey walked together as a small bounded inquiry.
 - [Provenance](https://risaac09.github.io/pureland-fork-kit/PROVENANCE.md): the sources that materially shape the kit.
+- [Origin](https://risaac09.github.io/pureland-fork-kit/ORIGIN.md): the maintainer's personal history with Zen practice; not yet written.
 - [AI assistance](https://risaac09.github.io/pureland-fork-kit/AI-ASSISTANCE.md): the record of AI assistance in producing the kit.
 - [Changelog](https://risaac09.github.io/pureland-fork-kit/CHANGELOG.md): what changed per version.

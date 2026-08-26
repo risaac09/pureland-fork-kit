@@ -1,5 +1,41 @@
 # AI assistance record
 
+## 2026-08-26 ensō-fork mark retirement
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code |
+| Task | Replacing the adapted ensō-fork mark with a fork diagram built from the papañca causal sequence, per the maintainer's chosen direction and selection among four proposed options |
+| Material provided | The public repository; four line-work mark concepts drawn this session and shown to the maintainer for reaction, none adopted without his selection; the maintainer's direct choice of direction (replace, not retire or reinterpret) and of the specific option (a plain two-branch fork, no return stroke, no two-tone system) |
+| Source verification | Not applicable; this is original diagram work, not a claim requiring a citation. Checked only that no Zen-specific or ensō-derived language survived in `design/VISUAL-LANGUAGE.md`, `PROVENANCE.md`, or `index.html` after the change |
+| Corrections after verification | None found needing correction |
+| Human review | Maintainer chose the direction and the specific mark before any file was changed; review of the shipped SVGs and prose remains required before merge |
+| Sensitive material | None involved |
+
+## 2026-08-26 RAIN addition
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code |
+| Task | Adding RAIN (Recognize, Allow, Investigate, Non-Identification) to `PRACTICE-FRAME.md` as the response method feeding the practice loop; citing it in `PROVENANCE.md` under a new "Modern practice tools" section |
+| Material provided | The public repository; the maintainer's own direct instruction, naming RAIN and its four steps by name and stating he wanted the Non-Identification (not the later "Nurture") version |
+| Source verification | A dedicated research pass checked the exact wording against Tara Brach's published 2013 chapter, and the originator attribution against Michele McDonald's own retreat center, secondary coverage, and McDonald's full Dharma Seed talk archive (396 talks, 1984-2020) for a datable primary coining statement |
+| Corrections after verification | Declined to state a coining year for McDonald as settled fact; secondary sources range from the 1980s to around 2001, McDonald's own dated talk archive shows no talk titled "RAIN" before 2015, and no primary text fixing an earlier date was found. Declined to present McDonald's own recorded wording ("Recognition, Acceptance, Investigation, Non-Identification") as identical to the "Recognize, Allow, Investigate, Non-Identification" phrasing in circulation; PROVENANCE.md now names both and flags the difference. Labeled RAIN a modern teaching device, not a canonical text, in a section kept separate from the sutta and Abhidhamma citations above it |
+| Human review | Maintainer review remains required before merge. The earlier "rain metaphor" question in the pull request is now answered: it names this framework, not an unresolved metaphor. The ensō-mark decision remains open separately |
+| Sensitive material | None involved |
+
+## 2026-08-26 papañca register correction
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code |
+| Task | Shifting Zen-specific symbolism toward baseline early-Buddhist, papañca-centered framing; folding the Madhupiṇḍika Sutta's causal chain and the Abhidhamma's javāna account into `PRACTICE-FRAME.md`; citing both in `PROVENANCE.md`; adding `ORIGIN.md` as a placeholder for the maintainer's own account |
+| Material provided | The public repository; a private synthesis note from the maintainer's own research vault (treated as a lead, not a source, since its own citation list does not resolve); a private register-discipline standard (`buddhist-flattening-critique.md`) the maintainer already holds elsewhere in his stack; the maintainer's own direct instruction naming the two biographical facts that appear as examples in `ORIGIN.md`'s placeholder text (an undergraduate advisor, and reading *Zen Mind, Beginner's Mind*) |
+| Source verification | A dedicated research pass checked the Madhupiṇḍika Sutta chain and its "shift in agency" reading against Bhikkhu Sujato's suttacentral.net translation and translator notes directly; checked the Abhidhamma javāna-and-bhavaṅga model against Bhikkhu Bodhi's *A Comprehensive Manual of Abhidhamma* and a parallel classical exposition; found no source support for reading javāna "looping" as a distinct mechanism, and labeled that reading as PureLand's own extension |
+| Corrections after verification | Declined to attribute the grammatical "shift in agency" reading to Bhikkhu Bodhi, since that attribution in the private note could not be verified this session; cited Sujato's own translator note instead. Declined to carry forward the private note's framing of papañca as "a bug to be patched" and something technology has "learned to externalize and weaponize," since neither phrase is supported by the Abhidhamma source. Left the adapted ensō mark, its visual form, and its existing disclaimers unchanged; the mark is a maintainer decision, presented as options in the pull request rather than implemented |
+| Human review | Maintainer review remains required before merge. The mark options are left open, alongside two unresolved questions raised in the pull request rather than answered here: a practice-frame reorganization question, and a referenced "rain metaphor" |
+| Sensitive material | None involved; the private research note consulted is the maintainer's own non-participant research writing, used only to identify which primary sources to verify |
+
 ## 2026-08-24 concurrent-lane integration
 
 | Field | Record |
