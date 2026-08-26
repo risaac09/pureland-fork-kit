@@ -20,6 +20,8 @@ ATTR_LINK = re.compile(r"\b(src|href|srcset)=(['\"])(.*?)\2")
 HEADING = re.compile(r"^(#{1,6})\s+(.+?)\s*$", re.MULTILINE)
 PLACEHOLDER = re.compile(r"\b(TODO|TBD|INSERT[_ -]?HERE)\b", re.IGNORECASE)
 METHOD_COMPLETION = re.compile(r"\bmethod completion\b", re.IGNORECASE)
+PAGES_BASE = "https://risaac09.github.io/pureland-fork-kit/"
+
 FIELD_TEST_SCHEMA = ROOT / "data" / "field-test.schema.json"
 FIELD_TEST_DIR = ROOT / "data" / "field-tests"
 FT001 = FIELD_TEST_DIR / "ft-001-alchemy.json"
@@ -289,6 +291,13 @@ def check_targets(
 ) -> None:
     for target in raw_targets:
         clean, _, fragment = target.partition("#")
+        # Links to this repository's own Pages site are checked as local
+        # files; llms.txt uses the absolute form so its links work for a
+        # model reading the raw file, and rot there must still fail here.
+        if clean.startswith(PAGES_BASE):
+            clean = "/" + clean[len(PAGES_BASE):]
+            if clean == "/":
+                clean = "/index.html"
         if not clean or clean.startswith(("http://", "https://", "mailto:", "data:", "//")):
             continue
         # A leading "/" is repo-root-relative (as GitHub treats it), not a
