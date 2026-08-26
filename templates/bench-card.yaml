@@ -1,4 +1,5 @@
 # Bench card template: the paired bench in OPEN-MODEL-LANE.md.
+# License: MIT (see ../LICENSES/MIT.txt).
 #
 # One card declares one bench: two contestants, one task set, the judges,
 # and a pass threshold. The card is what makes a run reproducible and lets
