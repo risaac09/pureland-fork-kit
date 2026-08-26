@@ -26,6 +26,6 @@ Do not publish:
 
 ## Current status
 
-No public research packet has been released yet. The repository contains a [provenance record](../PROVENANCE.md), an [AI-assistance record](../AI-ASSISTANCE.md), the [research-status ledger](../RESEARCH-STATUS.md), and one worked field example, [FT-001](field-tests/ft-001-alchemy.md), the journey walked on Alchemy from the maintainer's side. FT-001 is not independent and is not a research packet.
+No public research packet has been released. [Current evidence](../CURRENT-EVIDENCE.md) synthesizes the [research-status ledger](../RESEARCH-STATUS.md), the [field-trial ledger](../FIELD-TRIALS.md), and one maintainer-side partial dry run, [FT-001](field-tests/ft-001-alchemy.md). FT-001 is AI-assisted, not independent, and not a research packet. The repository also contains a [provenance record](../PROVENANCE.md) and an [AI-assistance record](../AI-ASSISTANCE.md).
 
 Future packets should name their sources, the rights basis, the search coverage, the method, the uncertainty, the corrections, and the unresolved contradictions. A public link alone is not evidence of review or permission.

@@ -1,7 +1,7 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PureLand ensō-fork mark">
-  <title>PureLand ensō-fork mark</title>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PureLand adapted open-circle fork mark">
+  <title>PureLand adapted open-circle fork mark</title>
   <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Ensō: a single open circle. The stroke does not close; the gap sits near one to two o'clock. -->
+    <!-- Adapted ensō form. The stroke does not close; the gap sits near one to two o'clock. -->
     <path d="M 79.23 36.99 A 32 32 0 1 1 63.01 20.77" stroke="#1C1815" stroke-width="4"/>
     <!-- Stem: rises from below the circle to the fork point inside it. -->
     <path d="M 50 92 L 50 66" stroke="#1C1815" stroke-width="4"/>

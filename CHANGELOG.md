@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Reframed PureLand as a version 0.1 research-program prototype with six public functions: thesis, method, toolbox, hypothesis, testing, and current evidence. PureLand remains the program name, and the existing forkable instruments remain the toolbox.
+- Integrated the architecture, measurement, and rights lanes; removed four unpublished compatibility layers; made public issues Stage 1 scoping only; replaced the Boolean privacy check with an artifact-version public-safe review; and separated documented intentional deletion from missing provenance.
+- Narrowed FT-001 and Alchemy claims, removed an unsupported information-theory contribution, replaced the three-layer visual motif, and added boundaries around the PureLand name, adapted ensō, generosity definition, and attention-sovereignty language.
 - Wired `index.html` up as the repository's front page. It links out to the kit's documents instead of standing with none, and it consumes `design/tokens.css` and the marks in `design/assets/` instead of forking them.
 - Dropped the Google Fonts request from `index.html` in favor of the documented fallback stacks, matching the no-servers posture the rest of the kit describes.
 - Replaced `index.html`'s superseded three-layer ledger with the six stations from JOURNEY.md, which holds the canonical list. Corrected `design/VISUAL-LANGUAGE.md`, which still described the roman numerals as standing for three layers.
@@ -10,7 +13,7 @@
 - Fixed a dark-mode contrast defect in `design/tokens.css`: `--color-text-secondary` was Graphite on Ink at 2.95:1, failing WCAG AA. Added the `--measure` and `--color-rule` tokens `index.html` needed, and made `--rule-hairline-color` an alias of `--color-rule` so the two cannot diverge.
 - Added `.nojekyll` so Pages serves the repository as static files with no build step. Enabling the Pages source is a repository setting and was left alone.
 - Widened `scripts/check_repo.py`. It now reads HTML links, validates field-test records against `data/field-test.schema.json`, resolves anchor fragments, scans more file types for placeholder tokens, and warns when a content file is unreachable from README.md, JOURNEY.md, or BRIEF.md.
-- Fixed the schema validator's `const` and `enum` comparisons, which accepted `"privacy_review": 1` because Python treats `True` and `1` as equal. The validator now also fails on any schema keyword it does not enforce, so a rule added to the schema cannot go silently unapplied.
+- Moved schema validation onto `jsonschema` (Draft 2020-12) and added `requirements.txt`, which CI now installs. The hand-rolled validator it replaces covered nine keywords; the research-arc schema uses `$ref`, `$defs`, thirteen `allOf`/`if`/`then` pairs, `not`, and `contains`, and those applicators are where a hand-rolled validator fails open on the privacy gate. `scripts/check_repo.py` reports the missing dependency as an error rather than skipping validation.
 - Scoped JOURNEY.md's Alchemy claims to what FT-001 supports, and matched README's description of the app to it. The browser-only claim covers the PWA surface; two other surfaces send material out.
 - Made PROVENANCE.md and AI-ASSISTANCE.md reachable from the README by linking them from research/README.md. Linked the provenance record from BRIEF.md and data/README.md from CONTRIBUTING.md, and pointed README at `index.html`.
 - Reconciled README's description of FIELD-TESTING.md with JOURNEY.md: it is the instrument the ground and return stations use directly, not a discipline that only runs alongside them.
@@ -18,7 +21,7 @@
 - FT-001's bounded adaptation executed on owner consent: the Alchemy README now documents the inbound route for corrections and field reports (alchemy PR #15). The record moves from proposed to executed; the 90-day window runs to the 2026-11-22 review. The record also notes it keeps the access names it was scored under.
 - Rewrote the public documents in plainer language at roughly a 12th-grade reading level, keeping every guardrail, claim boundary, and file name intact.
 - Replaced "the four accesses" and their formal names (legibility, permeability, forkability, provenance) with four plain questions: understandable (what can be known), reachable (within arm's reach), adaptable (accepting and investigating the reality of change), traceable (we can see what happened, sources attributed, connected to an open record).
-- Recorded FT-001, the first worked field example: the journey walked on Alchemy from the maintainer's side, not independent. Report in `research/field-tests/`, structured record in `data/field-tests/`, ledger row in `FIELD-TRIALS.md`, evidence lines updated in `RESEARCH-STATUS.md` and `research/README.md`.
+- Recorded FT-001, a maintainer-side partial dry run of the journey on Alchemy. It is not independent. The report lives in `research/field-tests/`, its structured record in `data/field-tests/`, and its ledger entry in `FIELD-TRIALS.md`.
 - Consolidated the entry path into one curated journey (`JOURNEY.md`). The instruments remain intact as stations on it, and the README now opens with the journey instead of a menu of instruments.
 - Connected the Alchemy app into the journey as the companion for walking it on your own information ecosystem: the diagnostic as a station-1 prompt, the capture loop as daily observe practice, the app itself as a station-3 and station-4 subject.
 - Added `journey` to the field-test instrument options in the schema, issue form, and template, so a report can cover the whole walk.

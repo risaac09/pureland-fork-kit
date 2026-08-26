@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run small, dependency-free integrity checks for the PureLand repository."""
+"""Run deterministic structural checks for the PureLand repository."""
 
 from __future__ import annotations
 
@@ -8,6 +8,7 @@ import re
 import sys
 from collections import defaultdict
 from pathlib import Path
+from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,8 +19,88 @@ LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 ATTR_LINK = re.compile(r"\b(src|href|srcset)=(['\"])(.*?)\2")
 HEADING = re.compile(r"^(#{1,6})\s+(.+?)\s*$", re.MULTILINE)
 PLACEHOLDER = re.compile(r"\b(TODO|TBD|INSERT[_ -]?HERE)\b", re.IGNORECASE)
-
+METHOD_COMPLETION = re.compile(r"\bmethod completion\b", re.IGNORECASE)
 FIELD_TEST_SCHEMA = ROOT / "data" / "field-test.schema.json"
+FIELD_TEST_DIR = ROOT / "data" / "field-tests"
+FT001 = FIELD_TEST_DIR / "ft-001-alchemy.json"
+
+REQUIRED_ARCHITECTURE = [
+    "LICENSE",
+    "LICENSE.md",
+    "README.md",
+    "JOURNEY.md",
+    "BRIEF.md",
+    "OFFERING.md",
+    "THESIS.md",
+    "METHOD.md",
+    "TOOLBOX.md",
+    "HYPOTHESIS.md",
+    "TESTING.md",
+    "CURRENT-EVIDENCE.md",
+    "RESEARCH-STATUS.md",
+    "FIELD-TESTING.md",
+    "FIELD-TRIALS.md",
+    "data/README.md",
+    "data/field-test.schema.json",
+    "templates/field-test.md",
+    "research/field-tests/ft-001-alchemy.md",
+]
+
+REQUIRED_FT001_PATHS = [
+    ("record_id",),
+    ("kit_version",),
+    ("test_status",),
+    ("tested_hypothesis", "statement"),
+    ("scope", "instrument"),
+    ("walking_person", "status"),
+    ("affected_people",),
+    ("assessor", "relationship_to_practice"),
+    ("second_reader", "status"),
+    ("second_reader", "independent"),
+    ("practice", "unit"),
+    ("practice", "boundary"),
+    ("practice", "boundary_rationale"),
+    ("practice", "alternative_boundary"),
+    ("document_access_set", "items"),
+    ("document_access_set", "denominator"),
+    ("document_access_set", "exclusions"),
+    ("document_access_set", "time_window"),
+    ("evidence_available_before_analysis",),
+    ("disconfirming_condition", "statement"),
+    ("station_completion", "observe", "status"),
+    ("human_observe", "status"),
+    ("access_readings", "understandable"),
+    ("access_readings", "reachable"),
+    ("access_readings", "adaptable"),
+    ("access_readings", "traceable"),
+    ("reciprocity_readings", "consent"),
+    ("reciprocity_readings", "attribution"),
+    ("reciprocity_readings", "meaningful_return"),
+    ("agency_actions",),
+    ("agency_actions", 0, "baseline"),
+    ("agency_actions", 0, "follow_up"),
+    ("party_impacts",),
+    ("materiality_rule", "predeclared_before_analysis"),
+    ("disagreements", "status"),
+    ("participant_objections", "status"),
+    ("rights_review", "status"),
+    ("contestability", "route_status"),
+    ("contestability", "takedown_route"),
+    ("withdrawal", "status"),
+    ("adaptation", "status"),
+    ("adaptation", "intended_benefit"),
+    ("adaptation", "possible_new_harm"),
+    ("follow_up", "observation_window"),
+    ("follow_up", "review_date"),
+    ("follow_up", "status"),
+    ("outcome", "classification"),
+    ("outcome", "return_disposition"),
+    ("outcome", "causal_claim"),
+    ("ai_assistance", "used"),
+    ("public_safe_review", "artifact_version"),
+    ("public_safe_review", "decision"),
+    ("public_safe_review", "categories", "artifact_specific_permission", "status"),
+]
 
 # Field-test records are free-text, first-person accounts of what a
 # contributor found, including what is still open. data/README.md and
@@ -46,158 +127,95 @@ CONTENT_SUFFIXES = {".md", ".html", ".css", ".json", ".cff", ".svg"}
 # File types scanned for TODO/TBD/INSERT_HERE placeholder tokens.
 PLACEHOLDER_SUFFIXES = {".md", ".html", ".json", ".yml", ".yaml", ".py"}
 
-# Keywords validate_against_schema() actually enforces. Anything else in the
-# schema is either an annotation (below) or a rule this script cannot apply,
-# and an unenforced rule is worse than an absent one: it reads as covered.
-SUPPORTED_KEYWORDS = {
-    "type",
-    "required",
-    "additionalProperties",
-    "properties",
-    "enum",
-    "const",
-    "minLength",
-    "minItems",
-    "items",
-}
-
-# Annotations carry no constraint, so ignoring them is correct, not a gap.
-ANNOTATION_KEYWORDS = {
-    "$schema",
-    "$id",
-    "title",
-    "description",
-    "$comment",
-    "examples",
-    "default",
-}
-
-JSON_TYPES = {
-    "object": dict,
-    "array": list,
-    "string": str,
-    "number": (int, float),
-    "integer": int,
-    "boolean": bool,
-    "null": type(None),
-}
-
-
-def type_matches(value: object, expected: object) -> bool:
-    names = expected if isinstance(expected, list) else [expected]
-    for name in names:
-        py = JSON_TYPES.get(name)
-        if py is None:
-            continue
-        # bool is a subclass of int in Python; JSON does not agree.
-        if name in ("number", "integer") and isinstance(value, bool):
-            continue
-        if isinstance(value, py):
-            return True
-    return False
-
-
-def json_equal(value: object, expected: object) -> bool:
-    """Compare two JSON values the way JSON Schema does, not the way Python does.
-
-    The trap: Python treats True == 1 and False == 0, so a plain == would accept
-    a record carrying "privacy_review": 1 or 1.0 against {"const": true}, which
-    Draft 2020-12 rejects. privacy_review is this repo's privacy gate, so the
-    loose comparison would open it. type_matches() above already guards the same
-    bool/int confusion for the "type" keyword; const and enum need it too.
-    """
-    if isinstance(value, bool) != isinstance(expected, bool):
-        return False
-    if isinstance(value, list) and isinstance(expected, list):
-        return len(value) == len(expected) and all(
-            json_equal(item, other) for item, other in zip(value, expected)
-        )
-    if isinstance(value, dict) and isinstance(expected, dict):
-        return value.keys() == expected.keys() and all(
-            json_equal(value[name], expected[name]) for name in value
-        )
-    return value == expected
-
-
-def unsupported_keywords(schema: object, where: str) -> list[str]:
-    """Name any schema keyword this validator would silently ignore.
-
-    Without this, adding pattern, maxLength, or oneOf to field-test.schema.json
-    would publish a rule that nothing enforces while CI stayed green. Failing
-    loudly here forces the choice: implement the keyword, or do not declare it.
-    """
-    errors: list[str] = []
-    if not isinstance(schema, dict):
-        return errors
-    for name in schema:
-        if name not in SUPPORTED_KEYWORDS and name not in ANNOTATION_KEYWORDS:
-            errors.append(f"{where}: schema keyword '{name}' is declared but not enforced")
-    # additionalProperties is enforced only in its boolean form. Given a
-    # subschema, validate_against_schema() would ignore it, so the keyword
-    # being on the supported list is not enough on its own.
-    if isinstance(schema.get("additionalProperties"), dict):
-        errors.append(f"{where}: additionalProperties as a subschema is declared but not enforced")
-    for name, subschema in schema.get("properties", {}).items():
-        errors.extend(unsupported_keywords(subschema, f"{where}.{name}"))
-    if "items" in schema:
-        errors.extend(unsupported_keywords(schema["items"], f"{where}[]"))
-    return errors
-
-
-def validate_against_schema(value: object, schema: dict, where: str) -> list[str]:
-    """Validate one record against the subset of JSON Schema this repo uses.
-
-    Deliberately hand-rolled: check_repo.py is dependency-free by design and CI
-    installs nothing, so pulling in jsonschema would trade the property that
-    makes this runnable anywhere for keywords the schema does not use. Enforces
-    the nine keywords in SUPPORTED_KEYWORDS, which is what
-    data/field-test.schema.json declares today; const and enum compare by JSON
-    equality through json_equal(), not by Python ==. Any other keyword added to
-    the schema later is reported by unsupported_keywords() rather than ignored.
-    """
-    errors: list[str] = []
-
-    if "const" in schema and not json_equal(value, schema["const"]):
-        errors.append(f"{where}: must be {json.dumps(schema['const'])}, got {json.dumps(value)}")
-        return errors
-
-    if "type" in schema and not type_matches(value, schema["type"]):
-        errors.append(f"{where}: expected {schema['type']}, got {json.dumps(value)}")
-        return errors
-
-    if "enum" in schema and not any(json_equal(value, option) for option in schema["enum"]):
-        errors.append(f"{where}: must be one of {schema['enum']}, got {json.dumps(value)}")
-    if "minLength" in schema and isinstance(value, str) and len(value) < schema["minLength"]:
-        errors.append(f"{where}: must be at least {schema['minLength']} character(s)")
-    if "minItems" in schema and isinstance(value, list) and len(value) < schema["minItems"]:
-        errors.append(f"{where}: must have at least {schema['minItems']} item(s)")
-
-    if isinstance(value, list) and "items" in schema:
-        for index, item in enumerate(value):
-            errors.extend(validate_against_schema(item, schema["items"], f"{where}[{index}]"))
-
-    if isinstance(value, dict):
-        properties = schema.get("properties", {})
-        for name in schema.get("required", []):
-            if name not in value:
-                errors.append(f"{where}: missing required field '{name}'")
-        if schema.get("additionalProperties") is False:
-            for name in value:
-                if name not in properties:
-                    errors.append(f"{where}: unexpected field '{name}'")
-        for name, subschema in properties.items():
-            if name in value:
-                errors.extend(validate_against_schema(value[name], subschema, f"{where}.{name}"))
-
-    return errors
-
-
 def files(suffix: str) -> list[Path]:
     return sorted(
         path
         for path in ROOT.rglob(f"*{suffix}")
         if not any(part in IGNORED for part in path.parts)
     )
+
+
+def record_files() -> list[Path]:
+    """Every JSON under data/ that is a field-test record, not the schema.
+
+    rglob, not glob: records live in data/field-tests/, one level below data/,
+    and a record dropped anywhere else under data/ still has to clear the same
+    privacy boundary. Assumption: every JSON under data/ other than the schema
+    is a field-test record. That holds today. A data file of some other shape
+    would fail against this schema, so add a path filter here before adding one.
+    """
+    return sorted(
+        path for path in (ROOT / "data").rglob("*.json") if path != FIELD_TEST_SCHEMA
+    )
+
+
+def relative(path: Path) -> str:
+    return str(path.relative_to(ROOT))
+
+
+def load_json(path: Path, errors: list[str]) -> Any | None:
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        errors.append(f"invalid JSON: {relative(path)}: {exc}")
+        return None
+
+
+def has_path(value: Any, path: tuple[str | int, ...]) -> bool:
+    current = value
+    for part in path:
+        if isinstance(part, int):
+            if not isinstance(current, list) or part >= len(current):
+                return False
+            current = current[part]
+        else:
+            if not isinstance(current, dict) or part not in current:
+                return False
+            current = current[part]
+    return True
+
+
+def find_prohibited_score_keys(value: Any, prefix: str = "") -> list[str]:
+    prohibited = {"average_score", "composite_score", "overall_score"}
+    found: list[str] = []
+    if isinstance(value, dict):
+        for key, child in value.items():
+            location = f"{prefix}.{key}" if prefix else key
+            if key.lower() in prohibited:
+                found.append(location)
+            found.extend(find_prohibited_score_keys(child, location))
+    elif isinstance(value, list):
+        for index, child in enumerate(value):
+            found.extend(find_prohibited_score_keys(child, f"{prefix}[{index}]"))
+    return found
+
+
+def incomplete_required_stations(record: dict[str, Any]) -> list[str]:
+    incomplete: list[str] = []
+    for station, entry in record.get("station_completion", {}).items():
+        if entry.get("required") is True and entry.get("status") != "complete":
+            incomplete.append(station)
+    return incomplete
+
+
+def has_observed_action_outcome(record: dict[str, Any]) -> bool:
+    for action in record.get("agency_actions", []):
+        if (
+            action.get("predefined_before_analysis") is True
+            and action.get("baseline", {}).get("status") == "observed"
+            and action.get("follow_up", {}).get("status") == "observed"
+        ):
+            return True
+    return False
+
+
+def has_material_increase(record: dict[str, Any]) -> bool:
+    for impact in record.get("party_impacts", []):
+        for period in ("baseline", "follow_up"):
+            for dimension in ("exposure", "extractability", "shifted_burden"):
+                if impact.get(period, {}).get(dimension, {}).get("material_increase") is True:
+                    return True
+    return False
 
 
 def content_files() -> list[Path]:
@@ -292,44 +310,221 @@ def check_targets(
                 )
 
 
+def check_record_rules(path: Path, record: dict[str, Any], errors: list[str]) -> None:
+    record_label = record.get("record_id", relative(path))
+    incomplete = incomplete_required_stations(record)
+
+    if record.get("test_status") == "complete" and incomplete:
+        errors.append(
+            f"{record_label} claims completion with incomplete required stations: {', '.join(incomplete)}"
+        )
+    if (
+        record.get("test_status") == "complete"
+        and record.get("station_completion", {}).get("observe", {}).get("required") is True
+        and record.get("human_observe", {}).get("status") != "performed"
+    ):
+        errors.append(f"{record_label} claims completion without required human Observe evidence")
+    if record.get("test_status") == "complete":
+        if not any(
+            action.get("predefined_before_analysis") is True
+            for action in record.get("agency_actions", [])
+        ):
+            errors.append(f"{record_label} claims completion without a predefined agency action")
+        if record.get("materiality_rule", {}).get("predeclared_before_analysis") is not True:
+            errors.append(f"{record_label} claims completion without a predeclared materiality rule")
+        if record.get("rights_review", {}).get("status") != "complete":
+            errors.append(f"{record_label} claims completion without a completed rights review")
+        if (
+            record.get("contestability", {}).get("route_status") != "usable"
+            or record.get("contestability", {}).get("affected_party_tested") is not True
+        ):
+            errors.append(
+                f"{record_label} claims completion without tested, usable contestability"
+            )
+
+    if incomplete:
+        record_id = str(record.get("record_id", "")).lower()
+        for markdown in files(".md"):
+            text = markdown.read_text(encoding="utf-8")
+            if record_id and record_id in text.lower() and METHOD_COMPLETION.search(text):
+                errors.append(
+                    f"prohibited completion wording for incomplete {record_label}: {relative(markdown)}"
+                )
+
+    outcome = record.get("outcome", {}).get("classification")
+    rights_status = record.get("rights_review", {}).get("status")
+    if (rights_status != "complete" or not has_observed_action_outcome(record)) and outcome != "unmeasurable":
+        errors.append(
+            f"{record_label} must be unmeasurable when required rights or action-outcome evidence is missing"
+        )
+    if (
+        record.get("materiality_rule", {}).get("predeclared_before_analysis") is not True
+        and outcome != "unmeasurable"
+    ):
+        errors.append(f"{record_label} must be unmeasurable without a predeclared materiality rule")
+    if has_material_increase(record) and outcome == "supports-tested-context":
+        errors.append(f"{record_label} cannot support the hypothesis with a recorded material increase")
+    if outcome == "supports-tested-context" and (
+        record.get("contestability", {}).get("route_status") != "usable"
+        or record.get("contestability", {}).get("affected_party_tested") is not True
+    ):
+        errors.append(f"{record_label} cannot support the hypothesis without tested, usable contestability")
+
+    rights_review = record.get("rights_review", {})
+    allowed_public_permissions = {"granted", "not-required"}
+    public_safe_review = record.get("public_safe_review", {})
+    public_safe_categories = public_safe_review.get("categories", {})
+    if public_safe_review.get("decision") != "clear":
+        errors.append(f"{record_label} public record lacks a clear artifact-version public-safe decision")
+    unclear_categories = sorted(
+        name
+        for name, category in public_safe_categories.items()
+        if category.get("status") in {"blocked", "not-yet-clear"}
+    )
+    if unclear_categories:
+        errors.append(
+            f"{record_label} public-safe decision conflicts with uncleared categories: "
+            f"{', '.join(unclear_categories)}"
+        )
+    for permission in ("publication_permission", "artifact_approval"):
+        if rights_review.get(permission) not in allowed_public_permissions:
+            errors.append(f"{record_label} public record lacks {permission.replace('_', ' ')}")
+    if (
+        record.get("ai_assistance", {}).get("used") is True
+        and rights_review.get("ai_processing_permission") not in allowed_public_permissions
+    ):
+        errors.append(f"{record_label} records AI use without AI-processing permission")
+    if (
+        rights_review.get("model_training_permission") in {"unknown", "not-sought"}
+        and public_safe_categories.get("model_training", {}).get("status") == "clear"
+    ):
+        errors.append(f"{record_label} clears model training without a recorded decision")
+
+    withdrawal = record.get("withdrawal", {})
+    if withdrawal.get("status") in {"acted", "partially-acted"} and not withdrawal.get("actions"):
+        errors.append(f"{record_label} records withdrawal action without an action history")
+
+    access_set = record.get("document_access_set", {})
+    if access_set.get("denominator") != len(access_set.get("items", [])):
+        errors.append(f"{record_label} document-access denominator does not match the named set")
+    expected_denominator = access_set.get("denominator")
+    for name, reading in record.get("access_readings", {}).items():
+        if reading.get("denominator_ref") == "document_access_set":
+            for count in reading.get("counts", []):
+                if count.get("denominator") != expected_denominator:
+                    errors.append(
+                        f"{record_label} {name} count denominator does not match document_access_set"
+                    )
+
+    affected_ids = {party.get("id") for party in record.get("affected_people", [])}
+    impact_ids = {impact.get("affected_party_id") for impact in record.get("party_impacts", [])}
+    if affected_ids != impact_ids:
+        missing = sorted(str(item) for item in affected_ids - impact_ids)
+        extra = sorted(str(item) for item in impact_ids - affected_ids)
+        errors.append(
+            f"{record_label} party-impact coverage mismatch; missing={missing}, extra={extra}"
+        )
+    allowed_actor_ids = set(affected_ids)
+    walking_id = record.get("walking_person", {}).get("id")
+    if walking_id:
+        allowed_actor_ids.add(walking_id)
+    for action in record.get("agency_actions", []):
+        if action.get("actor_id") not in allowed_actor_ids:
+            errors.append(
+                f"{record_label} agency action {action.get('id')} names an unknown actor_id"
+            )
+
+    for key_path in find_prohibited_score_keys(record):
+        errors.append(f"prohibited combined-score field in {record_label}: {key_path}")
+
+
+def check_schema_and_records(json_data: dict[Path, Any], errors: list[str]) -> set[Path]:
+    """Validate every field-test record against data/field-test.schema.json.
+
+    Returns the records that conformed. check_record_rules() reads a record by
+    the shape the schema guarantees, so a record that failed here is not handed
+    to it: a contributor who writes a list where the schema says object should
+    get the schema violation, not a traceback.
+    """
+    try:
+        from jsonschema import Draft202012Validator, FormatChecker
+        from jsonschema.exceptions import SchemaError
+    except ImportError:
+        errors.append(
+            'missing required dependency: install "jsonschema>=4.18" before running scripts/check_repo.py'
+        )
+        return set()
+
+    schema = json_data.get(FIELD_TEST_SCHEMA)
+    if not isinstance(schema, dict):
+        if FIELD_TEST_SCHEMA.exists():
+            errors.append("field-test schema present but unreadable; cannot validate data/")
+        return set()
+    try:
+        Draft202012Validator.check_schema(schema)
+    except SchemaError as exc:
+        errors.append(f"invalid field-test schema: {exc.message}")
+        return set()
+
+    validator = Draft202012Validator(schema, format_checker=FormatChecker())
+    conformant: set[Path] = set()
+    for path in record_files():
+        record = json_data.get(path)
+        if record is None:
+            # Unparseable JSON already reported by load_json(); a parseable
+            # non-dict record still goes through the validator so the schema's
+            # top-level "type": "object" rejects it instead of a silent skip.
+            continue
+        violations = sorted(validator.iter_errors(record), key=lambda error: list(error.path))
+        for violation in violations:
+            location = "/".join(str(part) for part in violation.path) or "<root>"
+            errors.append(
+                f"field-test schema violation: {relative(path)}:{location}: {violation.message}"
+            )
+        if not violations:
+            conformant.add(path)
+    return conformant
+
+
 def main() -> int:
     errors: list[str] = []
     warnings: list[str] = []
 
-    parsed: dict[Path, object] = {}
+    for name in REQUIRED_ARCHITECTURE:
+        if not (ROOT / name).is_file():
+            errors.append(f"missing required file: {name}")
+
+    json_data: dict[Path, Any] = {}
     for path in files(".json"):
-        try:
-            parsed[path] = json.loads(path.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError) as exc:
-            errors.append(f"invalid JSON: {path.relative_to(ROOT)}: {exc}")
+        json_data[path] = load_json(path, errors)
 
     # data/README.md tells contributors to "validate it against
     # field-test.schema.json", but nothing did: this check parsed JSON and
     # stopped, so a submission with privacy_review false, or carrying extra
     # identifying fields the schema forbids, passed CI green. The schema sets
     # the repo's privacy boundary, so it has to be enforced, not just published.
-    schema = parsed.get(FIELD_TEST_SCHEMA)
-    if schema is None:
-        if FIELD_TEST_SCHEMA.exists():
-            errors.append("field-test schema present but unreadable; cannot validate data/")
-    else:
-        errors.extend(
-            unsupported_keywords(schema, FIELD_TEST_SCHEMA.relative_to(ROOT).as_posix())
-        )
-        # rglob, not glob: submitted records live in data/field-tests/, one
-        # level below data/ itself. A non-recursive glob here would only ever
-        # see the schema file and validate nothing.
-        #
-        # Assumption: every JSON file under data/ other than the schema is a
-        # field-test record. That holds today. A data file of some other shape
-        # would fail against this schema, so add a path filter here before
-        # adding one.
-        for path in sorted((ROOT / "data").rglob("*.json")):
-            if path == FIELD_TEST_SCHEMA or path not in parsed:
-                continue
-            errors.extend(
-                validate_against_schema(parsed[path], schema, path.relative_to(ROOT).as_posix())
-            )
+    #
+    # Validation goes through jsonschema rather than a hand-rolled subset. The
+    # research-arc schema uses $ref, $defs, 13 allOf/if/then pairs, not, and
+    # contains; those applicators are exactly where a hand-rolled validator
+    # gets it quietly wrong, and this schema is the repo's privacy gate. CI
+    # installs the dependency (see .github/workflows/validate.yml).
+    conformant = check_schema_and_records(json_data, errors)
+
+    # Schema conformance is structural. The research arc's rules are semantic:
+    # what a record may claim given the rights, contestability, and
+    # action-outcome evidence it actually carries. Both have to hold.
+    for path in sorted(conformant):
+        record = json_data.get(path)
+        if isinstance(record, dict):
+            check_record_rules(path, record, errors)
+
+    ft001 = json_data.get(FT001)
+    if isinstance(ft001, dict):
+        for required_path in REQUIRED_FT001_PATHS:
+            if not has_path(ft001, required_path):
+                rendered = ".".join(str(part) for part in required_path)
+                errors.append(f"FT-001 missing required structured field: {rendered}")
 
     # Links, anchors, and the reachability graph. HTML is scanned via
     # src=/href=/srcset= attributes, both in .html files and in raw HTML
@@ -346,7 +541,7 @@ def main() -> int:
         check_targets(path, LINK.findall(text), text_by_path, errors, graph)
         check_targets(path, attr_targets(text), text_by_path, errors, graph)
         if PLACEHOLDER.search(text):
-            errors.append(f"placeholder token: {path.relative_to(ROOT)}")
+            errors.append(f"placeholder token: {relative(path)}")
 
     for path in files(".html"):
         text = text_by_path[path]
@@ -369,7 +564,7 @@ def main() -> int:
         if text is None:
             text = path.read_text(encoding="utf-8")
         if PLACEHOLDER.search(text):
-            errors.append(f"placeholder token: {path.relative_to(ROOT)}")
+            errors.append(f"placeholder token: {relative(path)}")
 
     # Orphan detection: every content file should be reachable from README,
     # JOURNEY, or BRIEF by some chain of links. This is a warning, not a
@@ -389,23 +584,9 @@ def main() -> int:
         if path in reachable or path in ORPHAN_ALLOWLIST:
             continue
         warnings.append(
-            f"orphan: {path.relative_to(ROOT)} is not reachable from "
+            f"orphan: {relative(path)} is not reachable from "
             f"README.md, JOURNEY.md, or BRIEF.md by any link"
         )
-
-    required = [
-        "LICENSE",
-        "LICENSE.md",
-        "README.md",
-        "RESEARCH-STATUS.md",
-        "FIELD-TRIALS.md",
-        "JOURNEY.md",
-        "BRIEF.md",
-        "OFFERING.md",
-    ]
-    for name in required:
-        if not (ROOT / name).is_file():
-            errors.append(f"missing required file: {name}")
 
     if warnings:
         print("Repository check warnings (do not fail this check):")
@@ -418,9 +599,12 @@ def main() -> int:
             print(f"- {error}")
         return 1
 
+    record_count = len(record_files())
     print(
-        f"Repository checks passed: {len(files('.md'))} Markdown files, "
-        f"{len(files('.json'))} JSON files, {len(warnings)} warning(s)."
+        "Repository checks passed: "
+        f"{len(files('.md'))} Markdown files, {len(files('.json'))} JSON files, "
+        f"{record_count} schema-conformant field-test record(s), "
+        f"{len(warnings)} warning(s)."
     )
     return 0
 

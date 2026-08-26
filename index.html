@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PureLand</title>
-<meta name="description" content="A designed visual essay and front door for the PureLand project.">
+<title>PureLand research-program prototype</title>
+<meta name="description" content="PureLand is a version 0.1 research-program prototype with a forkable toolbox and one maintainer-side partial dry run.">
 <link rel="stylesheet" href="design/tokens.css">
 <style>
   * { box-sizing: border-box; }
@@ -201,7 +201,13 @@
   }
   .ledger-row:first-child { border-top: none; }
   .ledger-numeral { color: var(--color-text); }
-  .ledger-label { text-transform: uppercase; color: var(--color-text); }
+  .ledger-label {
+    display: inline-block;
+    line-height: 1.4;
+    padding: 0.08em 0;
+    text-transform: uppercase;
+    color: var(--color-text);
+  }
   .ledger-desc {
     font-family: var(--font-body);
     font-size: 0.95rem;
@@ -332,7 +338,7 @@
   </picture>
   <div class="wordmark">
     <h1>PureLand</h1>
-    <span class="eyebrow">an open method for information practices, v0.1 research prototype</span>
+    <span class="eyebrow">research-program prototype · forkable toolbox · v0.1</span>
     <nav class="subnav" aria-label="Kit documents">
       <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/BRIEF.md">brief</a>
       <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/JOURNEY.md">journey</a>
@@ -359,11 +365,49 @@
 
   <div class="spread">
     <div class="content">
+      <h3>The research spine</h3>
+      <p>Each public document has one job. Read the argument, then the evidence record.</p>
+      <div class="ledger">
+        <div class="ledger-row">
+          <span class="ledger-numeral">I</span>
+          <div><a class="ledger-label" href="THESIS.md">Thesis</a><div class="ledger-desc">The organizing argument and its limits.</div></div>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-numeral">II</span>
+          <div><a class="ledger-label" href="METHOD.md">Method</a><div class="ledger-desc">The repeatable inquiry from boundary to return.</div></div>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-numeral">III</span>
+          <div><a class="ledger-label" href="TOOLBOX.md">Toolbox</a><div class="ledger-desc">The instruments, templates, controls, and public-safe records.</div></div>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-numeral">IV</span>
+          <div><a class="ledger-label" href="HYPOTHESIS.md">Hypothesis</a><div class="ledger-desc">The claim, observations, and disconfirming results.</div></div>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-numeral">V</span>
+          <div><a class="ledger-label" href="TESTING.md">Testing</a><div class="ledger-desc">How evidence enters and where the method can fail.</div></div>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-numeral">VI</span>
+          <div><a class="ledger-label" href="CURRENT-EVIDENCE.md">Current evidence</a><div class="ledger-desc">Observed record, counterexplanations, missing evidence, and current conclusion.</div></div>
+        </div>
+      </div>
+    </div>
+    <aside class="marginalia" data-side="right">
+      <span class="m-label">status</span>
+      <p>One maintainer-side partial dry run. No independent trial or outcome claim.</p>
+    </aside>
+  </div>
+
+  <div class="spread">
+    <div class="content">
       <h3>What it studies</h3>
-      <p>Measurement without attention or relationship can turn into one more machine for taking things from people. Contemplative and body-based practice without evidence can harden into private conviction. Information theory without permission, credit, and return can describe how data moves while ignoring who pays for the movement.</p>
-      <p>PureLand draws on Buddhist practice, information theory, evaluation, and body-based practice. It does not claim that Buddhist categories are technical taxonomies, or that Shannon's theory explains meaning or ethics.</p>
+      <p>Evaluation without attention or relationship can become another extraction apparatus. Contemplative and somatic practice without evidence can become private conviction. A map of information movement without consent, attribution, and return can ignore who bears its cost.</p>
+      <p>PureLand is a synthesis informed by Buddhist practice, evaluation, and somatic practice. The project's mappings are original synthesis. They are not Buddhist doctrine, clinical categories, or validated measures.</p>
       <blockquote>Open source is the release phase of the practice, not the whole practice.</blockquote>
-      <p>Generosity means increasing another person's ability to understand, adapt, contest, or refuse. It does not mean publishing everything. Participant material, protected knowledge, and relationship records may need to remain private.</p>
+      <p>PureLand defines generosity as increasing another person's ability to understand, adapt, contest, or refuse. The Buddhist sources do not establish that project definition. Participant material, protected knowledge, and relationship records may need to remain private.</p>
+      <p>The project name establishes no lineage relationship to Pure Land Buddhist traditions. The adapted ensō acknowledges a Zen Buddhist association; its fork-and-return meaning is PureLand's interpretation, not proof of authority.</p>
     </div>
     <aside class="marginalia" data-side="left">
       <span class="m-label">adaptable</span>
@@ -394,7 +438,7 @@
           <span class="ledger-numeral">III</span>
           <div>
             <span class="ledger-label">Map</span>
-            <p class="ledger-desc">Score the four access questions with the openness scorecard.</p>
+            <p class="ledger-desc">Read the four access questions with the openness scorecard.</p>
           </div>
         </div>
         <div class="ledger-row">
@@ -418,41 +462,55 @@
             <p class="ledger-desc">Write up what happened and submit it as a field report.</p>
           </div>
         </div>
+        <div class="ledger-row">
+          <span class="ledger-numeral">IV</span>
+          <div><span class="ledger-label">Trace</span></div>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-numeral">V</span>
+          <div><span class="ledger-label">Adapt</span></div>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-numeral">VI</span>
+          <div><span class="ledger-label">Return</span></div>
+        </div>
       </div>
-      <p style="color: var(--color-text-secondary); font-size: 0.95rem;">The six stations of <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/JOURNEY.md">the journey</a>, walked in order on one real practice.</p>
+      <p style="color: var(--color-text-secondary); font-size: 0.95rem;">Six journey stations operationalize the method. They are distinct from the six public research functions above.</p>
     </div>
     <aside class="marginalia" data-side="right">
       <span class="m-label">precedent</span>
-      <p>The closest identified precedent for combining participatory media and evaluation is InsightShare's <cite>Participatory Video and the Most Significant Change</cite>. PureLand does not claim to originate that combination.</p>
+      <p>One identified precedent for combining participatory media and evaluation is InsightShare's <cite>Participatory Video and the Most Significant Change</cite>. PureLand does not claim to originate that combination.</p>
     </aside>
   </div>
 
   <div class="spread">
     <div class="content">
-      <h3>The fork travels both ways</h3>
+      <h3>The toolbox travels both ways</h3>
       <p>A fork is judged by both directions of travel. Code and method can leave the origin. Something, learning, credit, correction, a returned report, has to travel back for the fork to be more than extraction with a license file attached.</p>
       <div class="fork-table">
         <div class="fork-col">
           <span class="eyebrow out">leaves the origin</span>
-          <p>Walk <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/JOURNEY.md">the journey</a>, the kit's one curated path. Fork the instruments. Submit a public-safe field test. Document a failure or refusal. Propose a correction through the <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CONTRIBUTING.md">contribution process</a>.</p>
+          <p>Walk <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/JOURNEY.md">the journey</a>, the method's one curated path. Fork the instruments. Open a public-safe Stage 1 scoping issue. Document a failure or refusal. Propose a correction through the <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CONTRIBUTING.md">contribution process</a>.</p>
         </div>
         <div class="fork-col">
           <span class="eyebrow back">returns</span>
-          <p>A public-safe field report when permitted, plus a correction, disagreement, refusal, or method revision, recorded in the <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/FIELD-TRIALS.md">field-trial ledger</a>, not smoothed over.</p>
+          <p>A cleared public report when permitted, or private learning, refusal, unmeasurable, correction, disagreement, or method revision. Public reports enter the <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/FIELD-TRIALS.md">field-trial ledger</a>; other returns remain within their rights boundary.</p>
         </div>
       </div>
     </div>
     <aside class="marginalia" data-side="left">
       <span class="m-label">license</span>
-      <p>The kit's eligible text and templates use CC BY-SA 4.0. Code and configuration use MIT. A license does not create permission for participant or third-party material.</p>
+      <p>The toolbox's eligible text and templates use CC BY-SA 4.0. Code and configuration use MIT. A license does not create permission for participant or third-party material.</p>
     </aside>
   </div>
 
   <div class="spread">
     <div class="content">
-      <h3>What remains untested</h3>
-      <p>The instruments have no independent field trial, reliability estimate, validity result, benchmark, threshold, certification, or outcome estimate. The field-trial ledger holds one worked example from the maintainer's side and no independent trial. The next research gate is five to ten independent applications across at least three contexts, with two readers where practical.</p>
-      <p>The project is currently maintained by Isaac Rubinstein, who holds merge and release authority. That concentration is a project risk, not a mature commons.</p>
+      <h3>Current result and what remains untested</h3>
+      <p>FT-001 is a maintainer-side, AI-assisted partial dry run on Alchemy. No human performed Observe. No second reader or affected user challenged the reading. The assessor chose the seven-surface boundary. The assessor interpreted some analysis as additional, but the record cannot separate the journey's effect from familiarity, time spent, or the extraction check alone.</p>
+      <p>Alchemy uses a local-first technical design intended to reduce extraction. FT-001 did not observe a user outcome. It found that traceability conflicts with intentional deletion and left one executed adaptation inside an open follow-up window.</p>
+      <p>The instruments still have no independent field result, reliability estimate, validity result, threshold, certification, causal result, or attention-sovereignty outcome. Proposed sample and context targets remain planning choices, not derived evidence gates.</p>
+      <p>Isaac Rubinstein maintains the project and holds merge and release authority. That concentration is a project risk, not a mature commons.</p>
     </div>
     <aside class="marginalia" data-side="right">
       <span class="m-label">correction, recorded</span>
@@ -474,11 +532,11 @@
   <div class="colophon-grid">
     <div>
       <span class="m-label">status</span>
-      <p>Version 0.1 research prototype. Not validated. Does not certify openness or safety. Makes no independent field-result claim.</p>
+      <p>Version 0.1 research-program prototype. Unvalidated instruments. One maintainer-side partial dry run. No independent field result or outcome claim.</p>
     </div>
     <div>
       <span class="m-label">license</span>
-      <p>Text and templates: CC BY-SA 4.0. Code and configuration: MIT. Design: original marks and text, licensed the same as the kit's text.</p>
+      <p>Text and templates: CC BY-SA 4.0. Code and configuration: MIT. Design: original marks and text, licensed the same as the project's eligible text.</p>
     </div>
     <div>
       <span class="m-label">visual language</span>

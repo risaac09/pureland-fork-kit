@@ -1,13 +1,13 @@
 # Visual language: Ink & Bone
 
-PureLand studies how information practices extract attention. Its own visuals are one of those practices, so they carry the same working hypothesis: a look can make people easier to hold or easier to leave. Ink & Bone is built to be easy to leave. It uses restraint, hairline rules, and visible revision instead of color pressure, motion, or badges, so the kit's appearance argues for the same sovereignty its instruments measure.
+PureLand asks whether information practices can increase practical agency without increasing exposure or extraction. Its own visuals belong inside that question. Ink & Bone makes stopping and leaving visible through restraint, hairline rules, and visible revision. The design states an intention. It does not prove an attention-sovereignty outcome.
 
 ## Principles
 
-1. **Quiet over grabby.** The kit studies attention extraction, so its visuals must not practice it. Generous whitespace, calm contrast, no saturated attention-bait. Nothing blinks or shouts.
+1. **Quiet over grabby.** PureLand studies attention extraction, so its visuals must not practice it. Generous whitespace, calm contrast, no saturated attention-bait. Nothing blinks or shouts.
 2. **Archival honesty.** The look of a field ledger and a specimen record: monospace labels, hairline rules, roman numerals, engraved-illustration heritage. Records look inspectable, not designed to persuade.
 3. **Revision stays visible.** Strikethrough is a first-class mark. Corrections remain in the record rather than disappearing. Disagreement is shown, not smoothed over.
-4. **Nothing certifies.** No badges, seals, trophies, or score-like emblems. Marks describe; they never award. The ensō in the mark is deliberately left open, for the same reason the scorecard refuses a single number.
+4. **Nothing certifies.** No badges, seals, trophies, or score-like emblems. Marks describe; they never award. The open ensō carries the same refusal as a scorecard without a single number.
 
 ## Palette
 
@@ -34,7 +34,7 @@ Contrast notes:
 
 ## Motifs
 
-- **Roman numerals I through VI** for the method's six stations: ground, observe, map, trace, adapt, return. JOURNEY.md holds the canonical list.
+- **Roman numerals I through VI** appear in two explicitly labeled sequences: the six public research functions and the method's six journey stations. Never let one sequence stand in for the other.
 - **Hairline rules.** 1px, Graphite, reduced opacity. They divide without shouting.
 - **Small arrow annotations.** `→` followed by a monospace caption, used the way a specimen label points to a detail.
 - **Strikethrough in Oxblood** for visible revision. A crossed-out line stays legible; it is a record of what changed, not a deletion.
@@ -43,26 +43,26 @@ Contrast notes:
 
 ## The mark: ensō-fork
 
-The mark is a single-stroke open circle, an ensō, drawn with a hand-drawn feel: the stroke visibly does not close, leaving a gap at roughly one to two o'clock. A stem rises from the bottom of the circle and forks into two branches inside the circle. One branch curves outward and passes through the circle's edge: the fork that travels out. One branch curves back inward toward the center: the learning that returns.
+The mark adapts an ensō, a form associated with Zen Buddhist practice. The hand-drawn circle stays open near one to two o'clock. A stem rises from the bottom and forks into two branches. One branch passes through the circle's edge. One curves back toward the center.
 
 The open circle means nothing certifies. It is not a seal, a checkmark, or a badge. It marks a practice that stays open to correction, the same way the scorecard refuses a single composite score and the extraction check refuses a moral verdict.
 
-The two branches mean a fork is judged by both directions of travel. Code and method can leave the origin. Something, learning, credit, correction, a returned report, has to travel back for the fork to be more than extraction with a license file attached.
+PureLand interprets the two branches as outward reuse and returned learning, credit, correction, or value. This interpretation belongs to the project. The adapted form does not establish lineage, authenticate the method, or certify a result.
 
 The mark is line-work only: no fills, a roughly uniform stroke with slightly tapered ends where the medium allows. It should read clearly at 32px.
 
 ## Usage
 
-- **README banner.** A quiet header above the title: the mark at left, the kit name in letterspaced serif caps, a short monospace caption beneath a Brass hairline rule. See `design/assets/banner-light.svg` and `design/assets/banner-dark.svg`.
-- **Docs.** Hairline rules to divide sections, monospace labels for field names and data, roman numerals where the six stations are named directly.
+- **README banner.** A quiet header above the title: the mark at left, the project name in letterspaced serif caps, a short monospace caption beneath a Brass hairline rule. See `design/assets/banner-light.svg` and `design/assets/banner-dark.svg`.
+- **Docs.** Hairline rules divide sections. Monospace labels mark fields and data. Roman numerals identify either the six public functions or the six journey stations only when the sequence is named.
 - **Field-report artifacts.** Ledger styling for anything that functions as a record: monospace headers, Oxblood strikethrough for corrections, no color used to imply a verdict.
 
 ## What to avoid
 
-- Badges, seals, trophies, or any score-like emblem. The kit does not certify practices and its visuals should not imply that it does.
+- Badges, seals, trophies, or any score-like emblem. PureLand does not certify practices and its visuals should not imply that it does.
 - Saturated, alarm-toned color used for urgency or attention-bait. Oxblood is a register, not a siren; keep it to short, deliberate emphasis.
 - Dark-pattern layouts: countdowns, forced scroll, infinite continuation, disguised close controls, anything that manufactures an impulse instead of inviting a choice.
-- Buddhist iconography used as decoration. PRACTICE-FRAME.md is careful not to turn Buddhist categories into labels for someone else; the visual language holds the same care and does not use lotus, wheel, or other devotional imagery as ornament. The ensō is used here for its plain meaning, an open, unfinished circle, not as a religious symbol standing in for the kit's authority.
+- Buddhist iconography used as decoration or proof of authority. PRACTICE-FRAME.md does not turn Buddhist categories into labels for someone else. The adapted ensō acknowledges its Zen Buddhist association and carries only PureLand's stated project interpretation.
 
 ## Tokens
 
@@ -70,4 +70,4 @@ The palette, type stacks, spacing, and rules above are published as [design/toke
 
 ## Licensing note
 
-Design assets in this directory are original text, diagrams, and marks made for this kit, and are licensed the same way as the kit's text: [CC BY-SA 4.0](../LICENSE). See [LICENSE.md](../LICENSE.md) for the full boundary, including what stays excluded from that license.
+Design assets in this directory are original text, diagrams, and marks made for PureLand, and are licensed the same way as the project's eligible text: [CC BY-SA 4.0](../LICENSE). See [LICENSE.md](../LICENSE.md) for the full boundary, including what stays excluded from that license.

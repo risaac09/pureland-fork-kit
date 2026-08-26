@@ -13,6 +13,16 @@ The August 2026 restructuring used AI assistance. Scope and verification status 
 
 PureLand's mapping from these categories to information practices is original synthesis. The sources do not claim that feeds, platforms, or AI systems correspond to the categories in [PRACTICE-FRAME.md](PRACTICE-FRAME.md).
 
+PureLand's working definition of generosity is also original synthesis. The current source list does not establish that exact use.
+
+## Naming and symbolism boundary
+
+This repository does not establish a lineage relationship to Pure Land Buddhist traditions. The project name does not claim institutional, religious, or teaching authority.
+
+The visual mark adapts an ensō. An [Asian Art Museum collection record](https://searchcollection.asianart.org/objects/19254/enso) traces circle-making in Chan and Zen Buddhist teaching. PureLand adds the fork-and-return reading. That reading belongs to this project. The mark does not authenticate the method, certify a result, or establish Buddhist authority.
+
+PureLand's phrase **attention sovereignty** emphasizes a person's practical ability to stop, continue, question, adapt, or refuse. Some Buddhist traditions may not center an autonomous self in the same way. The project keeps that tension as an open limit rather than using a broad doctrinal claim to resolve it.
+
 ## Attention and extraction
 
 - Herbert A. Simon, “Designing Organizations for an Information-Rich World,” 1971, frames attention as scarce in an information-rich environment.

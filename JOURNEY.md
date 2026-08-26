@@ -1,16 +1,18 @@
 # The journey
 
-One curated path through the kit. Walk it in order, on one real practice, encounter, or information system of your own. Every instrument in the repository sits on this path, as a station or a conditional branch; none of them is meant as a first door. A field test of a single station stays valid; the journey is the recommended way in, not a new gate.
+One curated path through the PureLand toolbox. Walk it in order, on one real practice, encounter, or information system of your own. Every instrument in the repository sits on this path, as a station or a conditional branch; none of them is meant as a first door. A field test of a single station stays valid; the journey is the recommended way in, not a new gate.
 
 There are two ways to walk it: yourself, starting at station 1, or with Isaac as a [PureLand Field Pilot](OFFERING.md), which is the same path walked as a small, bounded inquiry done together.
 
 The journey puts unvalidated instruments in an order. It does not certify openness, safety, or attention sovereignty. Missing evidence stays `unmeasurable`, and nothing on the path produces a combined score. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md).
 
+You may stop or leave at any station. Record the stop, refusal, or missing permission without turning it into failure by the participant. A stopped walk cannot support claims about stations nobody completed.
+
 ## Walking it on your own ecosystem
 
-When the practice you bring is your own information intake, the journey has a live companion: [Alchemy](https://alchemy.rubinsteinproductions.com), a free browser app for information metabolism ([source](https://github.com/risaac09/alchemy), MIT). Its main surface, the PWA, keeps everything in the browser: no accounts, no servers, no analytics. Two other surfaces send material out: the embed funnel's optional email goes to the host page, and the embodied reflection service sends a reflection to a third-party model provider. The app is built to be tested against the kit's claim, not to prove it. [FT-001](research/field-tests/ft-001-alchemy.md), the kit's own field test on Alchemy, banded its value return usable, not shared, and named an unresolved tension in its decay design: the same mechanism that guards against hoarding also costs whoever walks away.
+When the practice you bring is your own information intake, the journey has a live companion: [Alchemy](https://alchemy.rubinsteinproductions.com), a free browser app for information metabolism ([source](https://github.com/risaac09/alchemy), MIT). Its main PWA surface uses a local-first design with no accounts, server-side user store, or analytics. Two other surfaces send material out: the embed funnel's optional email goes to the host page, and the embodied reflection service sends a reflection to a third-party model provider. The design intends to reduce extraction. [FT-001](research/field-tests/ft-001-alchemy.md) did not observe a user outcome. It banded value return usable, not shared, and found a tension between traceability and intentional deletion.
 
-- Its diagnostic, twelve questions across intake, transformation, expression, and return flow, places you on a 2×2 map. The placement is a composite, the kind of simplification the kit's own instruments refuse, so treat it as a prompt for station 1, not a result.
+- Its diagnostic, twelve questions across intake, transformation, expression, and return flow, places you on a 2×2 map. The placement is a composite, the kind of simplification PureLand's instruments refuse, so treat it as a prompt for station 1, not a result.
 - Its capture loop (settle, one-word body check, reflect, map, release) rehearses the noticing that station 2 asks for. It does not replace the practice frame.
 - The app is itself a system you can put through stations 3 and 4. It publishes its own [honest account](https://github.com/risaac09/alchemy/blob/main/HONEST-ACCOUNT.md) of claims and failures.
 
@@ -35,7 +37,7 @@ This is the before-use discipline of [field testing](FIELD-TESTING.md). The disc
 
 Run the [practice frame](PRACTICE-FRAME.md). Notice which condition may be present in you before assigning it to the system. The contemplative categories are prompts for self-observation, not scores, and never labels for other people.
 
-Do not skip this station to reach the tables. The kit's claim is that evaluation without attention or relationship can become another extraction apparatus.
+Do not skip this station to reach the tables. PureLand's claim is that evaluation without attention or relationship can become another extraction apparatus.
 
 ## 3. Map
 
@@ -53,10 +55,12 @@ Choose one small change to test from what stations 2 through 4 surfaced. Record 
 
 ## 6. Return
 
-Write up what happened with the [field-test template](templates/field-test.md) and submit it as an issue or pull request, following [FIELD-TESTING.md](FIELD-TESTING.md). A useful report includes what failed, what it cost, and the context. A report may cover the whole walk or a single station. No participant material, identifying data, or protected community knowledge belongs in a public report.
+Write up what happened with the [field-test template](templates/field-test.md), following [FIELD-TESTING.md](FIELD-TESTING.md). The public issue form is only for Stage 1 scoping. Do not place a completed report, evidence link, or protected detail there. A report may cover the whole walk or a single station, but it may enter a pull request only after the exact report and record versions receive a `clear` public-safe decision.
 
-Accepted reports join the [field-trial ledger](FIELD-TRIALS.md) as links, not endorsements.
+Collect no participant material by default. Return can remain private or withheld when publication permission, privacy, confidentiality, or community authority requires it. Record the public classification without exposing the protected reason or material.
+
+Cleared and accepted reports join the [field-trial ledger](FIELD-TRIALS.md) as links, not endorsements. Private learning, refusal, and `unmeasurable` outcomes may end without a public report.
 
 ## When the path ends
 
-The walk is complete only when someone affected by the change can challenge your reading. Keep the disagreement. Revise the method. The next walk starts at station 1.
+An outcome-capable walk needs an affected person to challenge the reading. Without that challenge, record the limit and do not call the method complete. Keep the disagreement. Revise the method. The next walk starts at station 1.

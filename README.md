@@ -1,30 +1,47 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="design/assets/banner-dark.svg">
-  <img src="design/assets/banner-light.svg" alt="PureLand. An open method for attention sovereignty." width="100%">
+  <img src="design/assets/banner-light.svg" alt="PureLand. Research-program prototype and forkable toolbox." width="100%">
 </picture>
 
 # PureLand
 
-PureLand is an open method for taking back control of your attention without making yourself easier for other systems to exploit. It combines four things: quiet self-observation drawn from contemplative practice, a close look at how an information practice actually works, one small change tested at a time, and an honest account of what came back.
+PureLand is a research-program prototype for asking whether an information practice can increase a person's control over their attention without also increasing their exposure or extractability.
 
-This is a version 0.1 research prototype. It has not been validated. It does not certify that anything is open or safe, and it makes no claim about field results.
+The forkable instruments, templates, and controls make up the toolbox. The public architecture gives six distinct jobs to the argument, method, instruments, testable claim, testing program, and evidence record.
 
-## Where should I start?
+This is version 0.1. Its instruments are unvalidated. It does not certify that anything is open or safe. It has one maintainer-side partial dry run and no independent field result.
 
-Walk [the journey](JOURNEY.md): ground, observe, map, trace, adapt, return. It is the one curated path through the kit. Every instrument in this repository sits on it, as a station or a conditional branch, not as a starting point of its own.
+## The research spine
 
-There are two ways to walk it. Bring one real practice and start at [JOURNEY.md](JOURNEY.md) yourself, or propose a [PureLand Field Pilot](OFFERING.md), the same journey walked with Isaac as a small, bounded inquiry done together.
+Read the project in this order:
 
-## Reference
+1. [The PureLand thesis](THESIS.md): the organizing argument and its limits.
+2. [The PureLand method](METHOD.md): the repeatable inquiry from boundary to return.
+3. [The PureLand toolbox](TOOLBOX.md): the forkable instruments, templates, controls, and public-safe records.
+4. [The PureLand hypothesis](HYPOTHESIS.md): the primary testable claim and what would count against it.
+5. [Testing](TESTING.md): the testing program and evidence discipline.
+6. [Current evidence](CURRENT-EVIDENCE.md): the observed record, counterexplanations, missing evidence, and narrow current conclusion.
 
-Everything else in the repository supports the journey:
+The [brief](BRIEF.md) gives a shorter external overview.
 
-- [BRIEF.md](BRIEF.md) holds the goals, the method, the offering, the accountability rules, and the open questions.
-- The station instruments: the [practice frame](PRACTICE-FRAME.md), the [openness scorecard](SCORECARD.md), and the [extraction check](EXTRACTION-CHECK.md), with the [facilitation protocol](PROTOCOL.md) and the [AI system annex](AI-SYSTEM-ANNEX.md) as conditional branches. [FIELD-TESTING.md](FIELD-TESTING.md) is the discipline the ground and return stations use directly; they have no separate instrument of their own.
-- The companion app: [Alchemy](https://alchemy.rubinsteinproductions.com), a free browser tool for personal information metabolism ([source](https://github.com/risaac09/alchemy)). Its main surface keeps everything in the browser. Two other surfaces send material out, which [FT-001](research/field-tests/ft-001-alchemy.md) records. The journey names where it fits.
-- The open-research lane: [research/README.md](research/README.md) and [RESEARCH-STATUS.md](RESEARCH-STATUS.md).
-- Corrections, field tests, disagreements, and adaptations: [CONTRIBUTING.md](CONTRIBUTING.md) and [GOVERNANCE.md](GOVERNANCE.md).
-- The kit's own visuals follow [design/VISUAL-LANGUAGE.md](design/VISUAL-LANGUAGE.md).
-- The front page: [index.html](index.html), a one-page reading of the goals, the method, the fork's two directions, and what remains untested. It is served at `https://risaac09.github.io/pureland-fork-kit/` once GitHub Pages is enabled for this repository.
+## Use the method
 
-The repository contains methods, templates, and public-safe field-test records. It does not contain participant recordings, transcripts, identifying data, confidential records, or protected community knowledge. The one worked field example is [FT-001](research/field-tests/ft-001-alchemy.md), run from the maintainer's side and not independent. See [LICENSE.md](LICENSE.md) and [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md).
+The [front page](index.html) is served at [risaac09.github.io/pureland-fork-kit](https://risaac09.github.io/pureland-fork-kit/). The [open-research lane](research/README.md) indexes provenance, AI-assistance, research-status, and field-test records.
+
+Walk [the journey](JOURNEY.md): Ground, Observe, Map, Trace, Adapt, Return. Bring one real information practice and start on your own, or propose a [PureLand Field Pilot](OFFERING.md), the same journey walked with Isaac as a small, bounded inquiry.
+
+The toolbox includes the [practice frame](PRACTICE-FRAME.md), [openness scorecard](SCORECARD.md), [extraction check](EXTRACTION-CHECK.md), [facilitation protocol](PROTOCOL.md), [AI system annex](AI-SYSTEM-ANNEX.md), and [field-testing discipline](FIELD-TESTING.md).
+
+## Current evidence
+
+The only public test record is [FT-001](research/field-tests/ft-001-alchemy.md), a maintainer-side, AI-assisted partial dry run on Alchemy. No human performed Observe. No second reader or affected user challenged the reading. The assessor chose the seven-surface boundary. The assessor interpreted the journey as adding some analysis, but FT-001 cannot separate that effect from familiarity, time spent, or the extraction check alone. It also records a conflict between traceability and intentional deletion, plus one executed adaptation with an open follow-up window.
+
+FT-001 shows no reliability, validity, causal effect, or attention-sovereignty outcome. See [current evidence](CURRENT-EVIDENCE.md), the [field-trial ledger](FIELD-TRIALS.md), and the [research-status ledger](RESEARCH-STATUS.md).
+
+## Public boundary
+
+The repository contains methods, templates, and public-safe field-test records. It does not contain participant recordings, transcripts, identifying data, confidential records, consent registers, relationship notes, or protected community knowledge.
+
+Recording, retention, access by each named reviewer, publication, approval of each artifact version, research use, AI processing, and model training require separate decisions. A license does not create permission for participant or third-party material. See [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md) and [LICENSE.md](LICENSE.md).
+
+Corrections, field tests, disagreements, refusals, and adaptations are welcome through [CONTRIBUTING.md](CONTRIBUTING.md) and [GOVERNANCE.md](GOVERNANCE.md).
