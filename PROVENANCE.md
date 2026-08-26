@@ -19,6 +19,12 @@ PureLand's reading of ordinary rumination, checking or obsessively returning to 
 
 PureLand's working definition of generosity is also original synthesis. The current source list does not establish that exact use.
 
+## Modern practice tools
+
+- Tara Brach, "Working with Difficulties: The Blessings of RAIN," in *True Refuge: Finding Peace and Freedom in Your Own Awakened Heart* (New York: Bantam, 2013), states RAIN as Recognize, Allow, Investigate, and Non-Identification, a mindfulness tool she places in the Insight Meditation tradition.
+
+RAIN is a twentieth- or twenty-first-century teacher's practice device, not a canonical text; nothing here claims it comes from a sutta. Secondary sources, including Vipassana teacher Michele McDonald's own retreat center, credit McDonald as its originator. No primary text fixing when she first taught it turned up: claims range from the 1980s to around 2001, and her own recorded talks state the steps in different words ("Recognition, Acceptance, Investigation, Non-Identification") than the phrasing PureLand uses here. PureLand reports the attribution. It does not settle it.
+
 ## Naming and symbolism boundary
 
 This repository does not establish a lineage relationship to Pure Land Buddhist traditions. The project name does not claim institutional, religious, or teaching authority.

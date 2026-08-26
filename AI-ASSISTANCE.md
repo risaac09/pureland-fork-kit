@@ -1,5 +1,17 @@
 # AI assistance record
 
+## 2026-08-26 RAIN addition
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code |
+| Task | Adding RAIN (Recognize, Allow, Investigate, Non-Identification) to `PRACTICE-FRAME.md` as the response method feeding the practice loop; citing it in `PROVENANCE.md` under a new "Modern practice tools" section |
+| Material provided | The public repository; the maintainer's own direct instruction, naming RAIN and its four steps by name and stating he wanted the Non-Identification (not the later "Nurture") version |
+| Source verification | A dedicated research pass checked the exact wording against Tara Brach's published 2013 chapter, and the originator attribution against Michele McDonald's own retreat center, secondary coverage, and McDonald's full Dharma Seed talk archive (396 talks, 1984-2020) for a datable primary coining statement |
+| Corrections after verification | Declined to state a coining year for McDonald as settled fact; secondary sources range from the 1980s to around 2001, McDonald's own dated talk archive shows no talk titled "RAIN" before 2015, and no primary text fixing an earlier date was found. Declined to present McDonald's own recorded wording ("Recognition, Acceptance, Investigation, Non-Identification") as identical to the "Recognize, Allow, Investigate, Non-Identification" phrasing in circulation; PROVENANCE.md now names both and flags the difference. Labeled RAIN a modern teaching device, not a canonical text, in a section kept separate from the sutta and Abhidhamma citations above it |
+| Human review | Maintainer review remains required before merge. The earlier "rain metaphor" question in the pull request is now answered: it names this framework, not an unresolved metaphor. The ensō-mark decision remains open separately |
+| Sensitive material | None involved |
+
 ## 2026-08-26 papañca register correction
 
 | Field | Record |

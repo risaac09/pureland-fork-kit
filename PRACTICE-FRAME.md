@@ -50,6 +50,12 @@ For an open-source project, test generosity at four points:
 - **Credit:** can the origins and the contributors stay visible through reuse?
 - **Return:** can findings, corrections, and benefits travel back to the people who generated them?
 
+## RAIN: working with what's noticed
+
+Noticing a condition in the table above is not yet a response. RAIN is a four-step tool for what comes next, in circulation in the Insight Meditation (Vipassana) tradition: Recognize what is happening. Allow it to be there, without pushing it away or feeding it further. Investigate it with attention instead of assumption. Hold Non-Identification: notice the pattern without concluding it is who you are, or the whole truth of the system that triggered it. See [PROVENANCE.md](PROVENANCE.md) for the source, and for what remains unsettled about who taught it first.
+
+RAIN is a teacher's practice device, not a canonical text. Applied here, it gives the practice loop below a concrete method: recognizing feeds step 2's noticing; allowing and investigating come before choosing a response in step 4, not after it; non-identification keeps step 7's disagreement a reading to revise, not a verdict on the person who raised it.
+
 ## The practice loop
 
 1. Name the attention event in concrete terms.
