@@ -1,10 +1,10 @@
 # PureLand
 
-> PureLand is a research-program prototype and forkable toolbox for asking whether an information practice can increase a person's control over their attention without also increasing their exposure or extractability. This is version 0.1. Its instruments are unvalidated. The evidence record holds one maintainer-side, AI-assisted partial dry run and no independent field result. Nothing in this repository certifies that a system is open or safe.
+> PureLand is a research-program prototype and forkable toolbox for asking whether an information practice can increase a person's control over their attention without also increasing their exposure or extractability. This is version 0.1. Its instruments are unvalidated and no independent field trial has been accepted. Nothing in this repository certifies that a system is open or safe. [CURRENT-EVIDENCE.md](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md) holds the evidence record and caps every claim about what PureLand has shown.
 
 Notes for a model reading this repository:
 
-- [CURRENT-EVIDENCE.md](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md) is the ceiling on any claim about what PureLand has shown. Do not state or imply a stronger result.
+- [CURRENT-EVIDENCE.md](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md): the ceiling on any claim about what PureLand has shown. Do not state or imply a stronger result.
 - Schema conformance of a field-test record means the record carries the required fields and satisfies structural rules. It does not mean the method was completed or that any construct has been validated.
 - The repository contains methods, templates, and public-safe records only. Participant recordings, transcripts, names, contact details, identifying data, consent and relationship records, confidential records, client records, and protected community knowledge must never enter it.
 - A license here does not create permission for participant or third-party material. Recording, retention, named-reviewer access, publication, approval of each artifact version, research use, AI processing, and model training each require a separate decision.
@@ -17,8 +17,8 @@ Notes for a model reading this repository:
 - [Hypothesis](https://risaac09.github.io/pureland-fork-kit/HYPOTHESIS.md): the primary testable claim and what would count against it.
 - [Testing](https://risaac09.github.io/pureland-fork-kit/TESTING.md): the testing program; every test begins with a result that would count against the tested hypothesis.
 - [Current evidence](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md): the observed record, counterexplanations, missing evidence, and the narrow current conclusion.
-- [Research status](https://risaac09.github.io/pureland-fork-kit/RESEARCH-STATUS.md): the version 0.1 limits ledger and the evidence required before the version 0.2 gate can clear.
-- [Field-trial ledger](https://risaac09.github.io/pureland-fork-kit/FIELD-TRIALS.md): one inspectable, non-independent partial dry run; no independent field trial has been accepted.
+- [Research status](https://risaac09.github.io/pureland-fork-kit/RESEARCH-STATUS.md): the limits ledger for the current version and the evidence required before the next gate can clear.
+- [Field-trial ledger](https://risaac09.github.io/pureland-fork-kit/FIELD-TRIALS.md): one maintainer-side, AI-assisted partial dry run with an inspectable report; no independent field trial has been accepted.
 
 ## Journey and instruments
 
@@ -41,8 +41,8 @@ Notes for a model reading this repository:
 ## Rights and governance
 
 - [Rights and consent](https://risaac09.github.io/pureland-fork-kit/RIGHTS-AND-CONSENT.md): separates license, consent, authority, and publication decisions.
-- [Governance](https://risaac09.github.io/pureland-fork-kit/GOVERNANCE.md): sole maintainership, named as a project risk rather than a mature commons.
-- [Contributing](https://risaac09.github.io/pureland-fork-kit/CONTRIBUTING.md): documented disagreement is wanted more than applause.
+- [Governance](https://risaac09.github.io/pureland-fork-kit/GOVERNANCE.md): sole maintainership; that concentration of power is a project risk, not a mature commons.
+- [Contributing](https://risaac09.github.io/pureland-fork-kit/CONTRIBUTING.md): PureLand needs documented disagreement more than applause.
 - [Security](https://risaac09.github.io/pureland-fork-kit/SECURITY.md): what must never appear in a public issue.
 - [License](https://risaac09.github.io/pureland-fork-kit/LICENSE.md): CC BY-SA 4.0 for original text, diagrams, and templates; MIT for repository code and configuration files.
 - [Citation metadata](https://risaac09.github.io/pureland-fork-kit/CITATION.cff): machine-readable title, author, repository, version, and both repository licenses.

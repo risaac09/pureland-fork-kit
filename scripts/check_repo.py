@@ -23,6 +23,8 @@ HEADING = re.compile(r"^(#{1,6})\s+(.+?)\s*$", re.MULTILINE)
 PLACEHOLDER = re.compile(r"\b(TODO|TBD|INSERT[_ -]?HERE)\b", re.IGNORECASE)
 METHOD_COMPLETION = re.compile(r"\bmethod completion\b", re.IGNORECASE)
 PAGES_BASE = "https://risaac09.github.io/pureland-fork-kit/"
+RELEASE_CLAIM = re.compile(r"\bThis is version (\d+)\.(\d+)\.")
+CFF_VERSION = re.compile(r"^version:\s*[\"']?(\d+)\.(\d+)", re.MULTILINE)
 
 # A follow-up in one of these states is still owed an outcome. The other
 # statuses in the schema enum (complete, closed-unmeasurable, refused) are
@@ -34,6 +36,7 @@ FIELD_TEST_SCHEMA = ROOT / "data" / "field-test.schema.json"
 FIELD_TEST_DIR = ROOT / "data" / "field-tests"
 FT001 = FIELD_TEST_DIR / "ft-001-alchemy.json"
 LLMS_TXT = ROOT / "llms.txt"
+CITATION = ROOT / "CITATION.cff"
 
 REQUIRED_ARCHITECTURE = [
     "LICENSE",
@@ -520,6 +523,52 @@ def overdue_follow_ups(
         )
 
 
+def check_version_claims(errors: list[str]) -> None:
+    """Tie the release version the entry points announce to CITATION.cff.
+
+    README.md and llms.txt both open by naming the release, and llms.txt's
+    summary is the fragment a context-limited consumer keeps. Those numerals
+    were copies nothing compared, so a release that bumped CITATION.cff alone
+    would leave both entry points announcing the old version.
+
+    Only the "This is version N.M." sentence is read, and every occurrence is
+    compared rather than the first. The remaining numeral in llms.txt names the
+    method contract, which does not move with a release, so comparing every
+    numeral would fail a true sentence. llms.txt has to carry the claim,
+    because the check is the tie and deleting the numeral would otherwise
+    disarm it silently. The patch level stays CITATION.cff's alone; the prose
+    names major and minor.
+    """
+    if not LLMS_TXT.is_file():
+        return
+    claims: list[tuple[Path, tuple[int, int]]] = []
+    for path in (LLMS_TXT, ROOT / "README.md"):
+        if not path.is_file():
+            continue
+        for claim in RELEASE_CLAIM.finditer(path.read_text(encoding="utf-8")):
+            claims.append((path, (int(claim.group(1)), int(claim.group(2)))))
+    if not any(path == LLMS_TXT for path, _ in claims):
+        errors.append(
+            'llms.txt announces no release version: the summary needs a '
+            '"This is version N.M." sentence'
+        )
+        return
+    if not CITATION.is_file():
+        errors.append("CITATION.cff missing: the release claims cannot be checked")
+        return
+    released = CFF_VERSION.search(CITATION.read_text(encoding="utf-8"))
+    if released is None:
+        errors.append("CITATION.cff has no parsable version field")
+        return
+    current = (int(released.group(1)), int(released.group(2)))
+    for path, announced in claims:
+        if announced != current:
+            errors.append(
+                f"{relative(path)} announces version {announced[0]}.{announced[1]}, "
+                f"but CITATION.cff released {current[0]}.{current[1]}"
+            )
+
+
 def check_schema_and_records(json_data: dict[Path, Any], errors: list[str]) -> set[Path]:
     """Validate every field-test record against data/field-test.schema.json.
 
@@ -590,6 +639,8 @@ def main(argv: list[str] | None = None) -> int:
     for name in REQUIRED_ARCHITECTURE:
         if not (ROOT / name).is_file():
             errors.append(f"missing required file: {name}")
+
+    check_version_claims(errors)
 
     json_data: dict[Path, Any] = {}
     for path in files(".json"):
