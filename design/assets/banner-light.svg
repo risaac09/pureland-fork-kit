@@ -2,12 +2,11 @@
   <title>PureLand. Research-program prototype and forkable toolbox.</title>
   <rect x="0" y="0" width="1200" height="300" fill="#F3EDE0"/>
 
-  <!-- Adapted ensō form with PureLand's fork-and-return interpretation. -->
-  <g transform="translate(70,80) scale(1.4)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 79.23 36.99 A 32 32 0 1 1 63.01 20.77" stroke="#1C1815" stroke-width="4"/>
-    <path d="M 50 92 L 50 66" stroke="#1C1815" stroke-width="4"/>
-    <path d="M 50 66 C 62 60, 72 55, 85 60" stroke="#B4945F" stroke-width="3.5"/>
-    <path d="M 50 66 C 40 60, 38 50, 46 50" stroke="#B4945F" stroke-width="3.5"/>
+  <!-- PureLand fork mark: one stem, two branches, the chain proliferating past thinking. -->
+  <g transform="translate(70,80) scale(1.4)" fill="none" stroke="#1C1815" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 50 90 L 50 52" stroke-width="4"/>
+    <path d="M 50 52 C 40 40, 32 28, 26 14" stroke-width="3.5"/>
+    <path d="M 50 52 C 60 40, 68 28, 74 14" stroke-width="3.5"/>
   </g>
 
   <!-- title -->

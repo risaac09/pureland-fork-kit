@@ -1,5 +1,17 @@
 # AI assistance record
 
+## 2026-08-26 ensō-fork mark retirement
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code |
+| Task | Replacing the adapted ensō-fork mark with a fork diagram built from the papañca causal sequence, per the maintainer's chosen direction and selection among four proposed options |
+| Material provided | The public repository; four line-work mark concepts drawn this session and shown to the maintainer for reaction, none adopted without his selection; the maintainer's direct choice of direction (replace, not retire or reinterpret) and of the specific option (a plain two-branch fork, no return stroke, no two-tone system) |
+| Source verification | Not applicable; this is original diagram work, not a claim requiring a citation. Checked only that no Zen-specific or ensō-derived language survived in `design/VISUAL-LANGUAGE.md`, `PROVENANCE.md`, or `index.html` after the change |
+| Corrections after verification | None found needing correction |
+| Human review | Maintainer chose the direction and the specific mark before any file was changed; review of the shipped SVGs and prose remains required before merge |
+| Sensitive material | None involved |
+
 ## 2026-08-26 RAIN addition
 
 | Field | Record |
