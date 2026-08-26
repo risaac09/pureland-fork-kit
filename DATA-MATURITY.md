@@ -1,6 +1,6 @@
 # Data maturity audit
 
-Point-in-time audit of the kit's data layer at commit `a2044a9`, 2026-08-25. It reads the infrastructure that carries evidence: the boundary, the schema, the checker, the records, and the documents that must stay consistent with them. It does not read the evidence itself. [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md) controls what the evidence permits, and nothing here upgrades it.
+Audit of the kit's data layer, first written against commit `a2044a9` on 2026-08-25 and revised on 2026-08-26 when the follow-up tripwire it ranked first was built. It reads the infrastructure that carries evidence: the boundary, the schema, the checker, the records, and the documents that must stay consistent with them. It does not read the evidence itself. [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md) controls what the evidence permits, and nothing here upgrades it.
 
 This audit is maintainer-side and AI-assisted. No second reader has checked it. By the kit's own standard, that limits what it can claim.
 
@@ -30,8 +30,8 @@ No dimension is at level 5. The kit has no independent contribution, and says so
 | Claim integrity | 4 | `check_record_rules` in [check_repo.py](scripts/check_repo.py) |
 | Provenance binding | 2 | `kit_version`, `artifact_version`, version-scoped public-safe decisions |
 | Record base | 4 | [FT-001](data/field-tests/ft-001-alchemy.json), one partial maintainer-side execution |
-| Instrument coverage | 2 | `scope.instrument` enum; [issue 12](https://github.com/risaac09/pureland-fork-kit/issues/12) |
-| Follow-up lifecycle | 2 | `follow_up` fields required; no overdue check |
+| Instrument coverage | 2 | `scope.instrument` enum, no station-level values |
+| Follow-up lifecycle | 3 | `follow_up` fields required; overdue check in the checker; [follow-up-watch.yml](.github/workflows/follow-up-watch.yml) |
 | Cross-artifact consistency | 1 | [FIELD-TRIALS.md](FIELD-TRIALS.md), `research/`, `data/` hand-synchronized |
 | Private-half custody | 2 | [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md); [consent-register template](templates/consent-register.md) |
 | Gate accounting | 1 | Version 0.2 target counted by hand |
@@ -58,11 +58,15 @@ One record has exercised the full pipeline: schema, semantic rules, public-safe 
 
 ### Instrument coverage, level 2
 
-`scope.instrument` cannot name a station-level entry for Ground, Adapt, or Return ([issue 12](https://github.com/risaac09/pureland-fork-kit/issues/12)). A contributor who walks one of those stations alone cannot record the scope truthfully without `custom`. The enum shapes what the record base can contain, so the hole propagates forward into every future record until it closes.
+`scope.instrument` cannot name a station-level entry for Ground, Adapt, or Return. A contributor who walks one of those stations alone cannot record the scope truthfully without `custom`. The enum shapes what the record base can contain, so the hole propagates forward into every future record until it closes. [Issue 12](https://github.com/risaac09/pureland-fork-kit/issues/12), which raised this, was closed on 2026-08-26 with the enum unchanged, so the gap is a standing limit rather than tracked work.
 
-### Follow-up lifecycle, level 2
+### Follow-up lifecycle, level 3
 
-The schema requires an observation window, a review date, and a follow-up status. Nothing compares the review date to the calendar. CI runs on push and pull request only, so a repository nobody touches checks nothing. FT-001's window closes on 2026-11-22, and the repository holds no mechanism that will notice. The kit's core rule is that absence never defaults to favorable; an expired window that nobody closes is exactly such an absence, converted silently into an open status.
+The schema requires an observation window, a review date, and a follow-up status. Until 2026-08-26 nothing compared that date to the calendar, and CI ran on push and pull request only, so a repository nobody touched checked nothing. FT-001's window closes on 2026-11-22 and no mechanism would have noticed. The kit's core rule is that absence never defaults to favorable, and an expired window nobody closes is exactly such an absence, carried silently as an open status.
+
+The checker now reads the review date. A record left `open` or `not-started` past that date raises a warning on any run, and [follow-up-watch.yml](.github/workflows/follow-up-watch.yml) runs weekly on the calendar with `--fail-on-overdue-follow-up`, which promotes the warning to a failure and opens an issue. The issue matters more than the failure: a warning printed into a scheduled run that nobody opens is the same silence in a different place. An ordinary pull request only ever warns, because a contributor should not fail CI over a maintainer's calendar, which is the reasoning the orphan check already uses.
+
+Two limits keep this at level 3 rather than 4. FT-001 passes the check today, but the overdue branch has only ever fired against a simulated reference date (`PURELAND_TODAY`), so no real record has gone overdue yet and 2026-11-22 is the first real test. And the watch rests on a GitHub schedule, which GitHub disables in a public repository after 60 days without activity. FT-001's window is 90 days long, so a quiet enough autumn can switch the tripwire off before the date it exists for. GitHub emails the maintainer before disabling, and the job can be run by hand, which makes that email part of the mechanism rather than a footnote to it. A tripwire whose own liveness depends on the activity it cannot guarantee is not yet a closed hole.
 
 ### Cross-artifact consistency, level 1
 
@@ -78,11 +82,12 @@ The version 0.2 gate is counted by hand. The records carry most of what a count 
 
 ## Next moves, ranked
 
-1. **Overdue-follow-up warning.** Teach the checker to warn when `follow_up.status` is open past `review_date`, and add a scheduled CI run so the warning fires without a push. Smallest change, and it closes a live hole before 2026-11-22.
-2. **Close issue 12.** Extend `scope.instrument` to the six stations. Every record written before the fix narrows what the record base can say.
-3. **Cross-artifact check.** One checker pass: every record has a ledger row and a paired report, ids are unique, filenames agree, versions match. Cheap at one record, load-bearing at ten.
-4. **Gate accounting line.** The checker prints the independent-application and distinct-context counts on every run. A count, not a score.
-5. **Provenance binding.** Verify in CI that a record's `kit_version` prefix names a reachable commit. The artifact-version half stays human: a reviewer's clearance cannot be recomputed by a script.
+1. **Cross-artifact check.** One checker pass: every record has a ledger row and a paired report, ids are unique, filenames agree, versions match. Cheap at one record, load-bearing at ten.
+2. **Gate accounting line.** The checker prints the independent-application count on every run, with distinct contexts derived from the `practice` fields. A count, not a score.
+3. **Provenance binding.** Verify in CI that a record's `kit_version` prefix names a reachable commit. The artifact-version half stays human: a reviewer's clearance cannot be recomputed by a script.
+4. **Station-level instrument values.** `scope.instrument` still cannot name Ground, Adapt, or Return, so a single-station report has no value to select but `custom`. [Issue 12](https://github.com/risaac09/pureland-fork-kit/issues/12) was closed on 2026-08-26 without the enum changing, so this is recorded as a standing limit rather than an open ticket. Reopen it if a contributor hits the gap.
+
+Done since the first pass: the overdue-follow-up tripwire, which ranked first and is now the follow-up-lifecycle reading above.
 
 ## What this audit cannot see
 
@@ -90,4 +95,4 @@ It cannot see whether the constructs survive a second reader, whether the privat
 
 ## AI assistance
 
-Drafted by Claude (Fable 5) on 2026-08-25 from the public repository at `a2044a9`. No material beyond the repository was provided. Human verification: pending maintainer review; corrections made after that review belong in this section.
+Drafted by Claude (Fable 5) on 2026-08-25 from the public repository at `a2044a9`, and revised by Claude (Opus 5) on 2026-08-26 alongside the follow-up tripwire. No material beyond the repository was provided. Human verification: the first pass was reviewed and merged by the maintainer as [pull request 14](https://github.com/risaac09/pureland-fork-kit/pull/14); the revision is pending. Corrections made after review belong in this section.

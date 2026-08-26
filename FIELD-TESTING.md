@@ -45,6 +45,8 @@ Record:
 
 A structurally conforming record can document a partial execution. It cannot claim completion when a required station is incomplete or a required human Observe was not performed. Missing action-outcome or rights evidence makes the hypothesis result `unmeasurable`.
 
+The review date is watched. A record left `open` or `not-started` past its own `review_date` raises a warning in `scripts/check_repo.py`, and a weekly scheduled run opens an issue against the repository. Close the window with an outcome, or record it as `closed-unmeasurable`. An expired window carried as open is missing evidence, and missing evidence never counts as favorable.
+
 The public issue form is Stage 1 scoping only. Do not paste a completed report, structured record, evidence link, or protected detail into that issue. After any required private rights review, a report and JSON record may enter through a pull request only when the exact artifact versions have a `clear` public-safe decision. A private result, refusal, or `unmeasurable` outcome does not require a public report. The maintainer may add a cleared report to [FIELD-TRIALS.md](FIELD-TRIALS.md) with links. An entry is an inspectable record, not an endorsement.
 
 ## Minimum comparison for a tested change
