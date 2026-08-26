@@ -1,6 +1,6 @@
 # Research status
 
-Version 0.1 is a prototype for generating and testing hypotheses. It is not validated, and it does not certify openness, reciprocity, attention sovereignty, or Buddhist practice. [HYPOTHESIS.md](HYPOTHESIS.md) defines the provisional constructs and classification rule. [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md) holds the current evidence record.
+Version 0.1 is a prototype for generating and testing hypotheses. It is not validated, and it does not certify openness, reciprocity, attention sovereignty, or Buddhist practice. [HYPOTHESIS.md](HYPOTHESIS.md) defines the provisional constructs and classification rule. [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md) holds the current evidence record. [DATA-MATURITY.md](DATA-MATURITY.md) audits the infrastructure that carries the record.
 
 | Claim | Status | Evidence needed next |
 |---|---|---|
