@@ -14,6 +14,7 @@ The toolbox is the forkable part of PureLand. It contains the instruments, templ
 - [PROTOCOL.md](PROTOCOL.md): facilitation and separate consent decisions for a recorded encounter.
 - [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md): copyright, privacy, confidentiality, community authority, custody, and publication boundaries.
 - [AI-SYSTEM-ANNEX.md](AI-SYSTEM-ANNEX.md): system-boundary and evidence questions for AI-assisted or automated practices.
+- [OPEN-MODEL-LANE.md](OPEN-MODEL-LANE.md): running open-weight models on hardware you own, credential discipline for hosted ones, and the paired bench for testing quality claims yourself. With [scripts/llm-lane.sh](scripts/llm-lane.sh), adaptable shell functions for the local tiers, and [templates/bench-card.yaml](templates/bench-card.yaml), the bench declaration format.
 - [templates/consent-register.md](templates/consent-register.md): minimum permission record. This record stays private.
 
 ## Test and report

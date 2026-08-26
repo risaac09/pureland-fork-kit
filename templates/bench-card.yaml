@@ -1,0 +1,51 @@
+# Bench card template: the paired bench in OPEN-MODEL-LANE.md.
+# License: MIT (see ../LICENSES/MIT.txt).
+#
+# One card declares one bench: two contestants, one task set, the judges,
+# and a pass threshold. The card is what makes a run reproducible and lets
+# a reader see exactly what was compared. This kit ships the card format
+# and the method, not a harness; build the harness at whatever size your
+# practice needs, keeping the properties the comments below name.
+
+bench:
+
+  example-paired-v1:
+    # The question the bench answers, stated as a question. A bench that
+    # cannot say what question it answers is a leaderboard, not a test.
+    description: "Do model A and model B produce equivalent quality on the work classes I route between them?"
+
+    # The two contestants. `cli` names the adapter your harness uses to
+    # invoke each model; `model` pins the exact model, or "default" for the
+    # adapter's own default. Parity rule: both contestants must run through
+    # the same harness, with the same prompts and the same tool access. If
+    # the sides differ in anything but the model, the run measures the
+    # harness, not the models.
+    agents:
+      a: {cli: adapter-one, model: example/model-a}
+      b: {cli: adapter-two, model: default}
+
+    # Path to a task file: one task per line, each with an id, a work-class
+    # tag (routing decisions are made per class, so tag honestly), a prompt,
+    # and the deterministic graders that score its outputs. Include at least
+    # one planted-bad probe task whose fixture the graders MUST fail; a
+    # probe that passes means the graders discriminate nothing and the run
+    # is invalid.
+    taskSet: evals/example/tasks.jsonl
+
+    # Judges for the qualities scripts cannot score. Each judge compares the
+    # two outputs blind, twice, with the order swapped; a judge that flips
+    # its winner across orders scores that comparison a tie. Using judges
+    # from both model families keeps own-family preference symmetrical
+    # instead of hidden.
+    arbiters: [adapter-one, adapter-two]
+
+    # The judge's own model per arbiter, set here on the card. A judge never
+    # inherits a contestant's model: judge identity stays independent of
+    # whichever contestant happens to sit in slot a or b.
+    arbiterModels: {adapter-one: example/judge-model, adapter-two: default}
+
+    # Minimum fraction of scored deterministic checks EACH contestant must
+    # pass for the run to be green (probes excluded). Separate from the
+    # completeness rule: a run where any generation, grader, or judge failed
+    # to return is incomplete, and incomplete is never a pass.
+    passThreshold: 0.75

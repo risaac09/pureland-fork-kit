@@ -23,4 +23,4 @@ Withdrawal may stop future project-controlled uses within the limits agreed with
 
 Suggested attribution: `PureLand method and toolbox by Isaac Rubinstein, CC BY-SA 4.0, with changes described.`
 
-Repository code and configuration files are licensed separately under the [MIT License](LICENSES/MIT.txt). This keeps the method reciprocal while allowing the small validation tools to be reused in ordinary software projects.
+Repository code, configuration files, and machine-readable configuration templates are licensed separately under the [MIT License](LICENSES/MIT.txt). This keeps the method reciprocal while allowing the small validation tools and configuration formats to be reused in ordinary software projects.
