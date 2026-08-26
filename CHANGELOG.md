@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Added `llms.txt` as the model-facing entry point, with absolute Pages links, the current evidence ceiling, rights and repository boundaries, and the research-status ledgers kept in the primary path. Extended `scripts/check_repo.py` so the file is required and included in link, placeholder, claim-wording, and reachability checks.
 - Added the open-model lane: `OPEN-MODEL-LANE.md` (running open-weight models on owned hardware, credential discipline for hosted gateways, and the paired-bench method for testing model quality claims yourself), `scripts/llm-lane.sh` (adaptable shell functions for the local tiers), and `templates/bench-card.yaml` (the bench declaration format). Generalized from the maintainer's private stack with hostnames, models, and credentials replaced by examples; the reference bench harness stays private, a named boundary in the document itself.
 
 - Reframed PureLand as a version 0.1 research-program prototype with six public functions: thesis, method, toolbox, hypothesis, testing, and current evidence. PureLand remains the program name, and the existing forkable instruments remain the toolbox.

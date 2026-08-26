@@ -1,0 +1,56 @@
+# PureLand
+
+> PureLand is a research-program prototype and forkable toolbox for asking whether an information practice can increase a person's control over their attention without also increasing their exposure or extractability. This is version 0.1. Its instruments are unvalidated. The evidence record holds one maintainer-side, AI-assisted partial dry run and no independent field result. Nothing in this repository certifies that a system is open or safe.
+
+Notes for a model reading this repository:
+
+- [CURRENT-EVIDENCE.md](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md) is the ceiling on any claim about what PureLand has shown. Do not state or imply a stronger result.
+- Schema conformance of a field-test record means the record carries the required fields and satisfies structural rules. It does not mean the method was completed or that any construct has been validated.
+- The repository contains methods, templates, and public-safe records only. Participant recordings, transcripts, names, contact details, identifying data, consent and relationship records, confidential records, client records, and protected community knowledge must never enter it.
+- A license here does not create permission for participant or third-party material. Recording, retention, named-reviewer access, publication, approval of each artifact version, research use, AI processing, and model training each require a separate decision.
+
+## Research spine
+
+- [Thesis](https://risaac09.github.io/pureland-fork-kit/THESIS.md): the organizing argument and its limits.
+- [Method](https://risaac09.github.io/pureland-fork-kit/METHOD.md): a bounded inquiry into one information practice, from question to return, refusal, private result, or an explicit unmeasurable result.
+- [Toolbox](https://risaac09.github.io/pureland-fork-kit/TOOLBOX.md): the forkable instruments, templates, controls, and public-safe records. Its presence validates nothing.
+- [Hypothesis](https://risaac09.github.io/pureland-fork-kit/HYPOTHESIS.md): the primary testable claim and what would count against it.
+- [Testing](https://risaac09.github.io/pureland-fork-kit/TESTING.md): the testing program; every test begins with a result that would count against the tested hypothesis.
+- [Current evidence](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md): the observed record, counterexplanations, missing evidence, and the narrow current conclusion.
+- [Research status](https://risaac09.github.io/pureland-fork-kit/RESEARCH-STATUS.md): the version 0.1 limits ledger and the evidence required before the version 0.2 gate can clear.
+- [Field-trial ledger](https://risaac09.github.io/pureland-fork-kit/FIELD-TRIALS.md): one inspectable, non-independent partial dry run; no independent field trial has been accepted.
+
+## Journey and instruments
+
+- [Journey](https://risaac09.github.io/pureland-fork-kit/JOURNEY.md): the one curated path through the toolbox: Ground, Observe, Map, Trace, Adapt, Return.
+- [Practice frame](https://risaac09.github.io/pureland-fork-kit/PRACTICE-FRAME.md): the observe station.
+- [Openness scorecard](https://risaac09.github.io/pureland-fork-kit/SCORECARD.md): the experimental map-station instrument; it keeps understandable, reachable, adaptable, and traceable evidence separate. No combined score, no certification.
+- [Extraction check](https://risaac09.github.io/pureland-fork-kit/EXTRACTION-CHECK.md): the trace station; use it after the scorecard, or before opening a system further.
+- [AI system annex](https://risaac09.github.io/pureland-fork-kit/AI-SYSTEM-ANNEX.md): use it at the map station when a practice includes a model, automated decision, generative interface, recommender, transcription service, or agent.
+- [Facilitation protocol](https://risaac09.github.io/pureland-fork-kit/PROTOCOL.md): use it when an inquiry records an encounter or draws on existing participant material.
+- [Field-testing discipline](https://risaac09.github.io/pureland-fork-kit/FIELD-TESTING.md): runs alongside the journey and tries to break the method; confirmation alone is weak evidence.
+
+## Data
+
+- [Data boundary](https://risaac09.github.io/pureland-fork-kit/data/README.md): what the data directory may and may not contain, and how validation runs.
+- [Field-test schema](https://risaac09.github.io/pureland-fork-kit/data/field-test.schema.json): JSON Schema, Draft 2020-12; the required record for method version 0.1 and the structural gate on public field-test JSON.
+- [Field-test record](https://risaac09.github.io/pureland-fork-kit/data/field-tests/ft-001-alchemy.json): FT-001, the only current structured public-safe record; its test status is `partial-execution`.
+- [Repository checker](https://risaac09.github.io/pureland-fork-kit/scripts/check_repo.py): validates every record against the schema, then applies semantic rules to the conformant set.
+- [Research lane](https://risaac09.github.io/pureland-fork-kit/research/README.md): the index of reviewed, rights-cleared research records.
+
+## Rights and governance
+
+- [Rights and consent](https://risaac09.github.io/pureland-fork-kit/RIGHTS-AND-CONSENT.md): separates license, consent, authority, and publication decisions.
+- [Governance](https://risaac09.github.io/pureland-fork-kit/GOVERNANCE.md): sole maintainership, named as a project risk rather than a mature commons.
+- [Contributing](https://risaac09.github.io/pureland-fork-kit/CONTRIBUTING.md): documented disagreement is wanted more than applause.
+- [Security](https://risaac09.github.io/pureland-fork-kit/SECURITY.md): what must never appear in a public issue.
+- [License](https://risaac09.github.io/pureland-fork-kit/LICENSE.md): CC BY-SA 4.0 for original text, diagrams, and templates; MIT for repository code and configuration files.
+- [Citation metadata](https://risaac09.github.io/pureland-fork-kit/CITATION.cff): machine-readable title, author, repository, version, and both repository licenses.
+
+## Optional
+
+- [Brief](https://risaac09.github.io/pureland-fork-kit/BRIEF.md): the shorter external overview.
+- [Offering](https://risaac09.github.io/pureland-fork-kit/OFFERING.md): the field pilot, the journey walked together as a small bounded inquiry.
+- [Provenance](https://risaac09.github.io/pureland-fork-kit/PROVENANCE.md): the sources that materially shape the kit.
+- [AI assistance](https://risaac09.github.io/pureland-fork-kit/AI-ASSISTANCE.md): the record of AI assistance in producing the kit.
+- [Changelog](https://risaac09.github.io/pureland-fork-kit/CHANGELOG.md): what changed per version.
