@@ -3,7 +3,9 @@
 
 from __future__ import annotations
 
+import datetime as dt
 import json
+import os
 import re
 import sys
 from collections import defaultdict
@@ -21,6 +23,12 @@ HEADING = re.compile(r"^(#{1,6})\s+(.+?)\s*$", re.MULTILINE)
 PLACEHOLDER = re.compile(r"\b(TODO|TBD|INSERT[_ -]?HERE)\b", re.IGNORECASE)
 METHOD_COMPLETION = re.compile(r"\bmethod completion\b", re.IGNORECASE)
 PAGES_BASE = "https://risaac09.github.io/pureland-fork-kit/"
+
+# A follow-up in one of these states is still owed an outcome. The other
+# statuses in the schema enum (complete, closed-unmeasurable, refused) are
+# closed results, and a closed result cannot go stale.
+OPEN_FOLLOW_UP_STATUSES = {"not-started", "open"}
+TODAY_OVERRIDE = "PURELAND_TODAY"
 
 FIELD_TEST_SCHEMA = ROOT / "data" / "field-test.schema.json"
 FIELD_TEST_DIR = ROOT / "data" / "field-tests"
@@ -454,6 +462,64 @@ def check_record_rules(path: Path, record: dict[str, Any], errors: list[str]) ->
         errors.append(f"prohibited combined-score field in {record_label}: {key_path}")
 
 
+def reference_date(errors: list[str]) -> dt.date:
+    """Today, in UTC, unless PURELAND_TODAY names another date.
+
+    The override exists so the overdue check can be fired on demand. A
+    date-dependent check nobody can test is the same silent absence it was
+    built to catch: without it, the first real run happens on the day it
+    matters, with no evidence it works.
+
+    Set it locally, never in a workflow. Under --fail-on-overdue-follow-up
+    the notices are errors, so a frozen past date in the scheduled watch's
+    environment would hide a real overdue follow-up behind a green run.
+    """
+    override = os.environ.get(TODAY_OVERRIDE)
+    if not override:
+        return dt.datetime.now(dt.timezone.utc).date()
+    try:
+        return dt.date.fromisoformat(override)
+    except ValueError:
+        errors.append(f"invalid {TODAY_OVERRIDE} value: {override!r}; expected YYYY-MM-DD")
+        return dt.datetime.now(dt.timezone.utc).date()
+
+
+def overdue_follow_ups(
+    path: Path, record: dict[str, Any], today: dt.date, notices: list[str]
+) -> None:
+    """Notice a follow-up left open past its own review date.
+
+    FIELD-TESTING.md requires an observation window, a review date, and a
+    follow-up status, and nothing compared that date to the calendar. An
+    expired window that nobody closes becomes missing evidence carried as an
+    open status, and HYPOTHESIS.md is explicit that absence never defaults to
+    favorable. This is the calendar half of that rule.
+    """
+    label = record.get("record_id", relative(path))
+    follow_up = record.get("follow_up", {})
+    status = follow_up.get("status")
+    if status not in OPEN_FOLLOW_UP_STATUSES:
+        return
+
+    raw = follow_up.get("review_date")
+    try:
+        review_date = dt.date.fromisoformat(raw)
+    except (TypeError, ValueError):
+        # Only schema-conformant records reach here, so the date parsed once
+        # already. Reaching this branch means the schema stopped enforcing
+        # the format, which is worth saying out loud rather than skipping.
+        notices.append(f"{label} follow-up review_date is not a readable date: {raw!r}")
+        return
+
+    if review_date < today:
+        days = (today - review_date).days
+        notices.append(
+            f"{label} follow-up is still {status} {days} day(s) past its review date "
+            f"{review_date.isoformat()}: close it with an outcome, or record it as "
+            f"closed-unmeasurable"
+        )
+
+
 def check_schema_and_records(json_data: dict[Path, Any], errors: list[str]) -> set[Path]:
     """Validate every field-test record against data/field-test.schema.json.
 
@@ -502,7 +568,22 @@ def check_schema_and_records(json_data: dict[Path, Any], errors: list[str]) -> s
     return conformant
 
 
-def main() -> int:
+STRICT_FOLLOW_UP_FLAG = "--fail-on-overdue-follow-up"
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = list(sys.argv[1:] if argv is None else argv)
+    # The scheduled follow-up watch passes this flag so an overdue review
+    # turns the run red and reaches a person. An ordinary push or pull
+    # request never sets it: a contributor's PR should not fail over a
+    # maintainer's calendar, the same reason orphan detection only warns.
+    strict_follow_ups = STRICT_FOLLOW_UP_FLAG in args
+    unknown = [arg for arg in args if arg != STRICT_FOLLOW_UP_FLAG]
+    if unknown:
+        print(f"unknown argument(s): {' '.join(unknown)}", file=sys.stderr)
+        print(f"usage: check_repo.py [{STRICT_FOLLOW_UP_FLAG}]", file=sys.stderr)
+        return 2
+
     errors: list[str] = []
     warnings: list[str] = []
 
@@ -527,6 +608,9 @@ def main() -> int:
     # installs the dependency (see .github/workflows/validate.yml).
     conformant = check_schema_and_records(json_data, errors)
 
+    today = reference_date(errors)
+    follow_up_notices: list[str] = []
+
     # Schema conformance is structural. The research arc's rules are semantic:
     # what a record may claim given the rights, contestability, and
     # action-outcome evidence it actually carries. Both have to hold.
@@ -534,6 +618,11 @@ def main() -> int:
         record = json_data.get(path)
         if isinstance(record, dict):
             check_record_rules(path, record, errors)
+            overdue_follow_ups(path, record, today, follow_up_notices)
+
+    # Where these land depends on who is asking. The scheduled watch wants a
+    # red run; everyone else wants a note that does not block their work.
+    (errors if strict_follow_ups else warnings).extend(follow_up_notices)
 
     ft001 = json_data.get(FT001)
     if isinstance(ft001, dict):
