@@ -2,7 +2,19 @@
 
 Version 0.1 is a prototype for generating and testing hypotheses. It is not validated, and it does not certify openness, reciprocity, attention sovereignty, or Buddhist practice. [HYPOTHESIS.md](HYPOTHESIS.md) defines the provisional constructs and classification rule. [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md) holds the current evidence record. [DATA-MATURITY.md](DATA-MATURITY.md) audits the infrastructure that carries the record.
 
-Status vocabulary. `Source-backed` means a source in [PROVENANCE.md](PROVENANCE.md) supports the claim as stated. `PureLand hypothesis` means PureLand synthesized the claim from a source a reader can fetch and judge, so the derivation is contestable by reading the source. `Practice-derived` means the claim came out of doing the work and no text stands behind it, so a reader can contest it only by doing the work and reporting differently. `Provisional instrument hypothesis` means the claim is about whether an instrument in this kit measures what it says it measures. A practice-derived claim is not weaker than a synthesized one. It is a different kind, and the ledger says which.
+Every status used in the table below:
+
+| Status | What it means |
+|---|---|
+| Source-backed framing | A source in [PROVENANCE.md](PROVENANCE.md) supplies the frame. It does not supply a finding. |
+| Source-backed theoretical claim | A source states the claim as theory. No source validates it for this kit's use. |
+| PureLand hypothesis | PureLand synthesized the claim from a source a reader can fetch. The derivation is contestable by reading that source. |
+| Practice-derived | The claim came out of doing the work. No text stands behind it, so a reader contests it by doing the work and reporting differently. |
+| Provisional instrument hypothesis | The claim is about whether an instrument in this kit measures what it says it measures. |
+| Primary untested PureLand hypothesis | The one claim in [HYPOTHESIS.md](HYPOTHESIS.md) that the whole method turns on. |
+| Untested design hypothesis | A claim about how this kit is sequenced, not about a method or an instrument. |
+
+A practice-derived claim is not weaker than a synthesized one. It is a different kind, and the ledger says which.
 
 | Claim | Status | Evidence needed next |
 |---|---|---|
