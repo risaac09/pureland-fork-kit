@@ -86,8 +86,9 @@ the same job.
   a chain of links. A person notices a broken link. Nobody reads for orphans.
 - **`REQUIRED_ARCHITECTURE`.** The only machine-readable statement of what this
   repository must contain, and deliberately not restated in prose.
-- **Exhaustive re-reading.** A model can check every file against every claim on
-  every run. A maintainer cannot, which is why the checks exist.
+- **Deterministic re-checking.** `scripts/check_repo.py` reads every file on
+  every run and reaches the same verdict each time. A maintainer cannot, and
+  neither can a model, which is why the checks are a script.
 
 ## Why the residue stays unreconciled
 

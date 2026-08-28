@@ -138,8 +138,8 @@ change is not evidence.
 - **Human lane.** A second reader scores the same material and the disagreement
   is kept rather than resolved away.
 - **Agent lane.** [scripts/check_repo.py](scripts/check_repo.py).
-- **Holds.** Both catch a class of error before publication, and both are meant
-  to run before a record goes public.
+- **Holds.** Both catch a class of error a single author working alone will
+  miss.
 - **Fails.** The checker finds structural error. It cannot find a wrong reading,
   and a fully conformant record can be wrong about everything that matters. The
   human half of this row is also a design rather than a practice: no second
@@ -152,11 +152,12 @@ change is not evidence.
   [AI-ASSISTANCE.md](AI-ASSISTANCE.md) for how the text was produced.
 - **Agent lane.** [CITATION.cff](CITATION.cff) and the version-claim check that
   ties the release the entry points announce to the metadata.
-- **Holds.** Both make a version citable, and both fail loudly when a release
-  moves and a copy does not.
+- **Holds.** Both make a version traceable to a point in the work's history.
 - **Fails.** `PROVENANCE.md` records what shaped the thinking, including what is
   unsettled about a source. `CITATION.cff` records what to cite. A model that
-  reads the metadata and stops learns the release and none of the debts.
+  reads the metadata and stops learns the release and none of the debts. Only the
+  agent side is guarded: the version check ties `CITATION.cff` to the entry
+  points, and nothing at all catches a `PROVENANCE.md` that has gone stale.
 
 ## Pace
 
