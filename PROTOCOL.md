@@ -69,7 +69,7 @@ The interval constrains the person with the edit hand at the point that hand ans
 
 The wait is the maker's, so the participant does not pay for it. It does not delay a participant's copy, a correction, or a withdrawal, and a participant who wants the work moving sooner overrides it. Record who carries the cost of the delay when a deadline makes it expensive, alongside the other burdens in the decision record.
 
-This interval is PureLand synthesis, not a rule any source in [PROVENANCE.md](PROVENANCE.md) establishes.
+This interval is practice-derived, which [RESEARCH-STATUS.md](RESEARCH-STATUS.md) defines as a claim that came out of doing the work with no text behind it. No source in [PROVENANCE.md](PROVENANCE.md) establishes it.
 
 **What would count against this.** If makers who cut immediately produce work that participants recognize and approve at the same rate as makers who wait, the interval buys nothing the review step already buys. Nobody has tested it.
 

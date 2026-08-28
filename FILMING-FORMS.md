@@ -61,7 +61,7 @@ The four forms count the relation. The holder is a separate question, asked per 
 - If it runs unattended, who placed and framed it, and who can stop it?
 - Who holds the edit hand, whether or not they held the camera?
 
-Read the holder off the headcount and the two come apart in the case that matters most. A facilitator builds an encounter over weeks, hands the camera to the participant, leaves the room, and makes the cut afterward. The moment satisfies the self-filming definition exactly. The encounter does not, because the party holding the edit hand is absent from the room and fully present in the relation. Reading it as self-filming lands on "no consent needed from another party," which is wrong.
+The two axes come apart in the case that matters most, so reading the holder off the headcount fails exactly where it counts. A facilitator builds an encounter over weeks, hands the camera to the participant, leaves the room, and makes the cut afterward. The moment satisfies the self-filming definition exactly. The encounter does not, because the party holding the edit hand is absent from the room and fully present in the relation. Reading it as self-filming lands on "no consent needed from another party," which is wrong.
 
 A handoff down the power gradient removes the operator's framing from the moment, and the operator's read on when to keep rolling. It does not remove the operator's stake, because the stake returns at the edit. Handing over the camera while keeping all edit authority is a real move and a partial one. Calling the result participant-led overstates it.
 
@@ -78,9 +78,9 @@ The [extraction check](EXTRACTION-CHECK.md)'s value-trace table asks what leaves
 | Form | Who value can leave | Where it risks accumulating | What emptying it looks like |
 |---|---|---|---|
 | Self-filming | The person filming themselves | An imagined or actual audience the person never fully consented to serve | The person keeps the files and sets the audience later, off camera. Any other party's copy is named, dated, and justified in the decision record, or it is not kept |
-| Dyadic | Whichever party did not hold the edit | The camera holder's authorship and archive | Raw and edited material goes back to the other party. The maker keeps nothing by default and justifies each retained item |
-| Triadic | Both participants | The third position's framing, if it publishes without both participants' review | Both participants receive the raw material, not only the cut. Each retained item needs both, separately |
-| Environmental | People connected to the place, though absent from frame | Whoever holds and distributes the footage | Material returns to the authority that permitted it, under the same non-retention default. Where publication was refused, no archived copy is held against a later ask |
+| Dyadic | Whichever party did not hold the edit | The camera holder's authorship and archive | The other party is offered the raw and edited material and chooses what to take. The maker keeps nothing by default and justifies each retained item |
+| Triadic | Both participants | The third position's framing, if it publishes without both participants' review | Both participants are offered the raw material, not only the cut, and each chooses separately. Each retained item needs both |
+| Environmental | People connected to the place, though absent from frame | Whoever holds and distributes the footage | Material is offered back to the authority that permitted it, under the same non-retention default. Where publication was refused, no archived copy is held against a later ask |
 
 Default to offering raw and edited material back, not only the finished artifact. A participant who receives a short cut and none of the footage behind it has received the maker's reading of the encounter rather than the encounter.
 

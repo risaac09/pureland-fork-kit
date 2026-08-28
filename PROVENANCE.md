@@ -47,6 +47,8 @@ These sources support the questions. They do not validate PureLand's instruments
 
 - Sara Asadullah and Soledad Muñiz, [*Participatory Video and the Most Significant Change*](https://insightshare.org/resources/participatory-video-and-the-most-significant-change/), InsightShare, 2015, combines participatory video with a structured evaluation method. PureLand is not the first open facilitation kit to join media practice and measurement.
 
+## Undisclosed practice source
+
 The editing interval in [PROTOCOL.md](PROTOCOL.md#wait-before-editing) and the returning-and-not-keeping default in [FILMING-FORMS.md](FILMING-FORMS.md) come from one filmmaking practice, used across a small number of engagements. That practice is not named here, and whether to name it is an open maintainer decision. Until it is named, the attribution is undisclosed rather than anonymous: a reader cannot check the source, judge whether its conditions resemble their own, or weigh the five-day figure against anything. Record that as a traceability limit on both claims, not as a settled anonymous source.
 
 ## Open and AI system references
