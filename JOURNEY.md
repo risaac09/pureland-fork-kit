@@ -22,7 +22,7 @@ Alchemy is a tool with deliberate constraints, not a validated instrument. The j
 
 Answer these before station 1:
 
-1. **Will the work record an encounter with other people, or draw on existing participant material?** A new recording follows the [facilitation protocol](PROTOCOL.md) end to end. Existing material needs its consent decisions confirmed, per the protocol's separate-decisions rule, before any observation or scoring.
+1. **Will the work record an encounter with other people, or draw on existing participant material?** A new recording follows the [facilitation protocol](PROTOCOL.md) end to end. Existing material needs its consent decisions confirmed, per the protocol's separate-decisions rule, before any observation or scoring. When the recording device is a camera, name which of the four forms in [FILMING-FORMS.md](FILMING-FORMS.md) is in play before the protocol's pre-recording step; the form changes what the protocol's consent decisions need to cover.
 2. **Does the practice include a model, automated decision, generative interface, recommender, transcription service, or agent?** If yes, carry the [AI system annex](AI-SYSTEM-ANNEX.md) into station 3.
 
 If neither applies, the six stations below are the whole path.
