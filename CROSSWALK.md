@@ -142,14 +142,17 @@ change is not evidence.
 - **Agent lane.** No counterpart.
 - **Holds.** Nothing.
 - **Fails.** The four forms are relational positions and a model occupies none of
-  them. It is not the person in frame, not the person holding the camera, and not
-  the third position a triadic encounter needs somebody to actually stand in. The
-  questions have no addressee here: "is this footage of an encounter with myself,
-  or is it already footage of an audience I'm imagining?" cannot be answered by a
-  reader who was not in the room. A model can read the taxonomy and name which
-  form a described project is in. It cannot be in one. The taxonomy is also
-  untested by its own statement, which is a limit on the instrument rather than a
-  property of either lane.
+  them. It does not stand in front of a camera or behind one, it cannot hold the
+  third position a triadic encounter needs somebody to actually stand in, and in
+  environmental filming it is not among the people connected to the place who
+  were never asked. The questions have no addressee here: "is this footage of an
+  encounter with myself, or is it already footage of an audience I'm imagining?"
+  cannot be answered by a reader who was not in the room. A model can read the
+  taxonomy and propose which form is in use at a given moment, which is what the
+  instrument asks to be named, since a project can move through more than one.
+  It cannot be in any of them. The taxonomy is also untested by its own
+  statement, which is a limit on the instrument rather than a property of either
+  lane.
 
 ## Error correction
 

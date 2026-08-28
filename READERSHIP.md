@@ -71,9 +71,10 @@ the same job.
   person and where it accumulates. A model is not on either side of that ledger.
 - **Refusal that takes its reasons with it.** A person who stops leaves holding
   something. A model that stops produces nothing, which is not the same event.
-- **Standing in a relational position.** The filming forms turn on who is in
-  frame, who holds the camera, and who occupies the third position. A model is
-  in none of those places and cannot be put in one.
+- **Standing in a relational position.** The filming forms turn on where each
+  person actually stands when a camera is running, including the people connected
+  to a place who are absent from the frame. A model stands nowhere and cannot be
+  put anywhere.
 - **Elapsed time as evidence.** An observation window is made of days. A pass
   through a context window is not.
 - **A disagreement that belongs to someone.** A generated dissent is not an
