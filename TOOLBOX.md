@@ -2,6 +2,8 @@
 
 The toolbox is the forkable part of PureLand. It contains the instruments, templates, controls, and public-safe records needed to inspect or adapt the method. The [thesis](THESIS.md) and evidence record set its limits. Its presence validates nothing.
 
+Everything listed here is an instrument. The repository's two readerships, the human lane and the agent lane, are architecture rather than instruments, and [READERSHIP.md](READERSHIP.md) holds them.
+
 ## Walk the method
 
 - [JOURNEY.md](JOURNEY.md): the recommended six-station sequence.

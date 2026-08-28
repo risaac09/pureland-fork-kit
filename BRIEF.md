@@ -4,6 +4,8 @@ PureLand shares the whole practice, including the unfinished parts. Two reasons.
 
 The repository uses six public functions: [thesis](THESIS.md), [method](METHOD.md), [toolbox](TOOLBOX.md), [hypothesis](HYPOTHESIS.md), [testing](TESTING.md), and [current evidence](CURRENT-EVIDENCE.md). The former fork-kit surface remains available as the toolbox inside this research-program prototype.
 
+Those six functions are read by two readerships. A person walks [the journey](JOURNEY.md); a model is addressed by [agent reading](AGENT-READING.md). [READERSHIP.md](READERSHIP.md) states what holds across both.
+
 ## What problem is this working on?
 
 PureLand asks one question: can a way of handling information give a person more control over their own attention without also making them easier to exploit? Its goals are to:

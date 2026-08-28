@@ -5,9 +5,18 @@
 Notes for a model reading this repository:
 
 - [CURRENT-EVIDENCE.md](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md): the ceiling on any claim about what PureLand has shown. Do not state or imply a stronger result.
+- [AGENT-READING.md](https://risaac09.github.io/pureland-fork-kit/AGENT-READING.md): read this next. It holds the reading order, the architecture contract, what you may generate, what you may never generate, and what you must hand back to a person. This file is the index; that one is the path.
 - Schema conformance of a field-test record means the record carries the required fields and satisfies structural rules. It does not mean the method was completed or that any construct has been validated.
 - The repository contains methods, templates, and public-safe records only. Participant recordings, transcripts, names, contact details, identifying data, consent and relationship records, confidential records, client records, and protected community knowledge must never enter it.
 - A license here does not create permission for participant or third-party material. Recording, retention, named-reviewer access, publication, approval of each artifact version, research use, AI processing, and model training each require a separate decision.
+
+## Readerships
+
+- [Agent reading](https://risaac09.github.io/pureland-fork-kit/AGENT-READING.md): the agent lane, addressed to a model reading this repository.
+- [Journey](https://risaac09.github.io/pureland-fork-kit/JOURNEY.md): the human lane, walked in order on one real practice at a body's pace.
+- [Crosswalk](https://risaac09.github.io/pureland-fork-kit/CROSSWALK.md): the two lanes set against each other element by element, including the elements one lane has no counterpart for. An empty cell there is a finding.
+- [Readership](https://risaac09.github.io/pureland-fork-kit/READERSHIP.md): what PureLand is such that both lanes render it, what survives the change of reader, and which differences stay unreconciled.
+- [Front page](https://risaac09.github.io/pureland-fork-kit/index.html): the human-facing page served at the Pages root, alongside this file.
 
 ## Research spine
 

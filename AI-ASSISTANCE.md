@@ -1,5 +1,17 @@
 # AI assistance record
 
+## 2026-08-28 two readerships, crosswalk, and synthesis
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code |
+| Task | Naming the repository's two readerships and writing the four artifacts the maintainer specified: the agent lane (`AGENT-READING.md`), the crosswalk between the lanes (`CROSSWALK.md`), the synthesis above them (`READERSHIP.md`), and a short re-addressing of `JOURNEY.md` as the human lane. Re-addressing pass across `README.md`, `llms.txt`, `TOOLBOX.md`, `BRIEF.md`, and `index.html`, plus three additions to `REQUIRED_ARCHITECTURE` in `scripts/check_repo.py` |
+| Material provided | The public repository at commit `42341bf`, and the maintainer's written brief specifying the four artifacts, the constraint that the crosswalk stay flat and the synthesis stay vertical, and the evidence ceiling |
+| Source verification | No new sources cited. Every claim about the repository's current state was read from the files rather than recalled: the `human_observe.status` value from `data/field-tests/ft-001-alchemy.json`, the checker's behavior from `scripts/check_repo.py`, the second-reader status from `TESTING.md`, and the absence-never-defaults rule from `HYPOTHESIS.md` |
+| Corrections after verification | The first draft of `AGENT-READING.md` and `CROSSWALK.md` quoted the checker's placeholder tokens verbatim and the placeholder ban failed both files. Both now describe the list and point at the script instead of reprinting it |
+| Human review | The maintainer approved the plan, the two file names, and the decision to leave `llms.txt` as the agent entry point, before any file changed. Review of the shipped text remains required before merge |
+| Sensitive material | None involved. No participant material, names, or consent records entered the repository |
+
 ## 2026-08-26 ensō-fork mark retirement
 
 | Field | Record |

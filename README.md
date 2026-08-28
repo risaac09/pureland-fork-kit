@@ -13,7 +13,7 @@ This is version 0.1. Its instruments are unvalidated. It does not certify that a
 
 ## The research spine
 
-Read the project in this order:
+Read the project in this order. It is the human lane's order, and a model reads a different one for a stated reason. See "Two readerships" below.
 
 1. [The PureLand thesis](THESIS.md): the organizing argument and its limits.
 2. [The PureLand method](METHOD.md): the repeatable inquiry from boundary to return.
@@ -23,6 +23,21 @@ Read the project in this order:
 6. [Current evidence](CURRENT-EVIDENCE.md): the observed record, counterexplanations, missing evidence, and narrow current conclusion.
 
 The [brief](BRIEF.md) gives a shorter external overview.
+
+## Two readerships
+
+A person and a model read this repository differently, and the difference is now
+named rather than left to chance.
+
+- [The journey](JOURNEY.md) is the human lane. It is walked, in order, on one
+  real practice, at a body's pace.
+- [Agent reading](AGENT-READING.md) is the agent lane. It is addressed. It gives
+  a model the reading order, the architecture contract, the schema, and the list
+  of work it must hand back to a person instead of completing.
+- [The crosswalk](CROSSWALK.md) sets the two lanes against each other element by
+  element, including the places where one lane has no counterpart.
+- [Readership](READERSHIP.md) states what PureLand is such that both lanes render
+  it, and which differences stay unreconciled.
 
 ## Use the method
 
