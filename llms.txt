@@ -28,6 +28,7 @@ Notes for a model reading this repository:
 - [Extraction check](https://risaac09.github.io/pureland-fork-kit/EXTRACTION-CHECK.md): the trace station; use it after the scorecard, or before opening a system further.
 - [AI system annex](https://risaac09.github.io/pureland-fork-kit/AI-SYSTEM-ANNEX.md): use it at the map station when a practice includes a model, automated decision, generative interface, recommender, transcription service, or agent.
 - [Facilitation protocol](https://risaac09.github.io/pureland-fork-kit/PROTOCOL.md): use it when an inquiry records an encounter or draws on existing participant material.
+- [Filming forms](https://risaac09.github.io/pureland-fork-kit/FILMING-FORMS.md): self, dyadic, triadic, and environmental filming, each read for what it can witness and what it risks taking; pair with the facilitation protocol whenever a camera is present.
 - [Field-testing discipline](https://risaac09.github.io/pureland-fork-kit/FIELD-TESTING.md): runs alongside the journey and tries to break the method; confirmation alone is weak evidence.
 
 ## Data
