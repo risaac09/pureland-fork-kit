@@ -113,6 +113,9 @@ Hand these to a person, unstarted or clearly marked as a proposal:
   A person chooses it and records the rationale.
 - The affected-party challenge. A walk cannot be called complete without it and
   you cannot supply it.
+- The filming form, when a camera is present. You may name which of the four
+  forms in [FILMING-FORMS.md](FILMING-FORMS.md) a described project is in. The
+  question each form asks before rolling belongs to whoever is in the room.
 - Refusal, and the record of a walk that stopped.
 - The public-safe decision on an artifact version.
 - The follow-up outcome after an observation window closes.

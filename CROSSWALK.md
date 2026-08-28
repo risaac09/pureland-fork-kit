@@ -28,6 +28,7 @@ change is not evidence.
 | [Evidence ceiling](#evidence-ceiling) | Close, in two grammars |
 | [Refusal](#refusal) | Weak |
 | [Consent](#consent) | Weak |
+| [The camera](#the-camera) | No agent counterpart |
 | [Error correction](#error-correction) | Partial, and half of it is unpracticed |
 | [Provenance](#provenance) | Partial |
 | [Pace](#pace) | No mimicry |
@@ -132,6 +133,23 @@ change is not evidence.
   is a boundary somebody else drew. A model can obey the list perfectly and take
   part in no consent decision at all. The list protects the repository. It does
   not stand in for the decision.
+
+## The camera
+
+- **Human lane.** [PROTOCOL.md](PROTOCOL.md) for any recorded encounter, and
+  [FILMING-FORMS.md](FILMING-FORMS.md) for the four forms a camera-based one can
+  take. Each form ends in a question asked before rolling.
+- **Agent lane.** No counterpart.
+- **Holds.** Nothing.
+- **Fails.** The four forms are relational positions and a model occupies none of
+  them. It is not the person in frame, not the person holding the camera, and not
+  the third position a triadic encounter needs somebody to actually stand in. The
+  questions have no addressee here: "is this footage of an encounter with myself,
+  or is it already footage of an audience I'm imagining?" cannot be answered by a
+  reader who was not in the room. A model can read the taxonomy and name which
+  form a described project is in. It cannot be in one. The taxonomy is also
+  untested by its own statement, which is a limit on the instrument rather than a
+  property of either lane.
 
 ## Error correction
 
