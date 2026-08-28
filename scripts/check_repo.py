@@ -320,7 +320,10 @@ def check_targets(
         # paths puts both forms under the same check. Only blob/main is
         # rewritten: a link pinned to another ref or a commit names a state
         # this working tree cannot speak for.
-        elif clean.startswith(BLOB_BASE):
+        # A bare blob/main/ link is GitHub's file listing for the repository
+        # root, not a file in it, so it stays external and is skipped rather
+        # than rewritten to "/" and passed as an existing path.
+        elif clean.startswith(BLOB_BASE) and len(clean) > len(BLOB_BASE):
             clean = "/" + clean[len(BLOB_BASE):]
         if not clean or clean.startswith(("http://", "https://", "mailto:", "data:", "//")):
             continue
@@ -652,12 +655,24 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 2
 
-    # REQUIRED_ARCHITECTURE is the only machine-readable statement of what this
-    # repository must contain, and a person had no way to read it without
-    # opening this file. This prints the list rather than letting a prose copy
-    # exist anywhere: a second copy would drift, and the drift would stay
-    # invisible until a release.
+    # REQUIRED_ARCHITECTURE is the only statement of what this repository must
+    # contain, and a person had no way to read it without opening this file.
+    # This renders the one copy rather than letting a prose copy exist
+    # anywhere: a second copy would drift, and the drift would stay invisible
+    # until a release.
+    #
+    # It refuses to run beside another flag. This branch returns 0 without
+    # validating anything, so a run that combined it with the strict
+    # follow-up flag would report success having checked nothing, and the
+    # scheduled watch reads a green run as "no follow-up is overdue".
     if LIST_ARCHITECTURE_FLAG in args:
+        if len(args) > 1:
+            print(
+                f"{LIST_ARCHITECTURE_FLAG} prints the architecture and runs no "
+                f"checks; it cannot be combined with another flag",
+                file=sys.stderr,
+            )
+            return 2
         for name in REQUIRED_ARCHITECTURE:
             print(name)
         return 0
