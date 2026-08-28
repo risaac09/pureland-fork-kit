@@ -63,6 +63,8 @@ Read the holder off the headcount and the two come apart in the case that matter
 
 A handoff down the power gradient removes the operator's framing from the moment, and the operator's read on when to keep rolling. It does not remove the operator's stake, because the stake returns at the edit. Handing over the camera while keeping all edit authority is a real move and a partial one. Calling the result participant-led overstates it.
 
+**What would count against this.** If practitioners who read both axes reach the same consent decisions as practitioners who read the four forms alone, the second axis costs a reading and buys nothing. Nobody has tested it.
+
 ## Wait before editing
 
 The [protocol's editing interval](PROTOCOL.md#wait-before-editing) governs the window after any recorder stops. For footage, the window covers assembly as well as the cut. No selects pass, and nothing shown to a colleague for a read. Footage invites that early pass more than audio does, because sorting it looks like work.
@@ -78,7 +80,11 @@ The [extraction check](EXTRACTION-CHECK.md)'s value-trace table asks what leaves
 | Triadic | Both participants | The third position's framing, if it publishes without both participants' review | Both participants receive the raw material, not only the cut. Each retained item needs both, separately |
 | Environmental | People connected to the place, though absent from frame | Whoever holds and distributes the footage | Material returns to the authority that permitted it, under the same non-retention default. Where publication was refused, no archived copy is held against a later ask |
 
-Default to returning raw and edited material, not only the finished artifact. A participant who receives a short cut and none of the footage behind it has received the maker's reading of the encounter rather than the encounter.
+Default to offering raw and edited material back, not only the finished artifact. A participant who receives a short cut and none of the footage behind it has received the maker's reading of the encounter rather than the encounter.
+
+The default names what the maker offers, not what the participant must take. Raw footage carries the material a cut would have removed, and holding it puts a storage and custody load on the person who did not ask for it. Offer raw, edited, both, or none, and record the choice as its own consent decision. The non-retention half of the default holds either way: what the participant declines is not thereby the maker's to keep.
+
+**What would count against this.** If participants offered raw material mostly decline it, or take it and report it as a burden rather than as something they wanted, the default is returning the wrong thing and the finished artifact was the right unit after all. Nobody has tested it.
 
 Hold this short of an absolute. The [protocol](PROTOCOL.md#handle-withdrawal-honestly) is right that no maker can promise removal from copies, backups, and downstream uses they do not control. Return and non-retention are a default a maker sets and can be held to. Deletion elsewhere is a claim a maker cannot back. Say both, in those terms, before recording.
 
@@ -86,7 +92,7 @@ Run the check once per form in use, not once for the whole project. A project th
 
 ## What this does not do
 
-Naming a form is not a safety guarantee. Self-filming can still extract; environmental filming can still take from an absent community; a well-run triad can still misread its own neutrality. The [facilitation protocol](PROTOCOL.md)'s separate consent decisions, the [rights and consent guide](RIGHTS-AND-CONSENT.md), and the practitioner's own read using the [practice frame](PRACTICE-FRAME.md) still govern what actually happens. This document only names which relational structure is in play, and who is holding what, so the questions above get asked in the form they actually need.
+Naming a form is not a safety guarantee. Self-filming can still extract; environmental filming can still take from an absent community; a well-run triad can still misread its own neutrality. The [facilitation protocol](PROTOCOL.md)'s separate consent decisions, the [rights and consent guide](RIGHTS-AND-CONSENT.md), and the practitioner's own read using the [practice frame](PRACTICE-FRAME.md) still govern what actually happens. This document only names which relational structure is in play, and who is holding what, so the questions above get asked in the form they actually need. It is a model of camera work, and it cannot see everything camera work does. It reads worst on an encounter nobody planned, a phone already in the room, a participant with more power than the maker, and any filming under surveillance where no consent conversation is possible at all. In those conditions the forms may name the structure and still leave the practitioner with nothing to do about it.
 
 None of this has been field-tested. No trial has checked whether these four forms are the right cut, whether a fifth is missing, whether separating the holder from the headcount catches anything a practitioner would otherwise miss, or whether the risks named for each form hold up against real footage. Treat a disagreement about the categories themselves as valid evidence against the taxonomy, not as a misunderstanding of it. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md) for the claims and what would count against them.
 

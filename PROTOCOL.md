@@ -67,6 +67,8 @@ Agree an interval between the last recording and the first edit decision. Agree 
 
 The interval constrains the person with the edit hand at the point that hand answers to nobody. It is not a cooling-off period for the participant, whose decisions this protocol already governs, and it does not replace participant review.
 
+The wait is the maker's, so the participant does not pay for it. It does not delay a participant's copy, a correction, or a withdrawal, and a participant who wants the work moving sooner overrides it. Record who carries the cost of the delay when a deadline makes it expensive, alongside the other burdens in the decision record.
+
 This interval is PureLand synthesis, not a rule any source in [PROVENANCE.md](PROVENANCE.md) establishes.
 
 **What would count against this.** If makers who cut immediately produce work that participants recognize and approve at the same rate as makers who wait, the interval buys nothing the review step already buys. Nobody has tested it.
