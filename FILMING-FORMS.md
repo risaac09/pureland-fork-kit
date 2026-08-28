@@ -10,6 +10,8 @@ Holding is built before the camera exists, in the pre-conversation the [protocol
 
 This taxonomy is PureLand's own, drawn from practice, not an established film-theory or ethnographic category system. So are the holder axis, the editing interval, and the return default below. Treat them the way the rest of the toolbox treats its own instruments: hypotheses about where extraction enters camera-based work, open to correction by anyone they are used on.
 
+[PROVENANCE.md](PROVENANCE.md) records the closest published precedent, which joins participatory video to a structured evaluation method. PureLand is not the first kit to make that join, and the four forms below are not that precedent's categories.
+
 ## The four forms
 
 Each form names who is in the relation and what structure that creates. It does not name whose hand is on the camera. That is a second axis, and the two come apart, so read the forms alongside "Who holds the camera" below. A single project can move through more than one form; name the form in use at any given time, not the project as a whole.

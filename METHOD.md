@@ -31,7 +31,7 @@ An artifact denominator never stands in for a person-level outcome. A result suc
 11. Watch burden, exposure, extractability, disagreement, possible harm, and the action-level result through the observation window.
 12. Return the learning wherever rights and permission allow. Record a refusal, private result, or `unmeasurable` outcome when public return is not permitted or required evidence is absent.
 
-A record may conform to the schema while documenting a partial execution. The method is complete only when every required station is complete, a human performed every required Observe station, and someone affected by the change had a usable route to challenge the reading. Completion does not establish validation or a favorable outcome.
+A record may conform to the schema while documenting a partial execution. The method is complete only when every required station is complete, a human performed every required Observe station, and someone affected by the change had a usable route to challenge the reading. Completion does not establish [validation or a favorable outcome](RESEARCH-STATUS.md).
 
 ## The walkable sequence
 
