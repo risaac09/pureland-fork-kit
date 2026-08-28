@@ -56,8 +56,8 @@ change is not evidence.
 - **Holds.** Both are orders through the same files, and neither adds content.
 - **Fails.** The orders are not the same. The human order is built for someone
   deciding whether to trust the work. The agent order is built to stop a reader
-  from saying something false before it has read enough to know. Before this
-  change the agent side had an index and no order at all.
+  from saying something false before it has read enough to know. The agent side
+  carried an index and no order at all until the lane was written.
 
 ## Orientation
 
@@ -81,8 +81,8 @@ change is not evidence.
   in the register, and the record already demonstrates it:
   [FT-001](research/field-tests/ft-001-alchemy.md) was AI-assisted, Observe was
   not performed, and the structured record carries that as
-  `human_observe.status: not-performed`. Until this change, no surface in the
-  repository told a model it could not fill that field.
+  `human_observe.status: not-performed`. The agent lane now states that a model
+  may not fill that field. Before the lane existed, no surface said so.
 
 ## The boundary decision
 
@@ -114,8 +114,7 @@ change is not evidence.
 - **Human lane.** You may stop or leave at any station. Record the stop, the
   refusal, or the missing permission without turning it into failure by the
   participant.
-- **Agent lane.** The hand-back list in `AGENT-READING.md`, added by this change.
-  Before it, nothing.
+- **Agent lane.** The hand-back list in `AGENT-READING.md`. Nothing preceded it.
 - **Holds.** Weakly. Both produce a stop, and both are supposed to leave a record
   behind.
 - **Fails.** A person's refusal is theirs. It carries their reasons out of the
@@ -195,9 +194,9 @@ change is not evidence.
 - **Human lane.** [index.html](index.html), served at the Pages root.
 - **Agent lane.** `llms.txt`, served from the same root.
 - **Holds.** Same origin, same version claim, same six stations.
-- **Fails.** Until this change, `index.html` was not listed in `llms.txt`. Pages
-  served both and only one was indexed for the other lane. A model reading the
-  index had no way to know the human front page existed.
+- **Fails.** `index.html` went unlisted in `llms.txt` until the lanes were named.
+  Pages served both and only one was indexed for the other lane. A model reading
+  the index had no way to know the human front page existed.
 
 ## The placeholder
 

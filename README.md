@@ -13,7 +13,7 @@ This is version 0.1. Its instruments are unvalidated. It does not certify that a
 
 ## The research spine
 
-Read the project in this order. It is the human lane's order, and a model reads a different one for a stated reason. See "Two readerships" below.
+Read the project in this order. It is the human lane's order, and a model reads a different one for a stated reason. See [two readerships](#two-readerships) below.
 
 1. [The PureLand thesis](THESIS.md): the organizing argument and its limits.
 2. [The PureLand method](METHOD.md): the repeatable inquiry from boundary to return.

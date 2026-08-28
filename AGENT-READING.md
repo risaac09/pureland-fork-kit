@@ -14,8 +14,8 @@ reader. The names sit close together and the crosswalk says so out loud.
 ## Entry point
 
 [llms.txt](llms.txt) is the entry point and stays the entry point. It is a
-published convention, so a fetcher looks for it by path and finds nothing else.
-It is the index: what each file is. This document is the path: what to read, in
+published convention, so a fetcher that knows the convention looks for that path
+and finds only this file there. It is the index: what each file is. This document is the path: what to read, in
 what order, and where to stop.
 
 ## The order to read in
@@ -53,9 +53,9 @@ drift from the first. Read the list from the script.
 
 The same script enforces the rest of the structure: every content file reachable
 from `README.md`, `JOURNEY.md`, or `BRIEF.md` by a chain of links; no leftover
-placeholder token outside a contributor's own field-test record, against a short
-list the script spells out and this file cannot quote; local and Pages links that
-resolve; heading anchors that exist; and agreement
+placeholder token, against a short list the script spells out and this file
+cannot quote, with the structured records under `data/field-tests/` exempt and
+Markdown reports not exempt; local and Pages links that resolve; heading anchors that exist; and agreement
 between the release version the entry points announce and `CITATION.cff`.
 
 ## The schema
@@ -66,10 +66,11 @@ between the release version the entry points announce and `CITATION.cff`.
 Schema conformance means the record carries the required fields and satisfies
 structural rules. It does not mean the method was completed, the evidence
 supports the hypothesis, or any construct has been validated. `check_repo.py`
-applies semantic rules on top of conformance: a record cannot claim completion
-without human Observe evidence, cannot claim support with a recorded material
-increase, and must classify its outcome `unmeasurable` when the required rights
-or action-outcome evidence is missing.
+applies semantic rules on top of conformance: a record that requires the Observe
+station cannot claim completion without human Observe evidence, no record can
+claim support with a recorded material increase, and any record must classify its
+outcome `unmeasurable` when the required rights or action-outcome evidence is
+missing.
 
 ## What you may generate
 
@@ -95,8 +96,9 @@ or action-outcome evidence is missing.
   [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md).
 - The [ORIGIN.md](ORIGIN.md) account. It is the maintainer's personal history and
   the file says no other contributor should draft it for him.
-- A combined, composite, or average score. The instruments refuse one and
-  `check_repo.py` fails a record that carries one.
+- A combined, composite, or average score. The instruments refuse one.
+  `check_repo.py` catches three literal field names and no more, so the refusal
+  is yours to keep, not the checker's to enforce.
 
 ## What you must hand back
 
