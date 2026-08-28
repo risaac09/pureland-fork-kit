@@ -84,8 +84,10 @@ the same job.
   a human-legible version of it would be read as completion.
 - **The reachability graph.** Every content file reachable from an entry point by
   a chain of links. A person notices a broken link. Nobody reads for orphans.
-- **`REQUIRED_ARCHITECTURE`.** The only machine-readable statement of what this
-  repository must contain, and deliberately not restated in prose.
+- **`REQUIRED_ARCHITECTURE`.** The only statement of what this repository must
+  contain, deliberately not restated in prose. A person reads it by asking the
+  script to print it, which is a rendering of the one copy rather than a second
+  one.
 - **Deterministic re-checking.** `scripts/check_repo.py` reads every file on
   every run and reaches the same verdict each time. A maintainer cannot, and
   neither can a model, which is why the checks are a script.

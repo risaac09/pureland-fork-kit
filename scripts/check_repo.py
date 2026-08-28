@@ -23,6 +23,7 @@ HEADING = re.compile(r"^(#{1,6})\s+(.+?)\s*$", re.MULTILINE)
 PLACEHOLDER = re.compile(r"\b(TODO|TBD|INSERT[_ -]?HERE)\b", re.IGNORECASE)
 METHOD_COMPLETION = re.compile(r"\bmethod completion\b", re.IGNORECASE)
 PAGES_BASE = "https://risaac09.github.io/pureland-fork-kit/"
+BLOB_BASE = "https://github.com/risaac09/pureland-fork-kit/blob/main/"
 RELEASE_CLAIM = re.compile(r"\bThis is version (\d+)\.(\d+)\.")
 CFF_VERSION = re.compile(r"^version:\s*[\"']?(\d+)\.(\d+)", re.MULTILINE)
 
@@ -312,6 +313,15 @@ def check_targets(
             clean = "/" + clean[len(PAGES_BASE):]
             if clean == "/":
                 clean = "/index.html"
+        # index.html points at kit documents by their rendered GitHub URL, so
+        # they read as pages rather than as raw Markdown a browser downloads.
+        # Those links were skipped as external and could rot silently while a
+        # relative link to the same file failed loudly. Rewriting them to local
+        # paths puts both forms under the same check. Only blob/main is
+        # rewritten: a link pinned to another ref or a commit names a state
+        # this working tree cannot speak for.
+        elif clean.startswith(BLOB_BASE):
+            clean = "/" + clean[len(BLOB_BASE):]
         if not clean or clean.startswith(("http://", "https://", "mailto:", "data:", "//")):
             continue
         # A leading "/" is repo-root-relative (as GitHub treats it), not a
@@ -621,6 +631,7 @@ def check_schema_and_records(json_data: dict[Path, Any], errors: list[str]) -> s
 
 
 STRICT_FOLLOW_UP_FLAG = "--fail-on-overdue-follow-up"
+LIST_ARCHITECTURE_FLAG = "--list-architecture"
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -630,11 +641,26 @@ def main(argv: list[str] | None = None) -> int:
     # request never sets it: a contributor's PR should not fail over a
     # maintainer's calendar, the same reason orphan detection only warns.
     strict_follow_ups = STRICT_FOLLOW_UP_FLAG in args
-    unknown = [arg for arg in args if arg != STRICT_FOLLOW_UP_FLAG]
+    known = {STRICT_FOLLOW_UP_FLAG, LIST_ARCHITECTURE_FLAG}
+    unknown = [arg for arg in args if arg not in known]
     if unknown:
         print(f"unknown argument(s): {' '.join(unknown)}", file=sys.stderr)
-        print(f"usage: check_repo.py [{STRICT_FOLLOW_UP_FLAG}]", file=sys.stderr)
+        print(
+            f"usage: check_repo.py [{STRICT_FOLLOW_UP_FLAG}] "
+            f"[{LIST_ARCHITECTURE_FLAG}]",
+            file=sys.stderr,
+        )
         return 2
+
+    # REQUIRED_ARCHITECTURE is the only machine-readable statement of what this
+    # repository must contain, and a person had no way to read it without
+    # opening this file. This prints the list rather than letting a prose copy
+    # exist anywhere: a second copy would drift, and the drift would stay
+    # invisible until a release.
+    if LIST_ARCHITECTURE_FLAG in args:
+        for name in REQUIRED_ARCHITECTURE:
+            print(name)
+        return 0
 
     errors: list[str] = []
     warnings: list[str] = []

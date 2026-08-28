@@ -31,7 +31,7 @@ change is not evidence.
 | [Error correction](#error-correction) | Partial, and half of it is unpracticed |
 | [Provenance](#provenance) | Partial |
 | [Pace](#pace) | No mimicry |
-| [The architecture contract](#the-architecture-contract) | No human counterpart |
+| [The architecture contract](#the-architecture-contract) | Derived, not parallel |
 | [Schema conformance](#schema-conformance) | No human counterpart |
 | [Front page](#front-page) | Both lanes have one; one was unlisted |
 | [The placeholder](#the-placeholder) | Looks like mimicry, is not |
@@ -172,13 +172,17 @@ change is not evidence.
 
 ## The architecture contract
 
-- **Human lane.** No counterpart.
+- **Human lane.** `python3 scripts/check_repo.py --list-architecture`, which
+  prints the required files.
 - **Agent lane.** `REQUIRED_ARCHITECTURE` in `scripts/check_repo.py`.
-- **Holds.** Nothing.
-- **Fails.** A person learns this repository's architecture by reading it and
-  inferring the shape. There is no prose statement of what must be present, and
-  this file does not add one. A second copy of the list would drift from the
-  first, and the drift would be invisible until a release.
+- **Holds.** Both read the same list, because there is only one list. The human
+  side is a rendering of the agent side rather than a parallel artifact, so it
+  cannot drift from it.
+- **Fails.** A rendering only reaches someone who knows to ask for it, and a
+  printed list says which files must exist without saying why any of them is
+  required. No prose statement of the contract exists and this file does not add
+  one. A second copy of the list would drift from the first, and the drift would
+  be invisible until a release.
 
 ## Schema conformance
 
@@ -197,7 +201,10 @@ change is not evidence.
 - **Holds.** Same origin, same version claim, same six stations.
 - **Fails.** `index.html` went unlisted in `llms.txt` until the lanes were named.
   Pages served both and only one was indexed for the other lane. A model reading
-  the index had no way to know the human front page existed.
+  the index had no way to know the human front page existed. The two pages now
+  link out under the same check: `check_repo.py` rewrites this repository's own
+  Pages and GitHub URLs to local paths, so a rendered link rots as loudly as a
+  relative one.
 
 ## The placeholder
 

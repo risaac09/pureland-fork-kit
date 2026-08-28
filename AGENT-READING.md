@@ -47,9 +47,13 @@ enough to know.
 ## The architecture contract
 
 `REQUIRED_ARCHITECTURE` in [scripts/check_repo.py](scripts/check_repo.py) lists
-the files this repository must contain. It is the only machine-readable statement
-of that contract. No prose file restates the list, because a second copy would
-drift from the first. Read the list from the script.
+the files this repository must contain. It is the only statement of that
+contract. No prose file restates the list, because a second copy would drift from
+the first. Read it from the script, or have the script print it:
+
+```sh
+python3 scripts/check_repo.py --list-architecture
+```
 
 The same script enforces the rest of the structure: every content file reachable
 from `README.md`, `JOURNEY.md`, or `BRIEF.md` by a chain of links; no leftover
