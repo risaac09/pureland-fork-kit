@@ -4,7 +4,7 @@ This guide separates four things that open projects often blur together.
 
 ## Repository license
 
-The repository license grants reuse rights only for material the licensor actually has the authority to license. For copies already received under its terms, it cannot be taken back.
+The [repository license](PROVENANCE.md#open-and-ai-system-references) grants reuse rights only for material the licensor actually has the authority to license. For copies already received under its terms, it cannot be taken back.
 
 ## Participant permission
 

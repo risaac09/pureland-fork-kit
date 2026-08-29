@@ -18,7 +18,7 @@ Name the complete system boundary:
 | Logs and feedback | | | | |
 | Human review and appeal | | | | |
 
-Do not call a whole AI system open because one repository is visible. The Open Source AI Definition asks whether people can use, study, modify, and share a system, with access to the preferred form for making changes.
+Do not call a whole AI system open because one repository is visible. The [Open Source AI Definition](PROVENANCE.md#open-and-ai-system-references) asks whether people can use, study, modify, and share a system, with access to the preferred form for making changes.
 
 Running the assessed model on hardware you own is one way to close the deployment-configuration and logs rows of this table with first-hand evidence; the [open-model lane](OPEN-MODEL-LANE.md) describes that practice and its limits.
 

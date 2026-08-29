@@ -61,6 +61,18 @@ Follow the life of the encounter without treating disclosure as the measure of s
 
 ## After recording
 
+### Wait before editing
+
+Agree an interval between the last recording and the first edit decision. Agree it before recording starts, and count it in days. Nothing gets logged, assembled, or shown inside it. One filmmaking practice this kit draws on runs five days and writes it into the schedule as a floor rather than a preference. The number is arguable. Naming it in advance carries the weight, because a maker deciding afterward how long to wait decides while holding the footage.
+
+The interval constrains the person with the edit hand at the point that hand answers to nobody. It is not a cooling-off period for the participant, whose decisions this protocol already governs, and it does not replace participant review.
+
+The wait is the maker's, so the participant does not pay for it. It does not delay a participant's copy, a correction, or a withdrawal, and a participant who wants the work moving sooner overrides it. Record who carries the cost of the delay when a deadline makes it expensive, alongside the other burdens in the decision record.
+
+This interval is practice-derived, which [RESEARCH-STATUS.md](RESEARCH-STATUS.md) defines as a claim that came out of doing the work with no text behind it. No source in [PROVENANCE.md](PROVENANCE.md) establishes it.
+
+**What would count against this.** If makers who cut immediately produce work that participants recognize and approve at the same rate as makers who wait, the interval buys nothing the review step already buys. Nobody has tested it.
+
 ### Return before publishing
 
 Within a timeframe agreed with the participant, send the return that the participant chose, if any. A note about what the encounter changed or clarified may be one form of return. It is not compensation and does not prove reciprocity. Do not pressure a participant to accept publicity as a return.

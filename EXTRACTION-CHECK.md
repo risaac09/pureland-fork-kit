@@ -64,7 +64,7 @@ Protection can extract too. Record who pays the time, money, mental, and relatio
 
 ## 5. Use a collective lens
 
-One person's consent may not settle the use of a community's knowledge. Ask who has the authority to decide, who benefits, which community protocols apply, and where accountability lives. The CARE Principles are one relevant source, not a universal substitute for local governance.
+One person's consent may not settle the use of a community's knowledge. Ask who has the authority to decide, who benefits, which community protocols apply, and where accountability lives. The [CARE Principles](https://doi.org/10.5334/dsj-2020-043) are one relevant source, not a universal substitute for local governance.
 
 ## 6. Choose one bounded adaptation
 
