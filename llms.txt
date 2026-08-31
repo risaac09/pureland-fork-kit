@@ -2,7 +2,7 @@
 
 > PureLand is a research-program prototype and forkable toolbox for asking whether an information practice can increase a person's control over their attention without also increasing their exposure or extractability. This is version 0.1. Its instruments are unvalidated and no independent field trial has been accepted. Nothing in this repository certifies that a system is open or safe. [CURRENT-EVIDENCE.md](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md) holds the evidence record and caps every claim about what PureLand has shown.
 
-This file is the agent lane, addressed to a model, agent, or automated reader. It says what each file is and gives the path through them. A fetcher that knows the `llms.txt` convention looks for this path and finds the lane here rather than one hop away. The human lane is [JOURNEY.md](https://risaac09.github.io/pureland-fork-kit/JOURNEY.md), which is walked. The [crosswalk](https://risaac09.github.io/pureland-fork-kit/CROSSWALK.md) sets the two lanes against each other element by element.
+This file is the agent lane, addressed to a model, agent, or automated reader. It names the documents a reader needs and gives the path through them. A fetcher that knows the `llms.txt` convention looks for this path and finds the lane here rather than one hop away. The human lane is [JOURNEY.md](https://risaac09.github.io/pureland-fork-kit/JOURNEY.md), which is walked. The [crosswalk](https://risaac09.github.io/pureland-fork-kit/CROSSWALK.md) sets the two lanes against each other element by element.
 
 Read in this order:
 
@@ -85,6 +85,8 @@ When you cannot proceed, write `unmeasurable` and say what is missing. A refusal
 - [Data boundary](https://risaac09.github.io/pureland-fork-kit/data/README.md): what the data directory may and may not contain, and how validation runs.
 - [Field-test schema](https://risaac09.github.io/pureland-fork-kit/data/field-test.schema.json): JSON Schema, Draft 2020-12; the required record for method version 0.1 and the structural gate on public field-test JSON.
 - [Field-test record](https://risaac09.github.io/pureland-fork-kit/data/field-tests/ft-001-alchemy.json): FT-001, the only current structured public-safe record; its test status is `partial-execution`.
+- [Field-test template](https://risaac09.github.io/pureland-fork-kit/templates/field-test.md): the public-safe report a walker fills in at the Return station. Scaffold it with the required fields named and left empty. Do not fill it in.
+- [Consent register template](https://risaac09.github.io/pureland-fork-kit/templates/consent-register.md): the minimum permission record. The template is public and a completed register never enters this repository.
 - [Repository checker](https://risaac09.github.io/pureland-fork-kit/scripts/check_repo.py): validates every record against the schema, then applies semantic rules to the conformant set.
 - [Research lane](https://risaac09.github.io/pureland-fork-kit/research/README.md): the index of reviewed, rights-cleared research records.
 

@@ -7,13 +7,13 @@
 
 PureLand is a research-program prototype for asking whether an information practice can increase a person's control over their attention without also increasing their exposure or extractability.
 
-The forkable instruments, templates, and controls make up the toolbox. The public architecture gives six distinct jobs to the argument, method, instruments, testable claim, testing program, and evidence record.
+The forkable instruments, templates, and controls make up the toolbox. The public architecture gives five distinct jobs to the argument, the method, the instruments, the testable claim with the program that tests it, and the evidence record.
 
 This is version 0.1. Its instruments are unvalidated. It does not certify that anything is open or safe. It has one maintainer-side partial dry run and no independent field result.
 
 ## The research spine
 
-Read the project in this order. It is the human lane's order, and a model reads a different one for a stated reason. See [two readerships](#two-readerships) below.
+Read the project in this order. It is the human lane's order. A model reads a different one, and [llms.txt](llms.txt) states why rather than leaving a second copy of the reason here. See [two readerships](#two-readerships) below.
 
 1. [The PureLand thesis](THESIS.md): the organizing argument and its limits.
 2. [The PureLand method](METHOD.md): the repeatable inquiry from boundary to return.
