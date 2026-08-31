@@ -250,7 +250,5 @@ change is not evidence.
 - **Holds.** Nothing. The overlap is in the names.
 - **Fails.** One file is about AI as a subject of assessment. The other is about
   AI as a reader. A reader who opens the annex looking for the agent lane finds a
-  table for auditing somebody else's system.
-  [OPEN-MODEL-LANE.md](OPEN-MODEL-LANE.md) is a third thing again: infrastructure
-  guidance for a person running open-weight models, human-addressed despite the
-  name. This row exists so the trip happens once.
+  table for auditing somebody else's system. This row exists so the trip happens
+  once.

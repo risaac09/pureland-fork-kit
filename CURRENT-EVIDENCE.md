@@ -2,13 +2,17 @@
 
 PureLand has one maintainer-side, AI-assisted partial dry run and no independent field trial. The current evidence does not show that the method works.
 
-## Observed record
+## The ledger
 
-| Record | Status | What was observed | What was not observed |
-|---|---|---|---|
-| [FT-001: the journey walked on Alchemy](research/field-tests/ft-001-alchemy.md) | Partial execution; follow-up open; no second reader | One assessor-chosen seven-surface document set, separate access and reciprocity readings, an intentional-deletion conflict, an executed adaptation, and method failures | Human Observe, affected-user challenge, independent reading, predefined person-level agency outcome, completed follow-up, causal effect, or attention-sovereignty outcome |
+Every accepted field test lands here. No independent field trial has been accepted. One non-independent partial dry run, run from the maintainer's side, is recorded below, and it does not count toward the [version 0.2 gate](TESTING.md#provisional-version-02-planning-target).
 
-The structured record is [data/field-tests/ft-001-alchemy.json](data/field-tests/ft-001-alchemy.json). The [field-trial ledger](FIELD-TRIALS.md) records its date, scope, contributor relationship, and failure summary.
+| Date | Record | Context | Instrument and status | Contributor | What was not observed | Version |
+|---|---|---|---|---|---|---|
+| 2026-08-24 | [FT-001 report](research/field-tests/ft-001-alchemy.md), [structured record](data/field-tests/ft-001-alchemy.json) | The Alchemy repository, bounded by the assessor as seven public surfaces | Journey; partial execution; follow-up open through 2026-11-22 | Maintainer's side, AI-assisted, not independent | Human Observe, affected-user challenge, independent reading, second reader, predefined person-level agency outcome, completed follow-up, causal effect, attention-sovereignty outcome | 62259ec |
+
+FT-001 did observe one assessor-chosen seven-surface document set, separate access and reciprocity readings, a conflict between traceability and intentional deletion, one executed adaptation, and several method failures. Those failures are set out below.
+
+An entry means a report is inspectable. It does not mean PureLand endorses the practice, or that the result validates the instrument.
 
 ## FT-001 interpretation
 
@@ -44,7 +48,7 @@ The record cannot separate these explanations.
 
 The assessor proposed an inbound route for field reports and corrections in the Alchemy repository. The owner approved and executed the change through [Alchemy pull request 15](https://github.com/risaac09/alchemy/pull/15), merged as `bf5e411` on 2026-08-24.
 
-The baseline was zero inbound reports, with pull requests deprioritized. The intended benefit was a visible correction and return route. Possible new harms are triage burden and an implied support promise. The observation window remains open through 2026-11-22. Follow-up evidence will include the count of inbound reports and the burden of handling them. No follow-up or causal result is available.
+The baseline was zero inbound reports, with pull requests deprioritized. The intended benefit was a visible correction and return route. Possible new harms are triage burden and an implied support promise. The observation window remains open; the ledger row above holds the date. Follow-up evidence will include the count of inbound reports and the burden of handling them. No follow-up or causal result is available.
 
 ## Absent evidence
 
@@ -73,5 +77,5 @@ The conclusion should strengthen only if independent tests show useful, contesta
 - compare the full journey with a single-instrument review;
 - use two independent readers and preserve their disagreements;
 - test a different boundary and show how the artifact readings change;
-- close the FT-001 follow-up after 2026-11-22 with the inbound-report count, burden, possible harm, and affected-party response;
-- test whether the maintainer's provisional target of five to ten independent applications across at least three contexts is feasible and useful; the numbers have no derived empirical basis, and public records remain optional where rights and consent permit.
+- close the FT-001 follow-up when its window ends, with the inbound-report count, burden, possible harm, and affected-party response;
+- test whether the [version 0.2 planning target](TESTING.md#provisional-version-02-planning-target) is feasible and useful; its numbers have no derived empirical basis, and public records remain optional where rights and consent permit.

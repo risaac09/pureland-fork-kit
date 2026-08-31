@@ -90,4 +90,4 @@ Extraction question: does traceability create a re-identification or surveillanc
 
 Report the evidence, the missing records, the reader disagreements, and one proposed change. Do not average the measures. Do not compare systems unless their units, denominators, and time windows actually match.
 
-This scorecard is unvalidated. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md) and submit results using [FIELD-TESTING.md](FIELD-TESTING.md).
+This scorecard is unvalidated. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md) and submit results using [TESTING.md](TESTING.md).

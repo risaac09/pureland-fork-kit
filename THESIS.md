@@ -33,6 +33,14 @@ I am publishing an openness method while I still control every merge and release
 
 **Return** means what comes back to the person or community that generated value, in a form they recognize as meaningful.
 
+**Value** means whatever leaves a contributor or participant and piles up somewhere else. That includes attention, data, labor, money, status, relationship, and decision power.
+
+**Consent** means permission for a specific use, informed enough to be a real choice, open to revision, and withdrawable within stated limits.
+
+**Attribution** means keeping the origin and the changes visible without forcing anyone to identify themselves or creating a surveillance risk.
+
+The four access questions carry their own definitions in the [openness scorecard](SCORECARD.md), which is where a reader uses them.
+
 ## Fields and limits
 
 | Field | Contribution | Boundary |
@@ -40,6 +48,8 @@ I am publishing an openness method while I still control every merge and release
 | Buddhist practice | Prompts for noticing conditions that shape attention and response | A technical taxonomy, clinical diagnosis, or label for other people |
 | Evaluation | Claims, evidence, baselines, limits, and disconfirming conditions | That the current instruments are validated measures |
 | Body-based practice | First-person information about what contact does in the body | An objective score or clinical judgment |
+
+Each field fails on its own. Measurement without attention or relationship can turn into one more machine for taking things from people. Contemplative and body-based practice without evidence can harden into private conviction. A map of information movement without permission, credit, and return can ignore who pays for that movement. That is why the thesis binds them together rather than picking one.
 
 PureLand uses the phrase **attention sovereignty** to name practical agency over contact. That language may center an autonomous individual in ways some Buddhist traditions do not. Version 0.1 keeps this tension open. It does not use Buddhist sources to settle it.
 
@@ -54,4 +64,4 @@ PureLand uses the phrase **attention sovereignty** to name practical agency over
 
 ## Status
 
-The thesis is a version 0.1 organizing argument. One maintainer-side partial dry run has exposed problems in the journey. No independent field trial, reliability estimate, validity result, benchmark, threshold, certification, or outcome estimate exists. See [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md), [RESEARCH-STATUS.md](RESEARCH-STATUS.md), and [FIELD-TRIALS.md](FIELD-TRIALS.md).
+The thesis is a version 0.1 organizing argument. One maintainer-side partial dry run has exposed problems in the journey. No independent field trial, reliability estimate, validity result, benchmark, threshold, certification, or outcome estimate exists. See [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md), which holds the evidence record and the ledger, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md), which holds the claim-by-claim status.

@@ -41,9 +41,9 @@ does not move because the reader changed.
 is holding it. A license does not create permission for participant or
 third-party material, and it does not create one for a model either.
 
-**The record.** [FIELD-TRIALS.md](FIELD-TRIALS.md) and the FT-001 pair say the
-same thing to both lanes, including what was not observed. The absences are part
-of the record, not a gap in the writing.
+**The record.** The [ledger](CURRENT-EVIDENCE.md#the-ledger) and the FT-001 pair
+say the same thing to both lanes, including what nobody observed. The absences
+are part of the record, not a gap in the writing.
 
 **The architecture.** What files must exist, what must link to what, and which
 version this is. `scripts/check_repo.py` and [CITATION.cff](CITATION.cff) hold

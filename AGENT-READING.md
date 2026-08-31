@@ -39,7 +39,8 @@ enough to know.
    to neither lane and this lane does not restate it.
 4. **The instruments.** [TOOLBOX.md](TOOLBOX.md) indexes them. Read an
    instrument to learn what it asks of a walker, not to fill it in.
-5. **The records.** [FIELD-TRIALS.md](FIELD-TRIALS.md), then
+5. **The records.** The [ledger](CURRENT-EVIDENCE.md#the-ledger), which sits
+   inside the file you read first, then
    [research/field-tests/ft-001-alchemy.md](research/field-tests/ft-001-alchemy.md)
    and its structured twin
    [data/field-tests/ft-001-alchemy.json](data/field-tests/ft-001-alchemy.json).
@@ -56,7 +57,7 @@ python3 scripts/check_repo.py --list-architecture
 ```
 
 The same script enforces the rest of the structure: every content file reachable
-from `README.md`, `JOURNEY.md`, or `BRIEF.md` by a chain of links; no leftover
+from `README.md` or `JOURNEY.md` by a chain of links; no leftover
 placeholder token, against a short list the script spells out and this file
 cannot quote, with the structured records under `data/field-tests/` exempt and
 Markdown reports not exempt; local and Pages links that resolve; heading anchors that exist; and agreement

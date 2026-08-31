@@ -39,7 +39,7 @@ A record may conform to the schema while documenting a partial execution. The me
 
 | Station | Work | Primary tool |
 |---|---|---|
-| Ground | Define the practice, units, boundary, people, evidence, permission, actions, and disconfirming result | [Field-testing discipline](FIELD-TESTING.md) |
+| Ground | Define the practice, units, boundary, people, evidence, permission, actions, and disconfirming result | [Field-testing discipline](TESTING.md#before-a-test) |
 | Observe | Notice conditions in the human walker before assigning them to the system | [Practice frame](PRACTICE-FRAME.md) |
 | Map | Read the four access questions without combining them | [Openness scorecard](SCORECARD.md) |
 | Trace | Follow extraction, consent, attribution, value return, burden, and exposure by affected party | [Extraction check](EXTRACTION-CHECK.md) |

@@ -48,7 +48,6 @@ REQUIRED_ARCHITECTURE = [
     "AGENT-READING.md",
     "CROSSWALK.md",
     "READERSHIP.md",
-    "BRIEF.md",
     "OFFERING.md",
     "THESIS.md",
     "METHOD.md",
@@ -57,8 +56,6 @@ REQUIRED_ARCHITECTURE = [
     "TESTING.md",
     "CURRENT-EVIDENCE.md",
     "RESEARCH-STATUS.md",
-    "FIELD-TESTING.md",
-    "FIELD-TRIALS.md",
     "data/README.md",
     "data/field-test.schema.json",
     "templates/field-test.md",
@@ -131,7 +128,7 @@ FIELD_TEST_RECORDS = ROOT / "data" / "field-tests"
 # Entry points a reader (or a fork) actually lands on. Orphan detection asks
 # whether every other content file is reachable from here by some chain of
 # links, not just whether something happens to point at it.
-LINK_ROOTS = {ROOT / "README.md", ROOT / "JOURNEY.md", ROOT / "BRIEF.md"}
+LINK_ROOTS = {ROOT / "README.md", ROOT / "JOURNEY.md"}
 
 # Files that are legitimately not woven into prose: citation metadata and a
 # changelog are conventionally browsed directly, not linked from the text.
@@ -508,7 +505,7 @@ def overdue_follow_ups(
 ) -> None:
     """Notice a follow-up left open past its own review date.
 
-    FIELD-TESTING.md requires an observation window, a review date, and a
+    TESTING.md requires an observation window, a review date, and a
     follow-up status, and nothing compared that date to the calendar. An
     expired window that nobody closes becomes missing evidence carried as an
     open status, and HYPOTHESIS.md is explicit that absence never defaults to
@@ -766,8 +763,8 @@ def main(argv: list[str] | None = None) -> int:
         if PLACEHOLDER.search(text):
             errors.append(f"placeholder token: {relative(path)}")
 
-    # Orphan detection: every content file should be reachable from README,
-    # JOURNEY, or BRIEF by some chain of links. This is a warning, not a
+    # Orphan detection: every content file should be reachable from README or
+    # JOURNEY by some chain of links. This is a warning, not a
     # failure. A few files are legitimately unlinked (see ORPHAN_ALLOWLIST),
     # and a good-faith field-test PR should never fail CI over an unrelated
     # file it cannot fix.
@@ -785,7 +782,7 @@ def main(argv: list[str] | None = None) -> int:
             continue
         warnings.append(
             f"orphan: {relative(path)} is not reachable from "
-            f"README.md, JOURNEY.md, or BRIEF.md by any link"
+            f"README.md or JOURNEY.md by any link"
         )
 
     if warnings:
