@@ -50,7 +50,6 @@ REQUIRED_ARCHITECTURE = [
     "THESIS.md",
     "METHOD.md",
     "TOOLBOX.md",
-    "HYPOTHESIS.md",
     "TESTING.md",
     "CURRENT-EVIDENCE.md",
     "RESEARCH-STATUS.md",
@@ -506,7 +505,7 @@ def overdue_follow_ups(
     TESTING.md requires an observation window, a review date, and a
     follow-up status, and nothing compared that date to the calendar. An
     expired window that nobody closes becomes missing evidence carried as an
-    open status, and HYPOTHESIS.md is explicit that absence never defaults to
+    open status, and TESTING.md is explicit that absence never defaults to
     favorable. This is the calendar half of that rule.
     """
     label = record.get("record_id", relative(path))

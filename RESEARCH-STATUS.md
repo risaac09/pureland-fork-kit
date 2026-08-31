@@ -1,6 +1,6 @@
 # Research status
 
-Version 0.1 is a prototype for generating and testing hypotheses. It is not validated, and it does not certify openness, reciprocity, attention sovereignty, or Buddhist practice. [HYPOTHESIS.md](HYPOTHESIS.md) defines the provisional constructs and classification rule. [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md) holds the current evidence record. The [data-maturity audit](research/data-maturity-audit.md) reads the infrastructure that carries the record.
+Version 0.1 is a prototype for generating and testing hypotheses. It is not validated, and it does not certify openness, reciprocity, attention sovereignty, or Buddhist practice. [TESTING.md](TESTING.md) holds the primary hypothesis, the provisional constructs, and the classification rule. [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md) holds the current evidence record. The [data-maturity audit](research/data-maturity-audit.md) reads the infrastructure that carries the record.
 
 Every status used in the table below:
 
@@ -11,7 +11,7 @@ Every status used in the table below:
 | PureLand hypothesis | PureLand synthesized the claim from a source a reader can fetch. The derivation is contestable by reading that source. |
 | Practice-derived | The claim came out of doing the work. No text stands behind it, so a reader contests it by doing the work and reporting differently. |
 | Provisional instrument hypothesis | The claim is about whether an instrument in this kit measures what it says it measures. |
-| Primary untested PureLand hypothesis | The one claim in [HYPOTHESIS.md](HYPOTHESIS.md) that the whole method turns on. |
+| Primary untested PureLand hypothesis | The one claim in [TESTING.md](TESTING.md#primary-hypothesis) that the whole method turns on. |
 | Untested design hypothesis | A claim about how this kit is sequenced, not about a method or an instrument. |
 
 A practice-derived claim is not weaker than a synthesized one. It is a different kind, and the ledger says which.

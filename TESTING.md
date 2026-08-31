@@ -2,7 +2,63 @@
 
 PureLand tests the method by trying to break it. A confirming story is not enough. Every test begins with a result that would count against the tested hypothesis.
 
-This document holds both halves of that work: the testing program, which says what stage the evidence is at, and the field-testing discipline, which says what a single test records before, during, and after use. The journey walks alongside it. [Ground](JOURNEY.md#1-ground) uses the before-use section, and [Return](JOURNEY.md#6-return) uses the after-use section.
+This document holds the claim and the work of testing it: the primary hypothesis, the constructs a test must look for, the rule for classifying a result, the testing program that says what stage the evidence is at, and the discipline a single test follows before, during, and after use. The journey walks alongside it. [Ground](JOURNEY.md#1-ground) uses the before-use section, and [Return](JOURNEY.md#6-return) uses the after-use section.
+
+## Primary hypothesis
+
+[THESIS.md](THESIS.md) describes the shape of the work. The hypothesis makes a claim that field evidence can weaken or defeat.
+
+> When a person walks the PureLand method on one bounded information practice and tests one contestable adaptation, their practical agency can improve without a material increase in exposure, extractability, or shifted burden.
+
+This is a working hypothesis, not a demonstrated effect. It is untested as an outcome claim. [FT-001](research/field-tests/ft-001-alchemy.md) is a maintainer-side partial dry run. It produced an assessor interpretation about analytic value. It did not test a person-level agency or attention-sovereignty outcome. See [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md).
+
+## Secondary claims
+
+The [research-status ledger](RESEARCH-STATUS.md) carries every other claim the kit makes, each with its status and the evidence it still needs, so a revision moves a claim once. One secondary claim is tested here and recorded nowhere else: one bounded adaptation can increase a person's control over their attention. Each claim can fail on its own, and evidence for one does not validate the others.
+
+## Provisional constructs, version 0.1
+
+These are construct definitions. They specify what a test must look for. They are not validated measures, scales, thresholds, or evidence that the constructs move together.
+
+| Construct | Provisional definition | Required observation |
+|---|---|---|
+| Practical agency | A named person's ability to carry out a concrete action concerning the bounded practice | Predefine one or more actions from `stop`, `continue`, `question`, `correct`, `adapt`, or `refuse`; record a baseline and follow-up for each action |
+| Attention sovereignty | A person's practical ability to direct, withhold, resume, and end attention under terms they can understand and contest | Record action-level evidence, attention conditions, manufactured or real costs of stopping, and the person's own challenge; do not infer it from document access |
+| Exposure | The people or systems newly able to see, receive, link, retain, or act on a person's information, behavior, or participation | Record scope, duration, permission, reversibility, and affected party before and after the adaptation |
+| Extractability | The ease with which material or behavior can be copied, aggregated, inferred from, transferred, monetized, or reused beyond the immediate practice | Record the extraction path, recipient, permitted purpose, possible reuse, and affected party before and after the adaptation |
+| Shifted burden | Time, money, attention, work, risk, or relational cost moved from one party to another | Record each burden by affected party, including who gains authority and who must do more work |
+| Material increase | A context-specific increase large enough to change safety, rights, cost, access, or the practical ability to act | Predefine the qualitative or quantitative materiality rule before analysis; do not import one universal threshold |
+| Contestability | Affected people can understand the reading, object or correct it, refuse participation or return, reach a review authority, and receive a usable response | Record the correction route, refusal route, review authority, timeliness, accessibility, and whether an affected person used or challenged the route |
+| Meaningful return | Benefit, knowledge, control, credit, or resources reach the people whose participation or material generated value, in a permitted form they can recognize and use | Record what returned, to whom, under whose permission, and whether the receiving party regarded it as useful; publication alone is not return |
+
+Each instrument reading remains separate. A construct definition does not become a validated measure because it appears in the schema. The result is a profile, not one score. The per-stage sections below say what a test records against each construct.
+
+## Classification rule
+
+Classify the tested context only after recording the complete profile:
+
+1. Evidence may support the hypothesis only for the bounded practice, walking person, affected parties, actions, and observation window tested.
+2. Missing required action-outcome evidence or rights evidence makes the hypothesis result `unmeasurable`.
+3. A material increase in exposure, extractability, or shifted burden weakens or defeats the hypothesis for that context, even when an access reading improves.
+4. An unusable correction or refusal route weakens the hypothesis. An absent route cannot support it.
+5. Conflicting dimensions remain `mixed`. Do not average them into a favorable result.
+6. A before-and-after impression is not a causal claim. Record the adaptation, timing, evidence, and competing explanations.
+7. A refusal, private result, or `unmeasurable` result is valid evidence about the method. Absence never defaults to favorable.
+
+Allowed classifications are `supports-tested-context`, `weakens-tested-context`, `defeats-tested-context`, `mixed`, and `unmeasurable`. Return disposition is recorded separately as `public-return`, `private-result`, `refusal`, `unmeasurable`, or `pending-follow-up`.
+
+## Disconfirming results
+
+Any of these results should weaken or defeat the primary hypothesis for the tested context:
+
+- the method produces no useful reading beyond an ordinary review of the same evidence;
+- the adaptation increases legibility for the assessor while increasing exposure for an affected person;
+- safeguards mainly reduce institutional liability while shifting material burden to participants;
+- the person cannot stop, refuse, correct, or challenge the reading in practice;
+- missing evidence is converted into a favorable result;
+- the return is meaningful to the maintainer but not to the people who generated the value;
+- independent readers cannot use the constructs consistently enough to support the stated interpretation;
+- the burden of the full journey is not justified by what it adds over a smaller instrument.
 
 ## Testing program
 
@@ -38,10 +94,10 @@ Do not submit private participant material. If a test includes participant mater
 
 - Record each station as `not-started`, `incomplete`, `complete`, or `not-applicable`. Use `not-applicable` only when the recorded scope makes the station unnecessary.
 - Record required human Observe work as `performed` or `not-performed`. AI design analysis does not count as human Observe.
-- Keep understandable, reachable, adaptable, and traceable readings separate.
-- Keep consent, attribution, and meaningful-return readings separate.
+- Keep understandable, reachable, adaptable, and traceable readings separate. An artifact denominator is not a person count.
+- Keep consent, attribution, and meaningful-return readings separate. A public artifact is not meaningful return.
 - Record exposure, extractability, and burden for each affected party at baseline and follow-up.
-- Preserve assessor disagreements, second-reader disagreements, and participant objections. Use explicit statuses when none were sought or none were recorded.
+- Preserve assessor disagreements, second-reader disagreements, and participant objections. Use explicit statuses when none were sought or none were recorded. Do not smooth conflict into agreement.
 - Record correction, takedown, and refusal routes; review authority; withdrawal actions; and whether an affected person could use the routes.
 - Use a second independent reader where practical.
 - Keep missing evidence `unmeasurable`.
@@ -55,7 +111,7 @@ Record:
 - adaptation status, consent, execution evidence, intended benefit, and possible new harm;
 - observation-window dates, review date, follow-up status, and follow-up evidence;
 - each action's follow-up against its baseline;
-- the classification and return disposition defined in [HYPOTHESIS.md](HYPOTHESIS.md);
+- the classification and return disposition defined by the [classification rule](#classification-rule);
 - causal-claim status and competing explanations;
 - the contestability result and the rights result;
 - AI assistance and the artifact-version public-safe review.

@@ -12,14 +12,13 @@ The thesis guides the shape of the work. Field evidence must determine whether t
 
 The forkable materials are one release surface. They let another person inspect, adapt, and contest the work. That matters, but a license and a set of instruments cannot establish attention sovereignty on their own.
 
-PureLand therefore uses six public research functions:
+PureLand therefore uses five public research functions:
 
 1. the thesis states the organizing argument;
 2. the [method](METHOD.md) turns it into a repeatable inquiry;
 3. the [toolbox](TOOLBOX.md) holds the reusable instruments and controls;
-4. the [hypothesis](HYPOTHESIS.md) names what can be tested and defeated;
-5. [testing](TESTING.md) defines how evidence enters; and
-6. [current evidence](CURRENT-EVIDENCE.md) holds the observed record, counterexplanations, missing evidence, and narrow current conclusion.
+4. [testing](TESTING.md) names what can be tested and defeated, and defines how evidence enters; and
+5. [current evidence](CURRENT-EVIDENCE.md) holds the observed record, counterexplanations, missing evidence, and narrow current conclusion.
 
 The fork kit remains inside this structure as the toolbox. It is not being discarded.
 

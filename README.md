@@ -18,9 +18,8 @@ Read the project in this order. It is the human lane's order, and a model reads 
 1. [The PureLand thesis](THESIS.md): the organizing argument and its limits.
 2. [The PureLand method](METHOD.md): the repeatable inquiry from boundary to return.
 3. [The PureLand toolbox](TOOLBOX.md): the forkable instruments, templates, controls, and public-safe records.
-4. [The PureLand hypothesis](HYPOTHESIS.md): the primary testable claim and what would count against it.
-5. [Testing](TESTING.md): the testing program and evidence discipline.
-6. [Current evidence](CURRENT-EVIDENCE.md): the ledger of accepted tests, the counterexplanations, the missing evidence, and the narrow current conclusion.
+4. [Testing](TESTING.md): the primary testable claim, what would count against it, the testing program, and the evidence discipline.
+5. [Current evidence](CURRENT-EVIDENCE.md): the ledger of accepted tests, the counterexplanations, the missing evidence, and the narrow current conclusion.
 
 ## Why the unfinished parts stay visible
 

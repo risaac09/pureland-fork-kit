@@ -70,7 +70,7 @@ Every test records:
 - separate permission decisions, community authority where relevant, rights review, withdrawal actions, adaptation status, intended benefit, possible new harm, review date, and follow-up;
 - outcome classification, return disposition, AI assistance, and artifact-version public-safe review.
 
-The method does not produce an average or composite score. It does not convert a before-and-after impression into a causal claim. [The hypothesis](HYPOTHESIS.md) defines the classification rule.
+The method does not produce an average or composite score. It does not convert a before-and-after impression into a causal claim. [Testing](TESTING.md#classification-rule) defines the classification rule.
 
 ## Output
 
