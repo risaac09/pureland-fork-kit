@@ -41,4 +41,4 @@ Version 0.1 rests on one maintainer-side, AI-assisted partial dry run, [FT-001](
 
 ## AI-assisted research record
 
-The disclosure rule, and every disclosure made under it, live in [AI-ASSISTANCE.md](AI-ASSISTANCE.md). AI output is not a source. Cite the document that supports the claim.
+The disclosure rule, and every disclosure made under it, live in [AI-ASSISTANCE.md](AI-ASSISTANCE.md).

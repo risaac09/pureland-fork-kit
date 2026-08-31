@@ -26,7 +26,7 @@ Read the project in this order. It is the human lane's order, and a model reads 
 
 PureLand shares the whole practice, including the unfinished parts. No single part keeps itself honest alone, and work built from other people's teachings, attention, and expression owes back more than an output.
 
-That rule licenses things a reader may mistake for neglect. [ORIGIN.md](ORIGIN.md) is a section that says it is not written yet and names who has to write it. The [crosswalk](CROSSWALK.md) leaves cells empty where one lane has no counterpart, and an empty cell there is a finding. The evidence record sets what nobody observed beside what somebody did. Absence gets recorded as absence, and it never defaults to favorable.
+That rule licenses things a reader may mistake for neglect. [ORIGIN.md](ORIGIN.md) is a section that says it is not written yet and names who has to write it. The [crosswalk](CROSSWALK.md) leaves cells empty where one lane has no counterpart and says what an empty cell means. The evidence record sets what nobody observed beside what somebody did. Absence gets recorded as absence, and it never defaults to favorable.
 
 The rule does not license carrying one claim in several documents at once. Repetition is a drift surface rather than honesty, because the first update that misses a copy leaves a stale claim standing.
 

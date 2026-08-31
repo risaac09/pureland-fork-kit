@@ -48,7 +48,7 @@ The record cannot separate these explanations.
 
 The assessor proposed an inbound route for field reports and corrections in the Alchemy repository. The owner approved and executed the change through [Alchemy pull request 15](https://github.com/risaac09/alchemy/pull/15), merged as `bf5e411` on 2026-08-24.
 
-The baseline was zero inbound reports, with pull requests deprioritized. The intended benefit was a visible correction and return route. Possible new harms are triage burden and an implied support promise. The observation window remains open through 2026-11-22. Follow-up evidence will include the count of inbound reports and the burden of handling them. No follow-up or causal result is available.
+The baseline was zero inbound reports, with pull requests deprioritized. The intended benefit was a visible correction and return route. Possible new harms are triage burden and an implied support promise. The observation window remains open; the ledger row above holds the date. Follow-up evidence will include the count of inbound reports and the burden of handling them. No follow-up or causal result is available.
 
 ## Absent evidence
 
@@ -77,5 +77,5 @@ The conclusion should strengthen only if independent tests show useful, contesta
 - compare the full journey with a single-instrument review;
 - use two independent readers and preserve their disagreements;
 - test a different boundary and show how the artifact readings change;
-- close the FT-001 follow-up after 2026-11-22 with the inbound-report count, burden, possible harm, and affected-party response;
+- close the FT-001 follow-up when its window ends, with the inbound-report count, burden, possible harm, and affected-party response;
 - test whether the [version 0.2 planning target](TESTING.md#provisional-version-02-planning-target) is feasible and useful; its numbers have no derived empirical basis, and public records remain optional where rights and consent permit.
