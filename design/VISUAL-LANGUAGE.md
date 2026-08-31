@@ -34,7 +34,7 @@ Contrast notes:
 
 ## Motifs
 
-- **Roman numerals I through VI** appear in two explicitly labeled sequences: the six public research functions and the method's six journey stations. Never let one sequence stand in for the other.
+- **Roman numerals** appear in two explicitly labeled sequences: the public research functions and the method's six journey stations. Never let one sequence stand in for the other, and read the count from the sequence itself rather than fixing it here, where it would drift.
 - **Hairline rules.** 1px, Graphite, reduced opacity. They divide without shouting.
 - **Small arrow annotations.** `→` followed by a monospace caption, used the way a specimen label points to a detail.
 - **Strikethrough in Oxblood** for visible revision. A crossed-out line stays legible; it is a record of what changed, not a deletion.
@@ -54,7 +54,7 @@ The mark is line-work only: no fills, a roughly uniform stroke with slightly tap
 ## Usage
 
 - **README banner.** A quiet header above the title: the mark at left, the project name in letterspaced serif caps, a short monospace caption beneath a Brass hairline rule. See `design/assets/banner-light.svg` and `design/assets/banner-dark.svg`.
-- **Docs.** Hairline rules divide sections. Monospace labels mark fields and data. Roman numerals identify either the six public functions or the six journey stations only when the sequence is named.
+- **Docs.** Hairline rules divide sections. Monospace labels mark fields and data. Roman numerals identify either the public research functions or the six journey stations only when the sequence is named.
 - **Field-report artifacts.** Ledger styling for anything that functions as a record: monospace headers, Oxblood strikethrough for corrections, no color used to imply a verdict.
 
 ## What to avoid

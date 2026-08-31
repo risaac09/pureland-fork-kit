@@ -1,6 +1,6 @@
 # PureLand Field Pilot
 
-The present offering is a small, bounded inquiry into one real information practice, done together. It walks [the journey](JOURNEY.md), the method's one curated path, on the collaborator's practice. It is a field pilot. It is not a mature consultancy, a certification, a treatment, or an audit clearance, and it does not guarantee any outcome.
+The field pilot is Rubinstein Productions' offering. PureLand is the toolbox that practice shares, and the pilot is the same practice walked with Isaac Rubinstein, who maintains this repository and runs the studio. It is a small, bounded inquiry into one real information practice, done together. It walks [the journey](JOURNEY.md), the method's one curated path, on the collaborator's practice. It is not a mature consultancy, a certification, a treatment, or an audit clearance, and it does not guarantee any outcome.
 
 The future consultancy is an application layer on a 10-to-15-year horizon. The present phase is criticism from outside and small field proofs.
 
@@ -31,27 +31,11 @@ Collaborator authority is not participant authority or community authority. A co
 
 ## What happens together
 
-1. Name the question, the system boundary, the affected people in non-identifying terms, the possible evidence categories, and one result that would count against the method.
-2. Establish the consent and rights the inquiry needs through a private review before any protected material is shared. Recording is optional.
-3. Notice what happens in attention and in the body, using the practice frame.
-4. Read the practice through the four access questions and the extraction check.
-5. Decide whether any small change can be tested. Refusal or no change is valid. If a change is chosen, name a plausible new harm it could cause.
-6. If a change is tested, watch the cost, the disagreement, and the result.
-7. Decide whether the learning stays private or whether any specific artifact can go public.
+The pilot walks the six stations of [the journey](JOURNEY.md): Ground, Observe, Map, Trace, Adapt, Return. One thing sits outside the stations: before any protected material is shared, a private review establishes the consent and rights the inquiry needs, and recording stays optional throughout. During Adapt, the tested change is watched for its cost, the disagreement it surfaces, and its result. Whether the learning stays private or a specific artifact goes public is the Return station's own decision, and the collaborator makes it.
 
 ## What the pilot may produce
 
-Possible outputs may include:
-
-- a defined system boundary;
-- a consent and rights plan;
-- a profile across the four access questions;
-- an extraction and reciprocity profile;
-- one tested change;
-- a documented correction, disagreement, refusal, or method revision;
-- private learning with no public artifact;
-- an unmeasurable result that remains unresolved; or
-- a public-safe field report, only when artifact-specific consent and rights permit one.
+The pilot may produce a defined system boundary, a consent and rights plan, a profile across the four access questions, an extraction and reciprocity profile, one tested change, and a documented correction, disagreement, refusal, or method revision. It may instead produce private learning with no public artifact, or an unmeasurable result that stays unresolved. A public-safe field report happens only when artifact-specific consent and rights permit one.
 
 The pilot does not require participant recordings, transcripts, names, film production, measurable outcomes, or a public field report. Refusal is a valid result. No participant material belongs in the public repository by default.
 

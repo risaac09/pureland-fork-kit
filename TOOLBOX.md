@@ -2,7 +2,7 @@
 
 The toolbox is the forkable part of PureLand. It contains the instruments, templates, controls, and public-safe records needed to inspect or adapt the method. The [thesis](THESIS.md) and evidence record set its limits. Its presence validates nothing.
 
-Everything listed here is an instrument. The repository's two readerships, the human lane and the agent lane, are architecture rather than instruments, and [READERSHIP.md](READERSHIP.md) holds them.
+Everything listed here is an instrument. The repository's two readerships, the human lane and the agent lane, are architecture rather than instruments, and the [crosswalk](CROSSWALK.md) sets them against each other.
 
 ## Walk the method
 
@@ -21,14 +21,13 @@ Everything listed here is an instrument. The repository's two readerships, the h
 
 ## Test and report
 
-- [TESTING.md](TESTING.md): the testing program, the evidence gates, and the before, during, and after-use discipline for one test.
+- [TESTING.md](TESTING.md): the primary testable claim, the testing program, the evidence gates, and the before, during, and after-use discipline for one test.
 - [templates/field-test.md](templates/field-test.md): public-safe report template.
 - [data/field-test.schema.json](data/field-test.schema.json): structured record schema.
 - [research/field-tests/ft-001-alchemy.md](research/field-tests/ft-001-alchemy.md): the only maintainer-side partial dry run.
 
 ## Inspect evidence and claims
 
-- [HYPOTHESIS.md](HYPOTHESIS.md): primary and secondary testable claims.
 - [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md): the observed record, the counterexplanations, and the [ledger](CURRENT-EVIDENCE.md#the-ledger) of accepted tests. Listing is not endorsement.
 - [RESEARCH-STATUS.md](RESEARCH-STATUS.md): claim-by-claim evidence status.
 - [PROVENANCE.md](PROVENANCE.md): sources and claim boundaries.

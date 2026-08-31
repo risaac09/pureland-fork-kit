@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-08-30 second documentation cut
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code |
+| Task | A second pass over the same repository, testing four named clusters against one sorting principle from the maintainer: this kit is Rubinstein Productions sharing its tools, read through Buddhism, information theory, and technology theory, so a document earns its place by helping someone take the tools. Folding `AGENT-READING.md` into `llms.txt`, removing `READERSHIP.md` from the kit, cutting `CROSSWALK.md` from seventeen elements to twelve, merging `HYPOTHESIS.md` into `TESTING.md`, thinning `OFFERING.md`, and moving `REQUIRED_ARCHITECTURE`, `llms.txt`, `README.md`, `THESIS.md`, `METHOD.md`, `TOOLBOX.md`, `JOURNEY.md`, `RESEARCH-STATUS.md`, `index.html`, and `design/VISUAL-LANGUAGE.md` with them |
+| Material provided | The public repository at commit `bc20be3`, read in full; the open pull request this branch stacks on, including its disposition table and review record; and the maintainer's written instruction set for the second cut, which named the four clusters and required a verdict on each |
+| Source verification | No new sources cited. Every duplication claimed here was read one side at a time: `HYPOTHESIS.md`'s required-observations table against its own constructs column and against the during-a-test list in `TESTING.md`, the five secondary hypotheses against the fourteen rows of the `RESEARCH-STATUS.md` ledger, the residue lists in `READERSHIP.md` against the crosswalk rows they restate, and the checker's sweep of `llms.txt` read from `scripts/check_repo.py` to confirm the folded rules keep the checks they had |
+| Corrections after verification | The first plan removed the secondary-hypothesis section outright. Four of its five claims are ledger rows, but the fifth, that one bounded adaptation can increase a person's control over attention, appears in no ledger row, so the section survives as a pointer that states the fifth claim rather than a deletion that would have lost it. The first plan also left `TESTING.md` without a ceiling of its own after the merge, since the ceiling paragraph sat in `HYPOTHESIS.md`'s current-status section; it now opens the merged document. The first crosswalk pass cut three rows and left the file at 210 lines, still the longest document in the kit; two more rows went, both of them findings `llms.txt` now states itself. The record cluster was tested for a merge and kept at three documents. Two adversarial review passes over the draft, one hunting for content that now survives nowhere and one for statements the cut had made false, found five further defects, all fixed: `llms.txt` said the checker enforces reachability, which only warns, so it now separates what fails a run from what does not; `README.md` still announced six distinct jobs after the functions became five, and still promised that the reason for the two reading orders sat in a section that no longer held it; the changelog entry below miscounted the offering's possible outputs as eleven where the list had nine; and `llms.txt` claimed to say what each file is while indexing neither template, so it now names both and claims less. The lost-content pass found no rule, claim, falsifier, or evidence ceiling that survives nowhere |
+| Human review | The maintainer reviews and merges the pull request. This stacks on an open pull request and changes a public repository's architecture, so it opens ready rather than draft and waits for him. No file was merged or pushed by the assistant |
+| Sensitive material | None involved. No participant material, names, or consent records entered the repository, and `RIGHTS-AND-CONSENT.md`, `SECURITY.md`, `LICENSE.md`, `GOVERNANCE.md`, `CONTRIBUTING.md`, `templates/consent-register.md`, `data/README.md`, and the field-test schema have a zero diff |
+
 ## 2026-08-30 documentation cut
 
 | Field | Record |
@@ -130,6 +142,7 @@ AI output is not a source. Cite the document that supports the claim. Every entr
 | Task | Adversarial repository review, source discovery, drafting, link and structure checks |
 | Material provided | The local PureLand working folder and the private `risaac09/pureland-fork-kit` repository |
 | Source verification | Primary-source links were checked during research; local links and JSON were checked by `scripts/check_repo.py` |
+| Corrections after verification | Not recorded. This is the oldest entry and the corrections row was added to the format later. Reconstructing the corrections now would be invention rather than disclosure, so the gap is named instead of filled |
 | Human review | Maintainer review remains required before treating the prose or source interpretations as final |
 | Sensitive material | No participant recordings or consent records were added to the repository |
 
