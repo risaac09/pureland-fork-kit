@@ -4,7 +4,7 @@ One curated path through the PureLand toolbox. Walk it in order, on one real pra
 
 There are two ways to walk it: yourself, starting at station 1, or with Isaac as a [PureLand Field Pilot](OFFERING.md), which is the same path walked as a small, bounded inquiry done together.
 
-This is the human lane. It is walked, on a schedule, by someone the answer can reach. A model reading this repository is addressed by [agent reading](AGENT-READING.md), which is a separate document rather than a paraphrase of this one. The [crosswalk](CROSSWALK.md) sets the two lanes side by side. Station 2 is the row where the agent lane has no counterpart at all.
+This is the human lane. It is walked, on a schedule, by someone the answer can reach. A model reading this repository is addressed by [llms.txt](llms.txt), which is the agent lane rather than a paraphrase of this one. The [crosswalk](CROSSWALK.md) sets the two lanes side by side. Station 2 is the row where the agent lane has no counterpart at all.
 
 The journey puts unvalidated instruments in an order. It does not certify openness, safety, or attention sovereignty. Missing evidence stays `unmeasurable`, and nothing on the path produces a combined score. See [RESEARCH-STATUS.md](RESEARCH-STATUS.md).
 

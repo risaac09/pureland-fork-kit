@@ -32,18 +32,13 @@ The rule does not license carrying one claim in several documents at once. Repet
 
 ## Two readerships
 
-A person and a model read this repository differently, and the difference is now
-named rather than left to chance.
-
-- [The journey](JOURNEY.md) is the human lane. It is walked, in order, on one
-  real practice, at a body's pace.
-- [Agent reading](AGENT-READING.md) is the agent lane. It is addressed. It gives
-  a model the reading order, the architecture contract, the schema, and the list
-  of work it must hand back to a person instead of completing.
-- [The crosswalk](CROSSWALK.md) sets the two lanes against each other element by
-  element, including the places where one lane has no counterpart.
-- [Readership](READERSHIP.md) states what PureLand is such that both lanes render
-  it, and which differences stay unreconciled.
+A person and a model read this repository differently, and the difference is
+named rather than left to chance. [The journey](JOURNEY.md) is the human lane. It
+is walked, in order, on one real practice, at a body's pace. [llms.txt](llms.txt)
+is the agent lane. It is addressed, and it gives a model the reading order, the
+architecture contract, and the list of work it must hand back to a person instead
+of completing. The [crosswalk](CROSSWALK.md) sets the two against each other
+element by element, including the places where one lane has no counterpart.
 
 ## Use the method
 

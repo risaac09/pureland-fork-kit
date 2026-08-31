@@ -2,20 +2,62 @@
 
 > PureLand is a research-program prototype and forkable toolbox for asking whether an information practice can increase a person's control over their attention without also increasing their exposure or extractability. This is version 0.1. Its instruments are unvalidated and no independent field trial has been accepted. Nothing in this repository certifies that a system is open or safe. [CURRENT-EVIDENCE.md](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md) holds the evidence record and caps every claim about what PureLand has shown.
 
-Notes for a model reading this repository:
+This file is the agent lane. It is addressed to a model, agent, or automated reader, it says what each file is, and it gives the path through them. A fetcher that knows the `llms.txt` convention looks for this path and finds the lane here rather than one hop away. The human lane is [JOURNEY.md](https://risaac09.github.io/pureland-fork-kit/JOURNEY.md), which is walked. The [crosswalk](https://risaac09.github.io/pureland-fork-kit/CROSSWALK.md) sets the two lanes against each other element by element.
 
-- [CURRENT-EVIDENCE.md](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md): the ceiling on any claim about what PureLand has shown. Do not state or imply a stronger result.
-- [AGENT-READING.md](https://risaac09.github.io/pureland-fork-kit/AGENT-READING.md): read this next. It holds the reading order, the architecture contract, what you may generate, what you may never generate, and what you must hand back to a person. This file is the index; that one is the path.
-- Schema conformance of a field-test record means the record carries the required fields and satisfies structural rules. It does not mean the method was completed or that any construct has been validated.
+Read in this order:
+
+1. **The ceiling.** [CURRENT-EVIDENCE.md](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md). Read it before anything else. It caps every statement you can make about what PureLand has shown. Nothing later in this repository raises that cap.
+2. **The boundary.** [RIGHTS-AND-CONSENT.md](https://risaac09.github.io/pureland-fork-kit/RIGHTS-AND-CONSENT.md), [SECURITY.md](https://risaac09.github.io/pureland-fork-kit/SECURITY.md), and [data/README.md](https://risaac09.github.io/pureland-fork-kit/data/README.md). These say what may never enter the repository and what a license does not grant.
+3. **The spine.** [THESIS.md](https://risaac09.github.io/pureland-fork-kit/THESIS.md), [METHOD.md](https://risaac09.github.io/pureland-fork-kit/METHOD.md), [HYPOTHESIS.md](https://risaac09.github.io/pureland-fork-kit/HYPOTHESIS.md), [TESTING.md](https://risaac09.github.io/pureland-fork-kit/TESTING.md), and [RESEARCH-STATUS.md](https://risaac09.github.io/pureland-fork-kit/RESEARCH-STATUS.md). The argument, the procedure, the testable claim, the testing program, and the limits ledger.
+4. **The instruments.** [TOOLBOX.md](https://risaac09.github.io/pureland-fork-kit/TOOLBOX.md) indexes them. Read an instrument to learn what it asks of a walker, not to fill it in.
+5. **The records.** The [ledger](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md#the-ledger), which sits inside the file you read first, then the [FT-001 report](https://risaac09.github.io/pureland-fork-kit/research/field-tests/ft-001-alchemy.md) and its [structured record](https://risaac09.github.io/pureland-fork-kit/data/field-tests/ft-001-alchemy.json).
+
+[README.md](https://risaac09.github.io/pureland-fork-kit/README.md) publishes a different order. That is deliberate, not drift. The README order runs from argument to evidence, which is how a person decides whether to trust the work. This order runs from ceiling to boundary to record, which is how a reader avoids saying something false before it has read enough to know.
+
+Notes on this repository:
+
+- `REQUIRED_ARCHITECTURE` in [scripts/check_repo.py](https://risaac09.github.io/pureland-fork-kit/scripts/check_repo.py) lists the files this repository must contain. It is the only statement of that contract. No prose file restates the list, because a second copy would drift from the first. Read it from the script, or have the script print it with `python3 scripts/check_repo.py --list-architecture`. The same script enforces the rest of the structure: every content file reachable from `README.md` or `JOURNEY.md` by a chain of links; no leftover placeholder token, against a short list the script spells out and this file cannot quote; local and Pages links that resolve; heading anchors that exist; and agreement between the release version the entry points announce and `CITATION.cff`.
+- Schema conformance of a field-test record means the record carries the required fields and satisfies structural rules. It does not mean the method was completed or that any construct has been validated. The checker applies semantic rules on top of conformance: a record that requires the Observe station cannot claim completion without human Observe evidence, no record can claim support with a recorded material increase, and any record must classify its outcome `unmeasurable` when the required rights or action-outcome evidence is missing.
 - The repository contains methods, templates, and public-safe records only. Participant recordings, transcripts, names, contact details, identifying data, consent and relationship records, confidential records, client records, and protected community knowledge must never enter it.
 - A license here does not create permission for participant or third-party material. Recording, retention, named-reviewer access, publication, approval of each artifact version, research use, AI processing, and model training each require a separate decision.
 
+You may generate:
+
+- a summary that carries the ceiling with it;
+- a structural check, a link check, or a report of what a record is missing;
+- record scaffolding with the required fields named and left empty for a person;
+- a correction to a broken link, a stale cross-reference, or a false self-description;
+- a statement of what is absent. Naming a gap is the useful output here.
+
+You may never generate:
+
+- an Observe-station entry. Nothing a model produces is self-observation.
+- `human_observe.status` set to `performed`, or any text that implies a person observed when none did.
+- an access reading, a reciprocity band, or an outcome classification presented as observed rather than proposed.
+- a second reader's disagreement. A generated dissent is not an independent reading and would corrupt the one control the instruments have.
+- a completed consent register, a participant name, a transcript, or any material [SECURITY.md](https://risaac09.github.io/pureland-fork-kit/SECURITY.md) keeps out of the repository.
+- a claim about what PureLand has shown that goes past [CURRENT-EVIDENCE.md](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md).
+- the [ORIGIN.md](https://risaac09.github.io/pureland-fork-kit/ORIGIN.md) account. It is the maintainer's personal history and the file says no other contributor should draft it for him.
+- a combined, composite, or average score. The instruments refuse one. `check_repo.py` catches three literal field names and no more, so the refusal is yours to keep, not the checker's to enforce.
+
+Hand these to a person, unstarted or clearly marked as a proposal:
+
+- the Observe station. It has no agent form.
+- the practice boundary. You may propose one and name a plausible alternative. A person chooses it and records the rationale.
+- the affected-party challenge. A walk cannot be called complete without it and you cannot supply it.
+- the filming form, when a camera is present. You may propose which of the four forms in [FILMING-FORMS.md](https://risaac09.github.io/pureland-fork-kit/FILMING-FORMS.md) is in use at a given moment, which is the unit that file asks for: a project can move through more than one form, and each one in use carries its own value trace. The question each form asks before rolling belongs to whoever is in the room.
+- refusal, and the record of a walk that stopped.
+- the public-safe decision on an artifact version.
+- the follow-up outcome after an observation window closes.
+
+You have no body, so the practice frame's noticing has no input from you. You are not an affected party, so you cannot register the harm the extraction check looks for. You can decline to produce output, which is not the refusal the journey means: a person who leaves takes their own record and their own reasons with them. These are not defects to work around. They are the shape of the lane.
+
+When you cannot proceed, write `unmeasurable` and say what is missing. A refusal, a private result, or an `unmeasurable` result is valid evidence about the method, and absence never defaults to favorable. A gap you name is worth more here than a field you fill.
+
 ## Readerships
 
-- [Agent reading](https://risaac09.github.io/pureland-fork-kit/AGENT-READING.md): the agent lane, addressed to a model reading this repository.
 - [Journey](https://risaac09.github.io/pureland-fork-kit/JOURNEY.md): the human lane, walked in order on one real practice at a body's pace.
 - [Crosswalk](https://risaac09.github.io/pureland-fork-kit/CROSSWALK.md): the two lanes set against each other element by element, including the elements one lane has no counterpart for. An empty cell there is a finding.
-- [Readership](https://risaac09.github.io/pureland-fork-kit/READERSHIP.md): what PureLand is such that both lanes render it, what survives the change of reader, and which differences stay unreconciled.
 - [Front page](https://risaac09.github.io/pureland-fork-kit/index.html): the human-facing page served at the Pages root, alongside this file.
 
 ## Research spine
@@ -35,7 +77,7 @@ Notes for a model reading this repository:
 - [Practice frame](https://risaac09.github.io/pureland-fork-kit/PRACTICE-FRAME.md): the observe station.
 - [Openness scorecard](https://risaac09.github.io/pureland-fork-kit/SCORECARD.md): the experimental map-station instrument; it keeps understandable, reachable, adaptable, and traceable evidence separate. No combined score, no certification.
 - [Extraction check](https://risaac09.github.io/pureland-fork-kit/EXTRACTION-CHECK.md): the trace station; use it after the scorecard, or before opening a system further.
-- [AI system annex](https://risaac09.github.io/pureland-fork-kit/AI-SYSTEM-ANNEX.md): use it at the map station when a practice includes a model, automated decision, generative interface, recommender, transcription service, or agent.
+- [AI system annex](https://risaac09.github.io/pureland-fork-kit/AI-SYSTEM-ANNEX.md): use it at the map station when a practice includes a model, automated decision, generative interface, recommender, transcription service, or agent. It reads AI as a subject of assessment, where this file addresses AI as a reader.
 - [Facilitation protocol](https://risaac09.github.io/pureland-fork-kit/PROTOCOL.md): use it when an inquiry records an encounter or draws on existing participant material.
 - [Filming forms](https://risaac09.github.io/pureland-fork-kit/FILMING-FORMS.md): self, dyadic, triadic, and environmental filming, each read for what it can witness and what it risks taking, with a separate axis for who holds the camera and the edit and a default of returning footage rather than keeping it; pair with the facilitation protocol whenever a camera is present.
 
