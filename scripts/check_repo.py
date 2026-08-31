@@ -533,6 +533,73 @@ def overdue_follow_ups(
         )
 
 
+THROUGH_DATE = re.compile(r"\bthrough (\d{4}-\d{2}-\d{2})")
+FOLLOW_UP_LINE = re.compile(r"follow-?up", re.IGNORECASE)
+CURRENT_EVIDENCE = ROOT / "CURRENT-EVIDENCE.md"
+
+
+def check_follow_up_date_copies(path: Path, record: dict[str, Any], errors: list[str]) -> None:
+    """Tie the prose copies of a follow-up review date to the record.
+
+    overdue_follow_ups() compares follow_up.review_date to the calendar, and
+    two prose surfaces advertise the same date: the ledger row in
+    CURRENT-EVIDENCE.md and the record's report. Nothing compared those
+    copies to the record, so a window closed or extended in the JSON would
+    leave a stale date advertised on a green run.
+
+    The scope follows check_version_claims(): only lines that mention the
+    follow-up are read, and only the date after the word "through" on such a
+    line is compared, because dated history (CHANGELOG.md, research
+    snapshots) legitimately keeps old dates and comparing every date would
+    fail a true statement. While the follow-up is open, the ledger row has to
+    carry the date: the row is the one live advertisement of the window, and
+    deleting the date would otherwise disarm this tie silently.
+    """
+    label = record.get("record_id", relative(path))
+    follow_up = record.get("follow_up", {})
+    raw = follow_up.get("review_date")
+    if not isinstance(raw, str):
+        # overdue_follow_ups() reports an unreadable date; nothing to tie.
+        return
+
+    # The report belongs to this record, so every follow-up line in it is
+    # read. CURRENT-EVIDENCE.md is shared between records, so only the lines
+    # that name this record's file are read: without that filter, one
+    # record's check would attribute another record's ledger row to it the
+    # moment a second record lands.
+    report = ROOT / "research" / "field-tests" / (path.stem + ".md")
+    for surface in (CURRENT_EVIDENCE, report):
+        if not surface.is_file():
+            continue
+        for number, line in enumerate(
+            surface.read_text(encoding="utf-8").splitlines(), start=1
+        ):
+            if surface == CURRENT_EVIDENCE and path.name not in line:
+                continue
+            if not FOLLOW_UP_LINE.search(line):
+                continue
+            for found in THROUGH_DATE.findall(line):
+                if found != raw:
+                    errors.append(
+                        f"{relative(surface)}:{number} says the {label} follow-up runs "
+                        f"through {found}, but the record's review_date is {raw}"
+                    )
+
+    if follow_up.get("status") not in OPEN_FOLLOW_UP_STATUSES:
+        return
+    if CURRENT_EVIDENCE.is_file():
+        ledger_rows = [
+            line
+            for line in CURRENT_EVIDENCE.read_text(encoding="utf-8").splitlines()
+            if path.name in line
+        ]
+        if ledger_rows and not any(raw in line for line in ledger_rows):
+            errors.append(
+                f"the CURRENT-EVIDENCE.md ledger row for {label} does not carry its "
+                f"open follow-up review date {raw}; the row is the one live copy"
+            )
+
+
 def check_version_claims(errors: list[str]) -> None:
     """Tie the release version the entry points announce to CITATION.cff.
 
@@ -708,6 +775,7 @@ def main(argv: list[str] | None = None) -> int:
         if isinstance(record, dict):
             check_record_rules(path, record, errors)
             overdue_follow_ups(path, record, today, follow_up_notices)
+            check_follow_up_date_copies(path, record, errors)
 
     # Where these land depends on who is asking. The scheduled watch wants a
     # red run; everyone else wants a note that does not block their work.

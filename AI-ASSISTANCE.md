@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-08-31 follow-up date guard
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code |
+| Task | Adding `check_follow_up_date_copies()` to `scripts/check_repo.py`: for every conformant field-test record, the follow-up dates advertised on follow-up lines of `CURRENT-EVIDENCE.md` and the record's report must equal the record's `follow_up.review_date`, and the ledger row must carry the date while the follow-up is open. Wired into the per-record loop as errors, with the new failure class added to `llms.txt`'s account of what fails a run |
+| Material provided | The repository at the merge of its two documentation cuts; the deferred finding from the first cut's review, which named the untied prose copies; and the maintainer's written direction to build the guard |
+| Source verification | The live date copies were enumerated by grep before scoping: the ledger row and four report lines carry the date on follow-up lines, and `CHANGELOG.md` and the research snapshots carry it as dated history, which the follow-up-line scope exempts by construction |
+| Corrections after verification | The guard was fired in all four failure directions before shipping: a moved record date, a moved ledger date, a deleted ledger date, and truth restored, with the strict overdue flag confirmed to exit nonzero on a simulated past date. An adversarial review pass then found a real bug the single-record repository masked: the first draft read every follow-up line of the shared ledger for every record, so a second record's row would have been attributed to the first the moment one landed. The scan is now filtered to the lines naming the record's own file, and a synthetic two-record scenario confirmed no cross-attribution and a correctly attributed mismatch. A registered guard that has never failed is indistinguishable from a broken one |
+| Human review | The maintainer directed the guard and its landing in advance, in writing. The assistant executed both |
+| Sensitive material | None involved |
+
 ## 2026-08-30 technology theory row
 
 | Field | Record |
