@@ -53,8 +53,9 @@ The four access questions carry their own definitions in the [openness scorecard
 | Buddhist practice | Prompts for noticing conditions that shape attention and response | A technical taxonomy, clinical diagnosis, or label for other people |
 | Evaluation | Claims, evidence, baselines, limits, and disconfirming conditions | That the current instruments are validated measures |
 | Body-based practice | First-person information about what contact does in the body | An objective score or clinical judgment |
+| Technology theory | How a system's design, ownership, and openness shape what it can do to a person, and what an audit of it can see | That reading a system's documentation establishes what the system does |
 
-Each field fails on its own. Measurement without attention or relationship can turn into one more machine for taking things from people. Contemplative and body-based practice without evidence can harden into private conviction. A map of information movement without permission, credit, and return can ignore who pays for that movement. That is why the thesis binds them together rather than picking one.
+Each field fails on its own. Measurement without attention or relationship can turn into one more machine for taking things from people. Contemplative and body-based practice without evidence can harden into private conviction. A map of information movement without permission, credit, and return can ignore who pays for that movement. A reading of a technology's design without the people it lands on can mistake a published architecture for an accountable one. That is why the thesis binds them together rather than picking one.
 
 PureLand uses the phrase **attention sovereignty** to name practical agency over contact. That language may center an autonomous individual in ways some Buddhist traditions do not. Version 0.1 keeps this tension open. It does not use Buddhist sources to settle it.
 

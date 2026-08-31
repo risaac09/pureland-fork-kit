@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-08-30 technology theory row
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code |
+| Task | Adding a technology theory row to the fields-and-limits table in `THESIS.md`, with the matching clause in the each-field-fails paragraph, mirrored in `index.html`, which also moves from somatic practice to body-based practice so the two surfaces carry one wording |
+| Material provided | The maintainer's written direction to add the row, and the second cut's pull-request note that named technology theory as a lens the kit uses without naming it |
+| Source verification | The claim that the kit already uses the lens was checked against the tree before the changelog stated it: the Open Source AI Definition, the NIST AI Risk Management Framework, and the datasheets and model-cards papers are cited in `PROVENANCE.md` and applied in `AI-SYSTEM-ANNEX.md` |
+| Corrections after verification | The draft considered naming information theory as a field in the same pass and did not, because the kit removed an unsupported information-theory contribution on 2026-08-24 and its cited sources are the political economy of information rather than information theory; adding the field would restate the removed claim |
+| Human review | The maintainer directed the addition and its merge in advance, in writing. The assistant executed both |
+| Sensitive material | None involved |
+
 ## 2026-08-30 second documentation cut
 
 | Field | Record |
