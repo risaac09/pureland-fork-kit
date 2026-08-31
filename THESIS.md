@@ -12,7 +12,7 @@ The thesis guides the shape of the work. Field evidence must determine whether t
 
 The forkable materials are one release surface. They let another person inspect, adapt, and contest the work. That matters, but a license and a set of instruments cannot establish attention sovereignty on their own.
 
-PureLand therefore uses five public research functions:
+PureLand therefore uses these public research functions:
 
 1. the thesis states the organizing argument;
 2. the [method](METHOD.md) turns it into a repeatable inquiry;
@@ -26,7 +26,7 @@ The fork kit remains inside this structure as the toolbox. It is not being disca
 
 PureLand is a set of instruments whose validity depends on who used them. The repository can be read, indexed, validated, forked, and checked by anything. It can only be walked by someone the answer can reach. Every instrument in the [toolbox](TOOLBOX.md) asks its user for something no record can supply on the user's behalf: attention paid before a category is assigned, a boundary somebody is accountable for, a change that costs the person who makes it, and a challenge from someone the change lands on.
 
-A reader that cannot be changed by the material cannot test this thesis. It can carry the claim accurately, check whether the record is honest about its own limits, and say what is missing. Those are real jobs. They are not the same job. That is why the repository names its two readerships instead of leaving the difference to chance. [The journey](JOURNEY.md) is walked and [llms.txt](llms.txt) is addressed. The [crosswalk](CROSSWALK.md) sets them against each other element by element.
+A reader that cannot be changed by the material cannot test this thesis. It can carry the claim accurately, check whether the record is honest about its own limits, and say what is missing. Those are real jobs. They are not the same job. That is why the repository names its two readerships instead of leaving the difference to chance. [README.md](README.md#two-readerships) names them and the [crosswalk](CROSSWALK.md) holds the comparison.
 
 I am publishing an openness method while I still control every merge and release. I can give the tools away and keep decision power at the origin. That contradiction belongs inside the thesis. Return and contestability have to become mechanisms another person can use against my reading.
 

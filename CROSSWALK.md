@@ -9,12 +9,10 @@ An empty cell is a finding. Where one lane has no counterpart, this file says so
 and stops. It does not invent one.
 
 The empty cells stay empty on purpose. Give the human-only residue an agent form
-and the kit starts producing records that look complete and are not. That failure
-is already on the record: [FT-001](research/field-tests/ft-001-alchemy.md) ran
-AI-assisted, Observe was not performed, and the record says so only because a
-person wrote it down. Give the agent-only residue a human form and the structural
-checks become prose, prose drifts from the code it describes, and a
-human-readable conformance report starts being cited as a result.
+and the kit starts producing records that look complete and are not; the Observe
+station row below carries the case already on the record. Give the agent-only
+residue a human form and the structural checks become prose that drifts from the
+code it describes; the schema conformance row says why that cell stays empty.
 
 Nothing here changes what the kit has shown.
 [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md) holds that, and an architecture

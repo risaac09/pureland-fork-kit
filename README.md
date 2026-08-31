@@ -7,7 +7,7 @@
 
 PureLand is a research-program prototype for asking whether an information practice can increase a person's control over their attention without also increasing their exposure or extractability.
 
-The forkable instruments, templates, and controls make up the toolbox. The public architecture gives five distinct jobs to the argument, the method, the instruments, the testable claim with the program that tests it, and the evidence record.
+The forkable instruments, templates, and controls make up the toolbox. The public architecture gives distinct jobs to the argument, the method, the instruments, the testable claim with the program that tests it, and the evidence record.
 
 This is version 0.1. Its instruments are unvalidated. It does not certify that anything is open or safe. It has one maintainer-side partial dry run and no independent field result.
 

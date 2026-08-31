@@ -31,7 +31,7 @@ Collaborator authority is not participant authority or community authority. A co
 
 ## What happens together
 
-The pilot walks the six stations of [the journey](JOURNEY.md): Ground, Observe, Map, Trace, Adapt, Return. Two things sit outside the stations. Before any protected material is shared, a private review establishes the consent and rights the inquiry needs, and recording stays optional throughout. At the end, the collaborator decides whether the learning stays private or whether a specific artifact can go public.
+The pilot walks the six stations of [the journey](JOURNEY.md): Ground, Observe, Map, Trace, Adapt, Return. One thing sits outside the stations: before any protected material is shared, a private review establishes the consent and rights the inquiry needs, and recording stays optional throughout. During Adapt, the tested change is watched for its cost, the disagreement it surfaces, and its result. Whether the learning stays private or a specific artifact goes public is the Return station's own decision, and the collaborator makes it.
 
 ## What the pilot may produce
 
