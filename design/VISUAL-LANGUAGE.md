@@ -39,7 +39,19 @@ Contrast notes:
 - **Small arrow annotations.** `→` followed by a monospace caption, used the way a specimen label points to a detail.
 - **Strikethrough in Oxblood** for visible revision. A crossed-out line stays legible; it is a record of what changed, not a deletion.
 - **Engraved or etched line illustration.** Thin strokes, no fills, specimen-plate feel, for any future illustration work.
+- **Drawn line-work.** See below.
 - **The fork mark.** See below.
+
+## Drawn line-work
+
+An engraved plate can draw itself once, the way a hand lays down a line. On a screen surface, a diagram may animate its own strokes as they arrive.
+
+Two rules bound it, and both come from principle 1.
+
+- **Once only.** A diagram draws when it first reaches the reader and then stays drawn. Nothing loops, redraws on a second pass, or moves again once it has landed. A mark that keeps moving is asking for attention rather than carrying a reading.
+- **`prefers-reduced-motion: reduce` disables the drawing.** Under that setting every diagram is present and complete from the first frame. The reading never depends on having watched the stroke arrive, so a reader who turns motion off loses nothing but the motion.
+
+The same restraint governs what the drawing may do. It reveals a line that was going to be there anyway. It does not stagger content into view, gate a section behind a scroll, or make the reader wait for a claim.
 
 ## The mark: the fork
 
