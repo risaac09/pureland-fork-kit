@@ -25,7 +25,7 @@ Notes for a model reading this repository:
 - [Toolbox](https://risaac09.github.io/pureland-fork-kit/TOOLBOX.md): the forkable instruments, templates, controls, and public-safe records. Its presence validates nothing.
 - [Hypothesis](https://risaac09.github.io/pureland-fork-kit/HYPOTHESIS.md): the primary testable claim and what would count against it.
 - [Testing](https://risaac09.github.io/pureland-fork-kit/TESTING.md): the testing program, the version 0.2 gate, and the before, during, and after-use discipline one test follows; every test begins with a result that would count against the tested hypothesis.
-- [Current evidence](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md): the observed record, counterexplanations, missing evidence, and the narrow current conclusion.
+- [Current evidence](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md): the ledger of accepted tests, the counterexplanations, the missing evidence, and the narrow current conclusion.
 - [Research status](https://risaac09.github.io/pureland-fork-kit/RESEARCH-STATUS.md): the limits ledger for the current version and the evidence required before the next gate can clear.
 - [Field-trial ledger](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md#the-ledger): the register of accepted tests, held inside the evidence record; one maintainer-side, AI-assisted partial dry run with an inspectable report, and no independent field trial accepted.
 

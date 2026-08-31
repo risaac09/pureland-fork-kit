@@ -14,6 +14,8 @@ This document holds both halves of that work: the testing program, which says wh
 | Bounded adaptation follow-up | Observe benefit, burden, exposure, possible new harm, and durability after a change | One follow-up window open, no outcome yet |
 | Cross-context comparison | Test whether findings survive different practices and settings | None completed |
 
+This table cuts the record by stage. The [ledger](CURRENT-EVIDENCE.md#the-ledger) cuts it by trial and is the source, so an accepted trial changes the ledger row first and this column second.
+
 ## Before a test
 
 Complete the matching sections in the [Markdown template](templates/field-test.md) and [JSON record](data/field-test.schema.json):

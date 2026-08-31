@@ -20,7 +20,7 @@ Read the project in this order. It is the human lane's order, and a model reads 
 3. [The PureLand toolbox](TOOLBOX.md): the forkable instruments, templates, controls, and public-safe records.
 4. [The PureLand hypothesis](HYPOTHESIS.md): the primary testable claim and what would count against it.
 5. [Testing](TESTING.md): the testing program and evidence discipline.
-6. [Current evidence](CURRENT-EVIDENCE.md): the observed record, counterexplanations, missing evidence, and narrow current conclusion.
+6. [Current evidence](CURRENT-EVIDENCE.md): the ledger of accepted tests, the counterexplanations, the missing evidence, and the narrow current conclusion.
 
 ## Why the unfinished parts stay visible
 
@@ -28,7 +28,7 @@ PureLand shares the whole practice, including the unfinished parts. No single pa
 
 That rule licenses things a reader may mistake for neglect. [ORIGIN.md](ORIGIN.md) is a section that says it is not written yet and names who has to write it. The [crosswalk](CROSSWALK.md) leaves cells empty where one lane has no counterpart, and an empty cell there is a finding. The evidence record sets what nobody observed beside what somebody did. Absence gets recorded as absence, and it never defaults to favorable.
 
-The rule does not license saying the same thing in four documents. Repetition is a drift surface rather than honesty, because the first update that misses a copy leaves a stale claim standing.
+The rule does not license carrying one claim in several documents at once. Repetition is a drift surface rather than honesty, because the first update that misses a copy leaves a stale claim standing.
 
 ## Two readerships
 
@@ -47,11 +47,11 @@ named rather than left to chance.
 
 ## Use the method
 
-The [front page](index.html) is served at [risaac09.github.io/pureland-fork-kit](https://risaac09.github.io/pureland-fork-kit/). The [open-research lane](research/README.md) indexes provenance, AI-assistance, research-status, and field-test records. A model or agent reading the repository can start from [llms.txt](llms.txt).
+The [front page](index.html) is served at [risaac09.github.io/pureland-fork-kit](https://risaac09.github.io/pureland-fork-kit/). The [open-research lane](research/README.md) indexes provenance, AI-assistance, research-status, field-test, and audit records. A model or agent reading the repository can start from [llms.txt](llms.txt).
 
 Walk [the journey](JOURNEY.md): Ground, Observe, Map, Trace, Adapt, Return. Bring one real information practice and start on your own, or propose a [PureLand Field Pilot](OFFERING.md), the same journey walked with Isaac as a small, bounded inquiry.
 
-The toolbox includes the [practice frame](PRACTICE-FRAME.md), [openness scorecard](SCORECARD.md), [extraction check](EXTRACTION-CHECK.md), [facilitation protocol](PROTOCOL.md), [AI system annex](AI-SYSTEM-ANNEX.md), and the [field-testing discipline](TESTING.md#before-a-test) inside the testing program.
+The toolbox includes the [practice frame](PRACTICE-FRAME.md), [openness scorecard](SCORECARD.md), [extraction check](EXTRACTION-CHECK.md), [facilitation protocol](PROTOCOL.md), [AI system annex](AI-SYSTEM-ANNEX.md), and the [field-testing discipline](TESTING.md) inside the testing program.
 
 ## Current evidence
 
