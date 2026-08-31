@@ -24,7 +24,6 @@ change is not evidence.
 
 | Element | Verdict |
 |---|---|
-| [Entry point](#entry-point) | Both lanes have one; they are reached differently |
 | [Orientation](#orientation) | Partial |
 | [The Observe station](#the-observe-station) | No agent counterpart |
 | [The boundary decision](#the-boundary-decision) | Partial |
@@ -33,20 +32,10 @@ change is not evidence.
 | [Consent](#consent) | Weak |
 | [The camera](#the-camera) | No agent counterpart |
 | [Error correction](#error-correction) | Partial, and half of it is unpracticed |
-| [Provenance](#provenance) | Partial |
+| [Provenance](#provenance) | Partial, and only one side is guarded |
 | [Pace](#pace) | No mimicry |
-| [The architecture contract](#the-architecture-contract) | Derived, not parallel |
 | [Schema conformance](#schema-conformance) | No human counterpart |
 | [The placeholder](#the-placeholder) | Looks like mimicry, is not |
-
-## Entry point
-
-- **Human lane.** [README.md](README.md), reached by choosing to look.
-- **Agent lane.** `llms.txt`, reached by path convention.
-- **Holds.** Both open with the same question and the same version 0.1 limits.
-- **Fails.** A person arrives having decided to be there. A fetcher arrives
-  having decided nothing. The README can assume curiosity. `llms.txt` cannot, so
-  it states the prohibitions before it states the invitation.
 
 ## Orientation
 
@@ -66,24 +55,22 @@ change is not evidence.
   which condition may be present in you before assigning it to the system.
 - **Agent lane.** No counterpart.
 - **Holds.** Nothing.
-- **Fails.** There is no mimicry to assess. This is the load-bearing empty cell
-  in the register, and the record already demonstrates it: FT-001 was
-  AI-assisted, Observe was not performed, and the structured record carries that
-  as `human_observe.status: not-performed`. Automating the station would have
-  removed the evidence of its own absence.
+- **Fails.** This is the load-bearing empty cell, and the record demonstrates it.
+  FT-001 was AI-assisted, Observe was not performed, and the structured record
+  carries that as `human_observe.status: not-performed`. Automating the station
+  would have removed the evidence of its own absence.
 
 ## The boundary decision
 
 - **Human lane.** The assessor draws the practice boundary, records the
   rationale, and names a plausible alternative that could change the reading.
 - **Agent lane.** The schema requires `practice.boundary`,
-  `practice.boundary_rationale`, and `practice.alternative_boundary` to be
-  present.
-- **Holds.** Structure enforces that the decision was made and written down
-  rather than left implicit.
+  `practice.boundary_rationale`, and `practice.alternative_boundary`.
+- **Holds.** Structure enforces that the decision was written down rather than
+  left implicit.
 - **Fails.** The schema checks that a boundary exists. It never checks that it
-  was the right one. FT-001's boundary is seven surfaces the assessor chose, and
-  a conformant record and a defensible boundary are separate things.
+  was the right one. A conformant record and a defensible boundary are separate
+  things.
 
 ## Evidence ceiling
 
@@ -93,9 +80,9 @@ change is not evidence.
   exceed.
 - **Holds.** Same cap, same file, two grammars.
 - **Fails.** A person can disagree with the ceiling and say so. A model is told
-  not to exceed it, which is compliance rather than agreement. Compliance breaks
-  silently when the file falls out of context. A person who forgets can go back
-  and read it again, and knows that they forgot.
+  not to exceed it, which is compliance rather than agreement, and compliance
+  breaks silently when the file falls out of context. A person who forgets knows
+  that they forgot.
 
 ## Refusal
 
@@ -103,10 +90,10 @@ change is not evidence.
   refusal, or the missing permission without turning it into failure by the
   participant.
 - **Agent lane.** The hand-back list in `llms.txt`.
-- **Holds.** Weakly. Both produce a stop, and both leave a record behind.
-- **Fails.** A person's refusal is theirs. It carries their reasons out of the
-  record and those reasons stay with them. An agent's stop is an absence of
-  output. Nobody leaves, so nothing is withheld.
+- **Holds.** Weakly. Both produce a stop that leaves a record behind.
+- **Fails.** A person's refusal is theirs, and it carries their reasons out of
+  the record. An agent's stop is an absence of output. Nobody leaves, so nothing
+  is withheld.
 
 ## Consent
 
@@ -115,10 +102,10 @@ change is not evidence.
   made with the people involved, revisable by them.
 - **Agent lane.** A prohibition list. What must never enter the repository.
 - **Holds.** Both keep the same material out of public view.
-- **Fails.** Consent is something a person grants and can withdraw. A prohibition
-  is a boundary somebody else drew. A model can obey the list perfectly and take
-  part in no consent decision at all. The list protects the repository. It does
-  not stand in for the decision.
+- **Fails.** Consent is granted and can be withdrawn. A prohibition is a boundary
+  somebody else drew. A model can obey the list perfectly and take part in no
+  consent decision at all. The list protects the repository. It does not stand in
+  for the decision.
 
 ## The camera
 
@@ -129,25 +116,21 @@ change is not evidence.
 - **Holds.** Nothing.
 - **Fails.** The four forms are relational positions and a model occupies none of
   them. It cannot hold the third position a triadic encounter needs somebody to
-  actually stand in, and in environmental filming it is not among the people
-  connected to the place who were never asked. "Is this footage of an encounter
-  with myself, or is it already footage of an audience I'm imagining?" cannot be
-  answered by a reader who was not in the room. A model can propose which form is
-  in use at a given moment, which is what the instrument asks to be named. It
-  cannot be in any of them.
+  stand in, and in environmental filming it is not among the people connected to
+  the place who were never asked. A model can propose which form is in use at a
+  given moment, which is what the instrument asks to be named. It cannot be in
+  any of them.
 
 ## Error correction
 
 - **Human lane.** A second reader scores the same material and the disagreement
   is kept rather than resolved away.
 - **Agent lane.** [scripts/check_repo.py](scripts/check_repo.py).
-- **Holds.** Both catch a class of error a single author working alone will
-  miss.
-- **Fails.** The checker finds structural error. It cannot find a wrong reading,
-  and a fully conformant record can be wrong about everything that matters. The
-  human half of this row is also a design rather than a practice: no second
-  reader has completed a comparison, which [TESTING.md](TESTING.md) records as
-  evidence not yet obtained.
+- **Holds.** Both catch a class of error a single author working alone will miss.
+- **Fails.** The checker finds structural error. A fully conformant record can be
+  wrong about everything that matters. The human half of this row is also a
+  design rather than a practice: no second reader has completed a comparison,
+  which [TESTING.md](TESTING.md) records as evidence not yet obtained.
 
 ## Provenance
 
@@ -159,8 +142,7 @@ change is not evidence.
 - **Fails.** `PROVENANCE.md` records what shaped the thinking, including what is
   unsettled about a source. `CITATION.cff` records what to cite. A model that
   reads the metadata and stops learns the release and none of the debts. Only the
-  agent side is guarded: nothing at all catches a `PROVENANCE.md` that has gone
-  stale.
+  agent side is guarded: nothing catches a `PROVENANCE.md` that has gone stale.
 
 ## Pace
 
@@ -168,23 +150,10 @@ change is not evidence.
   adaptation carries a 90-day observation window.
 - **Agent lane.** A context window and one pass.
 - **Holds.** Nothing worth calling mimicry.
-- **Fails.** Part of the method's evidence is made of elapsed time. No agent
+- **Fails.** Part of the method's evidence is made of elapsed time, and no agent
   reading persists to a review date. The kit's slowest requirement is the one the
-  agent lane cannot hold at all, and `check_repo.py` says so on the calendar's
-  behalf by noticing a follow-up left open past its own review date.
-
-## The architecture contract
-
-- **Human lane.** `python3 scripts/check_repo.py --list-architecture`, which
-  prints the required files.
-- **Agent lane.** `REQUIRED_ARCHITECTURE` in `scripts/check_repo.py`.
-- **Holds.** Both read the same list, because there is only one list. The human
-  side is a rendering of the agent side rather than a parallel artifact, so it
-  cannot drift from it.
-- **Fails.** A rendering only reaches someone who knows to ask for it, and a
-  printed list says which files must exist without saying why any of them is
-  required. No prose statement of the contract exists and this file does not add
-  one.
+  agent lane cannot hold at all. `check_repo.py` says so on the calendar's behalf
+  by noticing a follow-up left open past its own review date.
 
 ## Schema conformance
 
@@ -192,9 +161,9 @@ change is not evidence.
 - **Agent lane.** [data/field-test.schema.json](data/field-test.schema.json),
   Draft 2020-12.
 - **Holds.** Nothing.
-- **Fails.** The absence is protective. A human-legible equivalent of
-  conformance would be read as completion, and [data/README.md](data/README.md)
-  exists to deny exactly that reading. This empty cell should stay empty.
+- **Fails.** The absence is protective. A human-legible equivalent of conformance
+  would be read as completion, and [data/README.md](data/README.md) exists to
+  deny exactly that reading. This empty cell should stay empty.
 
 ## The placeholder
 
