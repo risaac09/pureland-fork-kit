@@ -17,23 +17,20 @@ Everything listed here is an instrument. The repository's two readerships, the h
 - [FILMING-FORMS.md](FILMING-FORMS.md): self, dyadic, triadic, and environmental filming, read for what each can witness and what each risks taking, plus a second axis for who holds the camera and the edit, and a returning-and-not-keeping default for the footage. Pair with the facilitation protocol whenever a camera is present.
 - [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md): copyright, privacy, confidentiality, community authority, custody, and publication boundaries.
 - [AI-SYSTEM-ANNEX.md](AI-SYSTEM-ANNEX.md): system-boundary and evidence questions for AI-assisted or automated practices.
-- [OPEN-MODEL-LANE.md](OPEN-MODEL-LANE.md): running open-weight models on hardware you own, credential discipline for hosted ones, and the paired bench for testing quality claims yourself. With [scripts/llm-lane.sh](scripts/llm-lane.sh), adaptable shell functions for the local tiers, and [templates/bench-card.yaml](templates/bench-card.yaml), the bench declaration format.
 - [templates/consent-register.md](templates/consent-register.md): minimum permission record. This record stays private.
 
 ## Test and report
 
-- [FIELD-TESTING.md](FIELD-TESTING.md): before, during, and after-use discipline.
+- [TESTING.md](TESTING.md): the testing program, the evidence gates, and the before, during, and after-use discipline for one test.
 - [templates/field-test.md](templates/field-test.md): public-safe report template.
 - [data/field-test.schema.json](data/field-test.schema.json): structured record schema.
-- [FIELD-TRIALS.md](FIELD-TRIALS.md): inspectable test ledger. Listing is not endorsement.
 - [research/field-tests/ft-001-alchemy.md](research/field-tests/ft-001-alchemy.md): the only maintainer-side partial dry run.
 
 ## Inspect evidence and claims
 
 - [HYPOTHESIS.md](HYPOTHESIS.md): primary and secondary testable claims.
-- [TESTING.md](TESTING.md): the testing program and evidence gates.
+- [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md): the observed record, the counterexplanations, and the [ledger](CURRENT-EVIDENCE.md#the-ledger) of accepted tests. Listing is not endorsement.
 - [RESEARCH-STATUS.md](RESEARCH-STATUS.md): claim-by-claim evidence status.
-- [FIELD-TRIALS.md](FIELD-TRIALS.md): the current public evidence ledger.
 - [PROVENANCE.md](PROVENANCE.md): sources and claim boundaries.
 - [research/README.md](research/README.md): what can enter the public research lane.
 

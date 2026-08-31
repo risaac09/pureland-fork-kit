@@ -1,5 +1,30 @@
 # AI assistance record
 
+## The disclosure rule
+
+When AI assists with source discovery, synthesis, coding, or drafting, disclose:
+
+- the tool and model, if known;
+- the date and task;
+- the material provided to the system;
+- how a human verified the output;
+- the corrections made after verification;
+- the material withheld for consent or privacy.
+
+AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
+
+## 2026-08-30 documentation cut
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code |
+| Task | Producing a disposition for every root-level document, then executing it: merging `FIELD-TESTING.md` into `TESTING.md` and `FIELD-TRIALS.md` into `CURRENT-EVIDENCE.md`, deleting `BRIEF.md` after placing its surviving content, spinning `OPEN-MODEL-LANE.md` and its two companion files out of the repository, moving the data-maturity audit into the research lane, and updating `REQUIRED_ARCHITECTURE`, `LINK_ROOTS`, `llms.txt`, `TOOLBOX.md`, `CROSSWALK.md`, `AGENT-READING.md`, `READERSHIP.md`, `index.html`, and the follow-up watch to match |
+| Material provided | The public repository at commit `0e55746`, read in full, and the maintainer's written instruction set for the cut, which set the constraint that the delete and spin-out lists be non-empty or the sprawl be defended document by document |
+| Source verification | No new sources cited. Every claim in the changelog entry was checked against the files: the four surfaces carrying the same evidence sentence were read one by one, `BRIEF.md`'s line count was compared with `README.md`'s, each of its sections was traced to the document that already held the same material, and `llms.txt` was checked for the open-model lane, which it had never listed |
+| Corrections after verification | The mediated-attention grouping the instruction set offered as a hypothesis was tested and rejected rather than adopted; the reasoning is in the pull request, and the four documents stayed where they were. The first pass would have left `RESEARCH-STATUS.md` without an evidence ceiling of its own after removing its current-evidence bullets, which would have thinned claim custody on a surface readers land on directly, so the ceiling stayed and only the drift-prone detail moved. The first pass also missed that `TOOLBOX.md` had never indexed `CURRENT-EVIDENCE.md`, and that `index.html`'s method ledger printed Trace, Adapt, and Return twice |
+| Human review | The maintainer reviews and merges the pull request. This is a structural change to a public repository, so it opens ready rather than draft and waits for him. No file was merged or pushed by the assistant |
+| Sensitive material | None involved. No participant material, names, or consent records entered the repository, and nothing in `RIGHTS-AND-CONSENT.md`, `SECURITY.md`, the consent-register template, or the public-safe gate in the checker was touched |
+
 ## 2026-08-28 two readerships, crosswalk, and synthesis
 
 | Field | Record |

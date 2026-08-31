@@ -1,8 +1,10 @@
 # Data maturity audit
 
-Audit of the kit's data layer, first written against commit `a2044a9` on 2026-08-25 and revised on 2026-08-26 when the follow-up tripwire it ranked first was built. It reads the infrastructure that carries evidence: the boundary, the schema, the checker, the records, and the documents that must stay consistent with them. It does not read the evidence itself. [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md) controls what the evidence permits, and nothing here upgrades it.
+Audit of the kit's data layer, first written against commit `a2044a9` on 2026-08-25 and revised on 2026-08-26 when the follow-up tripwire it ranked first was built. It reads the infrastructure that carries evidence: the boundary, the schema, the checker, the records, and the documents that must stay consistent with them. It does not read the evidence itself. [CURRENT-EVIDENCE.md](../CURRENT-EVIDENCE.md) controls what the evidence permits, and nothing here upgrades it.
 
 This audit is maintainer-side and AI-assisted. No second reader has checked it. By the kit's own standard, that limits what it can claim.
+
+It is a dated snapshot in the [open research lane](README.md), not a standing document. Read its levels against the commits it names. A later audit supersedes it rather than editing it.
 
 ## Method
 
@@ -25,20 +27,20 @@ No dimension is at level 5. The kit has no independent contribution, and says so
 
 | Dimension | Level | Evidence |
 |---|---|---|
-| Data boundary | 4 | [data/README.md](data/README.md); schema `additionalProperties: false`; public-safe gating in the checker |
-| Record structure | 4 | [field-test.schema.json](data/field-test.schema.json), Draft 2020-12, 31 required fields, validated in CI |
-| Claim integrity | 4 | `check_record_rules` in [check_repo.py](scripts/check_repo.py) |
+| Data boundary | 4 | [data/README.md](../data/README.md); schema `additionalProperties: false`; public-safe gating in the checker |
+| Record structure | 4 | [field-test.schema.json](../data/field-test.schema.json), Draft 2020-12, 31 required fields, validated in CI |
+| Claim integrity | 4 | `check_record_rules` in [check_repo.py](../scripts/check_repo.py) |
 | Provenance binding | 2 | `kit_version`, `artifact_version`, version-scoped public-safe decisions |
-| Record base | 4 | [FT-001](data/field-tests/ft-001-alchemy.json), one partial maintainer-side execution |
+| Record base | 4 | [FT-001](../data/field-tests/ft-001-alchemy.json), one partial maintainer-side execution |
 | Instrument coverage | 2 | `scope.instrument` enum, no station-level values |
-| Follow-up lifecycle | 3 | `follow_up` fields required; overdue check in the checker; [follow-up-watch.yml](.github/workflows/follow-up-watch.yml) |
-| Cross-artifact consistency | 1 | [FIELD-TRIALS.md](FIELD-TRIALS.md), `research/`, `data/` hand-synchronized |
-| Private-half custody | 2 | [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md); [consent-register template](templates/consent-register.md) |
+| Follow-up lifecycle | 3 | `follow_up` fields required; overdue check in the checker; [follow-up-watch.yml](../.github/workflows/follow-up-watch.yml) |
+| Cross-artifact consistency | 1 | The [ledger](../CURRENT-EVIDENCE.md#the-ledger), `research/`, and `data/` hand-synchronized |
+| Private-half custody | 2 | [RIGHTS-AND-CONSENT.md](../RIGHTS-AND-CONSENT.md); [consent-register template](../templates/consent-register.md) |
 | Gate accounting | 1 | Version 0.2 target counted by hand |
 
 ### Data boundary, level 4
 
-[data/README.md](data/README.md) declares what may enter `data/`. Every record object validates against a definition that rejects unknown fields, so a record cannot smuggle an extra identifying field past review. The checker refuses a record without a `clear` public-safe decision; the docs scope that decision to the exact artifact version, and the provenance reading below covers what the checker cannot verify about the scoping. FT-001 passed through all of it. The boundary against free prose in `research/` reports rests on review rather than tooling, and has to: no script can read consent.
+[data/README.md](../data/README.md) declares what may enter `data/`. Every record object validates against a definition that rejects unknown fields, so a record cannot smuggle an extra identifying field past review. The checker refuses a record without a `clear` public-safe decision; the docs scope that decision to the exact artifact version, and the provenance reading below covers what the checker cannot verify about the scoping. FT-001 passed through all of it. The boundary against free prose in `research/` reports rests on review rather than tooling, and has to: no script can read consent.
 
 ### Record structure, level 4
 
@@ -64,17 +66,17 @@ One record has exercised the full pipeline: schema, semantic rules, public-safe 
 
 The schema requires an observation window, a review date, and a follow-up status. Until 2026-08-26 nothing compared that date to the calendar, and CI ran on push and pull request only, so a repository nobody touched checked nothing. FT-001's window closes on 2026-11-22 and no mechanism would have noticed. The kit's core rule is that absence never defaults to favorable, and an expired window nobody closes is exactly such an absence, carried silently as an open status.
 
-The checker now reads the review date. A record left `open` or `not-started` past that date raises a warning on any run, and [follow-up-watch.yml](.github/workflows/follow-up-watch.yml) runs weekly on the calendar with `--fail-on-overdue-follow-up`, which promotes the warning to a failure and opens an issue. The issue matters more than the failure: a warning printed into a scheduled run that nobody opens is the same silence in a different place. An ordinary pull request only ever warns, because a contributor should not fail CI over a maintainer's calendar, which is the reasoning the orphan check already uses.
+The checker now reads the review date. A record left `open` or `not-started` past that date raises a warning on any run, and [follow-up-watch.yml](../.github/workflows/follow-up-watch.yml) runs weekly on the calendar with `--fail-on-overdue-follow-up`, which promotes the warning to a failure and opens an issue. The issue matters more than the failure: a warning printed into a scheduled run that nobody opens is the same silence in a different place. An ordinary pull request only ever warns, because a contributor should not fail CI over a maintainer's calendar, which is the reasoning the orphan check already uses.
 
 Two limits keep this at level 3 rather than 4. FT-001 passes the check today, but the overdue branch has only ever fired against a simulated reference date (`PURELAND_TODAY`), so no real record has gone overdue yet and 2026-11-22 is the first real test. And the watch rests on a GitHub schedule, which GitHub disables in a public repository after 60 days without activity. FT-001's window is 90 days long, so a quiet enough autumn can switch the tripwire off before the date it exists for. GitHub emails the maintainer before disabling, and the job can be run by hand, which makes that email part of the mechanism rather than a footnote to it. A tripwire whose own liveness depends on the activity it cannot guarantee is not yet a closed hole.
 
 ### Cross-artifact consistency, level 1
 
-Each accepted record lives three times: the JSON in `data/field-tests/`, the report in `research/field-tests/`, and the row in [FIELD-TRIALS.md](FIELD-TRIALS.md). Nothing checks that the three agree on existence, version, or status. One person can hold three copies of one record in their head. Nobody holds three copies of ten, and ten is the stated target.
+Each accepted record lives three times: the JSON in `data/field-tests/`, the report in `research/field-tests/`, and the row in the [ledger](../CURRENT-EVIDENCE.md#the-ledger). Nothing checks that the three agree on existence, version, or status. One person can hold three copies of one record in their head. Nobody holds three copies of ten, and ten is the stated target.
 
 ### Private-half custody, level 2
 
-[RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md) declares what the private review record must contain, and the [consent-register template](templates/consent-register.md) gives it a shape. Whether the maintainer-side private record for FT-001 exists where the declaration says is not verifiable from this repository, and must not become verifiable here: publishing the custody trail would publish what it protects. The move this dimension allows is maintainer-side only, a private note naming where the private halves live, their retention terms, and their review dates.
+[RIGHTS-AND-CONSENT.md](../RIGHTS-AND-CONSENT.md) declares what the private review record must contain, and the [consent-register template](../templates/consent-register.md) gives it a shape. Whether the maintainer-side private record for FT-001 exists where the declaration says is not verifiable from this repository, and must not become verifiable here: publishing the custody trail would publish what it protects. The move this dimension allows is maintainer-side only, a private note naming where the private halves live, their retention terms, and their review dates.
 
 ### Gate accounting, level 1
 

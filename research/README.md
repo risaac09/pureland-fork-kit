@@ -26,6 +26,11 @@ Do not publish:
 
 ## Current status
 
-No public research packet has been released. [Current evidence](../CURRENT-EVIDENCE.md) synthesizes the [research-status ledger](../RESEARCH-STATUS.md), the [field-trial ledger](../FIELD-TRIALS.md), and one maintainer-side partial dry run, [FT-001](field-tests/ft-001-alchemy.md). FT-001 is AI-assisted, not independent, and not a research packet. The repository also contains a [provenance record](../PROVENANCE.md) and an [AI-assistance record](../AI-ASSISTANCE.md).
+No public research packet has been released. [Current evidence](../CURRENT-EVIDENCE.md) holds the [field-trial ledger](../CURRENT-EVIDENCE.md#the-ledger) and synthesizes it with the [research-status ledger](../RESEARCH-STATUS.md) and one maintainer-side partial dry run, [FT-001](field-tests/ft-001-alchemy.md). FT-001 is AI-assisted, not independent, and not a research packet. The repository also contains a [provenance record](../PROVENANCE.md) and an [AI-assistance record](../AI-ASSISTANCE.md).
+
+## Records in this lane
+
+- [field-tests/ft-001-alchemy.md](field-tests/ft-001-alchemy.md): FT-001, the maintainer-side partial dry run.
+- [data-maturity-audit.md](data-maturity-audit.md): a dated audit of the infrastructure that carries the evidence, maintainer-side and AI-assisted, with no second reader. It reads the boundary, the schema, the checker, and the records. It does not read the evidence.
 
 Future packets should name their sources, the rights basis, the search coverage, the method, the uncertainty, the corrections, and the unresolved contradictions. A public link alone is not evidence of review or permission.

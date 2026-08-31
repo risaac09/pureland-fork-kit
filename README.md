@@ -22,7 +22,13 @@ Read the project in this order. It is the human lane's order, and a model reads 
 5. [Testing](TESTING.md): the testing program and evidence discipline.
 6. [Current evidence](CURRENT-EVIDENCE.md): the observed record, counterexplanations, missing evidence, and narrow current conclusion.
 
-The [brief](BRIEF.md) gives a shorter external overview.
+## Why the unfinished parts stay visible
+
+PureLand shares the whole practice, including the unfinished parts. No single part keeps itself honest alone, and work built from other people's teachings, attention, and expression owes back more than an output.
+
+That rule licenses things a reader may mistake for neglect. [ORIGIN.md](ORIGIN.md) is a section that says it is not written yet and names who has to write it. The [crosswalk](CROSSWALK.md) leaves cells empty where one lane has no counterpart, and an empty cell there is a finding. The evidence record sets what nobody observed beside what somebody did. Absence gets recorded as absence, and it never defaults to favorable.
+
+The rule does not license saying the same thing in four documents. Repetition is a drift surface rather than honesty, because the first update that misses a copy leaves a stale claim standing.
 
 ## Two readerships
 
@@ -45,13 +51,13 @@ The [front page](index.html) is served at [risaac09.github.io/pureland-fork-kit]
 
 Walk [the journey](JOURNEY.md): Ground, Observe, Map, Trace, Adapt, Return. Bring one real information practice and start on your own, or propose a [PureLand Field Pilot](OFFERING.md), the same journey walked with Isaac as a small, bounded inquiry.
 
-The toolbox includes the [practice frame](PRACTICE-FRAME.md), [openness scorecard](SCORECARD.md), [extraction check](EXTRACTION-CHECK.md), [facilitation protocol](PROTOCOL.md), [AI system annex](AI-SYSTEM-ANNEX.md), and [field-testing discipline](FIELD-TESTING.md).
+The toolbox includes the [practice frame](PRACTICE-FRAME.md), [openness scorecard](SCORECARD.md), [extraction check](EXTRACTION-CHECK.md), [facilitation protocol](PROTOCOL.md), [AI system annex](AI-SYSTEM-ANNEX.md), and the [field-testing discipline](TESTING.md#before-a-test) inside the testing program.
 
 ## Current evidence
 
 The only public test record is [FT-001](research/field-tests/ft-001-alchemy.md), a maintainer-side, AI-assisted partial dry run on Alchemy. No human performed Observe. No second reader or affected user challenged the reading. The assessor chose the seven-surface boundary. The assessor interpreted the journey as adding some analysis, but FT-001 cannot separate that effect from familiarity, time spent, or the extraction check alone. It also records a conflict between traceability and intentional deletion, plus one executed adaptation with an open follow-up window.
 
-FT-001 shows no reliability, validity, causal effect, or attention-sovereignty outcome. See [current evidence](CURRENT-EVIDENCE.md), the [field-trial ledger](FIELD-TRIALS.md), and the [research-status ledger](RESEARCH-STATUS.md).
+FT-001 shows no reliability, validity, causal effect, or attention-sovereignty outcome. See [current evidence](CURRENT-EVIDENCE.md), which holds the [field-trial ledger](CURRENT-EVIDENCE.md#the-ledger), and the [research-status ledger](RESEARCH-STATUS.md).
 
 ## Public boundary
 

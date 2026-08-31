@@ -33,7 +33,7 @@ If neither applies, the six stations below are the whole path.
 
 Name the practice, the system boundary, the purpose, and the affected people. Record what evidence exists before you score anything, and obtain permission for any participant material before it enters the walk. Then write one result that would count against the method.
 
-This is the before-use discipline of [field testing](FIELD-TESTING.md). The disconfirming condition comes first because confirmation alone is weak evidence.
+This is the [before-use discipline](TESTING.md#before-a-test) of field testing. The disconfirming condition comes first because confirmation alone is weak evidence.
 
 ## 2. Observe
 
@@ -57,11 +57,11 @@ Choose one small change to test from what stations 2 through 4 surfaced. Record 
 
 ## 6. Return
 
-Write up what happened with the [field-test template](templates/field-test.md), following [FIELD-TESTING.md](FIELD-TESTING.md). The public issue form is only for Stage 1 scoping. Do not place a completed report, evidence link, or protected detail there. A report may cover the whole walk or a single station, but it may enter a pull request only after the exact report and record versions receive a `clear` public-safe decision.
+Write up what happened with the [field-test template](templates/field-test.md), following the [after-use discipline](TESTING.md#after-a-test). The public issue form is only for Stage 1 scoping. Do not place a completed report, evidence link, or protected detail there. A report may cover the whole walk or a single station, but it may enter a pull request only after the exact report and record versions receive a `clear` public-safe decision.
 
 Collect no participant material by default. Return can remain private or withheld when publication permission, privacy, confidentiality, or community authority requires it. Record the public classification without exposing the protected reason or material.
 
-Cleared and accepted reports join the [field-trial ledger](FIELD-TRIALS.md) as links, not endorsements. Private learning, refusal, and `unmeasurable` outcomes may end without a public report.
+Cleared and accepted reports join the [field-trial ledger](CURRENT-EVIDENCE.md#the-ledger) as links, not endorsements. Private learning, refusal, and `unmeasurable` outcomes may end without a public report.
 
 ## When the path ends
 

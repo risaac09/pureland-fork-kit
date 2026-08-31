@@ -1,6 +1,6 @@
 # Research status
 
-Version 0.1 is a prototype for generating and testing hypotheses. It is not validated, and it does not certify openness, reciprocity, attention sovereignty, or Buddhist practice. [HYPOTHESIS.md](HYPOTHESIS.md) defines the provisional constructs and classification rule. [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md) holds the current evidence record. [DATA-MATURITY.md](DATA-MATURITY.md) audits the infrastructure that carries the record.
+Version 0.1 is a prototype for generating and testing hypotheses. It is not validated, and it does not certify openness, reciprocity, attention sovereignty, or Buddhist practice. [HYPOTHESIS.md](HYPOTHESIS.md) defines the provisional constructs and classification rule. [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md) holds the current evidence record. The [data-maturity audit](research/data-maturity-audit.md) reads the infrastructure that carries the record.
 
 Every status used in the table below:
 
@@ -35,26 +35,10 @@ A practice-derived claim is not weaker than a synthesized one. It is a different
 
 ## Current evidence
 
-- One maintainer-side, AI-assisted partial dry run: [FT-001](research/field-tests/ft-001-alchemy.md), the journey walked on Alchemy. It is not independent and does not count toward the version 0.2 gate.
-- Its follow-up window remains open through 2026-11-22.
-- No human Observe result, affected-user challenge, independent reading, person-level action outcome, or causal result is available.
-- No published independent field trial.
-- No reliability, validity, or outcome estimate.
-- No basis for an average, composite score, threshold, benchmark, or certification.
+Version 0.1 rests on one maintainer-side, AI-assisted partial dry run, [FT-001](research/field-tests/ft-001-alchemy.md). It is not independent. No human Observe result, affected-user challenge, independent reading, person-level action outcome, or causal result exists. No reliability, validity, or outcome estimate exists. Nothing here supports an average, composite score, threshold, benchmark, or certification.
+
+[CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md) holds the record itself, the [ledger](CURRENT-EVIDENCE.md#the-ledger), the open follow-up window, and what nobody observed. Those move there when a trial lands, in one place rather than several. The [version 0.2 gate](TESTING.md#provisional-version-02-planning-target) states its numbers once, in the testing program.
 
 ## AI-assisted research record
 
-When AI assists with source discovery, synthesis, coding, or drafting, disclose:
-
-- the tool and model, if known;
-- the date and task;
-- the material provided to the system;
-- how a human verified the output;
-- the corrections made after verification;
-- the material withheld for consent or privacy.
-
-AI output is not a source. Cite the document that supports the claim.
-
-## Provisional version 0.2 planning target
-
-The current planning target is five to ten independent applications in at least three contexts, with two readers where practical. Those numbers are maintainer-chosen and have no derived empirical basis. Keep the record of disagreement, participant objections, failed adaptations, missing evidence, and changes to the instrument. Do not tune only toward agreement.
+The disclosure rule, and every disclosure made under it, live in [AI-ASSISTANCE.md](AI-ASSISTANCE.md). AI output is not a source. Cite the document that supports the claim.
