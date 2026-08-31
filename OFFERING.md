@@ -35,7 +35,7 @@ The pilot walks the six stations of [the journey](JOURNEY.md): Ground, Observe, 
 
 ## What the pilot may produce
 
-A defined system boundary, a consent and rights plan, a profile across the four access questions, an extraction and reciprocity profile, one tested change, and a documented correction, disagreement, refusal, or method revision. It may instead produce private learning with no public artifact, or an unmeasurable result that stays unresolved. A public-safe field report happens only when artifact-specific consent and rights permit one.
+The pilot may produce a defined system boundary, a consent and rights plan, a profile across the four access questions, an extraction and reciprocity profile, one tested change, and a documented correction, disagreement, refusal, or method revision. It may instead produce private learning with no public artifact, or an unmeasurable result that stays unresolved. A public-safe field report happens only when artifact-specific consent and rights permit one.
 
 The pilot does not require participant recordings, transcripts, names, film production, measurable outcomes, or a public field report. Refusal is a valid result. No participant material belongs in the public repository by default.
 
