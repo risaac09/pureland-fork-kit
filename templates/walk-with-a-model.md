@@ -2,9 +2,9 @@
 
 ## What this is
 
-A packet you paste into any language model. Together you walk the six stations of [the journey](../JOURNEY.md) on one bounded practice: how language models sit in your own information intake, transformation, expression, and return. That is what "on your models" means here. The model does the [agent lane](../llms.txt) work: fetching, tabulating, drafting a skeleton. The cells only a person can fill stay yours, and the model hands each one back.
+A packet you paste into any language model. Together you walk the six stations of [the journey](../JOURNEY.md) on one bounded practice: how language models sit in your own information intake, transformation, expression, and return. That is what "on your models" means here. The model does the [agent-lane](../llms.txt) work: fetching, tabulating, drafting a skeleton. The cells only a person can fill stay yours, and the model hands each one back.
 
-[CURRENT-EVIDENCE.md](../CURRENT-EVIDENCE.md) caps what this kit has shown, and a walk with a model raises nothing.
+[CURRENT-EVIDENCE.md](../CURRENT-EVIDENCE.md) caps what this kit has shown. A walk with a model does not raise that cap.
 
 What comes out is a partial record at best. `unmeasurable` is a valid result, and so is a walk that stops early.
 
@@ -73,10 +73,9 @@ and a review date the person sets.
 
 Return. Emit a field-test record skeleton following
 https://risaac09.github.io/pureland-fork-kit/data/field-test.schema.json. Set
-`assessor.relationship_to_practice` to the person's own relationship. Fill
-`human_observe.status` only from what the person reported, and ask them to
-confirm the word before you write `performed`. Name yourself and this packet in
-`ai_assistance`. Set `outcome.classification` to `unmeasurable` wherever
+`assessor.relationship_to_practice` to the person's own relationship. Leave
+`human_observe.status` empty: the person fills it from what they did, and you
+never write `performed`. Name yourself and this packet in `ai_assistance`. Set `outcome.classification` to `unmeasurable` wherever
 required evidence is absent. Leave every field you could not evidence empty
 rather than guessing at it. Tell the person the record is theirs. It enters
 the public ledger only through Stage 1 of

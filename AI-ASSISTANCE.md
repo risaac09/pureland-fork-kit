@@ -19,10 +19,10 @@ AI output is not a source. Cite the document that supports the claim. Every entr
 |---|---|
 | Tool | Claude Code |
 | Task | Writing `templates/walk-with-a-model.md`, the packet a person pastes into a language model to walk the six stations on their own use of language models, and wiring it into `llms.txt`, `TOOLBOX.md`, `JOURNEY.md`, `README.md`, `CROSSWALK.md`, `RESEARCH-STATUS.md`, `index.html`, `CHANGELOG.md`, and `REQUIRED_ARCHITECTURE` |
-| Material provided | The maintainer's written brief for the packet, fixing its sections, budgets, and wiring, and the twelve repository files it named for reading: `llms.txt`, `CROSSWALK.md`, `JOURNEY.md`, `PRACTICE-FRAME.md`, `AI-SYSTEM-ANNEX.md`, `EXTRACTION-CHECK.md`, `SCORECARD.md`, `TESTING.md`, `templates/field-test.md`, `data/field-test.schema.json`, `RIGHTS-AND-CONSENT.md`, and `CONTRIBUTING.md` |
+| Material provided | The orchestrating assistant's written brief for the packet, drafted from the clean read the maintainer approved that day and fixing the packet's sections, budgets, and wiring, plus the twelve repository files it named for reading: `llms.txt`, `CROSSWALK.md`, `JOURNEY.md`, `PRACTICE-FRAME.md`, `AI-SYSTEM-ANNEX.md`, `EXTRACTION-CHECK.md`, `SCORECARD.md`, `TESTING.md`, `templates/field-test.md`, `data/field-test.schema.json`, `RIGHTS-AND-CONSENT.md`, and `CONTRIBUTING.md` |
 | Source verification | Every station instruction was checked against the instrument it names, and every schema field named inside the packet (`assessor.relationship_to_practice`, `human_observe.status`, `ai_assistance`, `outcome.classification`) was confirmed present in `data/field-test.schema.json` before it was written. Nothing the packet asks a model to do sits outside the may-generate list in `llms.txt`, and nothing it hands back sits outside the hand-back list |
 | Corrections after verification | The may-generate list ended its fifth item with a period as the closing item, so that item took a semicolon when the new one moved to the end. The packet was then read twice, once as the model it addresses and once as a reader who has never seen the repository, and the sentences that tripped either reader were rewritten |
-| Human review | Layer 1 reviews the diff and the maintainer merges |
+| Human review | The orchestrating assistant reviewed the diff at the gate and corrected the Return step so the model leaves `human_observe.status` empty rather than writing `performed` on a confirmation; the maintainer merges |
 | Sensitive material | None involved |
 
 ## 2026-08-31 hindrance renderings
