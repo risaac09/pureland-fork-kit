@@ -48,6 +48,38 @@
   --rule-hairline-opacity: 0.35;
   --rule-key-weight: 2px;
   --rule-key-color: var(--color-brass);
+
+  /* Motion. Two classes only: the event (draws once, stays) and the dial
+     (scroll-linked, retreats with the hand, never moves on its own). */
+
+  /* An event stroke lays down at a hand's pace. */
+  --motion-draw-duration: 2s;
+
+  /* Strokes arrive in order, not at once. */
+  --motion-draw-stagger: 0.24s;
+
+  /* Ink moves and then settles, the way a stroke ends. */
+  --motion-ease-settle: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Secondary marks arrive without their own event. */
+  --motion-fade-duration: 1.4s;
+
+  /* A dial maps position. Easing on a dial misreports the hand. */
+  --motion-ease-linked: linear;
+
+  /* The nib: the thread's view-timeline band, a 4vh window on the horizon.
+     Pairs with --horizon-y. Change them together. */
+  --motion-thread-inset: 40% 56%;
+
+  /* Held-scene traverse heights. Modest on purpose: extra scroll is
+     manufactured dwell. */
+  --motion-scene-observe: 180vh;
+  --motion-scene-trace: 150vh;
+
+  /* The horizon's height. It lives here, not in index.html, so the
+     thread band and the plate pins cannot drift from the line they aim
+     at. */
+  --horizon-y: 42vh;
 }
 
 /* Swap ground/text roles for dark contexts. Accents stay the same:
@@ -61,5 +93,15 @@
     --color-text: var(--color-bone);
     --color-text-secondary: color-mix(in srgb, var(--color-graphite), var(--color-bone) 40%);
     --color-rule: color-mix(in srgb, var(--color-graphite), var(--color-bone) 40%);
+  }
+}
+
+/* On a phone the horizon sits lower and the band follows it. The Observe
+   scene shortens so the walk stays walkable with a thumb. */
+@media (max-width: 640px) {
+  :root {
+    --horizon-y: 30vh;
+    --motion-thread-inset: 28% 68%;
+    --motion-scene-observe: 140vh;
   }
 }
