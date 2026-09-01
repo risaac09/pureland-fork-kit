@@ -41,7 +41,7 @@ The first release. Everything below was written between 2026-08-17 and 2026-09-0
 - Fixed a dark-mode contrast defect in `design/tokens.css` and added the `--measure` and `--color-rule` tokens `index.html` needed, aliasing `--rule-hairline-color` to `--color-rule`. (#10)
 - Added `.nojekyll` so Pages serves the repository as static files with no build step. (#10)
 - Widened `scripts/check_repo.py` to read HTML links, validate field-test records against a schema, and warn on unreachable content files. (#11)
-- Moved schema validation onto `jsonschema` and added `requirements.txt` for CI, replacing a hand-rolled validator that failed open on the privacy gate. ({"message":"No commit found for SHA: ")
+- Moved schema validation onto `jsonschema` and added `requirements.txt` for CI, replacing a hand-rolled validator that failed open on the privacy gate. (#13)
 - Scoped `JOURNEY.md`'s Alchemy claims to what FT-001 supports and matched README's description of the app to it. (#9)
 - Made `PROVENANCE.md` and `AI-ASSISTANCE.md` reachable from the README via `research/README.md`, and linked the provenance record from `BRIEF.md` and `data/README.md` from `CONTRIBUTING.md`. (#8)
 - Reconciled README's description of `FIELD-TESTING.md` with `JOURNEY.md`: it is the instrument the ground and return stations use directly, not a discipline running alongside them. (#8)
