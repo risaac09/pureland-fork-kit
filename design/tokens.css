@@ -76,8 +76,9 @@
   --motion-scene-observe: 180vh;
   --motion-scene-trace: 150vh;
 
-  /* The horizon's height, promoted from index.html so the thread band
-     cannot drift from the line it aims at. */
+  /* The horizon's height. It lives here, not in index.html, so the
+     thread band and the plate pins cannot drift from the line they aim
+     at. */
   --horizon-y: 42vh;
 }
 

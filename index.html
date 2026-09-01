@@ -549,14 +549,15 @@
   .colophon-mark { width: 2.6rem; height: auto; }
 
   /* ---------- scroll-linked motion ---------- */
-  /* The top rung of the ladder. Gated three ways: .draws means JS ran,
-     @supports means the browser has scroll-driven animation, and the media
-     query means the reader allows motion. Every other rung keeps the
-     draw-once behavior above. The IntersectionObserver keeps observing
-     these elements on purpose: a running scroll animation outranks the
-     .drawn transition in the cascade, and if a timeline ever fails to
-     attach the animation stops applying and .drawn still lands the line.
-     Longhands only: the animation shorthand resets animation-timeline. */
+  /* The top rung of the ladder. Three gates guard it. The .draws class
+     means JS ran. The @supports test means the browser has scroll-driven
+     animation. The media query means the reader allows motion. Every
+     other rung keeps the draw-once behavior above. The
+     IntersectionObserver keeps observing these elements on purpose: a
+     running scroll animation outranks the .drawn transition in the
+     cascade, and if a timeline ever fails to attach the animation stops
+     applying and .drawn still lands the line. Longhands only: the
+     animation shorthand resets animation-timeline. */
   @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {
 
@@ -597,8 +598,7 @@
       }
       html.draws #station-observe .plate {
         position: sticky;
-        top: 48vh;
-        align-self: start;
+        top: calc(var(--horizon-y) + 6vh);
       }
       html.draws #station-observe .plate [data-draw] {
         animation-name: draw-line;
@@ -608,18 +608,23 @@
         transition: none;
       }
 
-      /* Observe draws the chain in stages: the stem, then the split, then
-         the further splits. Stop the hand and proliferation stops
-         mid-split. Bare percentages span the timeline's full cover
-         range, and every stage completes before the sticky plate
-         releases. */
-      html.draws #station-observe .plate path:nth-child(1) { animation-range: 15% 32%; }
+      /* Observe draws the chain in stages. The stem rises first, and the
+         splits follow. Stop the hand and proliferation stops mid-split.
+         Bare percentages span the timeline's full cover range. The end
+         of the last range is load-bearing: every stage must complete
+         before the sticky plate releases, and the release point moves
+         with the scene height, the sticky top, the passage's rendered
+         height, and the viewport. Measured releases sit at 0.63 to 0.67
+         of cover across 375, 768, and 1280 wide viewports, so the last
+         stage ends at 58% with margin. Retune these after changing any
+         of those four inputs. */
+      html.draws #station-observe .plate path:nth-child(1) { animation-range: 15% 30%; }
       html.draws #station-observe .plate path:nth-child(2),
-      html.draws #station-observe .plate path:nth-child(3) { animation-range: 32% 52%; }
+      html.draws #station-observe .plate path:nth-child(3) { animation-range: 30% 45%; }
       html.draws #station-observe .plate path:nth-child(4),
       html.draws #station-observe .plate path:nth-child(5),
       html.draws #station-observe .plate path:nth-child(6),
-      html.draws #station-observe .plate path:nth-child(7) { animation-range: 52% 70%; }
+      html.draws #station-observe .plate path:nth-child(7) { animation-range: 45% 58%; }
 
       /* Below 981px the station grid is two columns and two rows, with
          the plate under the body. Explicit rows send a scene's extra
@@ -629,17 +634,10 @@
         html.draws #station-observe { grid-template-rows: auto minmax(0, 1fr); }
       }
 
-      /* On a phone the plate pins later, because it sits under the
-         passage, so the stages shift deeper into the scene. */
+      /* On a phone the horizon sits higher on the screen, so the plate
+         hangs a little deeper beneath it. */
       @media (max-width: 640px) {
-        html.draws #station-observe .plate { top: 38vh; }
-        html.draws #station-observe .plate path:nth-child(1) { animation-range: 35% 48%; }
-        html.draws #station-observe .plate path:nth-child(2),
-        html.draws #station-observe .plate path:nth-child(3) { animation-range: 48% 60%; }
-        html.draws #station-observe .plate path:nth-child(4),
-        html.draws #station-observe .plate path:nth-child(5),
-        html.draws #station-observe .plate path:nth-child(6),
-        html.draws #station-observe .plate path:nth-child(7) { animation-range: 60% 70%; }
+        html.draws #station-observe .plate { top: calc(var(--horizon-y) + 8vh); }
       }
 
       /* Trace holds a scene at 641px and up. On a phone one held scene is
@@ -653,8 +651,7 @@
         }
         html.draws #station-trace .plate {
           position: sticky;
-          top: 48vh;
-          align-self: start;
+          top: calc(var(--horizon-y) + 6vh);
         }
         html.draws #station-trace .plate [data-draw] {
           animation-name: draw-line;
@@ -664,19 +661,25 @@
           transition: none;
         }
         /* What leaves draws before what returns, in the caption's reading
-           order. The flow that never returns draws last, and the two open
-           marks land before the plate releases. */
+           order. The flow that never returns draws last. The same
+           completion rule as Observe applies: measured releases sit at
+           0.58 to 0.61 of cover across 768 and 1280 wide viewports, so
+           the two open marks land by 52% with margin. Retune after
+           changing the scene height, the sticky top, the passage copy,
+           or for a much taller viewport. */
         html.draws #station-trace .plate path:nth-child(1),
-        html.draws #station-trace .plate path:nth-child(2) { animation-range: 16% 24%; }
-        html.draws #station-trace .plate path:nth-child(3) { animation-range: 24% 33%; }
-        html.draws #station-trace .plate path:nth-child(4) { animation-range: 33% 41%; }
-        html.draws #station-trace .plate path:nth-child(5) { animation-range: 41% 49%; }
-        html.draws #station-trace .plate path:nth-child(6) { animation-range: 49% 56%; }
-        html.draws #station-trace .plate path:nth-child(7) { animation-range: 56% 63%; }
+        html.draws #station-trace .plate path:nth-child(2) { animation-range: 16% 22%; }
+        html.draws #station-trace .plate path:nth-child(3) { animation-range: 22% 27%; }
+        html.draws #station-trace .plate path:nth-child(4) { animation-range: 27% 32%; }
+        html.draws #station-trace .plate path:nth-child(5) { animation-range: 32% 37%; }
+        html.draws #station-trace .plate path:nth-child(6) { animation-range: 37% 42%; }
+        html.draws #station-trace .plate path:nth-child(7) { animation-range: 42% 47%; }
         html.draws #station-trace .plate path:nth-child(8),
-        html.draws #station-trace .plate path:nth-child(9) { animation-range: 63% 67%; }
+        html.draws #station-trace .plate path:nth-child(9) { animation-range: 47% 52%; }
 
-        @media (max-width: 980px) {
+        /* The two bounds read together: this rule lives in the stacked
+           641 to 980 band. */
+        @media (min-width: 641px) and (max-width: 980px) {
           html.draws #station-trace { grid-template-rows: auto minmax(0, 1fr); }
         }
       }
@@ -1135,9 +1138,9 @@
               <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-1">
                 <title id="s-1">An empty specimen slot.</title>
                 <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
-                  <path data-draw pathLength="1" style="--i:0" d="M 4 4 H 116 V 60 H 4 Z"/>
-                  <path data-draw pathLength="1" style="--i:1" d="M 4 14 H 14 V 4"/>
-                  <path data-draw pathLength="1" style="--i:1" d="M 116 50 H 106 V 60"/>
+                  <path d="M 4 4 H 116 V 60 H 4 Z"/>
+                  <path d="M 4 14 H 14 V 4"/>
+                  <path d="M 116 50 H 106 V 60"/>
                 </g>
               </svg>
               <span class="stamp">empty</span>
@@ -1149,9 +1152,9 @@
               <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-2">
                 <title id="s-2">An empty specimen slot.</title>
                 <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
-                  <path data-draw pathLength="1" style="--i:0" d="M 4 4 H 116 V 60 H 4 Z"/>
-                  <path data-draw pathLength="1" style="--i:1" d="M 4 14 H 14 V 4"/>
-                  <path data-draw pathLength="1" style="--i:1" d="M 116 50 H 106 V 60"/>
+                  <path d="M 4 4 H 116 V 60 H 4 Z"/>
+                  <path d="M 4 14 H 14 V 4"/>
+                  <path d="M 116 50 H 106 V 60"/>
                 </g>
               </svg>
               <span class="stamp">empty</span>
@@ -1163,9 +1166,9 @@
               <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-3">
                 <title id="s-3">An empty specimen slot.</title>
                 <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
-                  <path data-draw pathLength="1" style="--i:0" d="M 4 4 H 116 V 60 H 4 Z"/>
-                  <path data-draw pathLength="1" style="--i:1" d="M 4 14 H 14 V 4"/>
-                  <path data-draw pathLength="1" style="--i:1" d="M 116 50 H 106 V 60"/>
+                  <path d="M 4 4 H 116 V 60 H 4 Z"/>
+                  <path d="M 4 14 H 14 V 4"/>
+                  <path d="M 116 50 H 106 V 60"/>
                 </g>
               </svg>
               <span class="stamp">empty</span>
@@ -1177,9 +1180,9 @@
               <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-4">
                 <title id="s-4">An empty specimen slot.</title>
                 <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
-                  <path data-draw pathLength="1" style="--i:0" d="M 4 4 H 116 V 60 H 4 Z"/>
-                  <path data-draw pathLength="1" style="--i:1" d="M 4 14 H 14 V 4"/>
-                  <path data-draw pathLength="1" style="--i:1" d="M 116 50 H 106 V 60"/>
+                  <path d="M 4 4 H 116 V 60 H 4 Z"/>
+                  <path d="M 4 14 H 14 V 4"/>
+                  <path d="M 116 50 H 106 V 60"/>
                 </g>
               </svg>
               <span class="stamp">empty</span>
@@ -1191,9 +1194,9 @@
               <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-5">
                 <title id="s-5">An empty specimen slot.</title>
                 <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
-                  <path data-draw pathLength="1" style="--i:0" d="M 4 4 H 116 V 60 H 4 Z"/>
-                  <path data-draw pathLength="1" style="--i:1" d="M 4 14 H 14 V 4"/>
-                  <path data-draw pathLength="1" style="--i:1" d="M 116 50 H 106 V 60"/>
+                  <path d="M 4 4 H 116 V 60 H 4 Z"/>
+                  <path d="M 4 14 H 14 V 4"/>
+                  <path d="M 116 50 H 106 V 60"/>
                 </g>
               </svg>
               <span class="stamp">empty</span>
@@ -1205,9 +1208,9 @@
               <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-6">
                 <title id="s-6">An empty specimen slot.</title>
                 <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
-                  <path data-draw pathLength="1" style="--i:0" d="M 4 4 H 116 V 60 H 4 Z"/>
-                  <path data-draw pathLength="1" style="--i:1" d="M 4 14 H 14 V 4"/>
-                  <path data-draw pathLength="1" style="--i:1" d="M 116 50 H 106 V 60"/>
+                  <path d="M 4 4 H 116 V 60 H 4 Z"/>
+                  <path d="M 4 14 H 14 V 4"/>
+                  <path d="M 116 50 H 106 V 60"/>
                 </g>
               </svg>
               <span class="stamp">empty</span>
@@ -1219,9 +1222,9 @@
               <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-7">
                 <title id="s-7">An empty specimen slot.</title>
                 <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
-                  <path data-draw pathLength="1" style="--i:0" d="M 4 4 H 116 V 60 H 4 Z"/>
-                  <path data-draw pathLength="1" style="--i:1" d="M 4 14 H 14 V 4"/>
-                  <path data-draw pathLength="1" style="--i:1" d="M 116 50 H 106 V 60"/>
+                  <path d="M 4 4 H 116 V 60 H 4 Z"/>
+                  <path d="M 4 14 H 14 V 4"/>
+                  <path d="M 116 50 H 106 V 60"/>
                 </g>
               </svg>
               <span class="stamp">empty</span>
@@ -1233,9 +1236,9 @@
               <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-8">
                 <title id="s-8">An empty specimen slot.</title>
                 <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
-                  <path data-draw pathLength="1" style="--i:0" d="M 4 4 H 116 V 60 H 4 Z"/>
-                  <path data-draw pathLength="1" style="--i:1" d="M 4 14 H 14 V 4"/>
-                  <path data-draw pathLength="1" style="--i:1" d="M 116 50 H 106 V 60"/>
+                  <path d="M 4 4 H 116 V 60 H 4 Z"/>
+                  <path d="M 4 14 H 14 V 4"/>
+                  <path d="M 116 50 H 106 V 60"/>
                 </g>
               </svg>
               <span class="stamp">empty</span>
