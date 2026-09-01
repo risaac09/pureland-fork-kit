@@ -39,7 +39,30 @@ Contrast notes:
 - **Small arrow annotations.** `→` followed by a monospace caption, used the way a specimen label points to a detail.
 - **Strikethrough in Oxblood** for visible revision. A crossed-out line stays legible; it is a record of what changed, not a deletion.
 - **Engraved or etched line illustration.** Thin strokes, no fills, specimen-plate feel, for any future illustration work.
+- **Drawn line-work.** See below.
 - **The fork mark.** See below.
+
+## Drawn line-work
+
+An engraved plate can draw itself once, the way a hand lays down a line. On a screen surface, a diagram may animate its own strokes as they arrive.
+
+Two rules bound the event class, and both come from principle 1. The dial, defined under Motion below, is the one drawing outside them and carries its own rule.
+
+- **Once only.** An event diagram draws when it first reaches the reader and then stays drawn. Nothing loops, redraws on a second pass, or moves again once it has landed. A mark that keeps moving is asking for attention rather than carrying a reading.
+- **`prefers-reduced-motion: reduce` disables the drawing.** Under that setting every diagram is present and complete from the first frame. The reading never depends on having watched the stroke arrive, so a reader who turns motion off loses nothing but the motion.
+
+### Motion
+
+Line-work moves in exactly two ways, and each way has a rule.
+
+- **The event.** A diagram draws once when it first reaches the reader and then stays drawn. The two rules above govern it. Station plates, the fork mark, and every fade are events.
+- **The dial.** The journey thread is scroll-linked: its drawn length is the reader's position on the walk, and its tip rides the fixed horizon. A dial moves only while the hand moves. Scroll back and the line retreats, because the line is a reading of where you are, not a reward for having been there. It never advances on its own, and its timing function is linear, since any easing on a position reading would misreport the hand.
+
+Scroll-linked, never scroll-jacked. The page never takes the scroll away from the hand, and it plays no motion the hand did not make. A held scene comes from `position: sticky` and releases the moment the reader keeps walking. Under `prefers-reduced-motion: reduce` both classes arrive fully drawn and nothing moves. The evidence section refuses motion entirely, in every mode: absence does not perform.
+
+The motion grammar is published as named tokens in [design/tokens.css](tokens.css), beside the palette and type it moves.
+
+The same restraint governs what the drawing may do. It reveals a line that was going to be there anyway. It does not stagger content into view, gate a section behind a scroll, or make the reader wait for a claim.
 
 ## The mark: the fork
 

@@ -6,6 +6,7 @@
 <title>PureLand research-program prototype</title>
 <meta name="description" content="PureLand is a version 0.1 research-program prototype with a forkable toolbox and one maintainer-side partial dry run.">
 <link rel="stylesheet" href="design/tokens.css">
+<script>document.documentElement.classList.add('draws');</script>
 <style>
   * { box-sizing: border-box; }
 
@@ -47,6 +48,8 @@
     opacity: 1;
   }
 
+  .wrap { max-width: 74rem; margin: 0 auto; padding: 0 var(--space-lg); }
+
   /* ---------- persistent horizon ---------- */
   /* A single hairline crosses the full viewport width and stays fixed at
      the same height through the entire scroll: the horizon is given at
@@ -55,7 +58,7 @@
     position: fixed;
     left: 0;
     right: 0;
-    top: 42vh;
+    top: var(--horizon-y);
     height: 1px;
     background: var(--color-rule);
     opacity: 0.3;
@@ -64,6 +67,36 @@
   }
 
   main, header, footer { position: relative; z-index: 1; }
+
+  /* ---------- drawn line-work ---------- */
+  /* Every animated stroke carries pathLength="1", so one dash rule covers
+     paths of any length and any scale. The .draws class is added by the
+     inline script in the head: with scripting off, nothing is hidden. */
+  .diagram, .thread { display: block; overflow: visible; }
+  .diagram [data-draw], .thread [data-draw] { fill: none; }
+
+  html.draws .draw [data-draw] {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  html.draws .draw.drawn [data-draw] {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset var(--motion-draw-duration) var(--motion-ease-settle);
+    transition-delay: calc(var(--i, 0) * var(--motion-draw-stagger));
+  }
+  html.draws .draw [data-fade] { opacity: 0; }
+  html.draws .draw.drawn [data-fade] {
+    opacity: 1;
+    transition: opacity var(--motion-fade-duration) ease;
+    transition-delay: calc(var(--i, 0) * var(--motion-draw-stagger));
+  }
+
+  .ink { stroke: var(--color-text); }
+  .rule-stroke { stroke: var(--color-rule); opacity: 0.55; }
+  .accent { stroke: var(--color-accent); }
+  .out { stroke: var(--color-extraction); }
+  .back { stroke: var(--color-return); }
+  .dashed { stroke-dasharray: 3 3.5; }
 
   /* ---------- header ---------- */
   header {
@@ -110,11 +143,28 @@
 
   header .rule--key { flex: 1; align-self: center; margin-left: var(--space-md); }
 
-  /* ---------- hero ---------- */
-  .hero {
+  /* ---------- arrival ---------- */
+  .arrival {
     max-width: 74rem;
     margin: 0 auto;
-    padding: min(22vh, 9rem) var(--space-lg) var(--space-xxl);
+    padding: min(14vh, 6rem) var(--space-lg) var(--space-xxl);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 15rem);
+    column-gap: var(--space-xxl);
+    align-items: start;
+  }
+
+  .arrival-mark { width: 100%; max-width: 13rem; }
+  .arrival-mark .diagram { width: 100%; height: auto; }
+  .arrival-mark figcaption {
+    font-family: var(--font-ledger);
+    font-size: 0.68rem;
+    letter-spacing: var(--letter-spacing-ledger);
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-top: var(--space-md);
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--color-rule);
   }
 
   /* Sentence case, not the uppercase display treatment used on the section
@@ -122,7 +172,7 @@
      specimen-plate titles; this one is a sentence-length question, and set in
      letterspaced caps it ran to eleven lines and shouted, against the first
      principle in that same document. */
-  .hero h2 {
+  .arrival h2 {
     text-wrap: balance;
     font-family: var(--font-display);
     font-weight: 500;
@@ -133,63 +183,74 @@
     margin: 0 0 var(--space-lg);
   }
 
-  .hero .goals {
+  .ceiling { max-width: 48ch; color: var(--color-text-secondary); margin: 0 0 var(--space-md); }
+
+  .arrival-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
     font-family: var(--font-ledger);
-    font-size: 0.82rem;
+    font-size: 0.76rem;
+    letter-spacing: var(--letter-spacing-ledger);
+    text-transform: uppercase;
+  }
+  .arrival-links a::before { content: "→ "; color: var(--color-accent); }
+
+  .goals {
+    font-family: var(--font-ledger);
+    font-size: 0.78rem;
     letter-spacing: 0.04em;
     color: var(--color-text-secondary);
-    max-width: 46ch;
     display: grid;
     gap: 0.55em;
     padding: 0;
     list-style: none;
-    margin: var(--space-lg) 0 0;
+    margin: 0;
   }
-  .hero .goals li::before { content: "→ "; color: var(--color-accent); }
+  .goals li { padding-top: 0.55em; border-top: 1px solid var(--color-rule); }
+  .goals li:first-child { border-top: none; padding-top: 0; }
 
-  /* ---------- spreads (content + marginalia) ---------- */
-  .spread {
+  /* ---------- section frame ---------- */
+  section.band {
     max-width: 74rem;
     margin: 0 auto;
     padding: var(--space-xxl) var(--space-lg);
-    display: grid;
-    grid-template-columns: minmax(0, 15rem) minmax(0, var(--measure)) minmax(0, 15rem);
-    column-gap: var(--space-xl);
-    align-items: start;
+    border-top: 1px solid var(--color-rule);
   }
-  .spread + .spread { border-top: 1px solid var(--color-rule); border-image: none; }
-  .spread > .rule-top { display: none; }
 
-  .spread .content { grid-column: 2; }
-  .spread .marginalia[data-side="left"] { grid-column: 1; grid-row: 1; }
-  .spread .marginalia[data-side="right"] { grid-column: 3; grid-row: 1; }
-
-  .content h3 {
+  .band > h3, .band > .band-head h3 {
     font-family: var(--font-display);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-display);
-    font-size: clamp(1.5rem, 2.6vw, 1.9rem);
-    margin: 0 0 var(--space-lg);
+    font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+    margin: 0 0 var(--space-md);
     text-wrap: balance;
   }
 
-  .content p { margin: 0 0 var(--space-md); }
-  .content p:last-child { margin-bottom: 0; }
+  .band-head { max-width: var(--measure); margin-bottom: var(--space-xl); }
+  .band-head p { margin: 0 0 var(--space-md); }
+  .band-head p:last-child { margin-bottom: 0; }
 
-  .content blockquote {
+  .band p { margin: 0 0 var(--space-md); }
+
+  blockquote {
     margin: var(--space-lg) 0;
     padding-left: var(--space-md);
     border-left: 2px solid var(--color-accent);
     font-style: italic;
     color: var(--color-text-secondary);
+    max-width: var(--measure);
   }
 
+  /* ---------- ledger ---------- */
   .ledger {
     font-family: var(--font-ledger);
     font-size: 0.8rem;
     letter-spacing: 0.02em;
-    margin: var(--space-lg) 0;
+    margin: 0;
+    max-width: var(--measure);
   }
   .ledger-row {
     display: grid;
@@ -197,14 +258,12 @@
     gap: 0.75em;
     padding: 0.6em 0;
     border-top: 1px solid var(--color-rule);
-    opacity: 1;
   }
   .ledger-row:first-child { border-top: none; }
   .ledger-numeral { color: var(--color-text); }
   .ledger-label {
     display: inline-block;
     line-height: 1.4;
-    padding: 0.08em 0;
     text-transform: uppercase;
     color: var(--color-text);
   }
@@ -214,65 +273,239 @@
     letter-spacing: normal;
     text-transform: none;
     color: var(--color-text-secondary);
-    margin-top: 0.35em;
+    margin: 0.35em 0 0;
   }
 
-  .fork-table {
+  /* ---------- the four fields ---------- */
+  .fields {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     gap: var(--space-lg);
-    margin: var(--space-lg) 0;
+    margin: var(--space-xl) 0 0;
+    padding: 0;
+    list-style: none;
   }
-  .fork-col {
-    padding-top: var(--space-sm);
+  .fields li { padding-top: var(--space-sm); border-top: 1px solid var(--color-rule); }
+  .fields .f-name {
+    display: block;
+    font-family: var(--font-ledger);
+    font-size: 0.72rem;
+    letter-spacing: var(--letter-spacing-ledger);
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+  }
+  .fields p { font-size: 0.95rem; color: var(--color-text-secondary); margin: 0 0 0.6em; }
+  .fields .f-limit { color: var(--color-extraction); }
+  .fields .f-limit::before { content: "boundary: "; color: var(--color-text-secondary); }
+
+  /* ---------- journey spine ---------- */
+  .station {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr) minmax(0, 20rem);
+    column-gap: var(--space-xl);
+    align-items: start;
+    padding: var(--space-xl) 0 var(--space-xxl);
+  }
+
+  /* The rail runs edge to edge through the station's own padding. Without the
+     negative margins the thread stops at each content box and restarts at the
+     next, which breaks the one continuous line the six plates hang from. */
+  .rail {
+    position: relative;
+    align-self: stretch;
+    min-height: 12rem;
+    margin-top: calc(var(--space-xl) * -1);
+    margin-bottom: calc(var(--space-xxl) * -1);
+  }
+  .rail .thread {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .numeral {
+    position: relative;
+    display: inline-block;
+    font-family: var(--font-ledger);
+    font-size: 0.82rem;
+    letter-spacing: var(--letter-spacing-ledger);
+    color: var(--color-text);
+    background: var(--color-ground);
+    padding: 0.4em 0.5em 0.4em 0;
+    margin-top: var(--space-xl);
+    z-index: 1;
+  }
+
+  .station-body h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-display);
+    font-size: 1.15rem;
+    margin: 0.2em 0 var(--space-sm);
+  }
+  .station-body p { margin: 0 0 var(--space-md); max-width: 46ch; }
+  .station-body .instrument {
+    font-family: var(--font-ledger);
+    font-size: 0.72rem;
+    letter-spacing: var(--letter-spacing-ledger);
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+  .station-body .instrument::before { content: "→ "; color: var(--color-accent); }
+
+  .plate { margin: 0; }
+  .plate .diagram {
+    width: 100%;
+    height: auto;
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+    padding: var(--space-md) 0;
+  }
+  .plate figcaption {
+    font-family: var(--font-ledger);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    color: var(--color-text-secondary);
+    margin-top: 0.7em;
+  }
+  .plate figcaption::before { content: "→ "; color: var(--color-accent); }
+
+  /* ---------- evidence ---------- */
+  .evidence-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+    gap: var(--space-xxl);
+    align-items: start;
+  }
+
+  .record {
+    font-family: var(--font-ledger);
+    font-size: 0.74rem;
+    letter-spacing: 0.03em;
+  }
+  .record .r-head {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-ledger);
+    padding-bottom: var(--space-sm);
+    border-bottom: var(--rule-key-weight) solid var(--rule-key-color);
+    margin-bottom: var(--space-sm);
+  }
+  .record dl { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 0; margin: 0; }
+  .record dt {
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    padding: 0.5em 0.5em 0.5em 0;
     border-top: 1px solid var(--color-rule);
   }
-  .fork-col .eyebrow { display: block; margin-bottom: 0.6em; }
-  .fork-col .eyebrow.out::before { content: "→ "; color: var(--color-accent); }
-  .fork-col .eyebrow.back::before { content: "← "; color: var(--color-return); }
-  .fork-col p { font-size: 0.98rem; }
+  .record dd {
+    margin: 0;
+    padding: 0.5em 0;
+    border-top: 1px solid var(--color-rule);
+    color: var(--color-text);
+  }
+  .record dt:first-of-type, .record dl > dt:first-of-type + dd { border-top: none; }
 
-  /* ---------- marginalia ---------- */
-  .marginalia {
+  .slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+    gap: var(--space-lg);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .slot .frame { position: relative; }
+  .slot .diagram { width: 100%; height: auto; }
+  .slot .stamp {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-ledger);
+    font-size: 0.66rem;
+    letter-spacing: var(--letter-spacing-ledger);
+    color: var(--color-text-secondary);
+    opacity: 0.75;
+  }
+  .slot .caption {
+    display: block;
+    font-family: var(--font-ledger);
+    font-size: 0.66rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-top: 0.6em;
+    line-height: 1.5;
+  }
+
+  .absence {
+    max-width: var(--measure);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .correction {
     font-family: var(--font-ledger);
     font-size: 0.76rem;
     line-height: 1.6;
-    letter-spacing: 0.01em;
     color: var(--color-text-secondary);
-    padding-top: 0.3em;
+    max-width: 42ch;
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: 1px dashed var(--color-rule);
   }
-  .marginalia .m-label {
+  .correction .m-label {
     display: block;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--color-text);
     margin-bottom: 0.4em;
   }
-  .marginalia .m-label::before { content: "→ "; color: var(--color-accent); }
-  .marginalia[data-side="right"] .m-label::before { content: "← "; }
-  .marginalia s {
-    color: var(--color-extraction);
-    text-decoration-color: var(--color-extraction);
-  }
-  .marginalia cite { font-style: normal; }
+  .correction .m-label::before { content: "→ "; color: var(--color-accent); }
+  .correction s { color: var(--color-extraction); text-decoration-color: var(--color-extraction); }
 
-  /* ---------- closing / colophon ---------- */
-  .closing {
-    max-width: 74rem;
-    margin: 0 auto;
-    padding: var(--space-xxl) var(--space-lg) var(--space-xl);
-    border-top: 1px solid var(--color-rule);
+  /* ---------- rights and readerships ---------- */
+  .boundary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--space-lg);
+    padding: 0;
+    margin: 0;
+    list-style: none;
   }
-  .closing .content { max-width: var(--measure); }
+  .boundary li { padding-top: var(--space-sm); border-top: 1px solid var(--color-rule); }
+  .boundary .b-name {
+    display: block;
+    font-family: var(--font-ledger);
+    font-size: 0.72rem;
+    letter-spacing: var(--letter-spacing-ledger);
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+  }
+  .boundary p { font-size: 0.95rem; color: var(--color-text-secondary); margin: 0; }
+
+  .exit-line {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+    max-width: 34ch;
+    margin: var(--space-xl) 0 0;
+    text-wrap: balance;
+  }
 
   footer.colophon {
     max-width: 74rem;
     margin: 0 auto;
-    padding: 0 var(--space-lg) var(--space-xxl);
+    padding: var(--space-xxl) var(--space-lg);
   }
   .colophon-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: 4rem repeat(3, minmax(0, 1fr));
     gap: var(--space-lg);
     font-family: var(--font-ledger);
     font-size: 0.72rem;
@@ -280,6 +513,7 @@
     color: var(--color-text-secondary);
     padding-top: var(--space-lg);
     border-top: 1px solid var(--color-rule);
+    align-items: start;
   }
   .colophon-grid .m-label {
     display: block;
@@ -288,42 +522,187 @@
     color: var(--color-text);
     margin-bottom: 0.5em;
   }
+  .colophon-grid p { margin: 0; }
+  .colophon-mark { width: 2.6rem; height: auto; }
 
-  .exit-line {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: 500;
-    font-size: clamp(1.2rem, 2.4vw, 1.5rem);
-    max-width: 34ch;
-    margin: 0 0 var(--space-xl);
-    text-wrap: balance;
+  /* ---------- scroll-linked motion ---------- */
+  /* The top rung of the ladder. Three gates guard it. The .draws class
+     means JS ran. The @supports test means the browser has scroll-driven
+     animation. The media query means the reader allows motion. Every
+     other rung keeps the draw-once behavior above. The
+     IntersectionObserver keeps observing these elements on purpose: a
+     running scroll animation outranks the .drawn transition in the
+     cascade, and if a timeline ever fails to attach the animation stops
+     applying and .drawn still lands the line. Longhands only: the
+     animation shorthand resets animation-timeline. */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+
+      @keyframes draw-line {
+        from { stroke-dashoffset: 1; }
+        to   { stroke-dashoffset: 0; }
+      }
+
+      /* The thread is a dial. Each rail's view timeline collapses the
+         viewport to a 4vh band on the horizon, so the drawn tip rides
+         the horizon and drawn length is the reader's position. Timing is
+         linear: easing a position reading would misreport the hand. */
+      html.draws .station .rail {
+        view-timeline: --rail block;
+        view-timeline-inset: var(--motion-thread-inset);
+      }
+      html.draws .station .rail [data-draw] {
+        animation-name: draw-line;
+        animation-timing-function: var(--motion-ease-linked);
+        animation-fill-mode: both;
+        animation-timeline: --rail;
+        transition: none;
+        /* Chromium computes dash geometry in screen space under
+           non-scaling-stroke, and the rail's non-uniform stretch then
+           scatters a partial dash into fragments. The dial lives in
+           partial states, so it renders in path space. One user unit
+           spans about 1.4px across the rail column. */
+        vector-effect: none;
+        stroke-width: 1;
+      }
+
+      /* Observe holds a scene at every width. The plate pins below the
+         horizon while its passage passes. Sticky releases the moment the
+         reader keeps walking. */
+      html.draws #station-observe {
+        min-height: var(--motion-scene-observe);
+        view-timeline: --scene block;
+      }
+      html.draws #station-observe .plate {
+        position: sticky;
+        top: calc(var(--horizon-y) + 6vh);
+      }
+      html.draws #station-observe .plate [data-draw] {
+        animation-name: draw-line;
+        animation-timing-function: var(--motion-ease-linked);
+        animation-fill-mode: both;
+        animation-timeline: --scene;
+        transition: none;
+      }
+
+      /* Observe draws the chain in stages. The stem rises first, and the
+         splits follow. Stop the hand and proliferation stops mid-split.
+         Bare percentages span the timeline's full cover range. The end
+         of the last range is load-bearing: every stage must complete
+         before the sticky plate releases, and the release point moves
+         with the scene height, the sticky top, the passage's rendered
+         height, and the viewport. Measured releases sit at 0.63 to 0.67
+         of cover across 375, 768, and 1280 wide viewports, so the last
+         stage ends at 58% with margin. Retune these after changing any
+         of those four inputs. */
+      html.draws #station-observe .plate path:nth-child(1) { animation-range: 15% 30%; }
+      html.draws #station-observe .plate path:nth-child(2),
+      html.draws #station-observe .plate path:nth-child(3) { animation-range: 30% 45%; }
+      html.draws #station-observe .plate path:nth-child(4),
+      html.draws #station-observe .plate path:nth-child(5),
+      html.draws #station-observe .plate path:nth-child(6),
+      html.draws #station-observe .plate path:nth-child(7) { animation-range: 45% 58%; }
+
+      /* Below 981px the station grid is two columns and two rows, with
+         the plate under the body. Explicit rows send a scene's extra
+         height to the plate's row, so sticky gets its full travel instead
+         of half. */
+      @media (max-width: 980px) {
+        html.draws #station-observe { grid-template-rows: auto minmax(0, 1fr); }
+      }
+
+      /* On a phone the horizon sits higher on the screen, so the plate
+         hangs a little deeper beneath it. */
+      @media (max-width: 640px) {
+        html.draws #station-observe .plate { top: calc(var(--horizon-y) + 8vh); }
+      }
+
+      /* Trace holds a scene at 641px and up. On a phone one held scene is
+         enough, and Observe is the one that matters there. Every Trace
+         rule lives inside this query, so below it the station keeps the
+         draw-once behavior with no unsetting needed. */
+      @media (min-width: 641px) {
+        html.draws #station-trace {
+          min-height: var(--motion-scene-trace);
+          view-timeline: --scene block;
+        }
+        html.draws #station-trace .plate {
+          position: sticky;
+          top: calc(var(--horizon-y) + 6vh);
+        }
+        html.draws #station-trace .plate [data-draw] {
+          animation-name: draw-line;
+          animation-timing-function: var(--motion-ease-linked);
+          animation-fill-mode: both;
+          animation-timeline: --scene;
+          transition: none;
+        }
+        /* What leaves draws before what returns, in the caption's reading
+           order. The flow that never returns draws last. The same
+           completion rule as Observe applies: measured releases sit at
+           0.58 to 0.61 of cover across 768 and 1280 wide viewports, so
+           the two open marks land by 52% with margin. Retune after
+           changing the scene height, the sticky top, the passage copy,
+           or for a much taller viewport. */
+        html.draws #station-trace .plate path:nth-child(1),
+        html.draws #station-trace .plate path:nth-child(2) { animation-range: 16% 22%; }
+        html.draws #station-trace .plate path:nth-child(3) { animation-range: 22% 27%; }
+        html.draws #station-trace .plate path:nth-child(4) { animation-range: 27% 32%; }
+        html.draws #station-trace .plate path:nth-child(5) { animation-range: 32% 37%; }
+        html.draws #station-trace .plate path:nth-child(6) { animation-range: 37% 42%; }
+        html.draws #station-trace .plate path:nth-child(7) { animation-range: 42% 47%; }
+        html.draws #station-trace .plate path:nth-child(8),
+        html.draws #station-trace .plate path:nth-child(9) { animation-range: 47% 52%; }
+
+        /* The two bounds read together: this rule lives in the stacked
+           641 to 980 band. */
+        @media (min-width: 641px) and (max-width: 980px) {
+          html.draws #station-trace { grid-template-rows: auto minmax(0, 1fr); }
+        }
+      }
+    }
   }
 
-  /* ---------- responsive: marginalia folds below its passage ---------- */
-  @media (max-width: 860px) {
-    .spread {
-      grid-template-columns: 1fr;
-      row-gap: var(--space-md);
-      padding: var(--space-xl) var(--space-md);
-    }
-    /* The [data-side] selectors above are more specific than a bare
-       .spread .marginalia, so a plain override here loses to them and the
-       right-side asides stay pinned to column 3. The grid then builds two
-       implicit columns beside the single explicit track and the passage
-       column collapses to about 115px. Match their specificity instead. */
-    .spread .content,
-    .spread .marginalia[data-side="left"],
-    .spread .marginalia[data-side="right"] { grid-column: 1; grid-row: auto; }
-    .spread .marginalia { padding: var(--space-md) 0 0; border-top: 1px dashed var(--color-rule); }
+  /* ---------- responsive ---------- */
+  @media (max-width: 980px) {
+    .arrival { grid-template-columns: 1fr; row-gap: var(--space-xl); }
+    .arrival-mark { max-width: 9rem; }
+    .station { grid-template-columns: 2.6rem minmax(0, 1fr); row-gap: var(--space-lg); }
+    /* The rail carries the thread, so it has to span both rows once the
+       plate drops beneath the passage. Without this it stops at row 1 and
+       the thread breaks between stations. */
+    .station .rail { grid-row: 1 / span 2; }
+    .station .plate { grid-column: 2; }
+    .evidence-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+    .colophon-grid { grid-template-columns: 4rem repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 640px) {
     header { padding: var(--space-lg) var(--space-md); flex-wrap: wrap; }
-    .hero { padding: 4rem var(--space-md) var(--space-xl); }
-    .fork-table { grid-template-columns: 1fr; }
+    .arrival { padding: 3rem var(--space-md) var(--space-xl); }
+    section.band { padding: var(--space-xl) var(--space-md); }
+    footer.colophon { padding: var(--space-xl) var(--space-md); }
     .colophon-grid { grid-template-columns: 1fr; }
-    .horizon { top: 30vh; }
+    .record dl { grid-template-columns: 1fr; }
+    .record dd { border-top: none; padding-top: 0; }
   }
 
   @media (prefers-reduced-motion: no-preference) {
     a, s { transition: text-decoration-color 0.15s ease; }
+  }
+
+  /* Every diagram arrives fully drawn, and nothing moves. */
+  @media (prefers-reduced-motion: reduce) {
+    html.draws .draw [data-draw],
+    html.draws .draw.drawn [data-draw] {
+      stroke-dasharray: none;
+      stroke-dashoffset: 0;
+      transition: none;
+      transition-delay: 0s;
+    }
+    html.draws .draw [data-fade],
+    html.draws .draw.drawn [data-fade] { opacity: 1; transition: none; transition-delay: 0s; }
+    a, s { transition: none; }
   }
 </style>
 </head>
@@ -340,9 +719,9 @@
     <h1>PureLand</h1>
     <span class="eyebrow">research-program prototype · forkable toolbox · v0.1</span>
     <nav class="subnav" aria-label="Kit documents">
-      <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CURRENT-EVIDENCE.md">evidence</a>
-      <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/JOURNEY.md">journey</a>
-      <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/OFFERING.md">offering</a>
+      <a href="#journey">journey</a>
+      <a href="#evidence">evidence</a>
+      <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/TOOLBOX.md">toolbox</a>
       <a href="https://github.com/risaac09/pureland-fork-kit">repository</a>
       <a href="https://github.com/risaac09/pureland-fork-kit/issues">issues</a>
     </nav>
@@ -351,195 +730,526 @@
 </header>
 
 <main>
-  <section class="hero">
-    <h2>Can a way of handling information give you more control over your own attention without also making you easier to exploit?</h2>
-    <p style="max-width: 46ch; color: var(--color-text-secondary);">That is the question PureLand tests, not a claim it has already answered. It combines contemplative self-observation, information-practice analysis, bounded adaptation, and accountable return.</p>
-    <ul class="goals">
-      <li>give people more control over their attention</li>
-      <li>give people more useful access without exposing them or making them easier to mine</li>
-      <li>build permission, credit, and fair return into how information gets handled</li>
-      <li>keep the practice open to challenge, so the people it affects can question it, change it, or refuse it</li>
-      <li>give reusable methods and rights-cleared research back to a shared commons</li>
+
+  <!-- ---------- arrival ---------- -->
+  <section class="arrival">
+    <div>
+      <figure class="arrival-mark">
+        <svg class="diagram draw" viewBox="0 0 100 100" role="img" aria-labelledby="mark-title">
+          <title id="mark-title">The fork mark: one stem rising, then splitting into two branches.</title>
+          <g fill="none" class="ink" stroke-linecap="round" stroke-linejoin="round">
+            <path data-draw pathLength="1" style="--i:0" d="M 50 90 L 50 52" stroke-width="4"/>
+            <path data-draw pathLength="1" style="--i:1" d="M 50 52 C 40 40, 32 28, 26 14" stroke-width="3.5"/>
+            <path data-draw pathLength="1" style="--i:2" d="M 50 52 C 60 40, 68 28, 74 14" stroke-width="3.5"/>
+          </g>
+        </svg>
+        <figcaption>the mark diagrams one chain: a line rises, then splits</figcaption>
+      </figure>
+
+      <h2>Can a way of handling information give you more control over your own attention without also making you easier to exploit?</h2>
+      <p class="ceiling">That is the question PureLand tests, not a claim it has already answered. This is version 0.1. The instruments are unvalidated. One maintainer-side partial dry run exists, and no independent field result.</p>
+      <p class="arrival-links">
+        <a href="#journey">walk the journey</a>
+        <a href="https://github.com/risaac09/pureland-fork-kit">the record</a>
+      </p>
+    </div>
+    <aside>
+      <span class="eyebrow">what it aims at</span>
+      <ul class="goals">
+        <li>give people more control over their attention</li>
+        <li>give people more useful access without exposing them or making them easier to mine</li>
+        <li>build permission, credit, and fair return into how information gets handled</li>
+        <li>keep the practice open to challenge, so the people it affects can question it, change it, or refuse it</li>
+        <li>give reusable methods and rights-cleared research back to a shared commons</li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- ---------- what it studies ---------- -->
+  <section class="band" id="what-it-studies">
+    <div class="band-head">
+      <h3>What it studies</h3>
+      <p>PureLand is a synthesis informed by Buddhist practice, evaluation, body-based practice, and technology theory. The project's mappings are original synthesis. They are not Buddhist doctrine, clinical categories, or validated measures.</p>
+      <p>Measurement without attention or relationship can turn into one more machine for taking things from people. Contemplative and body-based practice without evidence can harden into private conviction. A map of information movement without permission, credit, and return can ignore who pays for that movement. A reading of a technology's design without the people it lands on can mistake a published architecture for an accountable one. That is why the thesis binds them together rather than picking one.</p>
+      <blockquote>Open source is the release phase of the practice, not the whole practice.</blockquote>
+      <p>The project name establishes no lineage relationship to Pure Land Buddhist traditions. The mark diagrams the papañca causal sequence <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/PRACTICE-FRAME.md">PRACTICE-FRAME.md</a> cites. It replaced an earlier adapted ensō, retired along with the Zen association it carried.</p>
+      <p>One identified precedent for combining participatory media and evaluation is InsightShare's <em>Participatory Video and the Most Significant Change</em>. PureLand does not claim to originate that combination. <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/PROVENANCE.md">PROVENANCE.md</a> holds the sources.</p>
+    </div>
+    <ul class="fields">
+      <li>
+        <span class="f-name">Buddhist practice</span>
+        <p>Prompts for noticing conditions that shape attention and response.</p>
+        <p class="f-limit">A technical taxonomy, clinical diagnosis, or label for other people</p>
+      </li>
+      <li>
+        <span class="f-name">Evaluation</span>
+        <p>Claims, evidence, baselines, limits, and disconfirming conditions.</p>
+        <p class="f-limit">That the current instruments are validated measures</p>
+      </li>
+      <li>
+        <span class="f-name">Body-based practice</span>
+        <p>First-person information about what contact does in the body.</p>
+        <p class="f-limit">An objective score or clinical judgment</p>
+      </li>
+      <li>
+        <span class="f-name">Technology theory</span>
+        <p>How a system's design, ownership, and openness shape what it can do to a person, and what an audit of it can see.</p>
+        <p class="f-limit">That reading a system's documentation establishes what the system does</p>
+      </li>
     </ul>
   </section>
 
-  <div class="spread">
-    <div class="content">
+  <!-- ---------- the research spine ---------- -->
+  <section class="band" id="spine">
+    <div class="band-head">
       <h3>The research spine</h3>
-      <p>Each public document has one job. Read the argument, then the evidence record.</p>
-      <div class="ledger">
-        <div class="ledger-row">
-          <span class="ledger-numeral">I</span>
-          <div><a class="ledger-label" href="https://github.com/risaac09/pureland-fork-kit/blob/main/THESIS.md">Thesis</a><div class="ledger-desc">The organizing argument and its limits.</div></div>
+      <p>Five public research functions. Each document has one job. Read the argument, then the evidence record.</p>
+      <p>The toolbox is the forkable part: instruments, templates, controls, and public-safe records. The thesis and the evidence record set their limits. Their presence validates nothing. Isaac Rubinstein maintains the project and holds merge and release authority. That concentration is a project risk, not a mature commons.</p>
+    </div>
+    <div class="ledger">
+      <div class="ledger-row">
+        <span class="ledger-numeral">I</span>
+        <div><a class="ledger-label" href="https://github.com/risaac09/pureland-fork-kit/blob/main/THESIS.md">Thesis</a><p class="ledger-desc">The organizing argument and its limits.</p></div>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-numeral">II</span>
+        <div><a class="ledger-label" href="https://github.com/risaac09/pureland-fork-kit/blob/main/METHOD.md">Method</a><p class="ledger-desc">The repeatable inquiry from boundary to return.</p></div>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-numeral">III</span>
+        <div><a class="ledger-label" href="https://github.com/risaac09/pureland-fork-kit/blob/main/TOOLBOX.md">Toolbox</a><p class="ledger-desc">The instruments, templates, controls, and public-safe records.</p></div>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-numeral">IV</span>
+        <div><a class="ledger-label" href="https://github.com/risaac09/pureland-fork-kit/blob/main/TESTING.md">Testing</a><p class="ledger-desc">The claim, the disconfirming results, how evidence enters, and where the method can fail.</p></div>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-numeral">V</span>
+        <div><a class="ledger-label" href="https://github.com/risaac09/pureland-fork-kit/blob/main/CURRENT-EVIDENCE.md">Current evidence</a><p class="ledger-desc">The ledger of accepted tests, counterexplanations, missing evidence, and current conclusion.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- the journey ---------- -->
+  <section class="band" id="journey">
+    <div class="band-head">
+      <h3>The journey</h3>
+      <p>Six ordered stations, walked on one real practice of your own. Recording is optional. The first pilot does not require participant recordings. You may stop at any station, and a stopped walk cannot support claims about stations nobody completed.</p>
+      <p><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/JOURNEY.md">JOURNEY.md</a> holds the full path. The journey stations are distinct from the public research functions above.</p>
+    </div>
+
+    <article class="station" id="station-ground">
+      <div class="rail">
+        <span class="numeral">I</span>
+        <svg class="thread draw" viewBox="0 0 40 100" preserveAspectRatio="none" aria-hidden="true">
+          <path data-draw pathLength="1" class="rule-stroke" fill="none" vector-effect="non-scaling-stroke" d="M 20 0 C 20 26, 9 40, 20 56 C 31 72, 20 84, 20 100"/>
+        </svg>
+      </div>
+      <div class="station-body">
+        <h4>Ground</h4>
+        <p>Name the practice, the boundary, and the people it affects. Record what evidence exists before you score anything. Then write one result that would count against the method.</p>
+        <a class="instrument" href="https://github.com/risaac09/pureland-fork-kit/blob/main/TESTING.md">TESTING.md</a>
+      </div>
+      <figure class="plate">
+        <svg class="diagram draw" viewBox="0 0 120 90" role="img" aria-labelledby="d-ground">
+          <title id="d-ground">A boundary line drawn around one named practice, with one mark left outside it.</title>
+          <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4">
+            <path data-draw pathLength="1" style="--i:0" class="ink" d="M 26 20 H 92 A 6 6 0 0 1 98 26 V 64 A 6 6 0 0 1 92 70 H 26 A 6 6 0 0 1 20 64 V 26 A 6 6 0 0 1 26 20 Z"/>
+            <path data-draw pathLength="1" style="--i:2" class="rule-stroke" d="M 36 38 H 82"/>
+            <path data-draw pathLength="1" style="--i:3" class="rule-stroke" d="M 36 47 H 70"/>
+            <path data-draw pathLength="1" style="--i:4" class="rule-stroke" d="M 36 56 H 76"/>
+            <path data-draw pathLength="1" style="--i:5" class="accent" d="M 104 45 H 116"/>
+          </g>
+        </svg>
+        <figcaption>the boundary is chosen by someone accountable for it, and what it leaves out is on the record</figcaption>
+      </figure>
+    </article>
+
+    <article class="station" id="station-observe">
+      <div class="rail">
+        <span class="numeral">II</span>
+        <svg class="thread draw" viewBox="0 0 40 100" preserveAspectRatio="none" aria-hidden="true">
+          <path data-draw pathLength="1" class="rule-stroke" fill="none" vector-effect="non-scaling-stroke" d="M 20 0 C 20 22, 32 38, 20 54 C 8 70, 20 84, 20 100"/>
+        </svg>
+      </div>
+      <div class="station-body">
+        <h4>Observe</h4>
+        <p>Run the practice frame. Notice which condition may be present in you before you assign it to the system. The contemplative categories are prompts, never scores, and never labels for other people.</p>
+        <a class="instrument" href="https://github.com/risaac09/pureland-fork-kit/blob/main/PRACTICE-FRAME.md">PRACTICE-FRAME.md</a>
+      </div>
+      <figure class="plate">
+        <svg class="diagram draw" viewBox="0 0 120 90" role="img" aria-labelledby="d-observe">
+          <title id="d-observe">One line rising and splitting into two, then splitting again: the proliferation chain.</title>
+          <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path data-draw pathLength="1" style="--i:0" class="ink" stroke-width="2.4" d="M 60 82 V 50"/>
+            <path data-draw pathLength="1" style="--i:1" class="ink" stroke-width="2" d="M 60 50 C 52 40, 45 32, 38 22"/>
+            <path data-draw pathLength="1" style="--i:1" class="ink" stroke-width="2" d="M 60 50 C 68 40, 75 32, 82 22"/>
+            <path data-draw pathLength="1" style="--i:3" class="rule-stroke" stroke-width="1.4" d="M 38 22 C 34 17, 30 13, 26 8"/>
+            <path data-draw pathLength="1" style="--i:3" class="rule-stroke" stroke-width="1.4" d="M 38 22 C 40 16, 42 12, 43 7"/>
+            <path data-draw pathLength="1" style="--i:3" class="rule-stroke" stroke-width="1.4" d="M 82 22 C 86 17, 90 13, 94 8"/>
+            <path data-draw pathLength="1" style="--i:3" class="rule-stroke" stroke-width="1.4" d="M 82 22 C 80 16, 78 12, 77 7"/>
+          </g>
+        </svg>
+        <figcaption>the split is the thing to catch, and it happens before you name it</figcaption>
+      </figure>
+    </article>
+
+    <article class="station" id="station-map">
+      <div class="rail">
+        <span class="numeral">III</span>
+        <svg class="thread draw" viewBox="0 0 40 100" preserveAspectRatio="none" aria-hidden="true">
+          <path data-draw pathLength="1" class="rule-stroke" fill="none" vector-effect="non-scaling-stroke" d="M 20 0 C 20 24, 10 38, 20 52 C 30 66, 20 82, 20 100"/>
+        </svg>
+      </div>
+      <div class="station-body">
+        <h4>Map</h4>
+        <p>Read the four access questions: is it understandable, reachable, adaptable, traceable. Name the unit, the set, the denominator, and the time window before counting. Keep the four measures separate.</p>
+        <a class="instrument" href="https://github.com/risaac09/pureland-fork-kit/blob/main/SCORECARD.md">SCORECARD.md</a>
+      </div>
+      <figure class="plate">
+        <svg class="diagram draw" viewBox="0 0 120 90" role="img" aria-labelledby="d-map">
+          <title id="d-map">Four separate corner marks, each closed on itself, with nothing joining them.</title>
+          <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+            <path data-draw pathLength="1" style="--i:0" class="ink" d="M 40 16 H 22 V 34"/>
+            <path data-draw pathLength="1" style="--i:1" class="rule-stroke" d="M 28 24 H 34"/>
+            <path data-draw pathLength="1" style="--i:1" class="ink" d="M 80 16 H 98 V 34"/>
+            <path data-draw pathLength="1" style="--i:2" class="rule-stroke" d="M 86 24 H 92"/>
+            <path data-draw pathLength="1" style="--i:2" class="ink" d="M 40 74 H 22 V 56"/>
+            <path data-draw pathLength="1" style="--i:3" class="rule-stroke" d="M 28 66 H 34"/>
+            <path data-draw pathLength="1" style="--i:3" class="ink" d="M 80 74 H 98 V 56"/>
+            <path data-draw pathLength="1" style="--i:4" class="rule-stroke" d="M 86 66 H 92"/>
+          </g>
+        </svg>
+        <figcaption>four readings, four marks, no line between them and no combined score</figcaption>
+      </figure>
+    </article>
+
+    <article class="station" id="station-trace">
+      <div class="rail">
+        <span class="numeral">IV</span>
+        <svg class="thread draw" viewBox="0 0 40 100" preserveAspectRatio="none" aria-hidden="true">
+          <path data-draw pathLength="1" class="rule-stroke" fill="none" vector-effect="non-scaling-stroke" d="M 20 0 C 20 20, 30 36, 20 50 C 10 64, 20 82, 20 100"/>
+        </svg>
+      </div>
+      <div class="station-body">
+        <h4>Trace</h4>
+        <p>Run the extraction check on your own practice. Trace what leaves each contributor, where it accumulates, and what returns. Band consent, attribution, and value return separately. Do not average the bands.</p>
+        <a class="instrument" href="https://github.com/risaac09/pureland-fork-kit/blob/main/EXTRACTION-CHECK.md">EXTRACTION-CHECK.md</a>
+      </div>
+      <figure class="plate">
+        <svg class="diagram draw" viewBox="0 0 120 90" role="img" aria-labelledby="d-trace">
+          <title id="d-trace">Three flows leave a contributor and two come back. The third ends in the open.</title>
+          <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+            <path data-draw pathLength="1" style="--i:0" class="rule-stroke" d="M 16 22 V 68"/>
+            <path data-draw pathLength="1" style="--i:0" class="rule-stroke" d="M 104 22 V 68"/>
+            <path data-draw pathLength="1" style="--i:1" class="out" d="M 20 30 C 46 18, 76 18, 100 28"/>
+            <path data-draw pathLength="1" style="--i:2" class="out" d="M 20 44 C 46 36, 76 36, 100 44"/>
+            <path data-draw pathLength="1" style="--i:3" class="back" d="M 100 36 C 74 48, 46 48, 20 38"/>
+            <path data-draw pathLength="1" style="--i:4" class="back" d="M 100 52 C 74 62, 46 60, 20 52"/>
+            <path data-draw pathLength="1" style="--i:5" class="out" d="M 20 62 C 44 62, 64 68, 82 78"/>
+            <path data-draw pathLength="1" style="--i:6" class="rule-stroke" d="M 88 72 V 84"/>
+            <path data-draw pathLength="1" style="--i:6" class="rule-stroke" d="M 96 72 V 84"/>
+          </g>
+        </svg>
+        <figcaption>what leaves is in oxblood, what returns is in celadon, and one flow ends between two open marks</figcaption>
+      </figure>
+    </article>
+
+    <article class="station" id="station-adapt">
+      <div class="rail">
+        <span class="numeral">V</span>
+        <svg class="thread draw" viewBox="0 0 40 100" preserveAspectRatio="none" aria-hidden="true">
+          <path data-draw pathLength="1" class="rule-stroke" fill="none" vector-effect="non-scaling-stroke" d="M 20 0 C 20 24, 9 40, 20 56 C 31 72, 20 86, 20 100"/>
+        </svg>
+      </div>
+      <div class="station-body">
+        <h4>Adapt</h4>
+        <p>Choose one small change from what the earlier stations surfaced. Record the baseline, the intended benefit, a plausible new harm, the consent it needs, and a review date. Then watch the cost and the result.</p>
+        <a class="instrument" href="https://github.com/risaac09/pureland-fork-kit/blob/main/METHOD.md">METHOD.md</a>
+      </div>
+      <figure class="plate">
+        <svg class="diagram draw" viewBox="0 0 120 90" role="img" aria-labelledby="d-adapt">
+          <title id="d-adapt">A fork. One branch is taken and closed with a bar. The other stays drawn and unchosen.</title>
+          <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path data-draw pathLength="1" style="--i:0" class="ink" stroke-width="2.4" d="M 60 82 V 52"/>
+            <path data-draw pathLength="1" style="--i:1" class="ink" stroke-width="2.2" d="M 60 52 C 51 40, 44 30, 40 18"/>
+            <path data-draw pathLength="1" style="--i:3" class="ink" stroke-width="1.6" d="M 32 16 H 48"/>
+            <path data-fade style="--i:2" class="rule-stroke dashed" stroke-width="1.6" d="M 60 52 C 69 40, 76 30, 80 18"/>
+          </g>
+        </svg>
+        <figcaption>one branch is taken and closed, and the branch nobody took stays on the plate</figcaption>
+      </figure>
+    </article>
+
+    <article class="station" id="station-return">
+      <div class="rail">
+        <span class="numeral">VI</span>
+        <svg class="thread draw" viewBox="0 0 40 100" preserveAspectRatio="none" aria-hidden="true">
+          <path data-draw pathLength="1" class="rule-stroke" fill="none" vector-effect="non-scaling-stroke" d="M 20 0 C 20 24, 30 38, 20 52 C 12 62, 16 70, 20 74"/>
+        </svg>
+      </div>
+      <div class="station-body">
+        <h4>Return</h4>
+        <p>Write up what happened with the field-test template. Cleared reports join the <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CURRENT-EVIDENCE.md#the-ledger">field-trial ledger</a> as links, not endorsements. Private learning, refusal, and unmeasurable outcomes may end without a public report.</p>
+        <a class="instrument" href="https://github.com/risaac09/pureland-fork-kit/blob/main/templates/field-test.md">templates/field-test.md</a>
+      </div>
+      <figure class="plate">
+        <svg class="diagram draw" viewBox="0 0 120 90" role="img" aria-labelledby="d-return">
+          <title id="d-return">One thread curves back toward the start. Two strands go dashed and stop partway.</title>
+          <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6">
+            <path data-draw pathLength="1" style="--i:0" class="back" d="M 106 78 C 100 44, 66 26, 24 24"/>
+            <path data-draw pathLength="1" style="--i:2" class="back" d="M 24 24 L 33 19"/>
+            <path data-draw pathLength="1" style="--i:2" class="back" d="M 24 24 L 33 29"/>
+            <path data-fade style="--i:3" class="rule-stroke dashed" d="M 102 58 C 86 56, 74 52, 62 48"/>
+            <path data-fade style="--i:4" class="rule-stroke dashed" d="M 98 44 C 88 43, 80 41, 72 38"/>
+            <path data-draw pathLength="1" style="--i:5" class="rule-stroke" d="M 58 46 V 52"/>
+            <path data-draw pathLength="1" style="--i:5" class="rule-stroke" d="M 68 36 V 42"/>
+          </g>
+        </svg>
+        <figcaption>some strands stay private and stop where the permission stops</figcaption>
+      </figure>
+    </article>
+  </section>
+
+  <!-- ---------- evidence ---------- -->
+  <section class="band" id="evidence">
+    <div class="band-head">
+      <h3>The evidence</h3>
+      <p>PureLand has one maintainer-side, AI-assisted partial dry run and no independent field trial. Alchemy, the test subject, uses a local-first technical design intended to reduce extraction, and FT-001 did not observe a user outcome. The current evidence does not show that the method works. The specimen record sits on the left. What nobody observed sits beside it, drawn as the empty slots it is.</p>
+      <p><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CURRENT-EVIDENCE.md">CURRENT-EVIDENCE.md</a> holds the full record, the counterexplanations, and the <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CURRENT-EVIDENCE.md#the-ledger">ledger</a>.</p>
+    </div>
+
+    <div class="evidence-grid">
+      <div class="record">
+        <span class="r-head">FT-001 · specimen record</span>
+        <dl>
+          <dt>Date</dt><dd>2026-08-24</dd>
+          <dt>Context</dt><dd>The Alchemy repository, bounded by the assessor as seven public surfaces</dd>
+          <dt>Instrument</dt><dd>Journey, partial execution, follow-up open</dd>
+          <dt>Contributor</dt><dd>Maintainer's side, AI-assisted, not independent</dd>
+          <dt>Observed</dt><dd>One seven-surface document set, separate access and reciprocity readings, a conflict between traceability and intentional deletion, one executed adaptation, several method failures</dd>
+          <dt>Outcome</dt><dd>unmeasurable</dd>
+          <dt>Version</dt><dd>62259ec</dd>
+          <dt>Report</dt><dd><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/research/field-tests/ft-001-alchemy.md">ft-001-alchemy.md</a>, <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/data/field-tests/ft-001-alchemy.json">structured record</a></dd>
+        </dl>
+        <div class="correction">
+          <span class="m-label">correction, recorded</span>
+          <p><s>The unvalidated extraction coefficient and composite thresholds</s> were retired. Missing evidence stays unmeasurable, and there is no composite score.</p>
         </div>
-        <div class="ledger-row">
-          <span class="ledger-numeral">II</span>
-          <div><a class="ledger-label" href="https://github.com/risaac09/pureland-fork-kit/blob/main/METHOD.md">Method</a><div class="ledger-desc">The repeatable inquiry from boundary to return.</div></div>
-        </div>
-        <div class="ledger-row">
-          <span class="ledger-numeral">III</span>
-          <div><a class="ledger-label" href="https://github.com/risaac09/pureland-fork-kit/blob/main/TOOLBOX.md">Toolbox</a><div class="ledger-desc">The instruments, templates, controls, and public-safe records.</div></div>
-        </div>
-        <div class="ledger-row">
-          <span class="ledger-numeral">IV</span>
-          <div><a class="ledger-label" href="https://github.com/risaac09/pureland-fork-kit/blob/main/TESTING.md">Testing</a><div class="ledger-desc">The claim, the disconfirming results, how evidence enters, and where the method can fail.</div></div>
-        </div>
-        <div class="ledger-row">
-          <span class="ledger-numeral">V</span>
-          <div><a class="ledger-label" href="https://github.com/risaac09/pureland-fork-kit/blob/main/CURRENT-EVIDENCE.md">Current evidence</a><div class="ledger-desc">The ledger of accepted tests, counterexplanations, missing evidence, and current conclusion.</div></div>
+      </div>
+
+      <div>
+        <span class="eyebrow">what nobody observed</span>
+        <ul class="slots">
+          <li class="slot">
+            <div class="frame">
+              <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-1">
+                <title id="s-1">An empty specimen slot.</title>
+                <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
+                  <path d="M 4 4 H 116 V 60 H 4 Z"/>
+                  <path d="M 4 14 H 14 V 4"/>
+                  <path d="M 116 50 H 106 V 60"/>
+                </g>
+              </svg>
+              <span class="stamp">empty</span>
+            </div>
+            <span class="caption">human Observe</span>
+          </li>
+          <li class="slot">
+            <div class="frame">
+              <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-2">
+                <title id="s-2">An empty specimen slot.</title>
+                <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
+                  <path d="M 4 4 H 116 V 60 H 4 Z"/>
+                  <path d="M 4 14 H 14 V 4"/>
+                  <path d="M 116 50 H 106 V 60"/>
+                </g>
+              </svg>
+              <span class="stamp">empty</span>
+            </div>
+            <span class="caption">affected-user challenge</span>
+          </li>
+          <li class="slot">
+            <div class="frame">
+              <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-3">
+                <title id="s-3">An empty specimen slot.</title>
+                <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
+                  <path d="M 4 4 H 116 V 60 H 4 Z"/>
+                  <path d="M 4 14 H 14 V 4"/>
+                  <path d="M 116 50 H 106 V 60"/>
+                </g>
+              </svg>
+              <span class="stamp">empty</span>
+            </div>
+            <span class="caption">independent reading</span>
+          </li>
+          <li class="slot">
+            <div class="frame">
+              <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-4">
+                <title id="s-4">An empty specimen slot.</title>
+                <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
+                  <path d="M 4 4 H 116 V 60 H 4 Z"/>
+                  <path d="M 4 14 H 14 V 4"/>
+                  <path d="M 116 50 H 106 V 60"/>
+                </g>
+              </svg>
+              <span class="stamp">empty</span>
+            </div>
+            <span class="caption">second reader</span>
+          </li>
+          <li class="slot">
+            <div class="frame">
+              <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-5">
+                <title id="s-5">An empty specimen slot.</title>
+                <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
+                  <path d="M 4 4 H 116 V 60 H 4 Z"/>
+                  <path d="M 4 14 H 14 V 4"/>
+                  <path d="M 116 50 H 106 V 60"/>
+                </g>
+              </svg>
+              <span class="stamp">empty</span>
+            </div>
+            <span class="caption">predefined person-level agency outcome</span>
+          </li>
+          <li class="slot">
+            <div class="frame">
+              <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-6">
+                <title id="s-6">An empty specimen slot.</title>
+                <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
+                  <path d="M 4 4 H 116 V 60 H 4 Z"/>
+                  <path d="M 4 14 H 14 V 4"/>
+                  <path d="M 116 50 H 106 V 60"/>
+                </g>
+              </svg>
+              <span class="stamp">empty</span>
+            </div>
+            <span class="caption">completed follow-up</span>
+          </li>
+          <li class="slot">
+            <div class="frame">
+              <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-7">
+                <title id="s-7">An empty specimen slot.</title>
+                <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
+                  <path d="M 4 4 H 116 V 60 H 4 Z"/>
+                  <path d="M 4 14 H 14 V 4"/>
+                  <path d="M 116 50 H 106 V 60"/>
+                </g>
+              </svg>
+              <span class="stamp">empty</span>
+            </div>
+            <span class="caption">causal effect</span>
+          </li>
+          <li class="slot">
+            <div class="frame">
+              <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-8">
+                <title id="s-8">An empty specimen slot.</title>
+                <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
+                  <path d="M 4 4 H 116 V 60 H 4 Z"/>
+                  <path d="M 4 14 H 14 V 4"/>
+                  <path d="M 116 50 H 106 V 60"/>
+                </g>
+              </svg>
+              <span class="stamp">empty</span>
+            </div>
+            <span class="caption">attention-sovereignty outcome</span>
+          </li>
+        </ul>
+        <div class="absence">
+          <p>Absence is part of the result set. It does not default to favorable.</p>
+          <p>The instruments have no independent field result, reliability estimate, validity result, threshold, certification, or causal result. FT-001 could not separate the journey's effect from the assessor's familiarity, the time spent, or the extraction check alone.</p>
         </div>
       </div>
     </div>
-    <aside class="marginalia" data-side="right">
-      <span class="m-label">status</span>
-      <p>One maintainer-side partial dry run. No independent trial or outcome claim.</p>
-    </aside>
-  </div>
+  </section>
 
-  <div class="spread">
-    <div class="content">
+  <!-- ---------- rights boundary ---------- -->
+  <section class="band" id="rights">
+    <div class="band-head">
+      <h3>The rights boundary</h3>
+      <p>Four things that open projects often blur together. <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/RIGHTS-AND-CONSENT.md">RIGHTS-AND-CONSENT.md</a> holds the full guide, including the two-stage intake.</p>
+    </div>
+    <ul class="boundary">
+      <li>
+        <span class="b-name">Repository license</span>
+        <p>It grants reuse rights only for material the licensor has the authority to license.</p>
+      </li>
+      <li>
+        <span class="b-name">Participant permission</span>
+        <p>Consent must name the specific use. It does not become an open license unless the rights holder deliberately grants one.</p>
+      </li>
+      <li>
+        <span class="b-name">Withdrawal</span>
+        <p>Withdrawal can stop future uses that the project controls. It may not retrieve lawful copies already distributed, public archives, model weights, backups outside the project's control, or downstream adaptations.</p>
+      </li>
+      <li>
+        <span class="b-name">Privacy and confidentiality</span>
+        <p>Copyright permission does not settle privacy, confidentiality, publicity, data protection, or community authority.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ---------- two readerships ---------- -->
+  <section class="band" id="readerships">
+    <div class="band-head">
       <h3>Two readerships</h3>
-      <p>A person and a model read this repository differently. The difference is named rather than left to chance. The <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/JOURNEY.md">journey</a> is the human lane, walked in order on one real practice at a body's pace. <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/llms.txt">llms.txt</a> is the agent lane, addressed to a model, and it states what a model must hand back to a person rather than complete.</p>
-      <p>The <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CROSSWALK.md">crosswalk</a> sets the two lanes against each other element by element, including the elements one lane has no counterpart for. An empty cell there is a finding.</p>
-    </div>
-    <aside class="marginalia" data-side="right">
-      <span class="m-label">observe</span>
-      <p>Station II has no agent counterpart. That empty cell is a finding, not a gap waiting to be filled.</p>
-    </aside>
-  </div>
-
-  <div class="spread">
-    <div class="content">
-      <h3>What it studies</h3>
-      <p>Measurement without attention or relationship can turn into one more machine for taking things from people. Contemplative and body-based practice without evidence can harden into private conviction. A map of information movement without permission, credit, and return can ignore who pays for that movement. A reading of a technology's design without the people it lands on can mistake a published architecture for an accountable one.</p>
-      <p>PureLand is a synthesis informed by Buddhist practice, evaluation, body-based practice, and technology theory. The project's mappings are original synthesis. They are not Buddhist doctrine, clinical categories, or validated measures.</p>
-      <blockquote>Open source is the release phase of the practice, not the whole practice.</blockquote>
-      <p>PureLand defines generosity as increasing another person's ability to understand, adapt, contest, or refuse. The Buddhist sources do not establish that project definition. Participant material, protected knowledge, and relationship records may need to remain private.</p>
-      <p>The project name establishes no lineage relationship to Pure Land Buddhist traditions. The mark diagrams the papañca causal sequence PRACTICE-FRAME.md cites; it replaced an earlier adapted ensō, retired along with the Zen association it carried.</p>
-    </div>
-    <aside class="marginalia" data-side="left">
-      <span class="m-label">adaptable</span>
-      <p>“Accepting and investigating the reality of change.” One of the four access questions PureLand reads a practice through: is it understandable, reachable, adaptable, traceable?</p>
-    </aside>
-  </div>
-
-  <div class="spread">
-    <div class="content">
-      <h3>The method</h3>
-      <p>The method walks in six ordered stations, from naming the practice to returning what was learned. Recording is optional. The first pilot does not require participant recordings.</p>
-      <div class="ledger">
-        <div class="ledger-row">
-          <span class="ledger-numeral">I</span>
-          <div>
-            <span class="ledger-label">Ground</span>
-            <p class="ledger-desc">Name the practice, the boundary, and the people it affects. Write one result that would count against the method.</p>
-          </div>
-        </div>
-        <div class="ledger-row">
-          <span class="ledger-numeral">II</span>
-          <div>
-            <span class="ledger-label">Observe</span>
-            <p class="ledger-desc">Run the practice frame. Notice what's true in you before assigning it to the system.</p>
-          </div>
-        </div>
-        <div class="ledger-row">
-          <span class="ledger-numeral">III</span>
-          <div>
-            <span class="ledger-label">Map</span>
-            <p class="ledger-desc">Read the four access questions with the openness scorecard.</p>
-          </div>
-        </div>
-        <div class="ledger-row">
-          <span class="ledger-numeral">IV</span>
-          <div>
-            <span class="ledger-label">Trace</span>
-            <p class="ledger-desc">Run the extraction check. Trace what leaves, where it accumulates, and what returns.</p>
-          </div>
-        </div>
-        <div class="ledger-row">
-          <span class="ledger-numeral">V</span>
-          <div>
-            <span class="ledger-label">Adapt</span>
-            <p class="ledger-desc">Choose one bounded change. Watch the cost and the result.</p>
-          </div>
-        </div>
-        <div class="ledger-row">
-          <span class="ledger-numeral">VI</span>
-          <div>
-            <span class="ledger-label">Return</span>
-            <p class="ledger-desc">Write up what happened and submit it as a field report.</p>
-          </div>
-        </div>
-      </div>
-      <p style="color: var(--color-text-secondary); font-size: 0.95rem;">Six journey stations operationalize the method. They are distinct from the public research functions above.</p>
-    </div>
-    <aside class="marginalia" data-side="right">
-      <span class="m-label">precedent</span>
-      <p>One identified precedent for combining participatory media and evaluation is InsightShare's <cite>Participatory Video and the Most Significant Change</cite>. PureLand does not claim to originate that combination.</p>
-    </aside>
-  </div>
-
-  <div class="spread">
-    <div class="content">
-      <h3>The toolbox travels both ways</h3>
-      <p>A fork is judged by both directions of travel. Code and method can leave the origin. Something, learning, credit, correction, a returned report, has to travel back for the fork to be more than extraction with a license file attached.</p>
-      <div class="fork-table">
-        <div class="fork-col">
-          <span class="eyebrow out">leaves the origin</span>
-          <p>Walk <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/JOURNEY.md">the journey</a>, the method's one curated path. Fork the instruments. Open a public-safe Stage 1 scoping issue. Document a failure or refusal. Propose a correction through the <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CONTRIBUTING.md">contribution process</a>.</p>
-        </div>
-        <div class="fork-col">
-          <span class="eyebrow back">returns</span>
-          <p>A cleared public report when permitted, or private learning, refusal, unmeasurable, correction, disagreement, or method revision. Public reports enter the <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CURRENT-EVIDENCE.md#the-ledger">field-trial ledger</a>; other returns remain within their rights boundary.</p>
-        </div>
-      </div>
-    </div>
-    <aside class="marginalia" data-side="left">
-      <span class="m-label">license</span>
-      <p>The toolbox's eligible text and templates use CC BY-SA 4.0. Code and configuration use MIT. A license does not create permission for participant or third-party material.</p>
-    </aside>
-  </div>
-
-  <div class="spread">
-    <div class="content">
-      <h3>Current result and what remains untested</h3>
-      <p>FT-001 is a maintainer-side, AI-assisted partial dry run on Alchemy. No human performed Observe. No second reader or affected user challenged the reading. The assessor chose the seven-surface boundary. The assessor interpreted some analysis as additional, but the record cannot separate the journey's effect from familiarity, time spent, or the extraction check alone.</p>
-      <p>Alchemy uses a local-first technical design intended to reduce extraction. FT-001 did not observe a user outcome. It found that traceability conflicts with intentional deletion and left one executed adaptation inside an open follow-up window.</p>
-      <p>The instruments still have no independent field result, reliability estimate, validity result, threshold, certification, causal result, or attention-sovereignty outcome. Proposed sample and context targets remain planning choices, not derived evidence gates.</p>
-      <p>Isaac Rubinstein maintains the project and holds merge and release authority. That concentration is a project risk, not a mature commons.</p>
-    </div>
-    <aside class="marginalia" data-side="right">
-      <span class="m-label">correction, recorded</span>
-      <p><s>The unvalidated extraction coefficient and composite thresholds</s> were retired. Missing evidence stays <code style="font-family: inherit;">unmeasurable</code>; there is no composite score.</p>
-    </aside>
-  </div>
-
-  <div class="spread closing">
-    <div class="content">
-      <h3>Where this leaves you</h3>
-      <p>This page does not ask you to stay. Bring one real practice, a boundary, a doubt, or a place where access and extraction pull against each other, and PureLand will scope what can be inspected, what must remain private, and what result would count against the method. Or don't. The <a href="https://github.com/risaac09/pureland-fork-kit">record</a> is here either way, and scroll position on this page earns you nothing.</p>
+      <p>A person and a model read this repository differently, and the difference is named rather than left to chance. The <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/JOURNEY.md">journey</a> is the human lane, walked in order on one real practice at a body's pace. <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/llms.txt">llms.txt</a> is the agent lane, addressed to a model, and it states what a model must hand back to a person rather than complete. The <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CROSSWALK.md">crosswalk</a> sets the two lanes against each other element by element. Station II has no agent counterpart, and that empty cell is a finding.</p>
+      <p>This page does not ask you to stay. Bring one real practice, a boundary, or a place where access and extraction pull against each other, and PureLand will scope what can be inspected, what must stay private, and what result would count against the method. Or do not. The <a href="https://github.com/risaac09/pureland-fork-kit">record</a> is here either way, and scroll position on this page earns you nothing.</p>
       <p class="exit-line">When you're done reading, close the tab and go look at an actual horizon.</p>
     </div>
-  </div>
+  </section>
+
 </main>
 
 <footer class="colophon">
-  <hr class="rule">
   <div class="colophon-grid">
+    <div>
+      <svg class="colophon-mark diagram draw" viewBox="0 0 100 100" role="img" aria-labelledby="mark-foot">
+        <title id="mark-foot">The PureLand fork mark.</title>
+        <g fill="none" class="ink" stroke-linecap="round" stroke-linejoin="round">
+          <path data-draw pathLength="1" style="--i:0" d="M 50 90 L 50 52" stroke-width="5"/>
+          <path data-draw pathLength="1" style="--i:1" d="M 50 52 C 40 40, 32 28, 26 14" stroke-width="4.5"/>
+          <path data-draw pathLength="1" style="--i:1" d="M 50 52 C 60 40, 68 28, 74 14" stroke-width="4.5"/>
+        </g>
+      </svg>
+    </div>
     <div>
       <span class="m-label">status</span>
       <p>Version 0.1 research-program prototype. Unvalidated instruments. One maintainer-side partial dry run. No independent field result or outcome claim.</p>
     </div>
     <div>
       <span class="m-label">license</span>
-      <p>Text and templates: CC BY-SA 4.0. Code and configuration: MIT. Design: original marks and text, licensed the same as the project's eligible text.</p>
+      <p>Text and templates: CC BY-SA 4.0. Code and configuration: MIT. Design: original marks and text, licensed the same as the project's eligible text. See <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/LICENSE.md">LICENSE.md</a>.</p>
     </div>
     <div>
       <span class="m-label">visual language</span>
-      <p>Ink &amp; Bone. Quiet over grabby. Archival honesty. Revision stays visible. Nothing certifies.</p>
+      <p>Ink &amp; Bone. Quiet over grabby. Archival honesty. Revision stays visible. Nothing certifies. The full spec is <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/design/VISUAL-LANGUAGE.md">design/VISUAL-LANGUAGE.md</a>, and the source is <a href="https://github.com/risaac09/pureland-fork-kit">the repository</a>.</p>
     </div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var nodes = document.querySelectorAll('.draw');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var i;
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    for (i = 0; i < nodes.length; i++) { nodes[i].classList.add('drawn'); }
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    for (var j = 0; j < entries.length; j++) {
+      if (entries[j].isIntersecting) {
+        entries[j].target.classList.add('drawn');
+        observer.unobserve(entries[j].target);
+      }
+    }
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.2 });
+
+  for (i = 0; i < nodes.length; i++) { observer.observe(nodes[i]); }
+})();
+</script>
 
 </body>
 </html>
