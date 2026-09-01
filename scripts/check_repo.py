@@ -603,10 +603,11 @@ def check_follow_up_date_copies(path: Path, record: dict[str, Any], errors: list
 def check_version_claims(errors: list[str]) -> None:
     """Tie the release version the entry points announce to CITATION.cff.
 
-    README.md and llms.txt both open by naming the release, and llms.txt's
-    summary is the fragment a context-limited consumer keeps. Those numerals
-    were copies nothing compared, so a release that bumped CITATION.cff alone
-    would leave both entry points announcing the old version.
+    index.html, README.md, and llms.txt each open by naming the release, and
+    llms.txt's summary is the fragment a context-limited consumer keeps. Those
+    numerals were copies nothing compared, so a release that bumped
+    CITATION.cff alone would leave any of the three entry points announcing
+    the old version.
 
     Only the "This is version N.M." sentence is read, and every occurrence is
     compared rather than the first. The remaining numeral in llms.txt names the
@@ -619,7 +620,7 @@ def check_version_claims(errors: list[str]) -> None:
     if not LLMS_TXT.is_file():
         return
     claims: list[tuple[Path, tuple[int, int]]] = []
-    for path in (LLMS_TXT, ROOT / "README.md"):
+    for path in (LLMS_TXT, ROOT / "README.md", ROOT / "index.html"):
         if not path.is_file():
             continue
         for claim in RELEASE_CLAIM.finditer(path.read_text(encoding="utf-8")):
@@ -644,6 +645,57 @@ def check_version_claims(errors: list[str]) -> None:
                 f"{relative(path)} announces version {announced[0]}.{announced[1]}, "
                 f"but CITATION.cff released {current[0]}.{current[1]}"
             )
+
+
+def check_ceiling_copy(errors: list[str]) -> None:
+    """Tie the page's evidence ceiling to CURRENT-EVIDENCE.md's first sentence.
+
+    The page carried four paraphrases of the ceiling that nothing compared;
+    now one copy stands, in the evidence band, and it is checked against the
+    record rather than restated from memory. The tied text is the first
+    non-empty line in CURRENT-EVIDENCE.md after the H1, cut at its first
+    sentence. Zero occurrences in index.html means the page has lost the
+    ceiling; more than one means it carries the ceiling twice, which is the
+    same drift the four paraphrases caused.
+    """
+    index_html = ROOT / "index.html"
+    if not CURRENT_EVIDENCE.is_file():
+        errors.append("CURRENT-EVIDENCE.md missing: the ceiling copy cannot be checked")
+        return
+    if not index_html.is_file():
+        errors.append("index.html missing: the ceiling copy cannot be checked")
+        return
+
+    seen_heading = False
+    first_line = None
+    for line in CURRENT_EVIDENCE.read_text(encoding="utf-8").splitlines():
+        if not seen_heading:
+            if line.startswith("# "):
+                seen_heading = True
+            continue
+        if line.strip():
+            first_line = line.strip()
+            break
+    if first_line is None:
+        errors.append(
+            "CURRENT-EVIDENCE.md has no non-empty line after its H1: the "
+            "ceiling copy cannot be checked"
+        )
+        return
+
+    cut = first_line.find(". ")
+    sentence = first_line[: cut + 1] if cut != -1 else first_line
+    count = index_html.read_text(encoding="utf-8").count(sentence)
+    if count == 0:
+        errors.append(
+            "index.html has lost the evidence ceiling: CURRENT-EVIDENCE.md's "
+            f"first sentence does not appear on the page: {sentence!r}"
+        )
+    elif count > 1:
+        errors.append(
+            f"index.html carries the evidence ceiling {count} times, not once: "
+            f"{sentence!r}"
+        )
 
 
 def check_schema_and_records(json_data: dict[Path, Any], errors: list[str]) -> set[Path]:
@@ -746,6 +798,7 @@ def main(argv: list[str] | None = None) -> int:
             errors.append(f"missing required file: {name}")
 
     check_version_claims(errors)
+    check_ceiling_copy(errors)
 
     json_data: dict[Path, Any] = {}
     for path in files(".json"):
