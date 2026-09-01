@@ -32,7 +32,7 @@ Contrast notes:
 - **Body.** A readable old-style serif. Stack: `"EB Garamond", Georgia, "Times New Roman", serif`.
 - **Ledger labels, data, tokens.** Monospace, uppercase, wide tracking, for anything that reads as a field entry rather than prose. Stack: `"IBM Plex Mono", "Courier Prime", "Courier New", monospace` with `letter-spacing: 0.12em`.
 
-The first face of each stack is self-hosted as a latin woff2 subset in `design/fonts/` under the OFL, and the fallback renders any glyph outside that subset.
+The first face of each stack is self-hosted as a latin woff2 subset in `design/fonts/` under the OFL, the body face also carries the latin-extended block, and the fallback renders any glyph outside those subsets. Every `url()` in `design/tokens.css` is resolved by `scripts/check_repo.py`, so a renamed font file fails the run instead of falling back in silence.
 
 ## Motifs
 

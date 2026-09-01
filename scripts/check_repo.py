@@ -19,6 +19,7 @@ SELF = Path(__file__).resolve()
 
 LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 ATTR_LINK = re.compile(r"\b(src|href|srcset)=(['\"])(.*?)\2")
+CSS_URL = re.compile(r"url\(\s*['\"]?([^'\")]+)['\"]?\s*\)")
 HEADING = re.compile(r"^(#{1,6})\s+(.+?)\s*$", re.MULTILINE)
 PLACEHOLDER = re.compile(r"\b(TODO|TBD|INSERT[_ -]?HERE)\b", re.IGNORECASE)
 METHOD_COMPLETION = re.compile(r"\bmethod completion\b", re.IGNORECASE)
@@ -37,6 +38,7 @@ FIELD_TEST_SCHEMA = ROOT / "data" / "field-test.schema.json"
 FIELD_TEST_DIR = ROOT / "data" / "field-tests"
 FT001 = FIELD_TEST_DIR / "ft-001-alchemy.json"
 LLMS_TXT = ROOT / "llms.txt"
+INDEX_HTML = ROOT / "index.html"
 CITATION = ROOT / "CITATION.cff"
 
 REQUIRED_ARCHITECTURE = [
@@ -620,16 +622,25 @@ def check_version_claims(errors: list[str]) -> None:
     if not LLMS_TXT.is_file():
         return
     claims: list[tuple[Path, tuple[int, int]]] = []
-    for path in (LLMS_TXT, ROOT / "README.md", ROOT / "index.html"):
+    for path in (LLMS_TXT, ROOT / "README.md", INDEX_HTML):
         if not path.is_file():
             continue
         for claim in RELEASE_CLAIM.finditer(path.read_text(encoding="utf-8")):
             claims.append((path, (int(claim.group(1)), int(claim.group(2)))))
-    if not any(path == LLMS_TXT for path, _ in claims):
+    # llms.txt and index.html have to carry the sentence, because the check
+    # is the tie and rephrasing the numeral away would otherwise disarm it
+    # silently. README.md is compared when it carries one.
+    missing = [
+        required
+        for required in (LLMS_TXT, INDEX_HTML)
+        if required.is_file() and not any(path == required for path, _ in claims)
+    ]
+    for required in missing:
         errors.append(
-            'llms.txt announces no release version: the summary needs a '
+            f'{relative(required)} announces no release version: it needs a '
             '"This is version N.M." sentence'
         )
+    if missing:
         return
     if not CITATION.is_file():
         errors.append("CITATION.cff missing: the release claims cannot be checked")
@@ -658,12 +669,9 @@ def check_ceiling_copy(errors: list[str]) -> None:
     ceiling; more than one means it carries the ceiling twice, which is the
     same drift the four paraphrases caused.
     """
-    index_html = ROOT / "index.html"
-    if not CURRENT_EVIDENCE.is_file():
-        errors.append("CURRENT-EVIDENCE.md missing: the ceiling copy cannot be checked")
-        return
-    if not index_html.is_file():
-        errors.append("index.html missing: the ceiling copy cannot be checked")
+    # Both files are in REQUIRED_ARCHITECTURE, which already reports either
+    # one missing; a second error here would name one cause twice.
+    if not CURRENT_EVIDENCE.is_file() or not INDEX_HTML.is_file():
         return
 
     seen_heading = False
@@ -685,7 +693,7 @@ def check_ceiling_copy(errors: list[str]) -> None:
 
     cut = first_line.find(". ")
     sentence = first_line[: cut + 1] if cut != -1 else first_line
-    count = index_html.read_text(encoding="utf-8").count(sentence)
+    count = INDEX_HTML.read_text(encoding="utf-8").count(sentence)
     if count == 0:
         errors.append(
             "index.html has lost the evidence ceiling: CURRENT-EVIDENCE.md's "
@@ -696,6 +704,26 @@ def check_ceiling_copy(errors: list[str]) -> None:
             f"index.html carries the evidence ceiling {count} times, not once: "
             f"{sentence!r}"
         )
+
+
+def check_css_urls(errors: list[str]) -> None:
+    """Every url() in a stylesheet under design/ names a file that exists.
+
+    The link checker reads Markdown links and HTML attributes and never a
+    stylesheet, so the self-hosted font paths were the one class of local
+    reference nothing resolved: a renamed woff2 passed green and the visitor
+    got the fallback face with no signal. Remote and data URLs are skipped;
+    the page makes no external request and this check is not the one that
+    says so.
+    """
+    for css in files(".css"):
+        text = css.read_text(encoding="utf-8")
+        for match in CSS_URL.finditer(text):
+            target = match.group(1).split("#", 1)[0].split("?", 1)[0]
+            if target.startswith(("http://", "https://", "data:")):
+                continue
+            if not (css.parent / target).is_file():
+                errors.append(f"{relative(css)} references a missing file: {target}")
 
 
 def check_schema_and_records(json_data: dict[Path, Any], errors: list[str]) -> set[Path]:
@@ -799,6 +827,7 @@ def main(argv: list[str] | None = None) -> int:
 
     check_version_claims(errors)
     check_ceiling_copy(errors)
+    check_css_urls(errors)
 
     json_data: dict[Path, Any] = {}
     for path in files(".json"):
