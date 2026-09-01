@@ -6,12 +6,14 @@
 /* Self-hosted latin subsets, one face per weight and style the page
    actually sets. The shared unicode-range is the "latin" block Google
    Fonts serves for these three families: it excludes U+2192, so the
-   fallback in each stack still renders the caption arrow. */
+   fallback in each stack still renders the caption arrow. font-display is
+   fallback, not swap: a short blank beats text that re-wraps after the
+   reader has started, which is motion the hand did not make. */
 @font-face {
   font-family: "Cormorant Garamond";
   font-style: italic;
   font-weight: 500;
-  font-display: swap;
+  font-display: fallback;
   src: url("fonts/cormorant-garamond-500-italic.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -19,7 +21,7 @@
   font-family: "Cormorant Garamond";
   font-style: normal;
   font-weight: 600;
-  font-display: swap;
+  font-display: fallback;
   src: url("fonts/cormorant-garamond-600.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -27,7 +29,7 @@
   font-family: "EB Garamond";
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: fallback;
   src: url("fonts/eb-garamond-400.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -35,7 +37,7 @@
   font-family: "EB Garamond";
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: fallback;
   src: url("fonts/eb-garamond-400-latin-ext.woff2") format("woff2");
   /* The body face alone carries the latin-extended block: the page sets
      one word in it, and a fallback glyph mid-word would show. */
@@ -45,7 +47,7 @@
   font-family: "EB Garamond";
   font-style: italic;
   font-weight: 400;
-  font-display: swap;
+  font-display: fallback;
   src: url("fonts/eb-garamond-400-italic.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -53,7 +55,7 @@
   font-family: "IBM Plex Mono";
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: fallback;
   src: url("fonts/ibm-plex-mono-400.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }

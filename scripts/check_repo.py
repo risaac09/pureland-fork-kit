@@ -26,6 +26,9 @@ METHOD_COMPLETION = re.compile(r"\bmethod completion\b", re.IGNORECASE)
 PAGES_BASE = "https://risaac09.github.io/pureland-fork-kit/"
 BLOB_BASE = "https://github.com/risaac09/pureland-fork-kit/blob/main/"
 RELEASE_CLAIM = re.compile(r"\bThis is version (\d+)\.(\d+)\.")
+# A sentence ends at a period followed by space and a capital. An
+# abbreviation before a lowercase word or a digit does not end one.
+SENTENCE_END = re.compile(r"\.(?=\s+[A-Z])")
 CFF_VERSION = re.compile(r"^version:\s*[\"']?(\d+)\.(\d+)", re.MULTILINE)
 
 # A follow-up in one of these states is still owed an outcome. The other
@@ -46,6 +49,7 @@ REQUIRED_ARCHITECTURE = [
     "LICENSE.md",
     "README.md",
     "llms.txt",
+    "index.html",
     "JOURNEY.md",
     "CROSSWALK.md",
     "OFFERING.md",
@@ -614,10 +618,11 @@ def check_version_claims(errors: list[str]) -> None:
     Only the "This is version N.M." sentence is read, and every occurrence is
     compared rather than the first. The remaining numeral in llms.txt names the
     method contract, which does not move with a release, so comparing every
-    numeral would fail a true sentence. llms.txt has to carry the claim,
-    because the check is the tie and deleting the numeral would otherwise
-    disarm it silently. The patch level stays CITATION.cff's alone; the prose
-    names major and minor.
+    numeral would fail a true sentence. llms.txt and index.html have to carry
+    the claim, because the check is the tie and rephrasing the numeral away
+    would otherwise disarm it silently; README.md is compared when it carries
+    one. A missing file is REQUIRED_ARCHITECTURE's error, not this one. The
+    patch level stays CITATION.cff's alone; the prose names major and minor.
     """
     if not LLMS_TXT.is_file():
         return
@@ -627,9 +632,6 @@ def check_version_claims(errors: list[str]) -> None:
             continue
         for claim in RELEASE_CLAIM.finditer(path.read_text(encoding="utf-8")):
             claims.append((path, (int(claim.group(1)), int(claim.group(2)))))
-    # llms.txt and index.html have to carry the sentence, because the check
-    # is the tie and rephrasing the numeral away would otherwise disarm it
-    # silently. README.md is compared when it carries one.
     missing = [
         required
         for required in (LLMS_TXT, INDEX_HTML)
@@ -665,25 +667,22 @@ def check_ceiling_copy(errors: list[str]) -> None:
     now one copy stands, in the evidence band, and it is checked against the
     record rather than restated from memory. The tied text is the first
     non-empty line in CURRENT-EVIDENCE.md after the H1, cut at its first
-    sentence. Zero occurrences in index.html means the page has lost the
-    ceiling; more than one means it carries the ceiling twice, which is the
-    same drift the four paraphrases caused.
+    sentence end, a period followed by space and a capital letter, so an
+    abbreviation before a lowercase word does not shorten it. Zero
+    occurrences in index.html means the page has lost the ceiling; more than
+    one means it carries the ceiling twice, which is the same drift the four
+    paraphrases caused. The match runs over the page's source, so the copy
+    has to sit in one text node with no tag or entity inside the sentence.
     """
     # Both files are in REQUIRED_ARCHITECTURE, which already reports either
     # one missing; a second error here would name one cause twice.
     if not CURRENT_EVIDENCE.is_file() or not INDEX_HTML.is_file():
         return
 
-    seen_heading = False
-    first_line = None
-    for line in CURRENT_EVIDENCE.read_text(encoding="utf-8").splitlines():
-        if not seen_heading:
-            if line.startswith("# "):
-                seen_heading = True
-            continue
-        if line.strip():
-            first_line = line.strip()
-            break
+    text = CURRENT_EVIDENCE.read_text(encoding="utf-8")
+    h1 = next((m for m in HEADING.finditer(text) if m.group(1) == "#"), None)
+    body = text[h1.end():] if h1 else text
+    first_line = next((line.strip() for line in body.splitlines() if line.strip()), None)
     if first_line is None:
         errors.append(
             "CURRENT-EVIDENCE.md has no non-empty line after its H1: the "
@@ -691,8 +690,8 @@ def check_ceiling_copy(errors: list[str]) -> None:
         )
         return
 
-    cut = first_line.find(". ")
-    sentence = first_line[: cut + 1] if cut != -1 else first_line
+    end = SENTENCE_END.search(first_line)
+    sentence = first_line[: end.end()] if end else first_line
     count = INDEX_HTML.read_text(encoding="utf-8").count(sentence)
     if count == 0:
         errors.append(
@@ -704,26 +703,6 @@ def check_ceiling_copy(errors: list[str]) -> None:
             f"index.html carries the evidence ceiling {count} times, not once: "
             f"{sentence!r}"
         )
-
-
-def check_css_urls(errors: list[str]) -> None:
-    """Every url() in a stylesheet under design/ names a file that exists.
-
-    The link checker reads Markdown links and HTML attributes and never a
-    stylesheet, so the self-hosted font paths were the one class of local
-    reference nothing resolved: a renamed woff2 passed green and the visitor
-    got the fallback face with no signal. Remote and data URLs are skipped;
-    the page makes no external request and this check is not the one that
-    says so.
-    """
-    for css in files(".css"):
-        text = css.read_text(encoding="utf-8")
-        for match in CSS_URL.finditer(text):
-            target = match.group(1).split("#", 1)[0].split("?", 1)[0]
-            if target.startswith(("http://", "https://", "data:")):
-                continue
-            if not (css.parent / target).is_file():
-                errors.append(f"{relative(css)} references a missing file: {target}")
 
 
 def check_schema_and_records(json_data: dict[Path, Any], errors: list[str]) -> set[Path]:
@@ -827,7 +806,6 @@ def main(argv: list[str] | None = None) -> int:
 
     check_version_claims(errors)
     check_ceiling_copy(errors)
-    check_css_urls(errors)
 
     json_data: dict[Path, Any] = {}
     for path in files(".json"):
@@ -875,7 +853,7 @@ def main(argv: list[str] | None = None) -> int:
     # embedded in Markdown (the README banner uses <picture>, <source>,
     # <img>, none of which markdown-link syntax would ever see).
     text_by_path: dict[Path, str] = {}
-    for path in prose_files() + files(".html"):
+    for path in prose_files() + files(".html") + files(".css"):
         text_by_path[path] = path.read_text(encoding="utf-8")
 
     graph: dict[Path, set[Path]] = defaultdict(set)
@@ -890,6 +868,12 @@ def main(argv: list[str] | None = None) -> int:
     for path in files(".html"):
         text = text_by_path[path]
         check_targets(path, attr_targets(text), text_by_path, errors, graph)
+    # A stylesheet's url() references are links too. The self-hosted font
+    # files were the one class of local reference nothing resolved: a renamed
+    # woff2 passed green and the visitor got the fallback face with no signal.
+    for path in files(".css"):
+        text = text_by_path[path]
+        check_targets(path, CSS_URL.findall(text), text_by_path, errors, graph)
 
     # Placeholder tokens beyond Markdown. .py is included deliberately: this
     # script's own source is exempt, because the PLACEHOLDER pattern above
