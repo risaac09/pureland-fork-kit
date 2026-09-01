@@ -58,7 +58,7 @@
     position: fixed;
     left: 0;
     right: 0;
-    top: 42vh;
+    top: var(--horizon-y);
     height: 1px;
     background: var(--color-rule);
     opacity: 0.3;
@@ -81,14 +81,14 @@
   }
   html.draws .draw.drawn [data-draw] {
     stroke-dashoffset: 0;
-    transition: stroke-dashoffset 2s cubic-bezier(0.4, 0, 0.2, 1);
-    transition-delay: calc(var(--i, 0) * 0.24s);
+    transition: stroke-dashoffset var(--motion-draw-duration) var(--motion-ease-settle);
+    transition-delay: calc(var(--i, 0) * var(--motion-draw-stagger));
   }
   html.draws .draw [data-fade] { opacity: 0; }
   html.draws .draw.drawn [data-fade] {
     opacity: 1;
-    transition: opacity 1.4s ease;
-    transition-delay: calc(var(--i, 0) * 0.24s);
+    transition: opacity var(--motion-fade-duration) ease;
+    transition-delay: calc(var(--i, 0) * var(--motion-draw-stagger));
   }
 
   .ink { stroke: var(--color-text); }
@@ -548,6 +548,134 @@
   .colophon-grid p { margin: 0; }
   .colophon-mark { width: 2.6rem; height: auto; }
 
+  /* ---------- scroll-linked motion ---------- */
+  /* The top rung of the ladder. Gated three ways: .draws means JS ran,
+     @supports means the browser has scroll-driven animation, and the media
+     query means the reader allows motion. Every other rung keeps the
+     draw-once behavior above. The IntersectionObserver keeps observing
+     these elements on purpose: a running scroll animation outranks the
+     .drawn transition in the cascade, and if a timeline ever fails to
+     attach the animation stops applying and .drawn still lands the line.
+     Longhands only: the animation shorthand resets animation-timeline. */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+
+      @keyframes draw-line {
+        from { stroke-dashoffset: 1; }
+        to   { stroke-dashoffset: 0; }
+      }
+
+      /* The thread is a dial. Each rail's view timeline collapses the
+         viewport to a 4vh band on the horizon, so the drawn tip rides
+         the horizon and drawn length is the reader's position. Timing is
+         linear: easing a position reading would misreport the hand. */
+      html.draws .station .rail {
+        view-timeline: --rail block;
+        view-timeline-inset: var(--motion-thread-inset);
+      }
+      html.draws .station .rail [data-draw] {
+        animation-name: draw-line;
+        animation-timing-function: var(--motion-ease-linked);
+        animation-fill-mode: both;
+        animation-timeline: --rail;
+        transition: none;
+      }
+
+      /* Observe holds a scene at every width. The plate pins below the
+         horizon while its passage passes. Sticky releases the moment the
+         reader keeps walking. */
+      html.draws #station-observe {
+        min-height: var(--motion-scene-observe);
+        view-timeline: --scene block;
+      }
+      html.draws #station-observe .plate {
+        position: sticky;
+        top: 48vh;
+        align-self: start;
+      }
+      html.draws #station-observe .plate [data-draw] {
+        animation-name: draw-line;
+        animation-timing-function: var(--motion-ease-linked);
+        animation-fill-mode: both;
+        animation-timeline: --scene;
+        transition: none;
+      }
+
+      /* Observe draws the chain in stages: the stem, then the split, then
+         the further splits. Stop the hand and proliferation stops
+         mid-split. Bare percentages span the timeline's full cover
+         range, and every stage completes before the sticky plate
+         releases. */
+      html.draws #station-observe .plate path:nth-child(1) { animation-range: 15% 32%; }
+      html.draws #station-observe .plate path:nth-child(2),
+      html.draws #station-observe .plate path:nth-child(3) { animation-range: 32% 52%; }
+      html.draws #station-observe .plate path:nth-child(4),
+      html.draws #station-observe .plate path:nth-child(5),
+      html.draws #station-observe .plate path:nth-child(6),
+      html.draws #station-observe .plate path:nth-child(7) { animation-range: 52% 70%; }
+
+      /* Below 981px the station grid is two columns and two rows, with
+         the plate under the body. Explicit rows send a scene's extra
+         height to the plate's row, so sticky gets its full travel instead
+         of half. */
+      @media (max-width: 980px) {
+        html.draws #station-observe { grid-template-rows: auto minmax(0, 1fr); }
+      }
+
+      /* On a phone the plate pins later, because it sits under the
+         passage, so the stages shift deeper into the scene. */
+      @media (max-width: 640px) {
+        html.draws #station-observe .plate { top: 38vh; }
+        html.draws #station-observe .plate path:nth-child(1) { animation-range: 35% 48%; }
+        html.draws #station-observe .plate path:nth-child(2),
+        html.draws #station-observe .plate path:nth-child(3) { animation-range: 48% 60%; }
+        html.draws #station-observe .plate path:nth-child(4),
+        html.draws #station-observe .plate path:nth-child(5),
+        html.draws #station-observe .plate path:nth-child(6),
+        html.draws #station-observe .plate path:nth-child(7) { animation-range: 60% 70%; }
+      }
+
+      /* Trace holds a scene at 641px and up. On a phone one held scene is
+         enough, and Observe is the one that matters there. Every Trace
+         rule lives inside this query, so below it the station keeps the
+         draw-once behavior with no unsetting needed. */
+      @media (min-width: 641px) {
+        html.draws #station-trace {
+          min-height: var(--motion-scene-trace);
+          view-timeline: --scene block;
+        }
+        html.draws #station-trace .plate {
+          position: sticky;
+          top: 48vh;
+          align-self: start;
+        }
+        html.draws #station-trace .plate [data-draw] {
+          animation-name: draw-line;
+          animation-timing-function: var(--motion-ease-linked);
+          animation-fill-mode: both;
+          animation-timeline: --scene;
+          transition: none;
+        }
+        /* What leaves draws before what returns, in the caption's reading
+           order. The flow that never returns draws last, and the two open
+           marks land before the plate releases. */
+        html.draws #station-trace .plate path:nth-child(1),
+        html.draws #station-trace .plate path:nth-child(2) { animation-range: 16% 24%; }
+        html.draws #station-trace .plate path:nth-child(3) { animation-range: 24% 33%; }
+        html.draws #station-trace .plate path:nth-child(4) { animation-range: 33% 41%; }
+        html.draws #station-trace .plate path:nth-child(5) { animation-range: 41% 49%; }
+        html.draws #station-trace .plate path:nth-child(6) { animation-range: 49% 56%; }
+        html.draws #station-trace .plate path:nth-child(7) { animation-range: 56% 63%; }
+        html.draws #station-trace .plate path:nth-child(8),
+        html.draws #station-trace .plate path:nth-child(9) { animation-range: 63% 67%; }
+
+        @media (max-width: 980px) {
+          html.draws #station-trace { grid-template-rows: auto minmax(0, 1fr); }
+        }
+      }
+    }
+  }
+
   /* ---------- responsive ---------- */
   @media (max-width: 980px) {
     .arrival { grid-template-columns: 1fr; row-gap: var(--space-xl); }
@@ -568,7 +696,6 @@
     section.band { padding: var(--space-xl) var(--space-md); }
     footer.colophon { padding: var(--space-xl) var(--space-md); }
     .colophon-grid { grid-template-columns: 1fr; }
-    .horizon { top: 30vh; }
     .record dl { grid-template-columns: 1fr; }
     .record dd { border-top: none; padding-top: 0; }
   }
@@ -998,7 +1125,7 @@
         <ul class="slots">
           <li class="slot">
             <div class="frame">
-              <svg class="diagram draw" viewBox="0 0 120 64" role="img" aria-labelledby="s-1">
+              <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-1">
                 <title id="s-1">An empty specimen slot.</title>
                 <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
                   <path data-draw pathLength="1" style="--i:0" d="M 4 4 H 116 V 60 H 4 Z"/>
@@ -1012,7 +1139,7 @@
           </li>
           <li class="slot">
             <div class="frame">
-              <svg class="diagram draw" viewBox="0 0 120 64" role="img" aria-labelledby="s-2">
+              <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-2">
                 <title id="s-2">An empty specimen slot.</title>
                 <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
                   <path data-draw pathLength="1" style="--i:0" d="M 4 4 H 116 V 60 H 4 Z"/>
@@ -1026,7 +1153,7 @@
           </li>
           <li class="slot">
             <div class="frame">
-              <svg class="diagram draw" viewBox="0 0 120 64" role="img" aria-labelledby="s-3">
+              <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-3">
                 <title id="s-3">An empty specimen slot.</title>
                 <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
                   <path data-draw pathLength="1" style="--i:0" d="M 4 4 H 116 V 60 H 4 Z"/>
@@ -1040,7 +1167,7 @@
           </li>
           <li class="slot">
             <div class="frame">
-              <svg class="diagram draw" viewBox="0 0 120 64" role="img" aria-labelledby="s-4">
+              <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-4">
                 <title id="s-4">An empty specimen slot.</title>
                 <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
                   <path data-draw pathLength="1" style="--i:0" d="M 4 4 H 116 V 60 H 4 Z"/>
@@ -1054,7 +1181,7 @@
           </li>
           <li class="slot">
             <div class="frame">
-              <svg class="diagram draw" viewBox="0 0 120 64" role="img" aria-labelledby="s-5">
+              <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-5">
                 <title id="s-5">An empty specimen slot.</title>
                 <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
                   <path data-draw pathLength="1" style="--i:0" d="M 4 4 H 116 V 60 H 4 Z"/>
@@ -1068,7 +1195,7 @@
           </li>
           <li class="slot">
             <div class="frame">
-              <svg class="diagram draw" viewBox="0 0 120 64" role="img" aria-labelledby="s-6">
+              <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-6">
                 <title id="s-6">An empty specimen slot.</title>
                 <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
                   <path data-draw pathLength="1" style="--i:0" d="M 4 4 H 116 V 60 H 4 Z"/>
@@ -1082,7 +1209,7 @@
           </li>
           <li class="slot">
             <div class="frame">
-              <svg class="diagram draw" viewBox="0 0 120 64" role="img" aria-labelledby="s-7">
+              <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-7">
                 <title id="s-7">An empty specimen slot.</title>
                 <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
                   <path data-draw pathLength="1" style="--i:0" d="M 4 4 H 116 V 60 H 4 Z"/>
@@ -1096,7 +1223,7 @@
           </li>
           <li class="slot">
             <div class="frame">
-              <svg class="diagram draw" viewBox="0 0 120 64" role="img" aria-labelledby="s-8">
+              <svg class="diagram" viewBox="0 0 120 64" role="img" aria-labelledby="s-8">
                 <title id="s-8">An empty specimen slot.</title>
                 <g fill="none" class="rule-stroke" stroke-linecap="round" stroke-width="1.3">
                   <path data-draw pathLength="1" style="--i:0" d="M 4 4 H 116 V 60 H 4 Z"/>
