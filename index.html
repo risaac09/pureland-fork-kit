@@ -372,29 +372,6 @@
   }
   .plate figcaption::before { content: "→ "; color: var(--color-accent); }
 
-  /* ---------- toolbox ---------- */
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    gap: var(--space-xl) var(--space-lg);
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  .card { padding-top: var(--space-sm); border-top: 1px solid var(--color-rule); }
-  .card .c-title {
-    display: block;
-    font-family: var(--font-ledger);
-    font-size: 0.72rem;
-    letter-spacing: var(--letter-spacing-ledger);
-    text-transform: uppercase;
-    margin-bottom: 0.6em;
-  }
-  .card ul { margin: 0; padding: 0; list-style: none; }
-  .card li { padding: 0.3em 0; font-size: 0.95rem; }
-  .card li a { text-decoration-thickness: 1px; }
-  .card .c-note { font-size: 0.88rem; color: var(--color-text-secondary); margin: 0.6em 0 0; }
-
   /* ---------- evidence ---------- */
   .evidence-grid {
     display: grid;
@@ -743,8 +720,8 @@
     <span class="eyebrow">research-program prototype · forkable toolbox · v0.1</span>
     <nav class="subnav" aria-label="Kit documents">
       <a href="#journey">journey</a>
-      <a href="#toolbox">toolbox</a>
       <a href="#evidence">evidence</a>
+      <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/TOOLBOX.md">toolbox</a>
       <a href="https://github.com/risaac09/pureland-fork-kit">repository</a>
       <a href="https://github.com/risaac09/pureland-fork-kit/issues">issues</a>
     </nav>
@@ -827,6 +804,7 @@
     <div class="band-head">
       <h3>The research spine</h3>
       <p>Five public research functions. Each document has one job. Read the argument, then the evidence record.</p>
+      <p>The toolbox is the forkable part: instruments, templates, controls, and public-safe records. The thesis and the evidence record set their limits. Their presence validates nothing. Isaac Rubinstein maintains the project and holds merge and release authority. That concentration is a project risk, not a mature commons.</p>
     </div>
     <div class="ledger">
       <div class="ledger-row">
@@ -1031,76 +1009,6 @@
         <figcaption>some strands stay private and stop where the permission stops</figcaption>
       </figure>
     </article>
-  </section>
-
-  <!-- ---------- toolbox ---------- -->
-  <section class="band" id="toolbox">
-    <div class="band-head">
-      <h3>The toolbox</h3>
-      <p>The forkable part. Instruments, templates, controls, and public-safe records. The thesis and the evidence record set their limits. Their presence validates nothing. Each card links out to the record on GitHub.</p>
-    </div>
-    <ul class="cards">
-      <li class="card">
-        <span class="c-title">Walk the method</span>
-        <ul>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/JOURNEY.md">JOURNEY.md</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/PRACTICE-FRAME.md">PRACTICE-FRAME.md</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/SCORECARD.md">SCORECARD.md</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/EXTRACTION-CHECK.md">EXTRACTION-CHECK.md</a></li>
-        </ul>
-        <p class="c-note">The six-station sequence and the three instruments it runs.</p>
-      </li>
-      <li class="card">
-        <span class="c-title">Handle conditional material</span>
-        <ul>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/PROTOCOL.md">PROTOCOL.md</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/FILMING-FORMS.md">FILMING-FORMS.md</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/RIGHTS-AND-CONSENT.md">RIGHTS-AND-CONSENT.md</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/AI-SYSTEM-ANNEX.md">AI-SYSTEM-ANNEX.md</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/templates/consent-register.md">templates/consent-register.md</a></li>
-        </ul>
-        <p class="c-note">Recorded encounters, cameras, permission, and the consent record that stays private.</p>
-      </li>
-      <li class="card">
-        <span class="c-title">Test and report</span>
-        <ul>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/TESTING.md">TESTING.md</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/templates/field-test.md">templates/field-test.md</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/data/field-test.schema.json">data/field-test.schema.json</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/research/field-tests/ft-001-alchemy.md">research/field-tests/ft-001-alchemy.md</a></li>
-        </ul>
-        <p class="c-note">The claim, the report template, the structured schema, and the one dry run.</p>
-      </li>
-      <li class="card">
-        <span class="c-title">Inspect evidence and claims</span>
-        <ul>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CURRENT-EVIDENCE.md">CURRENT-EVIDENCE.md</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/RESEARCH-STATUS.md">RESEARCH-STATUS.md</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/PROVENANCE.md">PROVENANCE.md</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/research/README.md">research/README.md</a></li>
-        </ul>
-        <p class="c-note">Listing a test is not endorsing it.</p>
-      </li>
-      <li class="card">
-        <span class="c-title">Use or adapt</span>
-        <ul>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/OFFERING.md">OFFERING.md</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/GOVERNANCE.md">GOVERNANCE.md</a></li>
-        </ul>
-        <p class="c-note">Isaac Rubinstein maintains the project and holds merge and release authority. That concentration is a project risk, not a mature commons.</p>
-      </li>
-      <li class="card">
-        <span class="c-title">Reuse safely</span>
-        <ul>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/LICENSE.md">LICENSE.md</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/SECURITY.md">SECURITY.md</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/AI-ASSISTANCE.md">AI-ASSISTANCE.md</a></li>
-          <li><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/design/VISUAL-LANGUAGE.md">design/VISUAL-LANGUAGE.md</a></li>
-        </ul>
-        <p class="c-note">Eligible text and templates use CC BY-SA 4.0. Code and configuration use MIT.</p>
-      </li>
-    </ul>
   </section>
 
   <!-- ---------- evidence ---------- -->
