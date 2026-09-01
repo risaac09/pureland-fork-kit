@@ -10,6 +10,7 @@ Everything listed here is an instrument. The repository's two readerships, the h
 - [PRACTICE-FRAME.md](PRACTICE-FRAME.md): prompts for self-observation at the Observe station.
 - [SCORECARD.md](SCORECARD.md): four separate access questions for the Map station.
 - [EXTRACTION-CHECK.md](EXTRACTION-CHECK.md): consent, attribution, value return, attention sovereignty, burden, and collective authority at the Trace station.
+- [templates/walk-with-a-model.md](templates/walk-with-a-model.md): the packet for walking the journey with a model, on your own use of language models. The model scaffolds; the human cells stay yours.
 
 ## Handle conditional material
 

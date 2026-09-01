@@ -62,6 +62,7 @@ REQUIRED_ARCHITECTURE = [
     "data/README.md",
     "data/field-test.schema.json",
     "templates/field-test.md",
+    "templates/walk-with-a-model.md",
     "research/field-tests/ft-001-alchemy.md",
 ]
 

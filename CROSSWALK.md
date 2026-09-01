@@ -18,6 +18,11 @@ Nothing here changes what the kit has shown.
 [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md) holds that, and an architecture
 change is not evidence.
 
+The [walk-with-a-model packet](templates/walk-with-a-model.md) runs both lanes
+in one session: the model does the agent-lane work in station order and hands
+each human-lane cell back before it moves on. It fills no empty cell in this
+register. It puts a person in front of each one while a model is present.
+
 ## The register at a glance
 
 | Element | Verdict |

@@ -27,7 +27,8 @@ You may generate:
 - a structural check, a link check, or a report of what a record is missing;
 - record scaffolding with the required fields named and left empty for a person;
 - a correction to a broken link, a stale cross-reference, or a false self-description;
-- a statement of what is absent. Naming a gap is the useful output here.
+- a statement of what is absent. Naming a gap is the useful output here;
+- the walk-with-a-model scaffolding, when a person has pasted the packet: questions asked in station order, proposals marked as proposals, and a record skeleton with every human cell left empty.
 
 You may never generate:
 
@@ -86,6 +87,7 @@ When you cannot proceed, write `unmeasurable` and say what is missing. A refusal
 - [Field-test schema](https://risaac09.github.io/pureland-fork-kit/data/field-test.schema.json): JSON Schema, Draft 2020-12; the required record for method version 0.1 and the structural gate on public field-test JSON.
 - [Field-test record](https://risaac09.github.io/pureland-fork-kit/data/field-tests/ft-001-alchemy.json): FT-001, the only current structured public-safe record; its test status is `partial-execution`.
 - [Field-test template](https://risaac09.github.io/pureland-fork-kit/templates/field-test.md): the public-safe report a walker fills in at the Return station. Scaffold it with the required fields named and left empty. Do not fill it in.
+- [Walk with a model](https://risaac09.github.io/pureland-fork-kit/templates/walk-with-a-model.md): the packet a person pastes into a model to walk the journey on their own use of language models. The model does the agent-lane work in station order and hands every human-lane cell back. Do not fill a human cell.
 - [Consent register template](https://risaac09.github.io/pureland-fork-kit/templates/consent-register.md): the minimum permission record. The template is public and a completed register never enters this repository.
 - [Repository checker](https://risaac09.github.io/pureland-fork-kit/scripts/check_repo.py): validates every record against the schema, then applies semantic rules to the conformant set.
 - [Research lane](https://risaac09.github.io/pureland-fork-kit/research/README.md): the index of reviewed, rights-cleared research records.

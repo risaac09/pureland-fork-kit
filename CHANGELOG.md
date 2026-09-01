@@ -4,6 +4,8 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Added `templates/walk-with-a-model.md`, the packet a person pastes into a language model to walk the journey on their own use of language models, wired into `llms.txt`, `TOOLBOX.md`, `JOURNEY.md`, `README.md`, `CROSSWALK.md`, `RESEARCH-STATUS.md`, `index.html`, and `REQUIRED_ARCHITECTURE`. The agent lane said what a model may not generate and never said what a person and a model do together. (PR pending)
+
 ## 0.1.0 (2026-09-01)
 
 The first release. Everything below was written between 2026-08-17 and 2026-09-01 and compressed to this register on release. The long-form entries live in the history at commit `3bec315` and before.
