@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-08-31 hindrance renderings
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code |
+| Task | Renaming the five hindrances in `PRACTICE-FRAME.md` to the maintainer's directed wording, craving, aversion, sloth and torpor, restlessness and worry, and doubt, adding the Pali term beside every poison and hindrance, and stating the rendering choice in the frame |
+| Material provided | The maintainer's written direction naming the five exact words and asking whether their order is canonical |
+| Source verification | The order was checked against the canonical sequence (kāmacchanda, byāpāda, thīna-middha, uddhacca-kukkucca, vicikicchā; Saṁyutta Nikāya 45.177 as already cited in `PROVENANCE.md`) and confirmed correct. The prior wording was the cited Sujato translation's; `PROVENANCE.md` keeps that wording so the source register stays intact |
+| Corrections after verification | The renaming put aversion in both lists, where the poison is dosa and the hindrance is byāpāda. The Pali terms were added to every row so the two stay distinct, and the frame now says the doubling is deliberate rather than leaving a reader to wonder |
+| Human review | The maintainer directed the wording in advance, in writing. The assistant executed and merged |
+| Sensitive material | None involved |
+
 ## 2026-08-31 follow-up date guard
 
 | Field | Record |
