@@ -32,6 +32,8 @@ Contrast notes:
 - **Body.** A readable old-style serif. Stack: `"EB Garamond", Georgia, "Times New Roman", serif`.
 - **Ledger labels, data, tokens.** Monospace, uppercase, wide tracking, for anything that reads as a field entry rather than prose. Stack: `"IBM Plex Mono", "Courier Prime", "Courier New", monospace` with `letter-spacing: 0.12em`.
 
+The first face of each stack is self-hosted as a latin woff2 subset in `design/fonts/` under the OFL, the body face also carries the latin-extended block, and the fallback renders any glyph outside those subsets. Every `url()` in `design/tokens.css` is resolved by `scripts/check_repo.py`, so a renamed font file fails the run instead of falling back in silence.
+
 ## Motifs
 
 - **Roman numerals** appear in two explicitly labeled sequences: the public research functions and the method's six journey stations. Never let one sequence stand in for the other, and read the count from the sequence itself rather than fixing it here, where it would drift.

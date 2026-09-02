@@ -23,4 +23,6 @@ Withdrawal may stop future project-controlled uses within the limits agreed with
 
 Suggested attribution: `PureLand method and toolbox by Isaac Rubinstein, CC BY-SA 4.0, with changes described.`
 
+Font files in `design/fonts/` are third-party works under the [SIL Open Font License 1.1](LICENSES/OFL.txt), with their reserved font names, and are covered by neither CC BY-SA nor MIT.
+
 Repository code, configuration files, and machine-readable configuration templates are licensed separately under the [MIT License](LICENSES/MIT.txt). This keeps the method reciprocal while allowing the small validation tools and configuration formats to be reused in ordinary software projects.
