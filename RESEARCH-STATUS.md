@@ -32,6 +32,7 @@ A practice-derived claim is not weaker than a synthesized one. It is a different
 | [Consent, attribution, and meaningful-return profiles](EXTRACTION-CHECK.md) expose overlooked asymmetries | Provisional instrument hypothesis | Cases across contexts plus affected-party review |
 | [Walking the method](JOURNEY.md) and testing one contestable adaptation can improve practical agency without materially increasing exposure, extractability, or shifted burden | Primary untested PureLand hypothesis | Independent applications with predefined actions, action baselines and follow-up, affected-person challenge, rights review, burden record, materiality rule, and disconfirming evidence |
 | [One curated sequence](JOURNEY.md) beats a menu of instruments for first-time completion and report quality | Untested design hypothesis | Whole-journey tests, drop-off points, and comparison with single-instrument entries |
+| A person with a model, using the [walk-with-a-model packet](templates/walk-with-a-model.md), can produce a partial field-test record on their own use of language models with every human cell left honest and no facilitator present | Untested design hypothesis | Independent packet walks; the count of records where a human cell arrived filled by the model rather than left empty or performed by the person; the station where walks stop |
 
 ## Current evidence
 

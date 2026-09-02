@@ -20,6 +20,10 @@ When the practice you bring is your own information intake, the journey has a li
 
 Alchemy is a tool with deliberate constraints, not a validated instrument. The journey's epistemics apply to it too.
 
+## Walking it with a model
+
+A person and a language model can walk the six stations together with the [walk-with-a-model packet](templates/walk-with-a-model.md), on the practice of that person's own use of language models. The model asks the questions in station order and hands each human cell back. Station 2 stays the person's there too, and the model has to stop and wait while they do it.
+
 ## Two branch questions
 
 Answer these before station 1:

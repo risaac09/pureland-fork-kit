@@ -37,7 +37,7 @@ A person and a model read this repository differently. [The journey](JOURNEY.md)
 
 The [front page](index.html) is served at [risaac09.github.io/pureland-fork-kit](https://risaac09.github.io/pureland-fork-kit/). The [open-research lane](research/README.md) indexes provenance, AI-assistance, research-status, field-test, and audit records. A model or agent reading the repository can start from [llms.txt](llms.txt).
 
-Walk [the journey](JOURNEY.md): Ground, Observe, Map, Trace, Adapt, Return. Bring one real information practice and start on your own, or propose a [PureLand Field Pilot](OFFERING.md), the same journey walked with Isaac as a small, bounded inquiry.
+Walk [the journey](JOURNEY.md): Ground, Observe, Map, Trace, Adapt, Return. Bring one real information practice and start on your own, or propose a [PureLand Field Pilot](OFFERING.md), the same journey walked with Isaac as a small, bounded inquiry. A person with a model can walk it together, on their own use of language models, with the [walk-with-a-model packet](templates/walk-with-a-model.md).
 
 The toolbox includes the [practice frame](PRACTICE-FRAME.md), [openness scorecard](SCORECARD.md), [extraction check](EXTRACTION-CHECK.md), [facilitation protocol](PROTOCOL.md), [AI system annex](AI-SYSTEM-ANNEX.md), and the [field-testing discipline](TESTING.md) inside the testing program.
 
