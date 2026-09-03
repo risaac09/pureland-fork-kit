@@ -7,6 +7,7 @@ Everything listed here is an instrument. The repository's two readerships, the h
 ## Walk the method
 
 - [JOURNEY.md](JOURNEY.md): the recommended six-station sequence.
+- [templates/walk-it-yourself.md](templates/walk-it-yourself.md): the self-guided human worksheet for the six stations.
 - [PRACTICE-FRAME.md](PRACTICE-FRAME.md): prompts for self-observation at the Observe station.
 - [SCORECARD.md](SCORECARD.md): four separate access questions for the Map station.
 - [EXTRACTION-CHECK.md](EXTRACTION-CHECK.md): consent, attribution, value return, attention sovereignty, burden, and collective authority at the Trace station.

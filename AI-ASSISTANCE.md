@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-03 self-guided human packet
+
+| Field | Record |
+|---|---|
+| Tool | Codex |
+| Task | Writing `templates/walk-it-yourself.md`, a plain Markdown worksheet through the six stations, and wiring it only into `JOURNEY.md`, `TOOLBOX.md`, `CHANGELOG.md`, and `REQUIRED_ARCHITECTURE` pending one outside reader |
+| Material provided | The public repository at `c27c8c6` and the maintainer's Gate 1 implementation brief; no participant, client, confidential, identifying, or protected community material entered the committed packet |
+| Source verification | Every station was checked against `JOURNEY.md`; the five units link to `METHOD.md`; the disconfirming condition links to `TESTING.md`; the access questions link to the four `SCORECARD.md` sections; the reciprocity fields link to `EXTRACTION-CHECK.md`; Observe links to `PRACTICE-FRAME.md`; the checker verifies every anchor |
+| Corrections after verification | The packet keeps Observe human-authored, keeps consent, attribution, and meaningful return separate, requires a baseline and review window for one reversible change, and states that structural conformance does not establish completion, validity, safety, or outcome |
+| Human review | The maintainer reviews the local commit before any push or publication and chooses the packet's first outside reader |
+| Sensitive material | None involved in the committed packet |
+
 ## 2026-09-01 walk-with-a-model packet
 
 | Field | Record |

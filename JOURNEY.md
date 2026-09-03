@@ -10,6 +10,10 @@ The journey puts unvalidated instruments in an order. It does not certify openne
 
 You may stop or leave at any station. Record the stop, refusal, or missing permission without turning it into failure by the participant. A stopped walk cannot support claims about stations nobody completed.
 
+## Walking it yourself
+
+Use the [walk-it-yourself packet](templates/walk-it-yourself.md) as a plain Markdown worksheet through the six stations. It links the canonical instruments and adds no claim or score.
+
 ## Walking it on your own ecosystem
 
 When the practice you bring is your own information intake, the journey has a live companion: [Alchemy](https://alchemy.rubinsteinproductions.com), a free browser app for information metabolism ([source](https://github.com/risaac09/alchemy), MIT). Its main PWA surface uses a local-first design with no accounts, server-side user store, or analytics. Two other surfaces send material out: the embed funnel's optional email goes to the host page, and the embodied reflection service sends a reflection to a third-party model provider. The design intends to reduce extraction. [FT-001](research/field-tests/ft-001-alchemy.md) did not observe a user outcome. It banded value return usable, not shared, and found a tension between traceability and intentional deletion.
