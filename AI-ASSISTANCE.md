@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-03 field-record consistency gates
+
+| Field | Record |
+|---|---|
+| Tool | Codex |
+| Task | Adding deterministic record, report, ledger, version, commit-reachability, and gate-accounting checks to `scripts/check_repo.py`, plus a standard-library subprocess test suite and full-history CI checkouts |
+| Material provided | The public repository, `research/data-maturity-audit.md`, and the maintainer's Gate 1 implementation brief; no private or participant material entered the code or fixtures |
+| Source verification | The checks were read against FT-001's JSON record, paired report, ledger row, schema, both workflows, the checker's warning contract, and Git reachability in full and shallow repositories |
+| Corrections after verification | Tests mutate one cross-artifact fact at a time, malformed JSON stays under the existing loader gate, shallow history warns, and the printed independent and practice totals identify themselves as counts rather than scores |
+| Human review | The maintainer reviews the local commit before any push or publication |
+| Sensitive material | None involved |
+
 ## 2026-09-03 self-guided human packet
 
 | Field | Record |

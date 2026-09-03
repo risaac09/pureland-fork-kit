@@ -4,6 +4,7 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Enforced unique field-test IDs, record filenames, paired reports, exact ledger rows, cross-artifact versions, public-safe artifact versions, and reachable kit commits. The checker now prints independent-record and distinct-practice counts, while CI fetches full history and runs the checker tests.
 - Added `templates/walk-it-yourself.md`, a human-authored worksheet that links the six stations to their canonical instruments, and wired it only through `JOURNEY.md`, `TOOLBOX.md`, `REQUIRED_ARCHITECTURE`, and the AI-assistance record pending one outside reader.
 - Put three ways to walk the same journey near the front-page opening, pointed the Field Pilot route at the exact public Stage 1 form, made the form's version field optional, and recorded that pilot terms remain unset.
 - Added `templates/walk-with-a-model.md`, the packet a person pastes into a language model to walk the journey on their own use of language models, wired into `llms.txt`, `TOOLBOX.md`, `JOURNEY.md`, `README.md`, `CROSSWALK.md`, `RESEARCH-STATUS.md`, `index.html`, and `REQUIRED_ARCHITECTURE`. The agent lane said what a model may not generate and never said what a person and a model do together. (#33)

@@ -7,6 +7,7 @@ import datetime as dt
 import json
 import os
 import re
+import subprocess
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -546,6 +547,176 @@ FOLLOW_UP_LINE = re.compile(r"follow-?up", re.IGNORECASE)
 CURRENT_EVIDENCE = ROOT / "CURRENT-EVIDENCE.md"
 
 
+def git_commit_status(commit: str) -> tuple[bool | None, str | None]:
+    """Return whether a commit resolves, plus a reason when it cannot be checked."""
+    try:
+        shallow = subprocess.run(
+            ["git", "rev-parse", "--is-shallow-repository"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+    except OSError:
+        return None, "git is unavailable"
+
+    if shallow.returncode != 0:
+        return None, "Git metadata is unavailable"
+
+    try:
+        resolved = subprocess.run(
+            ["git", "cat-file", "-e", f"{commit}^{{commit}}"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+    except OSError:
+        return None, "git is unavailable"
+    if resolved.returncode == 0:
+        return True, None
+    if shallow.stdout.strip() == "true":
+        return None, "the checkout is shallow"
+    return False, None
+
+
+def public_safe_report_section(text: str) -> str:
+    """Return the report text from its artifact-version public-safe marker onward."""
+    lines = text.splitlines()
+    marker = next(
+        (
+            index
+            for index, line in enumerate(lines)
+            if "artifact-version public-safe" in line.lower()
+        ),
+        None,
+    )
+    if marker is None:
+        return ""
+    end = next(
+        (
+            index
+            for index in range(marker + 1, len(lines))
+            if lines[index].startswith("## ")
+        ),
+        len(lines),
+    )
+    return "\n".join(lines[marker:end])
+
+
+def markdown_h2_section(text: str, heading: str) -> str:
+    """Return one level-two Markdown section without later peer sections."""
+    lines = text.splitlines()
+    start = next(
+        (
+            index + 1
+            for index, line in enumerate(lines)
+            if line.strip().lower() == f"## {heading.lower()}"
+        ),
+        None,
+    )
+    if start is None:
+        return ""
+    end = next(
+        (index for index in range(start, len(lines)) if lines[index].startswith("## ")),
+        len(lines),
+    )
+    return "\n".join(lines[start:end])
+
+
+def check_record_consistency(
+    conformant: set[Path],
+    json_data: dict[Path, Any],
+    errors: list[str],
+    warnings: list[str],
+) -> tuple[int, int]:
+    """Tie each conformant record to its report, ledger row, and kit commit."""
+    records = [
+        (path, json_data[path])
+        for path in sorted(conformant)
+        if isinstance(json_data.get(path), dict)
+    ]
+    ids: defaultdict[str, list[Path]] = defaultdict(list)
+    for path, record in records:
+        ids[str(record.get("record_id", ""))].append(path)
+    for record_id, paths in sorted(ids.items()):
+        if record_id and len(paths) > 1:
+            errors.append(
+                f"duplicate record_id {record_id}: "
+                + ", ".join(relative(path) for path in paths)
+            )
+
+    ledger_lines = (
+        markdown_h2_section(
+            CURRENT_EVIDENCE.read_text(encoding="utf-8"), "The ledger"
+        ).splitlines()
+        if CURRENT_EVIDENCE.is_file()
+        else []
+    )
+
+    for path, record in records:
+        record_id = str(record.get("record_id", ""))
+        label = record_id or relative(path)
+        expected_prefix = record_id.lower() + "-"
+        if record_id and not path.stem.startswith(expected_prefix):
+            errors.append(
+                f"{label} record filename must begin {expected_prefix!r}: {relative(path)}"
+            )
+
+        report = ROOT / "research" / "field-tests" / f"{path.stem}.md"
+        report_text = report.read_text(encoding="utf-8") if report.is_file() else ""
+        if not report.is_file():
+            errors.append(f"{label} missing paired report: {relative(report)}")
+
+        matching_rows = [line for line in ledger_lines if path.name in line]
+        if len(matching_rows) != 1:
+            errors.append(
+                f"{label} must have exactly one CURRENT-EVIDENCE.md ledger row naming "
+                f"{path.name}; found {len(matching_rows)}"
+            )
+
+        kit_version = str(record.get("kit_version", ""))
+        match = re.match(r"\s*([0-9a-fA-F]{7,40})\b", kit_version)
+        if match is None:
+            errors.append(f"{label} kit_version has no leading hexadecimal commit: {kit_version!r}")
+            continue
+        commit = match.group(1)
+        if report.is_file() and commit not in report_text:
+            errors.append(f"{label} kit_version {commit} is missing from {relative(report)}")
+        if len(matching_rows) == 1 and commit not in matching_rows[0]:
+            errors.append(
+                f"{label} kit_version {commit} is missing from its CURRENT-EVIDENCE.md ledger row"
+            )
+
+        artifact_version = str(
+            record.get("public_safe_review", {}).get("artifact_version", "")
+        )
+        if report.is_file() and artifact_version not in public_safe_report_section(report_text):
+            errors.append(
+                f"{label} public-safe artifact_version {artifact_version!r} is missing from "
+                f"{relative(report)}'s public-safe section"
+            )
+
+        reachable, reason = git_commit_status(commit)
+        if reachable is False:
+            errors.append(f"{label} kit_version commit is unreachable in the full clone: {commit}")
+        elif reachable is None:
+            warnings.append(
+                f"{label} kit_version commit {commit} was not verified because {reason}"
+            )
+
+    independent = sum(
+        record.get("assessor", {}).get("independence") == "independent"
+        for _, record in records
+    )
+    practices = {
+        name
+        for _, record in records
+        if isinstance((name := record.get("practice", {}).get("name")), str) and name
+    }
+    return independent, len(practices)
+
+
 def check_follow_up_date_copies(path: Path, record: dict[str, Any], errors: list[str]) -> None:
     """Tie the prose copies of a follow-up review date to the record.
 
@@ -838,6 +1009,15 @@ def main(argv: list[str] | None = None) -> int:
             check_record_rules(path, record, errors)
             overdue_follow_ups(path, record, today, follow_up_notices)
             check_follow_up_date_copies(path, record, errors)
+
+    independent_count, practice_count = check_record_consistency(
+        conformant, json_data, errors, warnings
+    )
+    print(
+        "Gate accounting (counts, not scores): "
+        f"independent records={independent_count}; "
+        f"distinct practice.name values={practice_count}."
+    )
 
     # Where these land depends on who is asking. The scheduled watch wants a
     # red run; everyone else wants a note that does not block their work.
