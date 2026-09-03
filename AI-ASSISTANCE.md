@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-03 paid bounded inquiry positioning
+
+| Field | Record |
+|---|---|
+| Tool | Codex |
+| Task | Making the paid bounded inquiry the public Field Pilot default while keeping co-research separate and the unresolved charter outside the repository |
+| Material provided | The public repository at the local Gate 1 head, the Gate 1 handoff and decision log, and separate paid-inquiry and co-research charter drafts |
+| Source verification | The public copy was checked against `OFFERING.md`, `RIGHTS-AND-CONSENT.md`, `GOVERNANCE.md`, `SECURITY.md`, `JOURNEY.md`, `CURRENT-EVIDENCE.md`, `RESEARCH-STATUS.md`, the Stage 1 issue form, and the repository checker |
+| Corrections after verification | The page keeps Stage 1 scoping-only and says engagement terms are not set; the offer promises facilitation and a private decision record, not an outcome; payment grants no research, marketing, AI, training, reviewer, reuse, or publication permission |
+| Human review | The maintainer must set the economic, time, output, custody, stopping, complaint, correction, review, ownership, and exchange terms before the charter can enter the repository or an engagement can begin |
+| Sensitive material | None involved; no participant, client, identifying, confidential, consent, or protected community material entered the repository |
+
 ## 2026-09-03 release-drift warning
 
 | Field | Record |

@@ -4,6 +4,7 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Made the paid bounded inquiry the public Field Pilot default, kept co-research separate for named collaborators, and stated that payment buys facilitation and a private decision record rather than an outcome, publication, research participation, marketing permission, or public evidence.
 - Tied the live-site release warning to this canonical Unreleased section instead of adding a separate status line that could drift.
 - Enforced unique field-test IDs, record filenames, paired reports, exact ledger rows, cross-artifact versions, public-safe artifact versions, and reachable kit commits. The checker now prints independent-record and distinct-practice counts, while CI fetches full history and runs the checker tests.
 - Added `templates/walk-it-yourself.md`, a human-authored worksheet that links the six stations to their canonical instruments, and wired it only through `JOURNEY.md`, `TOOLBOX.md`, `REQUIRED_ARCHITECTURE`, and the AI-assistance record pending one outside reader.
