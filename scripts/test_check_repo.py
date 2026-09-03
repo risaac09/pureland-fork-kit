@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -18,6 +19,10 @@ REPORT = Path("research/field-tests/ft-001-alchemy.md")
 LEDGER = Path("CURRENT-EVIDENCE.md")
 VERSION = "62259ec"
 ARTIFACT_VERSION = "FT-001-integrated-v0.1-2026-08-24"
+UNRELEASED_DRIFT_WARNING = (
+    "the live site deploys main and carries unreleased changes; "
+    "cut a patch release or accept the drift."
+)
 
 
 class CheckRepoConsistencyTests(unittest.TestCase):
@@ -105,6 +110,25 @@ class CheckRepoConsistencyTests(unittest.TestCase):
             "distinct practice.name values=1.",
             result.stdout,
         )
+
+    def test_unreleased_entries_warn_from_changelog(self) -> None:
+        result = self.run_checker()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn(UNRELEASED_DRIFT_WARNING, result.stdout)
+
+    def test_empty_unreleased_section_does_not_warn(self) -> None:
+        changelog = self.repo / "CHANGELOG.md"
+        text = changelog.read_text(encoding="utf-8")
+        cleared = re.sub(
+            r"(?ms)(^## Unreleased\s*\n).*?(?=^## )",
+            r"\1\n",
+            text,
+            count=1,
+        )
+        changelog.write_text(cleared, encoding="utf-8")
+        result = self.run_checker()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertNotIn(UNRELEASED_DRIFT_WARNING, result.stdout)
 
     def test_duplicate_id(self) -> None:
         duplicate = self.read_record()

@@ -545,6 +545,10 @@ def overdue_follow_ups(
 THROUGH_DATE = re.compile(r"\bthrough (\d{4}-\d{2}-\d{2})")
 FOLLOW_UP_LINE = re.compile(r"follow-?up", re.IGNORECASE)
 CURRENT_EVIDENCE = ROOT / "CURRENT-EVIDENCE.md"
+UNRELEASED_DRIFT_WARNING = (
+    "the live site deploys main and carries unreleased changes; "
+    "cut a patch release or accept the drift."
+)
 
 
 def git_commit_status(commit: str) -> tuple[bool | None, str | None]:
@@ -622,6 +626,18 @@ def markdown_h2_section(text: str, heading: str) -> str:
         len(lines),
     )
     return "\n".join(lines[start:end])
+
+
+def changelog_has_unreleased_entries() -> bool:
+    """Read the release record rather than maintaining a second status copy."""
+    changelog = ROOT / "CHANGELOG.md"
+    if not changelog.is_file():
+        return False
+    section = markdown_h2_section(
+        changelog.read_text(encoding="utf-8"), "Unreleased"
+    )
+    section = re.sub(r"<!--.*?-->", "", section, flags=re.DOTALL)
+    return bool(section.strip())
 
 
 def check_record_consistency(
@@ -972,6 +988,9 @@ def main(argv: list[str] | None = None) -> int:
 
     errors: list[str] = []
     warnings: list[str] = []
+
+    if changelog_has_unreleased_entries():
+        warnings.append(UNRELEASED_DRIFT_WARNING)
 
     for name in REQUIRED_ARCHITECTURE:
         if not (ROOT / name).is_file():

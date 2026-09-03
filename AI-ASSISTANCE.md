@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-03 release-drift warning
+
+| Field | Record |
+|---|---|
+| Tool | Codex |
+| Task | Making the checker warn when the canonical `CHANGELOG.md` Unreleased section carries entries, without adding a separate status surface |
+| Material provided | The public repository and the maintainer's Gate 1 implementation brief |
+| Source verification | The implementation reads `CHANGELOG.md` directly; tests cover both populated and empty Unreleased sections |
+| Corrections after verification | The warning remains non-blocking and uses the brief's required wording |
+| Human review | The maintainer decides whether to cut a patch release or accept the drift before publication |
+| Sensitive material | None involved |
+
 ## 2026-09-03 field-record consistency gates
 
 | Field | Record |

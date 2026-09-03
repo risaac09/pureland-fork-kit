@@ -118,4 +118,3 @@ Run `python3 scripts/check_repo.py` only if you create repository artifacts. The
 ## What this packet cannot do
 
 The packet cannot supply your observation, another person's permission, an affected person's challenge, an independent reading, elapsed follow-up time, or a rights decision. It cannot turn a complete worksheet into evidence that PureLand works. Stop when a required person, permission, record, or observation is missing, and use the ending that fits the record you have.
-

@@ -20,6 +20,8 @@ A change should improve clarity, evidence, contestability, or participant agency
 
 The maintainer may merge after review and automated checks. The maintainer may reject a technically valid change when it exposes people or creates an unsupported claim. The maintainer must give a public reason for rejecting a proposed method change, without disclosing protected material.
 
+When `CHANGELOG.md` has entries under `## Unreleased`, the checker warns that the live site deploys `main`; the maintainer cuts a patch release or explicitly accepts the drift.
+
 ## Rights that do not depend on merge authority
 
 Sole maintainership does not give the maintainer authority over another person's material or community-held knowledge. The project recognizes these rights:
