@@ -2,7 +2,7 @@
 
 One curated path through the PureLand toolbox. Walk it in order, on one real practice, encounter, or information system of your own. Every instrument in the repository sits on this path, as a station or a conditional branch; none of them is meant as a first door. A field test of a single station stays valid; the journey is the recommended way in, not a new gate.
 
-There are two ways to walk it: yourself, starting at station 1, or with Isaac as a [PureLand Field Pilot](OFFERING.md), which is the same path walked as a small, bounded inquiry done together.
+There are three ways to walk it: yourself, starting at station 1; with a language model using the [walk-with-a-model packet](templates/walk-with-a-model.md); or with Isaac as a [PureLand Field Pilot](OFFERING.md), the same path walked as a small, bounded inquiry done together.
 
 This is the human lane. It is walked, on a schedule, by someone the answer can reach. A model reading this repository is addressed by [llms.txt](llms.txt), which is the agent lane rather than a paraphrase of this one. The [crosswalk](CROSSWALK.md) sets the two lanes side by side. Station 2 is the row where the agent lane has no counterpart at all.
 

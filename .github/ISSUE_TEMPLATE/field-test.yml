@@ -13,8 +13,7 @@ body:
     id: version
     attributes:
       label: Kit version or commit
-    validations:
-      required: true
+      description: Optional. The maintainer records the accepted kit version or commit when a proposal is accepted.
   - type: dropdown
     id: instrument
     attributes:

@@ -51,7 +51,7 @@ The pilot does not claim validation, causal proof, safety certification, attenti
 
 ## How to propose a pilot
 
-Stage 1 is a public-safe scoping note. Open an [issue](https://github.com/risaac09/pureland-fork-kit/issues) containing only:
+Stage 1 is a public-safe scoping note. A Field Pilot begins through the public [Field test form](https://github.com/risaac09/pureland-fork-kit/issues/new?template=field-test.yml); its engagement terms are not yet set. Submit only:
 
 - the practice, and why the question matters now;
 - the proposed scope;

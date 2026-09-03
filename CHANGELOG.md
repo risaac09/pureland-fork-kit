@@ -4,6 +4,7 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Put three ways to walk the same journey near the front-page opening, pointed the Field Pilot route at the exact public Stage 1 form, made the form's version field optional, and recorded that pilot terms remain unset.
 - Added `templates/walk-with-a-model.md`, the packet a person pastes into a language model to walk the journey on their own use of language models, wired into `llms.txt`, `TOOLBOX.md`, `JOURNEY.md`, `README.md`, `CROSSWALK.md`, `RESEARCH-STATUS.md`, `index.html`, and `REQUIRED_ARCHITECTURE`. The agent lane said what a model may not generate and never said what a person and a model do together. (#33)
 
 ## 0.1.0 (2026-09-01)
