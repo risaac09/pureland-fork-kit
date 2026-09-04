@@ -4,6 +4,7 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Put the ask at the Return station. `JOURNEY.md` station 6 offers one free reading of a cleared report behind the existing public-safe gate, names the two scales a reading can answer at, and places the field pilot inside that exchange rather than in the free companion tool. `templates/field-test.md` gains a return route that records nothing in the JSON, `OFFERING.md` names the reading as a second way in, and FT-001 carries the route as an addendum and one follow-up evidence line, with its window and executed adaptation unchanged. (#34)
 - Added `templates/walk-with-a-model.md`, the packet a person pastes into a language model to walk the journey on their own use of language models, wired into `llms.txt`, `TOOLBOX.md`, `JOURNEY.md`, `README.md`, `CROSSWALK.md`, `RESEARCH-STATUS.md`, `index.html`, and `REQUIRED_ARCHITECTURE`. The agent lane said what a model may not generate and never said what a person and a model do together. (#33)
 
 ## 0.1.0 (2026-09-01)
