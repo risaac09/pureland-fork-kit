@@ -5,6 +5,8 @@
 
 # PureLand
 
+**The public front page is [risaac09.github.io/pureland-fork-kit](https://risaac09.github.io/pureland-fork-kit/). This repository is the record behind it.**
+
 PureLand is a research-program prototype for asking whether an information practice can increase a person's control over their attention without also increasing their exposure or extractability.
 
 The forkable instruments, templates, and controls make up the toolbox. The public architecture gives distinct jobs to the argument, the method, the instruments, the testable claim with the program that tests it, and the evidence record.
@@ -35,7 +37,7 @@ A person and a model read this repository differently. [The method](METHOD.md) i
 
 ## Use the method
 
-The [front page](index.html) is served at [risaac09.github.io/pureland-fork-kit](https://risaac09.github.io/pureland-fork-kit/). The [open-research lane](research/README.md) indexes provenance, AI-assistance, research-status, field-test, and audit records. A model or agent reading the repository can start from [llms.txt](llms.txt).
+The [open-research lane](research/README.md) indexes provenance, AI-assistance, research-status, field-test, and audit records. A model or agent reading the repository can start from [llms.txt](llms.txt).
 
 Run [the method](METHOD.md): Scope, Attend, Read, Trace, Adapt, Report. Bring one real information practice and start on your own, or propose a [PureLand Field Pilot](OFFERING.md), the same method run with Isaac as a small, bounded inquiry. A person with a model can run it together, on their own use of language models, with the [run-with-a-model packet](templates/run-with-a-model.md).
 
