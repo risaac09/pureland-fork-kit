@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-04 method vocabulary
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code |
+| Task | Renaming the method's vocabulary across the live documents: the six steps to Scope, Attend, Read, Trace, Adapt, Report; a person runs the method rather than walking a journey through stations; `JOURNEY.md` folded into `METHOD.md`; `templates/walk-with-a-model.md` renamed to `templates/run-with-a-model.md`; the free reading at Report rewritten as a reply to the maintainer's address; `index.html`, `llms.txt`, `CROSSWALK.md`, `README.md`, `TESTING.md`, `TOOLBOX.md`, `OFFERING.md`, `RESEARCH-STATUS.md`, `CURRENT-EVIDENCE.md`, `THESIS.md`, the six instrument and branch documents, `design/VISUAL-LANGUAGE.md`, `templates/field-test.md`, the issue form, and `scripts/check_repo.py` updated to match |
+| Material provided | The maintainer's decisions in conversation: that the pilgrimage register (journey, walk, station) was inaccurate for a research-program prototype, the six step names proposed and accepted, the choice to fold the journey into the method, and the shape of the reply at Report (give the address, no privacy questionnaire, consent asked on the actual artifact when a use exists). Every live file named above was read in full or at every matching line before it was edited |
+| Source verification | Every replacement was an exact-match substitution asserted to occur once, so no wording changed that the assistant had not read. `scripts/check_repo.py` was run after the edits and resolved every link and heading anchor, including the new `METHOD.md` anchors. A final search for the old vocabulary across live files found only schema keys, the recorded `journey` instrument value, and the word crosswalk |
+| Corrections after verification | The FT-001 report's link to `JOURNEY.md` broke when the file folded; its target was pointed at `METHOD.md` and the report's prose left as written, since a record keeps the vocabulary of its version. Naming step 1 Scope collided with the template's `Scope:` coverage field and the issue form's Scope dropdown; both labels became Coverage, with the schema's `scope` object unchanged |
+| Human review | The maintainer chose the vocabulary in writing before the edit and merges the pull request |
+| Sensitive material | None involved. The maintainer's public address, already published in the Alchemy embed funnel, now also appears at the Report step |
+
 ## 2026-09-01 walk-with-a-model packet
 
 | Field | Record |

@@ -1,6 +1,6 @@
 # PureLand Field Pilot
 
-The field pilot is Rubinstein Productions' offering. PureLand is the toolbox that practice shares, and the pilot is the same practice walked with Isaac Rubinstein, who maintains this repository and runs the studio. It is a small, bounded inquiry into one real information practice, done together. It walks [the journey](JOURNEY.md), the method's one curated path, on the collaborator's practice. It is not a mature consultancy, a certification, a treatment, or an audit clearance, and it does not guarantee any outcome.
+The field pilot is Rubinstein Productions' offering. PureLand is the toolbox that practice shares, and the pilot is the same practice run with Isaac Rubinstein, who maintains this repository and runs the studio. It is a small, bounded inquiry into one real information practice, done together. It runs [the method](METHOD.md), all six steps, on the collaborator's practice. It is not a mature consultancy, a certification, a treatment, or an audit clearance, and it does not guarantee any outcome.
 
 The future consultancy is an application layer on a 10-to-15-year horizon. The present phase is criticism from outside and small field proofs.
 
@@ -23,7 +23,7 @@ Collaborator authority is not participant authority or community authority. A co
 ## What Isaac brings
 
 - a bounded frame for the inquiry;
-- [the journey](JOURNEY.md), walked in order at the depth the practice needs;
+- [the method](METHOD.md), run in order at the depth the practice needs;
 - the consent, rights, credit, and value-return questions;
 - a review of what stays public and what stays private;
 - a second-reader arrangement where practical; and
@@ -31,7 +31,7 @@ Collaborator authority is not participant authority or community authority. A co
 
 ## What happens together
 
-The pilot walks the six stations of [the journey](JOURNEY.md): Ground, Observe, Map, Trace, Adapt, Return. One thing sits outside the stations: before any protected material is shared, a private review establishes the consent and rights the inquiry needs, and recording stays optional throughout. During Adapt, the tested change is watched for its cost, the disagreement it surfaces, and its result. Whether the learning stays private or a specific artifact goes public is the Return station's own decision, and the collaborator makes it.
+The pilot runs the six steps of [the method](METHOD.md): Scope, Attend, Read, Trace, Adapt, Report. One thing sits outside the steps: before any protected material is shared, a private review establishes the consent and rights the inquiry needs, and recording stays optional throughout. During Adapt, the tested change is watched for its cost, the disagreement it surfaces, and its result. Whether the learning stays private or a specific artifact goes public is Report's own decision, and the collaborator makes it.
 
 ## What the pilot may produce
 
@@ -61,6 +61,6 @@ Stage 1 is a public-safe scoping note. Open an [issue](https://github.com/risaac
 
 Do not include evidence links, excerpts, participant material, identifying or indirectly identifying data, confidential or client records, consent records, or protected community knowledge. A proposal is an invitation to scope a pilot. It is not an acceptance or a promise of work, publication, or outcome.
 
-There is a second way in. Someone who has walked [the journey](JOURNEY.md) alone can ask at the Return station for one free reading of a cleared report. A pilot comes up inside that exchange when the question turns out to need one, and every condition above still applies.
+There is a second way in. Someone who has run [the method](METHOD.md) alone can write to Isaac at Report with what they did and get [one reply](METHOD.md#a-reply). A pilot comes up inside that exchange when the question turns out to need one, and every condition above still applies.
 
 Stage 2 begins only if the maintainer establishes an appropriate private review channel and confirms the rights basis for the proposed review. Do not send participant or protected material while that channel or authority remains unresolved. See [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md).

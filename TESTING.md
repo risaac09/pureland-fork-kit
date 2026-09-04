@@ -2,13 +2,13 @@
 
 PureLand tests the method by trying to break it. A confirming story is not enough. Every test begins with a result that would count against the tested hypothesis.
 
-This document holds the claim and the work of testing it: the primary hypothesis, the constructs a test must look for, the rule for classifying a result, the testing program that says what stage the evidence is at, and the discipline a single test follows before, during, and after use. The journey walks alongside it. [Ground](JOURNEY.md#1-ground) uses the before-use section, and [Return](JOURNEY.md#6-return) uses the after-use section.
+This document holds the claim and the work of testing it: the primary hypothesis, the constructs a test must look for, the rule for classifying a result, the testing program that says what stage the evidence is at, and the discipline a single test follows before, during, and after use. The method runs alongside it. [Scope](METHOD.md#1-scope) uses the before-use section, and [Report](METHOD.md#6-report) uses the after-use section.
 
 ## Primary hypothesis
 
 [THESIS.md](THESIS.md) describes the shape of the work. The hypothesis makes a claim that field evidence can weaken or defeat.
 
-> When a person walks the PureLand method on one bounded information practice and tests one contestable adaptation, their practical agency can improve without a material increase in exposure, extractability, or shifted burden.
+> When a person runs the PureLand method on one bounded information practice and tests one contestable adaptation, their practical agency can improve without a material increase in exposure, extractability, or shifted burden.
 
 This is a working hypothesis, not a demonstrated effect. It is untested as an outcome claim. [FT-001](research/field-tests/ft-001-alchemy.md) is a maintainer-side partial dry run. It produced an assessor interpretation about analytic value. It did not test a person-level agency or attention-sovereignty outcome. See [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md).
 
@@ -37,7 +37,7 @@ Each instrument reading remains separate. A construct definition does not become
 
 Classify the tested context only after recording the complete profile:
 
-1. Evidence may support the hypothesis only for the bounded practice, walking person, affected parties, actions, and observation window tested.
+1. Evidence may support the hypothesis only for the bounded practice, the person whose practice it is, affected parties, actions, and observation window tested.
 2. Missing required action-outcome evidence or rights evidence makes the hypothesis result `unmeasurable`.
 3. A material increase in exposure, extractability, or shifted burden weakens or defeats the hypothesis for that context, even when an access reading improves.
 4. An unusable correction or refusal route weakens the hypothesis. An absent route cannot support it.
@@ -58,13 +58,13 @@ Any of these results should weaken or defeat the primary hypothesis for the test
 - missing evidence is converted into a favorable result;
 - the return is meaningful to the maintainer but not to the people who generated the value;
 - independent readers cannot use the constructs consistently enough to support the stated interpretation;
-- the burden of the full journey is not justified by what it adds over a smaller instrument.
+- the burden of the full method is not justified by what it adds over a smaller instrument.
 
 ## Testing program
 
 | Stage | Purpose | Evidence status |
 |---|---|---|
-| Partial dry run | Check which required stations and record fields can be executed; surface design failures | One maintainer-side partial execution, FT-001 |
+| Partial dry run | Check which required steps and record fields can be executed; surface design failures | One maintainer-side partial execution, FT-001 |
 | Independent application | Test use outside the maintainer's own practice and orbit | None accepted |
 | Second-reader comparison | Expose construct ambiguity and classification disagreement | None completed |
 | Bounded adaptation follow-up | Observe benefit, burden, exposure, possible new harm, and durability after a change | One follow-up window open, no outcome yet |
@@ -77,13 +77,13 @@ This table cuts the record by stage. The [ledger](CURRENT-EVIDENCE.md#the-ledger
 Complete the matching sections in the [Markdown template](templates/field-test.md) and [JSON record](data/field-test.schema.json):
 
 1. Record the record ID, kit version, test status, tested hypothesis, scope, instrument, and disconfirming condition.
-2. Name the walking person, or record that no human walker is present.
+2. Name the person whose practice it is, or record that no human ran it.
 3. Name each affected person or group separately.
 4. Record the assessor's relationship to the practice, and the second reader's status and independence.
 5. Define the practice, unit, boundary, boundary rationale, plausible alternative boundary, and how that alternative could change the reading.
 6. Define the artifact or surface set used for document-access counts. List its items, denominator, exclusions, and time window.
 7. List the evidence available before analysis.
-8. Mark which stations the scope requires.
+8. Mark which steps the scope requires.
 9. Predefine one or more concrete actions from `stop`, `continue`, `question`, `correct`, `adapt`, or `refuse`. Record the action baseline and expected follow-up.
 10. Predefine the context-specific rule for a material increase in exposure, extractability, or shifted burden.
 11. Record separate decisions for recording, retention, named-reviewer access, publication, the exact artifact version, research use, AI processing, and model training. Record community authority where it applies.
@@ -92,7 +92,7 @@ Do not submit private participant material. If a test includes participant mater
 
 ## During a test
 
-- Record each station as `not-started`, `incomplete`, `complete`, or `not-applicable`. Use `not-applicable` only when the recorded scope makes the station unnecessary.
+- Record each step as `not-started`, `incomplete`, `complete`, or `not-applicable`. Use `not-applicable` only when the recorded scope makes the step unnecessary.
 - Record required human Observe work as `performed` or `not-performed`. AI design analysis does not count as human Observe.
 - Keep understandable, reachable, adaptable, and traceable readings separate. An artifact denominator is not a person count.
 - Keep consent, attribution, and meaningful-return readings separate. A public artifact is not meaningful return.
@@ -116,7 +116,7 @@ Record:
 - the contestability result and the rights result;
 - AI assistance and the artifact-version public-safe review.
 
-A record with missing required stations may conform to the schema only as a partial execution. It cannot claim completion when a required station is incomplete or a required human Observe was not performed. Missing action-outcome or rights evidence makes the hypothesis result `unmeasurable`.
+A record with missing required steps may conform to the schema only as a partial execution. It cannot claim completion when a required step is incomplete or a required human Attend was not performed. Missing action-outcome or rights evidence makes the hypothesis result `unmeasurable`.
 
 The review date is watched. A record left `open` or `not-started` past its own `review_date` raises a warning in `scripts/check_repo.py`, and a weekly scheduled run opens an issue against the repository. Close the window with an outcome, or record it as `closed-unmeasurable`. An expired window carried as open is missing evidence, and missing evidence never counts as favorable.
 
@@ -136,8 +136,8 @@ This is the kit's single statement of the gate. [RESEARCH-STATUS.md](RESEARCH-ST
 
 ## Current open tests
 
-- Can a human complete the Observe station in a way that another person can inspect without turning first-person experience into an objective score?
-- Does the full journey add enough value over the extraction check alone to justify its burden?
+- Can a human complete Attend in a way that another person can inspect without turning first-person experience into an objective score?
+- Does the full method add enough value over the extraction check alone to justify its burden?
 - Can the traceable construct distinguish missing provenance from intentional, accountable deletion?
 - Can two readers bound the same practice and produce comparable denominators?
-- Does the full journey improve completion and report quality over a single-instrument entry?
+- Does the full method improve completion and report quality over a single-instrument entry?

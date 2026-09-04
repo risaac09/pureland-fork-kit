@@ -11,13 +11,13 @@ Complete this report and a JSON record that conforms to [`data/field-test.schema
 - Hypothesis kind: primary, secondary, or design
 - Tested statement:
 - Predeclared before analysis: yes or no
-- Scope: whole journey, one instrument, or custom
+- Coverage (`scope.coverage`): whole method, one instrument, or custom
 - Instrument:
 - Scope rationale:
 
 ## Measurement units and people
 
-### Walking person
+### The person whose practice it is
 
 - ID or public-safe role:
 - Present or absent:
@@ -75,23 +75,23 @@ Every JSON evidence item must set `available_before_analysis` to `true`.
 - Assessment: not-assessed, met, partially-met, not-met, mixed, or unmeasurable
 - Interpretation:
 
-## Station completion and human Observe
+## Step completion and human Attend
 
-| Station | Required | Status: not-started, incomplete, complete, or not-applicable | Evidence |
+| Step | Required | Status: not-started, incomplete, complete, or not-applicable | Evidence |
 |---|---|---|---|
-| Ground | | | |
-| Observe | | | |
-| Map | | | |
+| Scope (`ground`) | | | |
+| Attend (`observe`) | | | |
+| Read (`map`) | | | |
 | Trace | | | |
 | Adapt | | | |
-| Return | | | |
+| Report (`return`) | | | |
 
-- Human Observe status: performed, not-performed, or not-required
+- Human Attend status (`human_observe.status`): performed, not-performed, or not-required
 - Human performer:
-- Human Observe evidence:
+- Human Attend evidence:
 - AI or design analysis substituted: yes or no
 
-AI or design analysis does not satisfy a required human Observe station.
+AI or design analysis does not satisfy a required human Attend.
 
 ## Access readings
 
@@ -263,10 +263,10 @@ Do not publish a `blocked` or `not-yet-clear` artifact. The detailed private rec
 This section records nothing in the JSON record. Fill it to decide where the report goes after the review above.
 
 - Return disposition recorded above:
-- Asking for a second reading: yes or no
+- Asking for a reply: yes or no
 - Route used:
 - Exact artifact version cleared for that route:
 - Material withheld from the route:
-- Scale of the question asked: the walking person's own practice, or a practice shared with other people
+- Scale of the question asked: the practice of the person who ran it, or a practice shared with other people
 
-A second reading is one reply from the maintainer on a report you have already cleared, described in the journey's [Return station](../JOURNEY.md#6-return). Ask for it with a public-safe note in an [issue](https://github.com/risaac09/pureland-fork-kit/issues). Do not paste this completed report there. A private result, a refusal, and an `unmeasurable` outcome are complete endings that need no route at all.
+A reply is one message from the maintainer on what you did, described at the method's [Report step](../METHOD.md#a-reply). Write to isaac@rubinsteinproductions.com in your own words, with or without this report. Nothing is done with what you send without asking you first. Keep other people's material out of it until a private channel exists. A private result, a refusal, and an `unmeasurable` outcome are complete endings that need no route at all.

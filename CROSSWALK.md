@@ -1,6 +1,6 @@
 # Crosswalk
 
-This sets [the human lane](JOURNEY.md) against the agent lane, which is
+This sets [the human lane](METHOD.md) against the agent lane, which is
 [llms.txt](llms.txt), element by element. For each element it names what mimics
 it in the other lane, the respect in which the mimicry holds, and the respect in
 which it fails.
@@ -9,8 +9,8 @@ An empty cell is a finding. Where one lane has no counterpart, this file says so
 and stops. It does not invent one.
 
 The empty cells stay empty on purpose. Give the human-only residue an agent form
-and the kit starts producing records that look complete and are not; the Observe
-station row below carries the case already on the record. Give the agent-only
+and the kit starts producing records that look complete and are not; the Attend
+row below carries the case already on the record. Give the agent-only
 residue a human form and the structural checks become prose that drifts from the
 code it describes; the schema conformance row says why that cell stays empty.
 
@@ -18,8 +18,8 @@ Nothing here changes what the kit has shown.
 [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md) holds that, and an architecture
 change is not evidence.
 
-The [walk-with-a-model packet](templates/walk-with-a-model.md) runs both lanes
-in one session: the model does the agent-lane work in station order and hands
+The [run-with-a-model packet](templates/run-with-a-model.md) runs both lanes
+in one session: the model does the agent-lane work in step order and hands
 each human-lane cell back before it moves on. It fills no empty cell in this
 register. It puts a person in front of each one while a model is present.
 
@@ -28,7 +28,7 @@ register. It puts a person in front of each one while a model is present.
 | Element | Verdict |
 |---|---|
 | [Orientation](#orientation) | Partial |
-| [The Observe station](#the-observe-station) | No agent counterpart |
+| [Attend](#attend) | No agent counterpart |
 | [The boundary decision](#the-boundary-decision) | Partial |
 | [Evidence ceiling](#evidence-ceiling) | Close, in two grammars |
 | [Refusal](#refusal) | Weak |
@@ -42,25 +42,25 @@ register. It puts a person in front of each one while a model is present.
 
 ## Orientation
 
-- **Human lane.** Station 1, Ground. Name the practice, the boundary, the
+- **Human lane.** Step 1, Scope. Name the practice, the boundary, the
   purpose, and the affected people, then write one result that would count
   against the method.
 - **Agent lane.** The ceiling-first opening of `llms.txt`.
 - **Holds.** Both put the limit ahead of the content.
-- **Fails.** Ground asks the walker to commit to a disconfirming condition before
+- **Fails.** Scope asks the person to commit to a disconfirming condition before
   looking at anything. Nothing asks a model to commit to anything. It can read
   the record first and choose its framing afterward, which is the order the
-  station exists to prevent.
+  step exists to prevent.
 
-## The Observe station
+## Attend
 
-- **Human lane.** [PRACTICE-FRAME.md](PRACTICE-FRAME.md) at station 2. Notice
+- **Human lane.** [PRACTICE-FRAME.md](PRACTICE-FRAME.md) at step 2. Notice
   which condition may be present in you before assigning it to the system.
 - **Agent lane.** No counterpart.
 - **Holds.** Nothing.
 - **Fails.** This is the load-bearing empty cell, and the record demonstrates it.
-  FT-001 was AI-assisted, Observe was not performed, and the structured record
-  carries that as `human_observe.status: not-performed`. Automating the station
+  FT-001 was AI-assisted, Attend was not performed, and the structured record
+  carries that as `human_observe.status: not-performed`. Automating the step
   would have removed the evidence of its own absence.
 
 ## The boundary decision
@@ -89,7 +89,7 @@ register. It puts a person in front of each one while a model is present.
 
 ## Refusal
 
-- **Human lane.** You may stop or leave at any station. Record the stop, the
+- **Human lane.** You may stop or leave at any step. Record the stop, the
   refusal, or the missing permission without turning it into failure by the
   participant.
 - **Agent lane.** The hand-back list in `llms.txt`.
@@ -149,7 +149,7 @@ register. It puts a person in front of each one while a model is present.
 
 ## Pace
 
-- **Human lane.** A body and a schedule. Stations spread over days. FT-001's
+- **Human lane.** A body and a schedule. Steps spread over days. FT-001's
   adaptation carries a 90-day observation window.
 - **Agent lane.** A context window and one pass.
 - **Holds.** Nothing worth calling mimicry.
