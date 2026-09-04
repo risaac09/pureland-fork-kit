@@ -428,7 +428,7 @@
     },
     "review_date": "2026-11-22",
     "status": "open",
-    "evidence": ["Baseline: zero inbound field reports", "Alchemy pull request 15 merged as bf5e411"],
+    "evidence": ["Baseline: zero inbound field reports", "Alchemy pull request 15 merged as bf5e411", "2026-09-04: the journey Return station added a second inbound route, one free reading of a cleared report; follow-up evidence now includes which route a report arrives by"],
     "finding": "The window remains open. No inbound-report count, handling burden, affected-user challenge, or outcome result is available."
   },
   "outcome": {

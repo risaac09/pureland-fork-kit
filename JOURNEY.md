@@ -67,6 +67,14 @@ Collect no participant material by default. Return can remain private or withhel
 
 Cleared and accepted reports join the [field-trial ledger](CURRENT-EVIDENCE.md#the-ledger) as links, not endorsements. Private learning, refusal, and `unmeasurable` outcomes may end without a public report.
 
+### One free reading
+
+A walk can end here with no one else involved. If you want a second reader, ask for one with a public-safe note in an [issue](https://github.com/risaac09/pureland-fork-kit/issues), and the maintainer reads what you did and replies once. The reading costs nothing. Keep the completed report, the evidence links, and any protected detail out of the issue. Protected material moves only after a private channel exists, on the terms in [SECURITY.md](SECURITY.md) and [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md). A `blocked` or `not-yet-clear` artifact does not travel.
+
+The reading answers at the scale you walked. One person's own information intake is one conversation. An organization's shared attention is a different one, with different affected people and a different consent basis. Walking the stations on your own practice does not license a reading of the practice you share with colleagues. That second question needs its own station 1.
+
+If the exchange surfaces something a single reply cannot hold, the [PureLand Field Pilot](OFFERING.md) is the paid form of the same walk done together. It comes up inside that conversation or not at all. Asking for the reading costs nothing and commits you to nothing, and a pilot proposal is still only an invitation to scope one.
+
 ## When the path ends
 
 An outcome-capable walk needs an affected person to challenge the reading. Without that challenge, record the limit and do not call the method complete. Keep the disagreement. Revise the method. The next walk starts at station 1.

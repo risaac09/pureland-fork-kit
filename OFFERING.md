@@ -61,4 +61,6 @@ Stage 1 is a public-safe scoping note. Open an [issue](https://github.com/risaac
 
 Do not include evidence links, excerpts, participant material, identifying or indirectly identifying data, confidential or client records, consent records, or protected community knowledge. A proposal is an invitation to scope a pilot. It is not an acceptance or a promise of work, publication, or outcome.
 
+There is a second way in. Someone who has walked [the journey](JOURNEY.md) alone can ask at the Return station for one free reading of a cleared report. A pilot comes up inside that exchange when the question turns out to need one, and every condition above still applies.
+
 Stage 2 begins only if the maintainer establishes an appropriate private review channel and confirms the rights basis for the proposed review. Do not send participant or protected material while that channel or authority remains unresolved. See [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md).
