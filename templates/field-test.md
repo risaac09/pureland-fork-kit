@@ -257,3 +257,16 @@ Record one row for every category. A Boolean privacy checkbox is not a rights re
 | Retention and withdrawal | | | | |
 
 Do not publish a `blocked` or `not-yet-clear` artifact. The detailed private record must hold provider, model, purpose, inputs, access, retention, training decision, withdrawal route, and known limits. Never commit that private record under `data/`.
+
+## Return route
+
+This section records nothing in the JSON record. Fill it to decide where the report goes after the review above.
+
+- Return disposition recorded above:
+- Asking for a second reading: yes or no
+- Route used:
+- Exact artifact version cleared for that route:
+- Material withheld from the route:
+- Scale of the question asked: the walking person's own practice, or a practice shared with other people
+
+A second reading is one reply from the maintainer on a report you have already cleared, described in the journey's [Return station](../JOURNEY.md#6-return). Ask for it with a public-safe note in an [issue](https://github.com/risaac09/pureland-fork-kit/issues). Do not paste this completed report there. A private result, a refusal, and an `unmeasurable` outcome are complete endings that need no route at all.

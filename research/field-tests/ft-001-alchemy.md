@@ -150,6 +150,10 @@ The assessor selected one README paragraph naming GitHub issues as the inbound r
 - Follow-up evidence: inbound-report count, handling burden, affected-user challenge, and possible new harm.
 - Current follow-up status: open. No follow-up finding is available.
 
+### Addendum, 2026-09-04: a second inbound route
+
+The journey's Return station now names one free reading of a cleared field-test report as a route back to the maintainer, alongside the GitHub issue route this adaptation added. The two routes carry the same harm hypothesis recorded above, triage burden and an implied support promise. The second route adds one more: an offer to read can be received as an approach to sell, even when nothing is charged for the reading. The observation window is unchanged and still runs through 2026-11-22. Follow-up evidence now includes which route an inbound report arrives by. This addendum extends the follow-up's evidence list. It does not change what the executed adaptation was, and it produces no new finding.
+
 ## Rights, privacy, and public return
 
 The test used public repository evidence and no participant material. Recording, retention of participant material, named-reviewer access to protected material, participant artifact approval, and model training were not required. The pre-integration record documented owner permission for repository analysis, research use, AI processing of public evidence, and public return. No community authority was implicated. This report does not permit claims about affected-user experience. The maintainer has not authorized a push or release of this local version.
