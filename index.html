@@ -298,8 +298,8 @@
   .fields .f-limit { color: var(--color-extraction); }
   .fields .f-limit::before { content: "boundary: "; color: var(--color-text-secondary); }
 
-  /* ---------- journey spine ---------- */
-  .station {
+  /* ---------- method spine ---------- */
+  .step {
     position: relative;
     display: grid;
     grid-template-columns: 3.5rem minmax(0, 1fr) minmax(0, 20rem);
@@ -308,7 +308,7 @@
     padding: var(--space-xl) 0 var(--space-xxl);
   }
 
-  /* The rail runs edge to edge through the station's own padding. Without the
+  /* The rail runs edge to edge through the step's own padding. Without the
      negative margins the thread stops at each content box and restarts at the
      next, which breaks the one continuous line the six plates hang from. */
   .rail {
@@ -337,7 +337,7 @@
     z-index: 1;
   }
 
-  .station-body h4 {
+  .step-body h4 {
     font-family: var(--font-display);
     font-weight: 600;
     text-transform: uppercase;
@@ -345,15 +345,15 @@
     font-size: 1.15rem;
     margin: 0.2em 0 var(--space-sm);
   }
-  .station-body p { margin: 0 0 var(--space-md); max-width: 46ch; }
-  .station-body .instrument {
+  .step-body p { margin: 0 0 var(--space-md); max-width: 46ch; }
+  .step-body .instrument {
     font-family: var(--font-ledger);
     font-size: 0.72rem;
     letter-spacing: var(--letter-spacing-ledger);
     text-transform: uppercase;
     color: var(--color-text-secondary);
   }
-  .station-body .instrument::before { content: "→ "; color: var(--color-accent); }
+  .step-body .instrument::before { content: "→ "; color: var(--color-accent); }
 
   .plate { margin: 0; }
   .plate .diagram {
@@ -547,11 +547,11 @@
          viewport to a 4vh band on the horizon, so the drawn tip rides
          the horizon and drawn length is the reader's position. Timing is
          linear: easing a position reading would misreport the hand. */
-      html.draws .station .rail {
+      html.draws .step .rail {
         view-timeline: --rail block;
         view-timeline-inset: var(--motion-thread-inset);
       }
-      html.draws .station .rail [data-draw] {
+      html.draws .step .rail [data-draw] {
         animation-name: draw-line;
         animation-timing-function: var(--motion-ease-linked);
         animation-fill-mode: both;
@@ -568,16 +568,16 @@
 
       /* Observe holds a scene at every width. The plate pins below the
          horizon while its passage passes. Sticky releases the moment the
-         reader keeps walking. */
-      html.draws #station-observe {
+         reader keeps scrolling. */
+      html.draws #step-attend {
         min-height: var(--motion-scene-observe);
         view-timeline: --scene block;
       }
-      html.draws #station-observe .plate {
+      html.draws #step-attend .plate {
         position: sticky;
         top: calc(var(--horizon-y) + 6vh);
       }
-      html.draws #station-observe .plate [data-draw] {
+      html.draws #step-attend .plate [data-draw] {
         animation-name: draw-line;
         animation-timing-function: var(--motion-ease-linked);
         animation-fill-mode: both;
@@ -595,42 +595,42 @@
          of cover across 375, 768, and 1280 wide viewports, so the last
          stage ends at 58% with margin. Retune these after changing any
          of those four inputs. */
-      html.draws #station-observe .plate path:nth-child(1) { animation-range: 15% 30%; }
-      html.draws #station-observe .plate path:nth-child(2),
-      html.draws #station-observe .plate path:nth-child(3) { animation-range: 30% 45%; }
-      html.draws #station-observe .plate path:nth-child(4),
-      html.draws #station-observe .plate path:nth-child(5),
-      html.draws #station-observe .plate path:nth-child(6),
-      html.draws #station-observe .plate path:nth-child(7) { animation-range: 45% 58%; }
+      html.draws #step-attend .plate path:nth-child(1) { animation-range: 15% 30%; }
+      html.draws #step-attend .plate path:nth-child(2),
+      html.draws #step-attend .plate path:nth-child(3) { animation-range: 30% 45%; }
+      html.draws #step-attend .plate path:nth-child(4),
+      html.draws #step-attend .plate path:nth-child(5),
+      html.draws #step-attend .plate path:nth-child(6),
+      html.draws #step-attend .plate path:nth-child(7) { animation-range: 45% 58%; }
 
-      /* Below 981px the station grid is two columns and two rows, with
+      /* Below 981px the step grid is two columns and two rows, with
          the plate under the body. Explicit rows send a scene's extra
          height to the plate's row, so sticky gets its full travel instead
          of half. */
       @media (max-width: 980px) {
-        html.draws #station-observe { grid-template-rows: auto minmax(0, 1fr); }
+        html.draws #step-attend { grid-template-rows: auto minmax(0, 1fr); }
       }
 
       /* On a phone the horizon sits higher on the screen, so the plate
          hangs a little deeper beneath it. */
       @media (max-width: 640px) {
-        html.draws #station-observe .plate { top: calc(var(--horizon-y) + 8vh); }
+        html.draws #step-attend .plate { top: calc(var(--horizon-y) + 8vh); }
       }
 
       /* Trace holds a scene at 641px and up. On a phone one held scene is
          enough, and Observe is the one that matters there. Every Trace
-         rule lives inside this query, so below it the station keeps the
+         rule lives inside this query, so below it the step keeps the
          draw-once behavior with no unsetting needed. */
       @media (min-width: 641px) {
-        html.draws #station-trace {
+        html.draws #step-trace {
           min-height: var(--motion-scene-trace);
           view-timeline: --scene block;
         }
-        html.draws #station-trace .plate {
+        html.draws #step-trace .plate {
           position: sticky;
           top: calc(var(--horizon-y) + 6vh);
         }
-        html.draws #station-trace .plate [data-draw] {
+        html.draws #step-trace .plate [data-draw] {
           animation-name: draw-line;
           animation-timing-function: var(--motion-ease-linked);
           animation-fill-mode: both;
@@ -644,20 +644,20 @@
            the two open marks land by 52% with margin. Retune after
            changing the scene height, the sticky top, the passage copy,
            or for a much taller viewport. */
-        html.draws #station-trace .plate path:nth-child(1),
-        html.draws #station-trace .plate path:nth-child(2) { animation-range: 16% 22%; }
-        html.draws #station-trace .plate path:nth-child(3) { animation-range: 22% 27%; }
-        html.draws #station-trace .plate path:nth-child(4) { animation-range: 27% 32%; }
-        html.draws #station-trace .plate path:nth-child(5) { animation-range: 32% 37%; }
-        html.draws #station-trace .plate path:nth-child(6) { animation-range: 37% 42%; }
-        html.draws #station-trace .plate path:nth-child(7) { animation-range: 42% 47%; }
-        html.draws #station-trace .plate path:nth-child(8),
-        html.draws #station-trace .plate path:nth-child(9) { animation-range: 47% 52%; }
+        html.draws #step-trace .plate path:nth-child(1),
+        html.draws #step-trace .plate path:nth-child(2) { animation-range: 16% 22%; }
+        html.draws #step-trace .plate path:nth-child(3) { animation-range: 22% 27%; }
+        html.draws #step-trace .plate path:nth-child(4) { animation-range: 27% 32%; }
+        html.draws #step-trace .plate path:nth-child(5) { animation-range: 32% 37%; }
+        html.draws #step-trace .plate path:nth-child(6) { animation-range: 37% 42%; }
+        html.draws #step-trace .plate path:nth-child(7) { animation-range: 42% 47%; }
+        html.draws #step-trace .plate path:nth-child(8),
+        html.draws #step-trace .plate path:nth-child(9) { animation-range: 47% 52%; }
 
         /* The two bounds read together: this rule lives in the stacked
            641 to 980 band. */
         @media (min-width: 641px) and (max-width: 980px) {
-          html.draws #station-trace { grid-template-rows: auto minmax(0, 1fr); }
+          html.draws #step-trace { grid-template-rows: auto minmax(0, 1fr); }
         }
       }
     }
@@ -667,12 +667,12 @@
   @media (max-width: 980px) {
     .arrival { grid-template-columns: 1fr; row-gap: var(--space-xl); }
     .arrival-mark { max-width: 9rem; }
-    .station { grid-template-columns: 2.6rem minmax(0, 1fr); row-gap: var(--space-lg); }
+    .step { grid-template-columns: 2.6rem minmax(0, 1fr); row-gap: var(--space-lg); }
     /* The rail carries the thread, so it has to span both rows once the
        plate drops beneath the passage. Without this it stops at row 1 and
-       the thread breaks between stations. */
-    .station .rail { grid-row: 1 / span 2; }
-    .station .plate { grid-column: 2; }
+       the thread breaks between steps. */
+    .step .rail { grid-row: 1 / span 2; }
+    .step .plate { grid-column: 2; }
     .evidence-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
     .colophon-grid { grid-template-columns: 4rem repeat(2, minmax(0, 1fr)); }
   }
@@ -719,7 +719,7 @@
     <h1>PureLand</h1>
     <span class="eyebrow">research-program prototype · forkable toolbox</span>
     <nav class="subnav" aria-label="On this page and in the record">
-      <a href="#journey">journey</a>
+      <a href="#method">method</a>
       <a href="#evidence">evidence</a>
       <a href="https://github.com/risaac09/pureland-fork-kit">the record</a>
     </nav>
@@ -747,7 +747,7 @@
       <h2>Can a way of handling information give you more control over your own attention without also making you easier to exploit?</h2>
       <p class="ceiling">That is the question PureLand tests, not a claim it has already answered. This is version 0.1. The instruments are unvalidated. What has been observed, and what nobody has, is in <a href="#evidence">the evidence</a> below.</p>
       <p class="arrival-links">
-        <a href="#journey">walk the journey</a>
+        <a href="#method">run the method</a>
         <a href="https://github.com/risaac09/pureland-fork-kit">the record</a>
       </p>
     </div>
@@ -828,29 +828,29 @@
     </div>
   </section>
 
-  <!-- ---------- the journey ---------- -->
-  <section class="band" id="journey">
+  <!-- ---------- the method ---------- -->
+  <section class="band" id="method">
     <div class="band-head">
-      <h3>The journey</h3>
-      <p>Six ordered stations, walked on one real practice of your own. Recording is optional. The first pilot does not require participant recordings. You may stop at any station, and a stopped walk cannot support claims about stations nobody completed.</p>
-      <p><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/JOURNEY.md">JOURNEY.md</a> holds the full path. The journey stations are distinct from the public research functions above.</p>
+      <h3>The method</h3>
+      <p>Six ordered steps, run on one real practice of your own. Recording is optional. The first pilot does not require participant recordings. You may stop at any step, and a stopped run cannot support claims about steps nobody completed.</p>
+      <p><a href="https://github.com/risaac09/pureland-fork-kit/blob/main/METHOD.md">METHOD.md</a> holds the full sequence. The method's steps are distinct from the public research functions above.</p>
     </div>
 
-    <article class="station" id="station-ground">
+    <article class="step" id="step-scope">
       <div class="rail">
         <span class="numeral">I</span>
         <svg class="thread draw" viewBox="0 0 40 100" preserveAspectRatio="none" aria-hidden="true">
           <path data-draw pathLength="1" class="rule-stroke" fill="none" vector-effect="non-scaling-stroke" d="M 20 0 C 20 26, 9 40, 20 56 C 31 72, 20 84, 20 100"/>
         </svg>
       </div>
-      <div class="station-body">
-        <h4>Ground</h4>
+      <div class="step-body">
+        <h4>Scope</h4>
         <p>Name the practice, the boundary, and the people it affects. Record what evidence exists before you score anything. Then write one result that would count against the method.</p>
         <a class="instrument" href="https://github.com/risaac09/pureland-fork-kit/blob/main/TESTING.md">TESTING.md</a>
       </div>
       <figure class="plate">
-        <svg class="diagram draw" viewBox="0 0 120 90" role="img" aria-labelledby="d-ground">
-          <title id="d-ground">A boundary line drawn around one named practice, with one mark left outside it.</title>
+        <svg class="diagram draw" viewBox="0 0 120 90" role="img" aria-labelledby="d-scope">
+          <title id="d-scope">A boundary line drawn around one named practice, with one mark left outside it.</title>
           <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4">
             <path data-draw pathLength="1" style="--i:0" class="ink" d="M 26 20 H 92 A 6 6 0 0 1 98 26 V 64 A 6 6 0 0 1 92 70 H 26 A 6 6 0 0 1 20 64 V 26 A 6 6 0 0 1 26 20 Z"/>
             <path data-draw pathLength="1" style="--i:2" class="rule-stroke" d="M 36 38 H 82"/>
@@ -863,21 +863,21 @@
       </figure>
     </article>
 
-    <article class="station" id="station-observe">
+    <article class="step" id="step-attend">
       <div class="rail">
         <span class="numeral">II</span>
         <svg class="thread draw" viewBox="0 0 40 100" preserveAspectRatio="none" aria-hidden="true">
           <path data-draw pathLength="1" class="rule-stroke" fill="none" vector-effect="non-scaling-stroke" d="M 20 0 C 20 22, 32 38, 20 54 C 8 70, 20 84, 20 100"/>
         </svg>
       </div>
-      <div class="station-body">
-        <h4>Observe</h4>
-        <p>Run the practice frame. Notice which condition may be present in you before you assign it to the system. The contemplative categories are prompts, never scores, and never labels for other people.</p>
+      <div class="step-body">
+        <h4>Attend</h4>
+        <p>Run the practice frame. Notice what happens in your own attention and body, and which condition may be present in you before you assign it to the system. The contemplative categories are prompts, never scores, and never labels for other people.</p>
         <a class="instrument" href="https://github.com/risaac09/pureland-fork-kit/blob/main/PRACTICE-FRAME.md">PRACTICE-FRAME.md</a>
       </div>
       <figure class="plate">
-        <svg class="diagram draw" viewBox="0 0 120 90" role="img" aria-labelledby="d-observe">
-          <title id="d-observe">One line rising and splitting into two, then splitting again: the proliferation chain.</title>
+        <svg class="diagram draw" viewBox="0 0 120 90" role="img" aria-labelledby="d-attend">
+          <title id="d-attend">One line rising and splitting into two, then splitting again: the proliferation chain.</title>
           <g fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path data-draw pathLength="1" style="--i:0" class="ink" stroke-width="2.4" d="M 60 82 V 50"/>
             <path data-draw pathLength="1" style="--i:1" class="ink" stroke-width="2" d="M 60 50 C 52 40, 45 32, 38 22"/>
@@ -892,21 +892,21 @@
       </figure>
     </article>
 
-    <article class="station" id="station-map">
+    <article class="step" id="step-read">
       <div class="rail">
         <span class="numeral">III</span>
         <svg class="thread draw" viewBox="0 0 40 100" preserveAspectRatio="none" aria-hidden="true">
           <path data-draw pathLength="1" class="rule-stroke" fill="none" vector-effect="non-scaling-stroke" d="M 20 0 C 20 24, 10 38, 20 52 C 30 66, 20 82, 20 100"/>
         </svg>
       </div>
-      <div class="station-body">
-        <h4>Map</h4>
+      <div class="step-body">
+        <h4>Read</h4>
         <p>Read the four access questions: is it understandable, reachable, adaptable, traceable. Name the unit, the set, the denominator, and the time window before counting. Keep the four measures separate.</p>
         <a class="instrument" href="https://github.com/risaac09/pureland-fork-kit/blob/main/SCORECARD.md">SCORECARD.md</a>
       </div>
       <figure class="plate">
-        <svg class="diagram draw" viewBox="0 0 120 90" role="img" aria-labelledby="d-map">
-          <title id="d-map">Four separate corner marks, each closed on itself, with nothing joining them.</title>
+        <svg class="diagram draw" viewBox="0 0 120 90" role="img" aria-labelledby="d-read">
+          <title id="d-read">Four separate corner marks, each closed on itself, with nothing joining them.</title>
           <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
             <path data-draw pathLength="1" style="--i:0" class="ink" d="M 40 16 H 22 V 34"/>
             <path data-draw pathLength="1" style="--i:1" class="rule-stroke" d="M 28 24 H 34"/>
@@ -922,14 +922,14 @@
       </figure>
     </article>
 
-    <article class="station" id="station-trace">
+    <article class="step" id="step-trace">
       <div class="rail">
         <span class="numeral">IV</span>
         <svg class="thread draw" viewBox="0 0 40 100" preserveAspectRatio="none" aria-hidden="true">
           <path data-draw pathLength="1" class="rule-stroke" fill="none" vector-effect="non-scaling-stroke" d="M 20 0 C 20 20, 30 36, 20 50 C 10 64, 20 82, 20 100"/>
         </svg>
       </div>
-      <div class="station-body">
+      <div class="step-body">
         <h4>Trace</h4>
         <p>Run the extraction check on your own practice. Trace what leaves each contributor, where it accumulates, and what returns. Band consent, attribution, and value return separately. Do not average the bands.</p>
         <a class="instrument" href="https://github.com/risaac09/pureland-fork-kit/blob/main/EXTRACTION-CHECK.md">EXTRACTION-CHECK.md</a>
@@ -953,16 +953,16 @@
       </figure>
     </article>
 
-    <article class="station" id="station-adapt">
+    <article class="step" id="step-adapt">
       <div class="rail">
         <span class="numeral">V</span>
         <svg class="thread draw" viewBox="0 0 40 100" preserveAspectRatio="none" aria-hidden="true">
           <path data-draw pathLength="1" class="rule-stroke" fill="none" vector-effect="non-scaling-stroke" d="M 20 0 C 20 24, 9 40, 20 56 C 31 72, 20 86, 20 100"/>
         </svg>
       </div>
-      <div class="station-body">
+      <div class="step-body">
         <h4>Adapt</h4>
-        <p>Choose one small change from what the earlier stations surfaced. Record the baseline, the intended benefit, a plausible new harm, the consent it needs, and a review date. Then watch the cost and the result.</p>
+        <p>Choose one small change from what the earlier steps surfaced. Record the baseline, the intended benefit, a plausible new harm, the consent it needs, and a review date. Then watch the cost and the result.</p>
         <a class="instrument" href="https://github.com/risaac09/pureland-fork-kit/blob/main/METHOD.md">METHOD.md</a>
       </div>
       <figure class="plate">
@@ -979,21 +979,21 @@
       </figure>
     </article>
 
-    <article class="station" id="station-return">
+    <article class="step" id="step-report">
       <div class="rail">
         <span class="numeral">VI</span>
         <svg class="thread draw" viewBox="0 0 40 100" preserveAspectRatio="none" aria-hidden="true">
           <path data-draw pathLength="1" class="rule-stroke" fill="none" vector-effect="non-scaling-stroke" d="M 20 0 C 20 24, 30 38, 20 52 C 12 62, 16 70, 20 74"/>
         </svg>
       </div>
-      <div class="station-body">
-        <h4>Return</h4>
-        <p>Write up what happened with the field-test template. Cleared reports join the <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CURRENT-EVIDENCE.md#the-ledger">field-trial ledger</a> as links, not endorsements. Private learning, refusal, and unmeasurable outcomes may end without a public report.</p>
+      <div class="step-body">
+        <h4>Report</h4>
+        <p>Write up what happened with the field-test template. Cleared reports join the <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CURRENT-EVIDENCE.md#the-ledger">field-trial ledger</a> as links, not endorsements. Private learning, refusal, and unmeasurable outcomes may end without a public report. One reply from the maintainer is there for the asking, at no cost.</p>
         <a class="instrument" href="https://github.com/risaac09/pureland-fork-kit/blob/main/templates/field-test.md">templates/field-test.md</a>
       </div>
       <figure class="plate">
-        <svg class="diagram draw" viewBox="0 0 120 90" role="img" aria-labelledby="d-return">
-          <title id="d-return">One thread curves back toward the start. Two strands go dashed and stop partway.</title>
+        <svg class="diagram draw" viewBox="0 0 120 90" role="img" aria-labelledby="d-report">
+          <title id="d-report">One thread curves back toward the start. Two strands go dashed and stop partway.</title>
           <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6">
             <path data-draw pathLength="1" style="--i:0" class="back" d="M 106 78 C 100 44, 66 26, 24 24"/>
             <path data-draw pathLength="1" style="--i:2" class="back" d="M 24 24 L 33 19"/>
@@ -1023,7 +1023,7 @@
         <dl>
           <dt>Date</dt><dd>2026-08-24</dd>
           <dt>Context</dt><dd>The Alchemy repository, bounded by the assessor as seven public surfaces</dd>
-          <dt>Instrument</dt><dd>Journey, partial execution, follow-up open</dd>
+          <dt>Instrument</dt><dd>Full method, recorded as journey, partial execution, follow-up open</dd>
           <dt>Contributor</dt><dd>Maintainer's side, AI-assisted, not independent</dd>
           <dt>Observed</dt><dd>One seven-surface document set, separate access and reciprocity readings, a conflict between traceability and intentional deletion, one executed adaptation, several method failures</dd>
           <dt>Outcome</dt><dd>unmeasurable</dd>
@@ -1154,7 +1154,7 @@
         </ul>
         <div class="absence">
           <p>Absence is part of the result set. It does not default to favorable.</p>
-          <p>The instruments have no independent field result, reliability estimate, validity result, threshold, certification, or causal result. FT-001 could not separate the journey's effect from the assessor's familiarity, the time spent, or the extraction check alone.</p>
+          <p>The instruments have no independent field result, reliability estimate, validity result, threshold, certification, or causal result. FT-001 could not separate the method's effect from the assessor's familiarity, the time spent, or the extraction check alone.</p>
         </div>
       </div>
     </div>
@@ -1190,7 +1190,7 @@
   <section class="band" id="readerships">
     <div class="band-head">
       <h3>Two readerships</h3>
-      <p>A person walks <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/JOURNEY.md">the journey</a> and a model reads <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/llms.txt">llms.txt</a>. The <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CROSSWALK.md">crosswalk</a> sets the two lanes against each other element by element. Station II has no agent counterpart, and that empty cell is a finding. A person with a model can walk the journey together, on their own use of language models. The <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/templates/walk-with-a-model.md">packet</a> says how.</p>
+      <p>A person runs <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/METHOD.md">the method</a> and a model reads <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/llms.txt">llms.txt</a>. The <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CROSSWALK.md">crosswalk</a> sets the two lanes against each other element by element. Attend, step II, has no agent counterpart, and that empty cell is a finding. A person with a model can run the method together, on their own use of language models. The <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/templates/run-with-a-model.md">packet</a> says how.</p>
       <p>This page does not ask you to stay. Bring one real practice, a boundary, or a place where access and extraction pull against each other, and PureLand will scope what can be inspected, what must stay private, and what result would count against the method. The <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/OFFERING.md">field pilot</a> is how that starts. Or do not. The <a href="https://github.com/risaac09/pureland-fork-kit">record</a> is here either way, and scroll position on this page earns you nothing.</p>
       <p class="exit-line">When you're done reading, close the tab and go look at an actual horizon.</p>
     </div>

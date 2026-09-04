@@ -1,6 +1,6 @@
 # Filming forms: self, dyadic, triadic, environmental
 
-This is a branch of [the journey](JOURNEY.md), taken alongside the [facilitation protocol](PROTOCOL.md) whenever the recording device is a camera. The protocol governs any recorded encounter. This document names four forms a camera-based encounter can take, reads each one for what it can witness and what it risks taking instead, and asks separately who is holding the camera.
+This is a branch of [the method](METHOD.md), taken alongside the [facilitation protocol](PROTOCOL.md) whenever the recording device is a camera. The protocol governs any recorded encounter. This document names four forms a camera-based encounter can take, reads each one for what it can witness and what it risks taking instead, and asks separately who is holding the camera.
 
 ## The claim
 

@@ -4,13 +4,13 @@ The toolbox is the forkable part of PureLand. It contains the instruments, templ
 
 Everything listed here is an instrument. The repository's two readerships, the human lane and the agent lane, are architecture rather than instruments, and the [crosswalk](CROSSWALK.md) sets them against each other.
 
-## Walk the method
+## Run the method
 
-- [JOURNEY.md](JOURNEY.md): the recommended six-station sequence.
-- [PRACTICE-FRAME.md](PRACTICE-FRAME.md): prompts for self-observation at the Observe station.
-- [SCORECARD.md](SCORECARD.md): four separate access questions for the Map station.
-- [EXTRACTION-CHECK.md](EXTRACTION-CHECK.md): consent, attribution, value return, attention sovereignty, burden, and collective authority at the Trace station.
-- [templates/walk-with-a-model.md](templates/walk-with-a-model.md): the packet for walking the journey with a model, on your own use of language models. The model scaffolds; the human cells stay yours.
+- [METHOD.md](METHOD.md): the six steps, run in order: Scope, Attend, Read, Trace, Adapt, Report.
+- [PRACTICE-FRAME.md](PRACTICE-FRAME.md): prompts for self-observation at Attend.
+- [SCORECARD.md](SCORECARD.md): four separate access questions for Read.
+- [EXTRACTION-CHECK.md](EXTRACTION-CHECK.md): consent, attribution, value return, attention sovereignty, burden, and collective authority at Trace.
+- [templates/run-with-a-model.md](templates/run-with-a-model.md): the packet for running the method with a model, on your own use of language models. The model scaffolds; the human cells stay yours.
 
 ## Handle conditional material
 

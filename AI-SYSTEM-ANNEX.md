@@ -1,6 +1,6 @@
 # AI system annex
 
-This is a branch of [the journey](JOURNEY.md), carried into the map station. Use this annex when the practice you are assessing includes a model, an automated decision, a generative interface, a recommender, a transcription service, or an agent.
+This is a branch of [the method](METHOD.md), carried into Read. Use this annex when the practice you are assessing includes a model, an automated decision, a generative interface, a recommender, a transcription service, or an agent.
 
 ## Define the audited unit
 

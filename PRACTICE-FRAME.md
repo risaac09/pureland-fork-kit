@@ -1,6 +1,6 @@
 # Practice frame: attention, poison, hindrance, response
 
-This is the observe station of [the journey](JOURNEY.md).
+This is the Attend step of [the method](METHOD.md#2-attend).
 
 ## The claim
 

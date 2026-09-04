@@ -1,6 +1,6 @@
 # Openness scorecard
 
-This is the map station of [the journey](JOURNEY.md). This experimental instrument measures four kinds of access: whether a practice is understandable, reachable, adaptable, and traceable from the outside. It does not produce a combined score or a certification. Pair every use with the [extraction check](EXTRACTION-CHECK.md).
+This is the Read step of [the method](METHOD.md#3-read). This experimental instrument measures four kinds of access: whether a practice is understandable, reachable, adaptable, and traceable from the outside. It does not produce a combined score or a certification. Pair every use with the [extraction check](EXTRACTION-CHECK.md).
 
 ## Rules
 

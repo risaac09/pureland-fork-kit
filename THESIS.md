@@ -24,7 +24,7 @@ The fork kit remains inside this structure as the toolbox. It is not being disca
 
 ## Who the instruments depend on
 
-PureLand is a set of instruments whose validity depends on who used them. The repository can be read, indexed, validated, forked, and checked by anything. It can only be walked by someone the answer can reach. Every instrument in the [toolbox](TOOLBOX.md) asks its user for something no record can supply on the user's behalf: attention paid before a category is assigned, a boundary somebody is accountable for, a change that costs the person who makes it, and a challenge from someone the change lands on.
+PureLand is a set of instruments whose validity depends on who used them. The repository can be read, indexed, validated, forked, and checked by anything. It can only be run by someone the answer can reach. Every instrument in the [toolbox](TOOLBOX.md) asks its user for something no record can supply on the user's behalf: attention paid before a category is assigned, a boundary somebody is accountable for, a change that costs the person who makes it, and a challenge from someone the change lands on.
 
 A reader that cannot be changed by the material cannot test this thesis. It can carry the claim accurately, check whether the record is honest about its own limits, and say what is missing. Those are real jobs. They are not the same job. That is why the repository names its two readerships instead of leaving the difference to chance. [README.md](README.md#two-readerships) names them and the [crosswalk](CROSSWALK.md) holds the comparison.
 
@@ -70,4 +70,4 @@ PureLand uses the phrase **attention sovereignty** to name practical agency over
 
 ## Status
 
-The thesis is a version 0.1 organizing argument. One maintainer-side partial dry run has exposed problems in the journey. No independent field trial, reliability estimate, validity result, benchmark, threshold, certification, or outcome estimate exists. See [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md), which holds the evidence record and the ledger, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md), which holds the claim-by-claim status.
+The thesis is a version 0.1 organizing argument. One maintainer-side partial dry run has exposed problems in the method's sequence. No independent field trial, reliability estimate, validity result, benchmark, threshold, certification, or outcome estimate exists. See [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md), which holds the evidence record and the ledger, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md), which holds the claim-by-claim status.

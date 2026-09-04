@@ -1,6 +1,6 @@
 # Field test FT-001: partial journey dry run on Alchemy
 
-FT-001 is a maintainer-side, AI-assisted partial dry run of [the journey](../../JOURNEY.md) on the [Alchemy app](https://github.com/risaac09/alchemy). It is not an independent trial and does not count toward the version 0.2 gate. Structured record: [data/field-tests/ft-001-alchemy.json](../../data/field-tests/ft-001-alchemy.json).
+FT-001 is a maintainer-side, AI-assisted partial dry run of [the journey](../../METHOD.md) on the [Alchemy app](https://github.com/risaac09/alchemy). It is not an independent trial and does not count toward the version 0.2 gate. Structured record: [data/field-tests/ft-001-alchemy.json](../../data/field-tests/ft-001-alchemy.json).
 
 ## Record identity and status
 

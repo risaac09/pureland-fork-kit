@@ -36,7 +36,7 @@ The first face of each stack is self-hosted as a latin woff2 subset in `design/f
 
 ## Motifs
 
-- **Roman numerals** appear in two explicitly labeled sequences: the public research functions and the method's six journey stations. Never let one sequence stand in for the other, and read the count from the sequence itself rather than fixing it here, where it would drift.
+- **Roman numerals** appear in two explicitly labeled sequences: the public research functions and the method's six steps. Never let one sequence stand in for the other, and read the count from the sequence itself rather than fixing it here, where it would drift.
 - **Hairline rules.** 1px, Graphite, reduced opacity. They divide without shouting.
 - **Small arrow annotations.** `→` followed by a monospace caption, used the way a specimen label points to a detail.
 - **Strikethrough in Oxblood** for visible revision. A crossed-out line stays legible; it is a record of what changed, not a deletion.
@@ -57,10 +57,10 @@ Two rules bound the event class, and both come from principle 1. The dial, defin
 
 Line-work moves in exactly two ways, and each way has a rule.
 
-- **The event.** A diagram draws once when it first reaches the reader and then stays drawn. The two rules above govern it. Station plates, the fork mark, and every fade are events.
-- **The dial.** The journey thread is scroll-linked: its drawn length is the reader's position on the walk, and its tip rides the fixed horizon. A dial moves only while the hand moves. Scroll back and the line retreats, because the line is a reading of where you are, not a reward for having been there. It never advances on its own, and its timing function is linear, since any easing on a position reading would misreport the hand.
+- **The event.** A diagram draws once when it first reaches the reader and then stays drawn. The two rules above govern it. Step plates, the fork mark, and every fade are events.
+- **The dial.** The method thread is scroll-linked: its drawn length is the reader's position in the sequence, and its tip rides the fixed horizon. A dial moves only while the hand moves. Scroll back and the line retreats, because the line is a reading of where you are, not a reward for having been there. It never advances on its own, and its timing function is linear, since any easing on a position reading would misreport the hand.
 
-Scroll-linked, never scroll-jacked. The page never takes the scroll away from the hand, and it plays no motion the hand did not make. A held scene comes from `position: sticky` and releases the moment the reader keeps walking. Under `prefers-reduced-motion: reduce` both classes arrive fully drawn and nothing moves. The evidence section refuses motion entirely, in every mode: absence does not perform.
+Scroll-linked, never scroll-jacked. The page never takes the scroll away from the hand, and it plays no motion the hand did not make. A held scene comes from `position: sticky` and releases the moment the reader keeps scrolling. Under `prefers-reduced-motion: reduce` both classes arrive fully drawn and nothing moves. The evidence section refuses motion entirely, in every mode: absence does not perform.
 
 The motion grammar is published as named tokens in [design/tokens.css](tokens.css), beside the palette and type it moves.
 
@@ -79,7 +79,7 @@ The mark is line-work only: no fills, a roughly uniform stroke with slightly tap
 ## Usage
 
 - **README banner.** A quiet header above the title: the mark at left, the project name in letterspaced serif caps, a short monospace caption beneath a Brass hairline rule. See `design/assets/banner-light.svg` and `design/assets/banner-dark.svg`.
-- **Docs.** Hairline rules divide sections. Monospace labels mark fields and data. Roman numerals identify either the public research functions or the six journey stations only when the sequence is named.
+- **Docs.** Hairline rules divide sections. Monospace labels mark fields and data. Roman numerals identify either the public research functions or the method's six steps only when the sequence is named.
 - **Field-report artifacts.** Ledger styling for anything that functions as a record: monospace headers, Oxblood strikethrough for corrections, no color used to imply a verdict.
 
 ## What to avoid

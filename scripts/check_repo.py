@@ -50,7 +50,6 @@ REQUIRED_ARCHITECTURE = [
     "README.md",
     "llms.txt",
     "index.html",
-    "JOURNEY.md",
     "CROSSWALK.md",
     "OFFERING.md",
     "THESIS.md",
@@ -62,7 +61,7 @@ REQUIRED_ARCHITECTURE = [
     "data/README.md",
     "data/field-test.schema.json",
     "templates/field-test.md",
-    "templates/walk-with-a-model.md",
+    "templates/run-with-a-model.md",
     "research/field-tests/ft-001-alchemy.md",
 ]
 
@@ -132,7 +131,7 @@ FIELD_TEST_RECORDS = ROOT / "data" / "field-tests"
 # Entry points a reader (or a fork) actually lands on. Orphan detection asks
 # whether every other content file is reachable from here by some chain of
 # links, not just whether something happens to point at it.
-LINK_ROOTS = {ROOT / "README.md", ROOT / "JOURNEY.md"}
+LINK_ROOTS = {ROOT / "README.md", ROOT / "METHOD.md"}
 
 # Files that are legitimately not woven into prose: citation metadata and a
 # changelog are conventionally browsed directly, not linked from the text.
@@ -215,7 +214,7 @@ def find_prohibited_score_keys(value: Any, prefix: str = "") -> list[str]:
     return found
 
 
-def incomplete_required_stations(record: dict[str, Any]) -> list[str]:
+def incomplete_required_steps(record: dict[str, Any]) -> list[str]:
     incomplete: list[str] = []
     for station, entry in record.get("station_completion", {}).items():
         if entry.get("required") is True and entry.get("status") != "complete":
@@ -356,11 +355,11 @@ def check_targets(
 
 def check_record_rules(path: Path, record: dict[str, Any], errors: list[str]) -> None:
     record_label = record.get("record_id", relative(path))
-    incomplete = incomplete_required_stations(record)
+    incomplete = incomplete_required_steps(record)
 
     if record.get("test_status") == "complete" and incomplete:
         errors.append(
-            f"{record_label} claims completion with incomplete required stations: {', '.join(incomplete)}"
+            f"{record_label} claims completion with incomplete required steps: {', '.join(incomplete)}"
         )
     if (
         record.get("test_status") == "complete"
@@ -896,7 +895,7 @@ def main(argv: list[str] | None = None) -> int:
             errors.append(f"placeholder token: {relative(path)}")
 
     # Orphan detection: every content file should be reachable from README or
-    # JOURNEY by some chain of links. This is a warning, not a
+    # METHOD by some chain of links. This is a warning, not a
     # failure. A few files are legitimately unlinked (see ORPHAN_ALLOWLIST),
     # and a good-faith field-test PR should never fail CI over an unrelated
     # file it cannot fix.
@@ -914,7 +913,7 @@ def main(argv: list[str] | None = None) -> int:
             continue
         warnings.append(
             f"orphan: {relative(path)} is not reachable from "
-            f"README.md or JOURNEY.md by any link"
+            f"README.md or METHOD.md by any link"
         )
 
     if warnings:

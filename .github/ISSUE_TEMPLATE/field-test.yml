@@ -18,9 +18,9 @@ body:
   - type: dropdown
     id: instrument
     attributes:
-      label: Scope
+      label: Coverage
       options:
-        - Journey
+        - Full method
         - Practice frame
         - Protocol
         - Scorecard
