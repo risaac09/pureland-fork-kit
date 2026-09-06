@@ -15,9 +15,9 @@ What it does
 Reads only the surfaces named `yes` in a permission record the person writes
 first. Reads names, sizes, and modification times. Never opens a file. Writes
 one Markdown file and changes nothing else. Makes no network call, and proves
-it: an audit hook armed before any other work raises on every socket, urllib,
-ssl, http, and ftp event, so a run that reached the network would end in a
-traceback instead of a report.
+it: an audit hook armed before it reads anything raises on every socket,
+urllib, ssl, http, and ftp event, so a run that reached the network would end
+in a traceback instead of a report.
 
 What it refuses
 ---------------
@@ -26,6 +26,13 @@ background. One run, one report, and it exits. It produces no score, no map, no
 band, no verdict, and no ranking. It reads no surface the person did not mark,
 and it reads no private or undocumented data store, because a read nobody can
 describe cannot be honestly named in a permission record.
+
+Statuses
+--------
+A walk can report `demonstrated`, `partly demonstrated`, `unmeasurable`, and
+`intentionally absent`. It never reports `reported`, because reporting is
+something a person does. A figure the person wrote stays in the estimate
+column, where it is visibly theirs.
 
 The estimate column
 -------------------
@@ -47,27 +54,30 @@ directory walk can see and prints the boundary as its last row.
 
 from __future__ import annotations
 
+import argparse
+import datetime as dt
+import os
 import sys
+from pathlib import Path
+from typing import Any
 
 _NETWORK_PREFIXES = ("socket", "urllib", "ssl", "http", "ftplib", "smtplib")
 
 
 def _refuse_network(event: str, args: object) -> None:
-    """Raise on any audited network event. Armed before the module does anything else."""
+    """Raise on any audited network event.
+
+    main() arms this before it reads anything. It is not armed at import,
+    because an audit hook cannot be removed once added: arming it on import
+    would take networking away from any process that merely imported this
+    module, which is a side effect this script has no business causing.
+    """
     if event.split(".")[0] in _NETWORK_PREFIXES:
         raise RuntimeError(
             f"ecosystem_inventory made a network call ({event}). "
             "This script is local only and the run is void."
         )
 
-
-sys.addaudithook(_refuse_network)
-
-import argparse  # noqa: E402
-import datetime as dt  # noqa: E402
-import os  # noqa: E402
-from pathlib import Path  # noqa: E402
-from typing import Any  # noqa: E402
 
 WALK_CAP = 200_000
 RECENT_DAYS = 365
@@ -144,7 +154,8 @@ def parse_permissions(path: Path) -> list[Surface]:
         line = raw.strip()
         if not line or line.startswith("#"):
             continue
-        parts = [cell.strip() for cell in line.split("|")]
+        # maxsplit keeps a pipe inside the note where the person put it.
+        parts = [cell.strip() for cell in line.split("|", 4)]
         if len(parts) < 4:
             raise SystemExit(f"{path}:{number}: expected at least four columns, found {len(parts)}")
         parts += [""] * (5 - len(parts))
@@ -157,20 +168,31 @@ def parse_permissions(path: Path) -> list[Surface]:
     return surfaces
 
 
-def walk(root: Path, suffixes: set[str] | None) -> tuple[int, int, int]:
-    """Count matching regular files, how many were modified recently, and how many refused a read."""
+def walk(root: Path, suffixes: set[str] | None, excluded: set[str]) -> tuple[int, int, int, bool]:
+    """Count matching regular files, how many changed recently, how many refused a read, and whether the walk was cut short.
+
+    A directory that refuses to be listed counts as a refusal too. Dropping
+    those would let a walk miss an arbitrary part of the tree and still call
+    the count demonstrated, which is the failure this instrument exists to
+    avoid.
+    """
     cutoff = dt.datetime.now().timestamp() - RECENT_DAYS * 86400
     total = recent = unreadable = seen = 0
-    for directory, subdirectories, names in os.walk(root, followlinks=False, onerror=lambda e: None):
+    refusals = []
+
+    def note_error(_error: OSError) -> None:
+        refusals.append(1)
+
+    for directory, subdirectories, names in os.walk(root, followlinks=False, onerror=note_error):
         subdirectories[:] = [
             name for name in subdirectories if not os.path.islink(os.path.join(directory, name))
         ]
         for name in names:
             seen += 1
             if seen > WALK_CAP:
-                return total, recent, -1
+                return total, recent, unreadable + len(refusals), True
             entry = os.path.join(directory, name)
-            if os.path.islink(entry):
+            if entry in excluded or os.path.islink(entry):
                 continue
             if suffixes is not None and os.path.splitext(name)[1].lower() not in suffixes:
                 continue
@@ -182,11 +204,10 @@ def walk(root: Path, suffixes: set[str] | None) -> tuple[int, int, int]:
             total += 1
             if stat.st_mtime >= cutoff:
                 recent += 1
-    return total, recent, unreadable
+    return total, recent, unreadable + len(refusals), False
 
 
-def measure(surface: Surface) -> None:
-    reported = surface.estimate not in ("", "-")
+def measure(surface: Surface, excluded: set[str]) -> None:
     if surface.permission == "absent":
         if surface.note:
             surface.status = "intentionally absent"
@@ -196,39 +217,46 @@ def measure(surface: Surface) -> None:
             surface.detail = "recorded absent with no reason, and an absence without its reason is not a boundary"
         return
     if surface.permission in ("no", "not-yet"):
-        surface.status = "reported" if reported else "unmeasurable"
-        surface.detail = (
-            "declined; the person's own estimate is the only figure"
-            if reported
-            else ("declined" if surface.permission == "no" else "undecided")
-        )
+        # A `no` yields unmeasurable and never a failure. An estimate beside it
+        # stays the person's own figure and does not become a measurement.
+        surface.status = "unmeasurable"
+        surface.detail = "declined" if surface.permission == "no" else "undecided"
         return
 
     handler = HANDLERS.get(surface.name)
     if handler is None:
         surface.detail = f"no handler counts a surface named {surface.name!r}"
         return
-    root = Path(os.path.expanduser(surface.target))
+    root = Path(os.path.expanduser(surface.target)).resolve()
     if surface.target in ("", "-") or not root.is_dir():
         surface.detail = f"target {surface.target!r} is not a readable directory"
         return
 
-    surface.rule = str(handler["rule"]).format(target=root)
-    total, recent, unreadable = walk(root, handler["suffixes"])
-    surface.count, surface.recent = total, recent
-    if unreadable == -1:
+    surface.rule = str(handler["rule"]).format(target=root) + (
+        " This tool's own permission record and report are excluded."
+    )
+    total, recent, unreadable, truncated = walk(root, handler["suffixes"], excluded)
+    surface.count, surface.recent, surface.unreadable = total, recent, unreadable
+    notes = []
+    if truncated:
+        notes.append(f"stopped after {WALK_CAP} entries, so the count is a floor")
+    if unreadable:
+        plural = "path" if unreadable == 1 else "paths"
+        notes.append(f"{unreadable} {plural} refused a read and are not counted")
+    if notes:
         surface.status = "partly demonstrated"
-        surface.detail = f"stopped after {WALK_CAP} entries; the count below is a floor"
-    elif unreadable:
-        surface.status = "partly demonstrated"
-        surface.unreadable = unreadable
-        surface.detail = f"{unreadable} entries refused a read and are not counted"
+        surface.detail = "; ".join(notes)
     else:
         surface.status = "demonstrated"
 
 
 def cell(value: object) -> str:
-    return "" if value is None or value == "" else str(value)
+    return "" if value is None or value == "" else md(str(value))
+
+
+def md(value: str) -> str:
+    """Escape a pipe so one in a path or a note cannot break the table."""
+    return value.replace("|", "\\|")
 
 
 def given(value: str) -> str:
@@ -255,8 +283,8 @@ def report(surfaces: list[Surface], permissions: Path) -> str:
     ]
     for surface in surfaces:
         lines.append(
-            f"| {surface.name} | {surface.status} | {cell(surface.count)} | "
-            f"{cell(surface.recent)} | {given(surface.estimate)} | {surface.rule} |"
+            f"| {md(surface.name)} | {surface.status} | {cell(surface.count)} | "
+            f"{cell(surface.recent)} | {cell(given(surface.estimate))} | {md(surface.rule)} |"
         )
     lines += [
         "",
@@ -269,9 +297,11 @@ def report(surfaces: list[Surface], permissions: Path) -> str:
     ]
     for surface in surfaces:
         if surface.detail:
-            lines.append(f"- **{surface.name}**: {surface.status}. {surface.detail.rstrip('.')}.")
+            lines.append(
+                f"- **{md(surface.name)}**: {surface.status}. {md(surface.detail).rstrip('.')}."
+            )
         else:
-            lines.append(f"- **{surface.name}**: {surface.status}.")
+            lines.append(f"- **{md(surface.name)}**: {surface.status}.")
 
     models = [s for s in surfaces if s.name == "models" and s.count]
     lines += ["", "## The audited unit, where a model was found", ""]
@@ -319,9 +349,9 @@ def self_check(surfaces: list[Surface], written: list[Path]) -> str:
             "",
             "Self-check for this run",
             "-----------------------",
-            "  What left this machine:  nothing. The network audit hook was armed before any other",
-            "                           work and raises on every socket, urllib, ssl, http, and ftp",
-            "                           event. This run finished, so none fired.",
+            "  What left this machine:  nothing. The network audit hook was armed before this run",
+            "                           read anything, and it raises on every socket, urllib, ssl,",
+            "                           http, and ftp event. This run finished, so none fired.",
             f"  What it read:            {', '.join(read) if read else 'nothing'}",
             "                           Names, sizes, and modification times. No file was opened.",
             f"  What it refused:         {', '.join(refused) if refused else 'nothing was declined'}",
@@ -339,6 +369,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--out", default=None, help="path for the report (default: beside the record)")
     args = parser.parse_args(argv)
 
+    sys.addaudithook(_refuse_network)
+
     permissions = Path(os.path.expanduser(args.permissions))
     if not permissions.exists():
         permissions.parent.mkdir(parents=True, exist_ok=True)
@@ -352,12 +384,17 @@ def main(argv: list[str] | None = None) -> int:
     if not surfaces:
         print(f"{permissions} names no surfaces. Nothing was read.")
         return 2
-    for surface in surfaces:
-        measure(surface)
 
     out = Path(os.path.expanduser(args.out)) if args.out else permissions.with_name(
         f"ecosystem-inventory-{dt.date.today().isoformat()}.md"
     )
+    # The report and the permission record can sit inside a counted directory,
+    # which is the obvious layout for a notes surface. Counting them would let
+    # this tool's own output inflate the next run's denominator.
+    excluded = {str(permissions.resolve()), str(out.resolve())}
+    for surface in surfaces:
+        measure(surface, excluded)
+
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(report(surfaces, permissions), encoding="utf-8")
     print(self_check(surfaces, [out]))
