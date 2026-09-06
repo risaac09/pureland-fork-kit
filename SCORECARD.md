@@ -28,6 +28,8 @@ What can be known? Can a person outside the core tell what exists, what it does,
 
 Count the artifacts that are reachable and carry a plain-language description, out of the named set.
 
+This counts documentation. A reachable artifact carrying a plain-language description does not show that any reader understood it, or that they could act on what they read. Report the count under that limit, and leave a reader's own account to an instrument that asks one.
+
 | Result | Evidence | Uncertainty or disagreement |
 |---|---|---|
 | / | | |
