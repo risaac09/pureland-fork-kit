@@ -4,6 +4,7 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Added a predefined agency action and a materiality-rule question to Scope in `templates/run-with-a-model.md`, reworded the Stage 1 sentence so the completed record no longer reads as entering through scoping, and warned against saving a draft under `data/`.
 - Added the decision-authority questions to Scope in `METHOD.md`: what the person can change alone, who else decides, what follows if they refuse, and the dependence worth keeping.
 - Added a private path to `METHOD.md`: one pass through the six steps that keeps no record, with the rights boundary unchanged and no research claim.
 - Removed the claim in `METHOD.md` that the field pilot is paid and the "or not at all" exclusivity; `OFFERING.md` is the one place that states the pilot's terms.
