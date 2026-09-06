@@ -85,8 +85,9 @@ required evidence is absent. Leave every field you could not evidence empty
 rather than guessing at it. Tell the person the record is theirs and stays
 private by default. If they choose to make it public, that choice starts at
 Stage 1 public-safe scoping in
-https://risaac09.github.io/pureland-fork-kit/CONTRIBUTING.md. Stage 1 is a
-short public issue in general terms, not the completed record itself.
+https://risaac09.github.io/pureland-fork-kit/CONTRIBUTING.md. Stage 1 asks
+for a short public issue in general terms. The completed record stays out of
+it.
 
 Throughout. Label a proposal a proposal. A gap you name is worth more than a
 field you fill. If the person stops, record the stop as a stop and do not call
@@ -97,7 +98,7 @@ it failure.
 
 The four endings again: public artifact, private learning, `unmeasurable`, refusal.
 
-To check the record, clone this kit and run `python3 scripts/check_repo.py`, or ask the model to check the required fields against [the schema](../data/field-test.schema.json). Either one is a structural check. It reports that the shape is right. It does not report that the run was finished or that anything was measured. The cloned checkout is what gets checked, not only your record, so keep your draft on your own machine rather than saving it under this kit's `data/` directory.
+To check the record, clone this kit and run `python3 scripts/check_repo.py`, or ask the model to check the required fields against [the schema](../data/field-test.schema.json). Either one is a structural check. It reports that the shape is right. It does not report that the run was finished or that anything was measured. The cloned checkout is what gets checked, your record included, so keep your draft on your own machine rather than saving it under this kit's `data/` directory.
 
 The record shows no outcome and no validity. It shows what one person could see about their own use of models, and where they could see nothing.
 

@@ -273,7 +273,7 @@ def has_unresolved_follow_up_impact(record: dict[str, Any]) -> bool:
     `null` passes it silently. An earlier version of this guard checked only
     for `pending` and missed `unmeasurable`, the same gap by another name. A
     support claim needs every party's follow-up impact actually read as
-    `observed` or `estimated`, not merely not yet known.
+    `observed` or `estimated`. Anything else means the answer is still unknown.
     """
     for impact in record.get("party_impacts", []):
         for dimension in ("exposure", "extractability", "shifted_burden"):

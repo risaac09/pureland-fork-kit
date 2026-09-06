@@ -77,9 +77,9 @@ DECISIONS = {"yes", "no", "not yet"}
 def block_network() -> None:
     """Make any attempted network connection raise instead of succeeding.
 
-    This is a guard, not a claim: if anything in this script or an imported
-    module ever tries to open a socket, the run stops loudly here rather
-    than sending something silently.
+    This guard proves the claim rather than asserting it: if anything in
+    this script or an imported module ever tries to open a socket, the run
+    stops loudly here rather than sending something silently.
     """
 
     def _blocked(*_args: Any, **_kwargs: Any) -> None:
@@ -299,7 +299,7 @@ def render_report(
         if surface in DESCRIBE_ONLY:
             note = entry.get("note", "").strip()
             if entry["decision"] == "yes" and note:
-                lines.append(f"- Status: reported (the person's own words, not measured)")
+                lines.append("- Status: reported (the person's own words; nothing here was measured)")
                 lines.append(f"- Record: {note}")
             elif entry["decision"] == "no":
                 lines.append("- Status: intentionally absent")
@@ -337,12 +337,12 @@ def render_report(
     lines.append("")
     lines.append(
         "- Whether any count above changed anything about the person's "
-        "practical agency. That is Adapt and Report's question, not this "
-        "instrument's."
+        "practical agency. Adapt and Report answer that question; this "
+        "instrument only counts."
     )
     lines.append(
         "- Anything about a surface marked `no` or `not yet`. Absence here "
-        "is a recorded boundary, not a favorable result."
+        "is a recorded boundary. It carries no favorable reading."
     )
     lines.append(
         "- Anything about the physical, spiritual, relational, or "
