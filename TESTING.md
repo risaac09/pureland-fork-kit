@@ -47,6 +47,8 @@ Classify the tested context only after recording the complete profile:
 
 Allowed classifications are `supports-tested-context`, `weakens-tested-context`, `defeats-tested-context`, `mixed`, and `unmeasurable`. Return disposition is recorded separately as `public-return`, `private-result`, `refusal`, `unmeasurable`, or `pending-follow-up`.
 
+For the primary hypothesis, support requires complete six-step execution with human Attend evidence and an executed adaptation. Predeclare the hypothesis. Demonstrate an improved predeclared action by the person whose practice it is, with an evidenced baseline dated by the window's start and an evidenced follow-up inside that window. Close the window after its end and review date. Record observed baseline and follow-up impacts for every affected party, with evidence and an explicit finding of no material increase at follow-up under the predeclared rule. Pending or unknown harm evidence cannot support the primary hypothesis. Conflicting action results remain subject to rule 5 above. The checker enforces these necessary conditions; a person judges the evidence and the classification. A partial instrument test uses its own declared hypothesis and cannot establish the primary hypothesis. Preserve adverse signals in action results and party impacts even when missing evidence requires `unmeasurable`.
+
 ## Disconfirming results
 
 Any of these results should weaken or defeat the primary hypothesis for the tested context:

@@ -242,6 +242,71 @@ def has_material_increase(record: dict[str, Any]) -> bool:
     return False
 
 
+def primary_support_gaps(record: dict[str, Any], today: dt.date) -> list[str]:
+    """Enforce TESTING.md's primary support rule without changing evidence."""
+    gaps: list[str] = []
+    steps = record.get("station_completion", {})
+    if record.get("test_status") != "complete" or any(
+        steps.get(key, {}).get("required") is not True
+        or steps.get(key, {}).get("status") != "complete"
+        for key in ("ground", "observe", "map", "trace", "adapt", "return")
+    ):
+        gaps.append("complete six-step execution")
+    human = record.get("human_observe", {})
+    walker = record.get("walking_person", {})
+    if (walker.get("status") != "present" or not walker.get("id")
+        or human.get("status") != "performed" or not human.get("performer")
+        or not human.get("evidence")
+        or human.get("ai_or_design_analysis_substituted") is not False):
+        gaps.append("human Attend evidence")
+    if record.get("tested_hypothesis", {}).get("predeclared_before_analysis") is not True:
+        gaps.append("predeclared hypothesis")
+    follow = record.get("follow_up", {})
+    window = follow.get("observation_window", {})
+    try:
+        start = dt.date.fromisoformat(window.get("start"))
+        end = dt.date.fromisoformat(window.get("end"))
+        review = dt.date.fromisoformat(follow.get("review_date"))
+        valid_window = start <= end <= today and end <= review <= today
+    except (ValueError, TypeError):
+        valid_window = False
+    if follow.get("status") != "complete" or not follow.get("evidence") or not valid_window:
+        gaps.append("closed observed follow-up window")
+    improved = False
+    for action in record.get("agency_actions", []):
+        try:
+            before = dt.date.fromisoformat(action.get("baseline", {}).get("observed_at"))
+            after = dt.date.fromisoformat(action.get("follow_up", {}).get("observed_at"))
+            dated = valid_window and before <= start <= after <= end
+        except (ValueError, TypeError):
+            dated = False
+        if (action.get("actor_id") == walker.get("id")
+            and action.get("predefined_before_analysis") is True
+            and action.get("baseline", {}).get("status") == "observed"
+            and action.get("follow_up", {}).get("status") == "observed"
+            and action.get("result") == "improved" and action.get("evidence") and dated):
+            improved = True
+    if not improved:
+        gaps.append("improved predeclared person-level action")
+    if record.get("adaptation", {}).get("status") != "executed":
+        gaps.append("executed adaptation")
+    impacts = record.get("party_impacts", [])
+    if not impacts or any(
+        impact.get(period, {}).get(dimension, {}).get("status") != "observed"
+        or not impact.get(period, {}).get(dimension, {}).get("evidence")
+        or (period == "follow_up" and
+            impact.get(period, {}).get(dimension, {}).get("material_increase") is not False)
+        for impact in impacts
+        for period in ("baseline", "follow_up")
+        for dimension in ("exposure", "extractability", "shifted_burden")
+    ):
+        gaps.append("observed impacts for every party under the materiality rule")
+    if any(action.get("result") in {"weakened", "mixed"}
+           for action in record.get("agency_actions", [])):
+        gaps.append("classification preserving conflicting action results")
+    return gaps
+
+
 def content_files() -> list[Path]:
     """Every file subject to orphan detection: repo content, not tooling."""
     return sorted(
@@ -395,6 +460,10 @@ def check_record_rules(path: Path, record: dict[str, Any], errors: list[str]) ->
                 )
 
     outcome = record.get("outcome", {}).get("classification")
+    if (outcome == "supports-tested-context"
+        and record.get("tested_hypothesis", {}).get("kind") == "primary"):
+        for gap in primary_support_gaps(record, reference_date(errors)):
+            errors.append(f"{record_label} primary support requires {gap}")
     rights_status = record.get("rights_review", {}).get("status")
     if (rights_status != "complete" or not has_observed_action_outcome(record)) and outcome != "unmeasurable":
         errors.append(
