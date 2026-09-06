@@ -4,6 +4,7 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Added a private path to `METHOD.md`: one pass through the six steps that keeps no record, with the rights boundary unchanged and no research claim.
 - Removed the claim in `METHOD.md` that the field pilot is paid and the "or not at all" exclusivity; `OFFERING.md` is the one place that states the pilot's terms.
 - Closed the support-classification gap in `scripts/check_repo.py`: a record cannot claim `supports-tested-context` without an improved predefined action, performed human Attend where required, every party's follow-up impact resolved, and a closed follow-up window. `scripts/test_classification_gap.py` holds the fixture that passed the old rule with zero errors, in a pending-status and an unmeasurable-status variant.
 - Pointed the README's opening at the public front page. The site URL now sits directly under the title, naming the repository as the record behind it, and the sentence that carried the URL from the middle of "Use the method" drops it rather than leaving a second copy to drift. (#36)
