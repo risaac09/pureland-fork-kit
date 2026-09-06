@@ -53,7 +53,7 @@ Recording is optional. Retention, named-reviewer access, publication, approval o
 
 ## 1. Scope
 
-Name the practice, the system boundary, the purpose, and the affected people. Record what evidence exists before you score anything, and obtain permission for any participant material before it enters the run. Then write one result that would count against the method.
+Name the practice, the system boundary, the purpose, and the affected people. Record what evidence exists before you score anything, and obtain permission for any participant material before it enters the run. Then write one result that would count against the method. A private run on your own practice needs no public field-test record; see [Output](#output).
 
 Scope records:
 
@@ -61,6 +61,7 @@ Scope records:
 - its boundary, the reason for that boundary, and a plausible alternative boundary;
 - the person whose practice it is and every affected person or group;
 - the permission the inquiry needs and the rights-review status;
+- what this person can change directly, what needs another person's decision, and what happens if that person refuses;
 - at least one predefined agency action: stop, continue, question, correct, adapt, or refuse;
 - the baseline for each action and what follow-up would count as change.
 
