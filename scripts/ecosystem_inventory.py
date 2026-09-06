@@ -57,6 +57,8 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import os
+import re
+import stat
 import sys
 from pathlib import Path
 from typing import Any
@@ -168,20 +170,28 @@ def parse_permissions(path: Path) -> list[Surface]:
     return surfaces
 
 
-def walk(root: Path, suffixes: set[str] | None, excluded: set[str]) -> tuple[int, int, int, bool]:
-    """Count matching regular files, how many changed recently, how many refused a read, and whether the walk was cut short.
+def key(path: str) -> str:
+    """A comparable form of a path, case-folded because macOS filesystems are."""
+    return os.path.normcase(os.path.realpath(path))
 
-    A directory that refuses to be listed counts as a refusal too. Dropping
-    those would let a walk miss an arbitrary part of the tree and still call
-    the count demonstrated, which is the failure this instrument exists to
-    avoid.
+
+OWN_REPORT = re.compile(r"^ecosystem-inventory-\d{4}-\d{2}-\d{2}\.md$")
+
+
+def walk(root: Path, suffixes: set[str] | None, excluded: set[str]) -> dict[str, int]:
+    """Count matching regular files and everything the walk could not see.
+
+    Returns the count, how many changed recently, how many files refused a
+    read, how many directories refused a listing, and whether the walk was cut
+    short. A directory nobody could list may hide any number of files, so it is
+    counted apart from a single unreadable file and never folded into it.
     """
     cutoff = dt.datetime.now().timestamp() - RECENT_DAYS * 86400
     total = recent = unreadable = seen = 0
-    refusals = []
+    unlistable = []
 
     def note_error(_error: OSError) -> None:
-        refusals.append(1)
+        unlistable.append(1)
 
     for directory, subdirectories, names in os.walk(root, followlinks=False, onerror=note_error):
         subdirectories[:] = [
@@ -190,21 +200,39 @@ def walk(root: Path, suffixes: set[str] | None, excluded: set[str]) -> tuple[int
         for name in names:
             seen += 1
             if seen > WALK_CAP:
-                return total, recent, unreadable + len(refusals), True
+                return {
+                    "count": total,
+                    "recent": recent,
+                    "unreadable": unreadable,
+                    "unlistable": len(unlistable),
+                    "truncated": 1,
+                }
             entry = os.path.join(directory, name)
-            if entry in excluded or os.path.islink(entry):
+            if os.path.islink(entry):
+                continue
+            if key(entry) in excluded or OWN_REPORT.match(name):
                 continue
             if suffixes is not None and os.path.splitext(name)[1].lower() not in suffixes:
                 continue
             try:
-                stat = os.stat(entry)
+                info = os.stat(entry)
             except OSError:
                 unreadable += 1
                 continue
+            # A FIFO, socket, or device node is not a document. The rule printed
+            # beside the count says regular files, so count regular files.
+            if not stat.S_ISREG(info.st_mode):
+                continue
             total += 1
-            if stat.st_mtime >= cutoff:
+            if info.st_mtime >= cutoff:
                 recent += 1
-    return total, recent, unreadable + len(refusals), False
+    return {
+        "count": total,
+        "recent": recent,
+        "unreadable": unreadable,
+        "unlistable": len(unlistable),
+        "truncated": 0,
+    }
 
 
 def measure(surface: Surface, excluded: set[str]) -> None:
@@ -233,16 +261,23 @@ def measure(surface: Surface, excluded: set[str]) -> None:
         return
 
     surface.rule = str(handler["rule"]).format(target=root) + (
-        " This tool's own permission record and report are excluded."
+        " This tool's own permission record and its reports, named "
+        "ecosystem-inventory-<date>.md, are excluded."
     )
-    total, recent, unreadable, truncated = walk(root, handler["suffixes"], excluded)
-    surface.count, surface.recent, surface.unreadable = total, recent, unreadable
+    walked = walk(root, handler["suffixes"], excluded)
+    surface.count, surface.recent = walked["count"], walked["recent"]
+    surface.unreadable = walked["unreadable"] + walked["unlistable"]
     notes = []
-    if truncated:
+    if walked["truncated"]:
         notes.append(f"stopped after {WALK_CAP} entries, so the count is a floor")
-    if unreadable:
-        plural = "path" if unreadable == 1 else "paths"
-        notes.append(f"{unreadable} {plural} refused a read and are not counted")
+    if walked["unreadable"]:
+        was = "file refused a read" if walked["unreadable"] == 1 else "files refused a read"
+        notes.append(f"{walked['unreadable']} {was}")
+    if walked["unlistable"]:
+        was = "location refused" if walked["unlistable"] == 1 else "locations refused"
+        notes.append(
+            f"{walked['unlistable']} {was} to be listed, and each may hide any number of files"
+        )
     if notes:
         surface.status = "partly demonstrated"
         surface.detail = "; ".join(notes)
@@ -388,10 +423,19 @@ def main(argv: list[str] | None = None) -> int:
     out = Path(os.path.expanduser(args.out)) if args.out else permissions.with_name(
         f"ecosystem-inventory-{dt.date.today().isoformat()}.md"
     )
+    # This script writes one file and overwrites nothing. Refusing here is what
+    # makes the self-check's "changed nothing" line true rather than hopeful.
+    if key(str(out)) == key(str(permissions)):
+        print("The report would overwrite the permission record. Choose another --out.")
+        return 2
+    if out.exists():
+        print(f"{out} already exists and this script overwrites nothing.")
+        print(f"Remove it or pass another --out:  rm '{out}'")
+        return 2
     # The report and the permission record can sit inside a counted directory,
     # which is the obvious layout for a notes surface. Counting them would let
     # this tool's own output inflate the next run's denominator.
-    excluded = {str(permissions.resolve()), str(out.resolve())}
+    excluded = {key(str(permissions)), key(str(out))}
     for surface in surfaces:
         measure(surface, excluded)
 

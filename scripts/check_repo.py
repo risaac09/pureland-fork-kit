@@ -272,8 +272,15 @@ def unresolved_impact_readings(record: dict[str, Any]) -> list[str]:
     or one carrying `material_increase: null`, records that nobody knows. The
     primary hypothesis claims agency improved without a material increase, and
     unknown harm evidence never establishes that absence.
+
+    Only `observed` counts. `estimated` is somebody's guess, and a support
+    claim that rests on an observed benefit and an estimated harm has weighed
+    the two sides on different scales. `not-observed`, `pending`, and
+    `unmeasurable` all record that nobody looked. A party who turned out to
+    carry no exposure is recorded `observed` with `material_increase: false`,
+    which is a reading rather than a gap.
     """
-    read_statuses = {"observed", "estimated"}
+    read_statuses = {"observed"}
     unresolved: list[str] = []
     for impact in record.get("party_impacts", []):
         party = impact.get("affected_party_id", "unnamed party")
