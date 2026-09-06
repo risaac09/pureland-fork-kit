@@ -11,6 +11,10 @@ Complete this report and a JSON record that conforms to [`data/field-test.schema
 - Hypothesis kind: primary, secondary, or design
 - Tested statement:
 - Predeclared before analysis: yes or no
+- Which uncertainty this test speaks to: whether people can use the method; whether the full sequence adds value over a smaller review; whether one adaptation improves agency. Name one.
+- Comparator: the practice unchanged, a smaller review, or none
+- Success condition, written before analysis:
+- Likely competing explanation:
 - Coverage (`scope.coverage`): whole method, one instrument, or custom
 - Instrument:
 - Scope rationale:
