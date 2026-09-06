@@ -47,7 +47,7 @@ Participant and client material, consent and relationship records, personal note
 
 ## What the pilot does not claim
 
-The pilot does not claim validation, causal proof, safety certification, attention sovereignty as an outcome, a moral verdict, a combined openness score, or a general finding from one case. It does not promise pricing, duration, session count, certification, guaranteed outcomes, or a film deliverable by default. The commercial structure and other future consultancy details remain unresolved.
+The pilot does not claim validation, causal proof, safety certification, attention sovereignty as an outcome, a moral verdict, a combined openness score, or a general finding from one case. It does not promise pricing, duration, session count, certification, guaranteed outcomes, or a film deliverable by default. The commercial structure and other future consultancy details remain unresolved. This file is the kit's one statement of that arrangement, so no other file describes it and a second copy cannot drift from this one.
 
 ## How to propose a pilot
 

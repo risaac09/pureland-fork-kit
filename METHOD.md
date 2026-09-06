@@ -104,7 +104,7 @@ What you send is read by one person and kept only for the exchange. Nothing is d
 
 The reply answers at the scale you ran. One person's own information intake is one conversation. An organization's shared attention is a different one, with different affected people and a different consent basis. Running the method on your own practice does not license a reading of the practice you share with colleagues. That second question needs its own Scope.
 
-If the exchange surfaces something a single reply cannot hold, the [PureLand Field Pilot](OFFERING.md) is the paid form of the same method run together. It comes up inside that conversation or not at all. Asking for a reply commits you to nothing, and a pilot proposal is still only an invitation to scope one.
+If the exchange surfaces something a single reply cannot hold, the [PureLand Field Pilot](OFFERING.md) is the same method run together. That file holds the arrangement and both ways in, and this one does not restate them. Asking for a reply commits you to nothing, and a pilot proposal is still only an invitation to scope one.
 
 ## When a run ends
 
