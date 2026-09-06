@@ -12,6 +12,8 @@ You may stop or leave at any step. Record the stop, refusal, or missing permissi
 
 ## Measurement units
 
+For a research test, use the definitions below. For private use, start with [Run it yourself](#run-it-yourself).
+
 Every test names five units separately before analysis:
 
 | Unit | What the record must identify | What it can support |
@@ -25,6 +27,16 @@ Every test names five units separately before analysis:
 An artifact denominator never stands in for a person-level outcome. A result such as `6/7 documented surfaces` describes the selected surface set. It does not show that six of seven people gained practical agency.
 
 The record stores the first unit under the key `walking_person` and the six steps under `station_completion`, with Scope, Attend, Read, and Report keyed `ground`, `observe`, `map`, and `return`. Those are the names the schema carried at version 0.1, and a stored key does not move with the prose. The step names below are the current ones.
+
+## Run it yourself
+
+Bring one recurring information problem and a private piece of paper or text file. Contacting anyone is optional. Read the [branch questions](#two-branch-questions) before starting; other people's rights still apply.
+
+Follow the six steps below at a small scale. At Scope, choose one boundary you can change. At Attend, pause before interpreting it. At Read, inspect one relevant artifact or route. At Trace, ask who carries its cost. At Adapt, choose one reversible change or leave the practice as it is. At Report, keep a private note of what happened and what remains unclear. You may stop anywhere.
+
+For example, bring the question: “Can I find a note after a week away?” Keep the note private. Test its retrieval route and record the help you needed. This example supplies a question; it supplies no finding.
+
+You own the note. Read it once at your chosen review event, then keep or delete it deliberately. No research record is required. A research test uses the [required record](#required-record) and the testing discipline. A public artifact also needs [artifact clearance](RIGHTS-AND-CONSENT.md#public-safe-determination).
 
 ## Running it on your own intake
 
@@ -64,13 +76,15 @@ Scope records:
 - at least one predefined agency action: stop, continue, question, correct, adapt, or refuse;
 - the baseline for each action and what follow-up would count as change.
 
+Name what you can change yourself, what needs another decision-maker, and the consequences if they refuse. Record dependence that helps you as well as dependence you want to change. Continuing can be a chosen benefit. An imposed penalty needs a change in authority; self-observation cannot remove it.
+
 This is the [before-use discipline](TESTING.md#before-a-test) of field testing. The disconfirming condition comes first because confirmation alone is weak evidence.
 
 ## 2. Attend
 
-Run the [practice frame](PRACTICE-FRAME.md). Notice what happens in your own attention and body, and which condition may be present in you before assigning it to the system. The contemplative categories are prompts for self-observation, not scores, and never labels for other people.
+Use the [practice frame's prompts](PRACTICE-FRAME.md#self-observation-prompts), or use this plain-language option: pause at one contact with the practice and describe a noticed impulse, a difficulty, or the absence of a clear observation. Keep your own words. You may decline. The speculative account in the frame is optional reading.
 
-Do not skip this step to reach the tables. PureLand's claim is that evaluation without attention or relationship can become another extraction apparatus. A required Attend that no human performed leaves the run a partial execution.
+A model leaves this entry to you. A research run that lacks required human Attend remains a partial execution under the [classification rule](TESTING.md#classification-rule).
 
 ## 3. Read
 
@@ -88,7 +102,7 @@ Choose one small, reversible change to test from what Attend, Read, and Trace su
 
 ## 6. Report
 
-Write up what happened with the [field-test template](templates/field-test.md), following the [after-use discipline](TESTING.md#after-a-test). Return the learning wherever rights and permission allow. Record a refusal, a private result, or an `unmeasurable` outcome when public return is not permitted or required evidence is absent.
+For private use, finish your note as described in [Run it yourself](#run-it-yourself). For a research test, write up what happened with the [field-test template](templates/field-test.md), following the [after-use discipline](TESTING.md#after-a-test). Return the learning wherever rights and permission allow. Record a refusal, a private result, or an `unmeasurable` outcome when public return is not permitted or required evidence is absent.
 
 The public issue form is only for Stage 1 scoping. Do not place a completed report, evidence link, or protected detail there. A report may cover the whole method or a single step, but it may enter a pull request only after the exact report and record versions receive a `clear` public-safe decision.
 

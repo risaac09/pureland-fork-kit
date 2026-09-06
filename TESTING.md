@@ -90,6 +90,8 @@ Complete the matching sections in the [Markdown template](templates/field-test.m
 10. Predefine the context-specific rule for a material increase in exposure, extractability, or shifted burden.
 11. Record separate decisions for recording, retention, named-reviewer access, publication, the exact artifact version, research use, AI processing, and model training. Record community authority where it applies.
 
+Before analysis, use the action operational definition to state the intervention, comparator, and success condition. Use the materiality rule to state when harm stops the test. Record the likely competing explanation in the outcome section. Keep method usability, value added by the full sequence, and the effect of an adaptation as separate questions.
+
 Do not submit private participant material. If a test includes participant material, the [facilitation protocol](PROTOCOL.md) and [rights and consent guide](RIGHTS-AND-CONSENT.md) control. Public testing does not override consent.
 
 ## During a test

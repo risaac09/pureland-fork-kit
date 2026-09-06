@@ -30,6 +30,10 @@ transformation, expression, and return.
 Step 0. Fetch and read https://risaac09.github.io/pureland-fork-kit/llms.txt
 before anything else. Its ceiling and its never-generate list bind this
 session. If you cannot fetch it, say so and stop.
+Record the kit commit supplied by the person. Pages can change. At each
+resumption, compare the saved commit and source text with the version now
+available. If the version is unknown or changed, name the gap and ask the
+person to choose which version to use before continuing.
 
 Scope. Ask one question at a time and wait for each answer.
 1. Which models, in which parts of intake, transformation, expression, and
@@ -39,15 +43,21 @@ Scope. Ask one question at a time and wait for each answer.
 3. Who else is affected, meaning whose words or data pass through those
    models?
 4. What evidence already exists: histories, account settings, exports, bills.
-5. What result would count against the method?
-Do not go on until they have written that last answer in their own words.
+5. What concrete action will they test? Ask for its baseline, intervention,
+   comparator, success condition, and observation window.
+6. What material increase in exposure, extractability, or shifted burden
+   would stop this test? Which competing explanation seems most likely?
+7. What result would count against the method?
+The person writes these decisions before analysis. Preserve their wording.
 
 Attend. Hand this step back. Show the table in
 https://risaac09.github.io/pureland-fork-kit/PRACTICE-FRAME.md as prompts. Ask
-them to leave the session and notice which condition may be present in them
+them to use the plain-language option at
+https://risaac09.github.io/pureland-fork-kit/METHOD.md#2-attend if they prefer,
+or decline. Ask them to leave the session and notice what happens
 the next time they reach for a model. Then end your turn. Generate no Attend
 entry. When they return, record what they report word for word and mark it as
-theirs.
+theirs. If they decline, record the gap. Never certify that an act occurred.
 
 Read. For each model inside the boundary, fill the audited-unit table in
 https://risaac09.github.io/pureland-fork-kit/AI-SYSTEM-ANNEX.md with what this
@@ -77,10 +87,12 @@ https://risaac09.github.io/pureland-fork-kit/data/field-test.schema.json. Set
 `human_observe.status` empty: the person fills it from what they did, and you
 never write `performed`. Name yourself and this packet in `ai_assistance`. Set `outcome.classification` to `unmeasurable` wherever
 required evidence is absent. Leave every field you could not evidence empty
-rather than guessing at it. Tell the person the record is theirs. It enters
-the public ledger only through Stage 1 of
-https://risaac09.github.io/pureland-fork-kit/CONTRIBUTING.md, and only if they
-choose to send it.
+rather than guessing at it. Tell the person the record is theirs. Stage 1
+scopes a possible contribution. Stage 2 handles any required private rights
+review. Exact artifacts need public-safe clearance before a public
+contribution can be reviewed for ledger acceptance. Follow
+https://risaac09.github.io/pureland-fork-kit/CONTRIBUTING.md. Private learning
+needs no contribution.
 
 Throughout. Label a proposal a proposal. A gap you name is worth more than a
 field you fill. If the person stops, record the stop as a stop and do not call
@@ -91,7 +103,7 @@ it failure.
 
 The four endings again: public artifact, private learning, `unmeasurable`, refusal.
 
-To check the record, clone this kit and run `python3 scripts/check_repo.py`, or ask the model to check the required fields against [the schema](../data/field-test.schema.json). Either one is a structural check. It reports that the shape is right. It does not report that the run was finished or that anything was measured.
+Keep private drafts outside the checkout. Empty human cells are expected in a scaffold. Compare the draft locally with [the schema](../data/field-test.schema.json) and list missing fields separately from invalid values. A model may help only within the permission boundary. `python3 scripts/check_repo.py` checks files in its checkout; it cannot certify an external draft. Do not copy private material into `data/` to run it.
 
 The record shows no outcome and no validity. It shows what one person could see about their own use of models, and where they could see nothing.
 

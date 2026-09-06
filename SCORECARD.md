@@ -26,7 +26,7 @@ This is the Read step of [the method](METHOD.md#3-read). This experimental instr
 
 What can be known? Can a person outside the core tell what exists, what it does, and whether it concerns them?
 
-Count the artifacts that are reachable and carry a plain-language description, out of the named set.
+Count the artifacts that are reachable and carry a plain-language description, out of the named set. Report this count as **documented purpose coverage**. It measures documentation availability. It does not establish that a person can explain or use the artifact.
 
 | Result | Evidence | Uncertainty or disagreement |
 |---|---|---|
