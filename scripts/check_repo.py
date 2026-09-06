@@ -242,6 +242,88 @@ def has_material_increase(record: dict[str, Any]) -> bool:
     return False
 
 
+def has_improved_action_outcome(record: dict[str, Any]) -> bool:
+    """A predefined action whose observed follow-up improved on its observed baseline.
+
+    has_observed_action_outcome() asks only whether both ends were observed. An
+    action observed at both ends and recorded `no-change` is evidence that
+    nothing happened, so it cannot carry a claim that agency improved.
+    """
+    for action in record.get("agency_actions", []):
+        if (
+            action.get("predefined_before_analysis") is True
+            and action.get("baseline", {}).get("status") == "observed"
+            and action.get("follow_up", {}).get("status") == "observed"
+            and action.get("result") == "improved"
+        ):
+            return True
+    return False
+
+
+def unresolved_impact_readings(record: dict[str, Any]) -> list[str]:
+    """Follow-up impact readings that cannot show the absence of a material increase.
+
+    has_material_increase() catches an explicit True. A reading still pending,
+    or one carrying `material_increase: null`, records that nobody knows. The
+    primary hypothesis claims agency improved without a material increase, and
+    unknown harm evidence never establishes that absence.
+    """
+    read_statuses = {"observed", "estimated"}
+    unresolved: list[str] = []
+    for impact in record.get("party_impacts", []):
+        party = impact.get("affected_party_id", "unnamed party")
+        for dimension in ("exposure", "extractability", "shifted_burden"):
+            reading = impact.get("follow_up", {}).get(dimension, {})
+            status = reading.get("status")
+            if status not in read_statuses:
+                unresolved.append(f"{party}.{dimension} ({status})")
+            elif reading.get("material_increase") is None:
+                unresolved.append(f"{party}.{dimension} (material increase unknown)")
+    return unresolved
+
+
+def support_blockers(record: dict[str, Any]) -> list[str]:
+    """Every reason this record may not classify its result supports-tested-context.
+
+    The completion gates in check_record_rules() and in the schema's allOf all
+    key on `test_status: complete`. A record can therefore stay a partial
+    execution, leave a required Attend unperformed, hold its window open, and
+    still claim support. This function is that missing gate. Each entry
+    completes the sentence "cannot support the hypothesis ...".
+
+    A partial run of a design or secondary hypothesis keeps its own narrower
+    claim, so only the Attend requirement applies to those. The rest guard the
+    primary hypothesis, which is the one claiming that agency improved without
+    a material increase over a closed window.
+    """
+    blockers: list[str] = []
+    observe = record.get("station_completion", {}).get("observe", {})
+    if (
+        observe.get("required") is True
+        and record.get("human_observe", {}).get("status") != "performed"
+    ):
+        blockers.append("without performed human Attend where the scope requires it")
+
+    if record.get("tested_hypothesis", {}).get("kind") != "primary":
+        return blockers
+
+    test_status = record.get("test_status")
+    if test_status != "complete":
+        blockers.append(
+            f"for the primary hypothesis from a record whose test status is {test_status}"
+        )
+    if not has_improved_action_outcome(record):
+        blockers.append(
+            "without a predefined agency action whose observed follow-up improved on its baseline"
+        )
+    unresolved = unresolved_impact_readings(record)
+    if unresolved:
+        blockers.append(f"with unresolved follow-up impact readings: {', '.join(unresolved)}")
+    if record.get("follow_up", {}).get("status") in OPEN_FOLLOW_UP_STATUSES:
+        blockers.append("while its own observation window is still open")
+    return blockers
+
+
 def content_files() -> list[Path]:
     """Every file subject to orphan detection: repo content, not tooling."""
     return sorted(
@@ -412,6 +494,9 @@ def check_record_rules(path: Path, record: dict[str, Any], errors: list[str]) ->
         or record.get("contestability", {}).get("affected_party_tested") is not True
     ):
         errors.append(f"{record_label} cannot support the hypothesis without tested, usable contestability")
+    if outcome == "supports-tested-context":
+        for blocker in support_blockers(record):
+            errors.append(f"{record_label} cannot support the hypothesis {blocker}")
 
     rights_review = record.get("rights_review", {})
     allowed_public_permissions = {"granted", "not-required"}

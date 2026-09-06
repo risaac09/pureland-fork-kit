@@ -44,6 +44,7 @@ Classify the tested context only after recording the complete profile:
 5. Conflicting dimensions remain `mixed`. Do not average them into a favorable result.
 6. A before-and-after impression is not a causal claim. Record the adaptation, timing, evidence, and competing explanations.
 7. A refusal, private result, or `unmeasurable` result is valid evidence about the method. Absence never defaults to favorable.
+8. A `supports-tested-context` result for the primary hypothesis requires a complete run, a performed human Attend wherever the scope requires it, a predeclared action whose observed follow-up improved on its baseline, a closed observation window, and a follow-up impact reading for every affected party that settles the material-increase question. Unknown harm evidence does not show that no material increase occurred. A partial run keeps the narrower classification its own design or secondary hypothesis earns. `support_blockers()` in [scripts/check_repo.py](scripts/check_repo.py) enforces the rule and names each missing piece. Nothing checks this paragraph against that function, so a change to one is owed to the other.
 
 Allowed classifications are `supports-tested-context`, `weakens-tested-context`, `defeats-tested-context`, `mixed`, and `unmeasurable`. Return disposition is recorded separately as `public-return`, `private-result`, `refusal`, `unmeasurable`, or `pending-follow-up`.
 
