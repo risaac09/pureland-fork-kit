@@ -1,6 +1,14 @@
 # Practice frame: attention, poison, hindrance, response
 
-This is the Attend step of [the method](METHOD.md#2-attend).
+This is the Attend step of [the method](METHOD.md#2-attend). It carries a plain-language option and a route for declining, both directly below.
+
+## A plain-language option
+
+The vocabulary in this file comes from the maintainer's own practice. If it is not yours, do not borrow it to satisfy the step. Write the plainest true thing about your own attention instead: an impulse you noticed, a difficulty you had, or the absence of any clear observation. Keep your own words. They stay attributed to you, and nobody translates them into a category on your behalf.
+
+An absent observation is a real entry. "Nothing arrived" records what happened, and the run holds it as evidence.
+
+You may also decline this step. Record the decline, and record `human_observe.status` as `not-performed`. The run continues and its claims narrow. A record whose required Attend went unperformed cannot claim the method was complete, and [the classification rule](TESTING.md#classification-rule) refuses it a `supports-tested-context` result. Declining costs the claim and leaves the run standing.
 
 ## The claim
 

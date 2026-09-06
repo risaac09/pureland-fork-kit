@@ -91,6 +91,8 @@ Run the [practice frame](PRACTICE-FRAME.md). Notice what happens in your own att
 
 Do not skip this step to reach the tables. PureLand's claim is that evaluation without attention or relationship can become another extraction apparatus. A required Attend that no human performed leaves the run a partial execution.
 
+The frame's vocabulary is one way in. It also carries a [plain-language option](PRACTICE-FRAME.md#a-plain-language-option) for anyone the categories do not fit, and a route for declining the step that narrows the claims rather than ending the run.
+
 ## 3. Read
 
 Read the four access questions, is it understandable, reachable, adaptable, traceable, with the [openness scorecard](SCORECARD.md). Name the unit, the set, the denominator, and the time window before counting. Attach evidence to every classification. Keep the four readings separate.
