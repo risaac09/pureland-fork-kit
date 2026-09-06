@@ -222,15 +222,19 @@ def incomplete_required_steps(record: dict[str, Any]) -> list[str]:
     return incomplete
 
 
+def observed_predefined_actions(record: dict[str, Any]) -> list[dict[str, Any]]:
+    """Actions predefined before analysis and observed at both ends."""
+    return [
+        action
+        for action in record.get("agency_actions", [])
+        if action.get("predefined_before_analysis") is True
+        and action.get("baseline", {}).get("status") == "observed"
+        and action.get("follow_up", {}).get("status") == "observed"
+    ]
+
+
 def has_observed_action_outcome(record: dict[str, Any]) -> bool:
-    for action in record.get("agency_actions", []):
-        if (
-            action.get("predefined_before_analysis") is True
-            and action.get("baseline", {}).get("status") == "observed"
-            and action.get("follow_up", {}).get("status") == "observed"
-        ):
-            return True
-    return False
+    return bool(observed_predefined_actions(record))
 
 
 def has_material_increase(record: dict[str, Any]) -> bool:
@@ -239,6 +243,39 @@ def has_material_increase(record: dict[str, Any]) -> bool:
             for dimension in ("exposure", "extractability", "shifted_burden"):
                 if impact.get(period, {}).get(dimension, {}).get("material_increase") is True:
                     return True
+    return False
+
+
+def has_favorable_predefined_action(record: dict[str, Any]) -> bool:
+    """A predefined action that was observed at both ends and improved.
+
+    has_observed_action_outcome() only asks whether the baseline and the
+    follow-up were each *observed*; an action's own `result` field can still
+    read `no-change`, `weakened`, `mixed`, or `pending` and pass that check.
+    A record could then claim `supports-tested-context` from an action that
+    was watched but did not, on its own record, improve.
+    """
+    return any(action.get("result") == "improved" for action in observed_predefined_actions(record))
+
+
+RESOLVED_IMPACT_STATUSES = {"observed", "estimated"}
+
+
+def has_unresolved_follow_up_impact(record: dict[str, Any]) -> bool:
+    """Any affected party with a follow-up impact not actually resolved.
+
+    has_material_increase() only catches an explicit `true`; a `pending`,
+    `not-observed`, or `unmeasurable` reading with `material_increase` left
+    `null` passes it silently. An earlier version of this guard checked only
+    for `pending` and missed `unmeasurable`, the same gap by another name. A
+    support claim needs every party's follow-up impact actually read as
+    `observed` or `estimated`. Anything else means the answer is still unknown.
+    """
+    for impact in record.get("party_impacts", []):
+        for dimension in ("exposure", "extractability", "shifted_burden"):
+            status = impact.get("follow_up", {}).get(dimension, {}).get("status")
+            if status not in RESOLVED_IMPACT_STATUSES:
+                return True
     return False
 
 
@@ -412,6 +449,30 @@ def check_record_rules(path: Path, record: dict[str, Any], errors: list[str]) ->
         or record.get("contestability", {}).get("affected_party_tested") is not True
     ):
         errors.append(f"{record_label} cannot support the hypothesis without tested, usable contestability")
+    if outcome == "supports-tested-context" and not has_favorable_predefined_action(record):
+        errors.append(
+            f"{record_label} cannot support the hypothesis without a predefined action "
+            "whose own observed result improved"
+        )
+    if outcome == "supports-tested-context" and has_unresolved_follow_up_impact(record):
+        errors.append(
+            f"{record_label} cannot support the hypothesis while a party's follow-up "
+            "impact is not resolved to observed or estimated"
+        )
+    if outcome == "supports-tested-context" and record.get("follow_up", {}).get("status") != "complete":
+        errors.append(f"{record_label} cannot support the hypothesis with an unclosed follow-up window")
+    incomplete_for_support = incomplete_required_steps(record)
+    if outcome == "supports-tested-context" and incomplete_for_support:
+        errors.append(
+            f"{record_label} cannot support the hypothesis with incomplete required steps: "
+            + ", ".join(incomplete_for_support)
+        )
+    if (
+        outcome == "supports-tested-context"
+        and record.get("station_completion", {}).get("observe", {}).get("required") is True
+        and record.get("human_observe", {}).get("status") != "performed"
+    ):
+        errors.append(f"{record_label} cannot support the hypothesis without performed human Attend")
 
     rights_review = record.get("rights_review", {})
     allowed_public_permissions = {"granted", "not-required"}
