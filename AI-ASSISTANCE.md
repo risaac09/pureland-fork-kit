@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-06 kit 0.2, round 1 of the engine
+
+| Field | Record |
+|---|---|
+| Tool | Five models, one task. Candidates: Claude Opus 5 and Claude Sonnet 5 as Claude Code agent contexts with the effort setting unpinned; gpt-6-astra through the Codex CLI at reasoning xhigh, with network blocked inside its sandbox; Qwen3.6-35B-A3B at Q4 on a local llama-server as a control. Cross-readers: the same Opus 5, Sonnet 5, and gpt-6-astra, each excluded from its own candidate. Synthesis, gate, blind set, planted probe, and this branch: Claude Fable 5.1 in Claude Code, which produced no candidate |
+| Task | 2026-09-05 to 2026-09-06. Each candidate model received the same packet against `38ce830` and returned a repair proposal, an instrument design, and a self-report, plus a local branch where it had repository access. A deterministic gate ran the checker and the overdue watch on every branch, a voice linter, a privacy scan, word caps, and a network-denied sandbox run of every shipped script. The candidates were relabelled by letter beside a planted probe and read blind by the other models. The synthesizer merged what converged into this branch, one commit per change, re-implemented from the base where branches conflicted, and held every contested item open for the maintainer |
+| Material provided | The packet: a public-safe task statement, the kit's facts of record at `38ce830`, a 23-row critique register compiled from two earlier model reads, the output contract, the invariants, and the reserved list, version r2. The repository at `38ce830`. The 22 published documents, fetched live by the two Claude candidates and byte-matched to the base; the Codex candidate worked from the local files. No participant material, no name, no price, no channel, and no message to anyone entered the packet or any output |
+| Source verification | Every register row was checked against the live files by each candidate before it was dispositioned. The classification gap was reproduced independently three times with in-memory fixtures; the fixture on this branch was seen passing the base checker with zero errors before the fix. `python3 scripts/check_repo.py` exits 0 at every commit on this branch, `PURELAND_TODAY=2026-11-23 python3 scripts/check_repo.py --fail-on-overdue-follow-up` still fails on FT-001 exactly as at the base, and `python3 scripts/test_classification_gap.py` passes and now runs in CI. Two adversarial review passes ran on this branch before push: the first found ten defects and the second two, all fixed in their own commits; one rule question was held for the maintainer instead of changed. The rights files, the consent register, the evidence record, TESTING.md, and the page are byte-identical to the base |
+| Corrections after verification | `owed`. No human has reviewed this branch. The maintainer reads the disagreement ledger first, then this candidate, then the pull requests, and merges, revises, or holds each one. Nothing merges before the maintainer's own gate outside this repository is met |
+| Human review | `owed`, as above. The blind cross-read is a second reading by other models and counts as no human review |
+| Sensitive material | None involved. The round's working files live outside this repository; the planted probe and the letter map are among them and are not part of the kit |
+
 ## 2026-09-04 method vocabulary
 
 | Field | Record |
