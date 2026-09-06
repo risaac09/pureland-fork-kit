@@ -62,6 +62,8 @@ REQUIRED_ARCHITECTURE = [
     "data/field-test.schema.json",
     "templates/field-test.md",
     "templates/run-with-a-model.md",
+    "templates/inspect-local-surfaces.md",
+    "scripts/inspect_local_surfaces.py",
     "research/field-tests/ft-001-alchemy.md",
 ]
 

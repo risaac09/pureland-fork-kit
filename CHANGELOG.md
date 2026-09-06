@@ -4,6 +4,8 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Add a private surface exercise with a gated metadata script and synthetic permission tests.
+
 - Make OFFERING.md own the unresolved arrangement and remove unverified reply and custody promises.
 
 - Add a private-use entry inside the six steps and repair the packet's research and version instructions.

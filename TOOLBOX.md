@@ -14,6 +14,8 @@ Everything listed here is an instrument. The repository's two readerships, the h
 
 ## Handle conditional material
 
+- [Inspect selected local surfaces](templates/inspect-local-surfaces.md): an optional Scope exercise with a manual path and a gated metadata script.
+
 - [PROTOCOL.md](PROTOCOL.md): facilitation and separate consent decisions for a recorded encounter.
 - [FILMING-FORMS.md](FILMING-FORMS.md): self, dyadic, triadic, and environmental filming, read for what each can witness and what each risks taking, plus a second axis for who holds the camera and the edit, and a returning-and-not-keeping default for the footage. Pair with the facilitation protocol whenever a camera is present.
 - [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md): copyright, privacy, confidentiality, community authority, custody, and publication boundaries.
