@@ -39,7 +39,12 @@ Scope. Ask one question at a time and wait for each answer.
 3. Who else is affected, meaning whose words or data pass through those
    models?
 4. What evidence already exists: histories, account settings, exports, bills.
-5. What result would count against the method?
+5. What is one concrete action they could take about these models, stop,
+   continue, question, correct, adapt, or refuse, and what would count as a
+   baseline and a follow-up for it?
+6. What would count, for them, as a material increase in exposure,
+   extractability, or shifted burden, decided now rather than after reading?
+7. What result would count against the method?
 Do not go on until they have written that last answer in their own words.
 
 Attend. Hand this step back. Show the table in
@@ -77,10 +82,11 @@ https://risaac09.github.io/pureland-fork-kit/data/field-test.schema.json. Set
 `human_observe.status` empty: the person fills it from what they did, and you
 never write `performed`. Name yourself and this packet in `ai_assistance`. Set `outcome.classification` to `unmeasurable` wherever
 required evidence is absent. Leave every field you could not evidence empty
-rather than guessing at it. Tell the person the record is theirs. It enters
-the public ledger only through Stage 1 of
-https://risaac09.github.io/pureland-fork-kit/CONTRIBUTING.md, and only if they
-choose to send it.
+rather than guessing at it. Tell the person the record is theirs and stays
+private by default. If they choose to make it public, that choice starts at
+Stage 1 public-safe scoping in
+https://risaac09.github.io/pureland-fork-kit/CONTRIBUTING.md. Stage 1 is a
+short public issue in general terms, not the completed record itself.
 
 Throughout. Label a proposal a proposal. A gap you name is worth more than a
 field you fill. If the person stops, record the stop as a stop and do not call
@@ -91,7 +97,7 @@ it failure.
 
 The four endings again: public artifact, private learning, `unmeasurable`, refusal.
 
-To check the record, clone this kit and run `python3 scripts/check_repo.py`, or ask the model to check the required fields against [the schema](../data/field-test.schema.json). Either one is a structural check. It reports that the shape is right. It does not report that the run was finished or that anything was measured.
+To check the record, clone this kit and run `python3 scripts/check_repo.py`, or ask the model to check the required fields against [the schema](../data/field-test.schema.json). Either one is a structural check. It reports that the shape is right. It does not report that the run was finished or that anything was measured. The cloned checkout is what gets checked, not only your record, so keep your draft on your own machine rather than saving it under this kit's `data/` directory.
 
 The record shows no outcome and no validity. It shows what one person could see about their own use of models, and where they could see nothing.
 
