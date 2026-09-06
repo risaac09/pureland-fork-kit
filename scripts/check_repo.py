@@ -35,6 +35,11 @@ CFF_VERSION = re.compile(r"^version:\s*[\"']?(\d+)\.(\d+)", re.MULTILINE)
 # statuses in the schema enum (complete, closed-unmeasurable, refused) are
 # closed results, and a closed result cannot go stale.
 OPEN_FOLLOW_UP_STATUSES = {"not-started", "open"}
+# The only follow-up status that produced the evidence a support claim needs.
+# `refused` and `closed-unmeasurable` are closed results, so they cannot go
+# stale, and they carry no observation either. Absence never defaults to
+# favorable, so neither of them can stand behind a support claim.
+SETTLED_FOLLOW_UP_STATUS = "complete"
 TODAY_OVERRIDE = "PURELAND_TODAY"
 
 FIELD_TEST_SCHEMA = ROOT / "data" / "field-test.schema.json"
@@ -273,12 +278,16 @@ def unresolved_impact_readings(record: dict[str, Any]) -> list[str]:
     for impact in record.get("party_impacts", []):
         party = impact.get("affected_party_id", "unnamed party")
         for dimension in ("exposure", "extractability", "shifted_burden"):
-            reading = impact.get("follow_up", {}).get(dimension, {})
-            status = reading.get("status")
-            if status not in read_statuses:
-                unresolved.append(f"{party}.{dimension} ({status})")
-            elif reading.get("material_increase") is None:
-                unresolved.append(f"{party}.{dimension} (material increase unknown)")
+            # An increase is measured against a baseline. An unread baseline
+            # leaves the follow-up reading nothing to be an increase over, so
+            # both periods have to have been read.
+            for period in ("baseline", "follow_up"):
+                reading = impact.get(period, {}).get(dimension, {})
+                status = reading.get("status")
+                if status not in read_statuses:
+                    unresolved.append(f"{party}.{period}.{dimension} ({status})")
+                elif period == "follow_up" and reading.get("material_increase") is None:
+                    unresolved.append(f"{party}.follow_up.{dimension} (material increase unknown)")
     return unresolved
 
 
@@ -319,8 +328,12 @@ def support_blockers(record: dict[str, Any]) -> list[str]:
     unresolved = unresolved_impact_readings(record)
     if unresolved:
         blockers.append(f"with unresolved follow-up impact readings: {', '.join(unresolved)}")
-    if record.get("follow_up", {}).get("status") in OPEN_FOLLOW_UP_STATUSES:
-        blockers.append("while its own observation window is still open")
+    follow_up_status = record.get("follow_up", {}).get("status")
+    if follow_up_status != SETTLED_FOLLOW_UP_STATUS:
+        blockers.append(
+            f"on an observation window recorded {follow_up_status}, because only a completed "
+            "follow-up produced the evidence a support claim rests on"
+        )
     return blockers
 
 

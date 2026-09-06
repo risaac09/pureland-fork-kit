@@ -85,6 +85,7 @@ def evidenced_record() -> dict[str, Any]:
     record["follow_up"]["status"] = "complete"
     for impact in record["party_impacts"]:
         for dimension in ("exposure", "extractability", "shifted_burden"):
+            impact["baseline"][dimension]["status"] = "observed"
             reading = impact["follow_up"][dimension]
             reading["status"] = "observed"
             reading["material_increase"] = False
@@ -102,7 +103,7 @@ class SupportGate(unittest.TestCase):
             "test status is partial-execution",
             "improved on its baseline",
             "unresolved follow-up impact readings",
-            "observation window is still open",
+            "observation window recorded open",
         ):
             self.assertIn(expected, joined)
 
@@ -124,6 +125,22 @@ class SupportGate(unittest.TestCase):
         record = evidenced_record()
         record["party_impacts"][0]["follow_up"]["exposure"]["material_increase"] = None
         self.assertIn("material increase unknown", "\n".join(errors_for(record)))
+
+    def test_a_refused_or_unmeasurable_window_cannot_support(self) -> None:
+        """A closed window is not a settled one. Neither of these produced evidence."""
+        for status in ("refused", "closed-unmeasurable"):
+            with self.subTest(status=status):
+                record = evidenced_record()
+                record["follow_up"]["status"] = status
+                self.assertIn(
+                    f"observation window recorded {status}", "\n".join(errors_for(record))
+                )
+
+    def test_an_unread_baseline_cannot_support(self) -> None:
+        """An increase is measured against a baseline, so an unread one grounds nothing."""
+        record = evidenced_record()
+        record["party_impacts"][0]["baseline"]["exposure"]["status"] = "pending"
+        self.assertIn("baseline.exposure (pending)", "\n".join(errors_for(record)))
 
     def test_a_design_hypothesis_keeps_its_narrower_claim(self) -> None:
         """A partial instrument test may still support its own design hypothesis."""
