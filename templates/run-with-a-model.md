@@ -29,7 +29,9 @@ transformation, expression, and return.
 
 Step 0. Fetch and read https://risaac09.github.io/pureland-fork-kit/llms.txt
 before anything else. Its ceiling and its never-generate list bind this
-session. If you cannot fetch it, say so and stop.
+session. If you cannot fetch it, say so and stop. Record today's date and the
+version llms.txt states, so a later sitting can tell whether the kit moved. If
+it has, say so before resuming.
 
 Scope. Ask one question at a time and wait for each answer.
 1. Which models, in which parts of intake, transformation, expression, and
@@ -39,7 +41,11 @@ Scope. Ask one question at a time and wait for each answer.
 3. Who else is affected, meaning whose words or data pass through those
    models?
 4. What evidence already exists: histories, account settings, exports, bills.
-5. What result would count against the method?
+5. Which one action do they predefine now, from stop, continue, question,
+   correct, adapt, and refuse, and what is its baseline today?
+6. What size of increase in exposure, extractability, or shifted burden would
+   count as material for them? They answer before anything is read.
+7. What result would count against the method?
 Do not go on until they have written that last answer in their own words.
 
 Attend. Hand this step back. Show the table in
@@ -77,10 +83,12 @@ https://risaac09.github.io/pureland-fork-kit/data/field-test.schema.json. Set
 `human_observe.status` empty: the person fills it from what they did, and you
 never write `performed`. Name yourself and this packet in `ai_assistance`. Set `outcome.classification` to `unmeasurable` wherever
 required evidence is absent. Leave every field you could not evidence empty
-rather than guessing at it. Tell the person the record is theirs. It enters
-the public ledger only through Stage 1 of
-https://risaac09.github.io/pureland-fork-kit/CONTRIBUTING.md, and only if they
-choose to send it.
+rather than guessing at it. Tell the person the record is theirs. Nothing
+reaches the public ledger without a clear public-safe decision on the exact
+artifact version and a pull request under
+https://risaac09.github.io/pureland-fork-kit/CONTRIBUTING.md. A public issue is
+Stage 1 scoping and never carries a completed record. Sending anything at all
+is their decision.
 
 Throughout. Label a proposal a proposal. A gap you name is worth more than a
 field you fill. If the person stops, record the stop as a stop and do not call
