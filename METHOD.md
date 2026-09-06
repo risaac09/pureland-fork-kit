@@ -112,13 +112,7 @@ Cleared and accepted reports join the [field-trial ledger](CURRENT-EVIDENCE.md#t
 
 ### A reply
 
-A run can end here with no one else involved. If you want a second reader, write to [isaac@rubinsteinproductions.com](mailto:isaac@rubinsteinproductions.com) with what you did, in your own words, with or without the report. Isaac reads it and replies once. It costs nothing and commits you to nothing.
-
-What you send is read by one person and kept only for the exchange. Nothing is done with it without asking you first. If the exchange turns into something, a ledger entry, a pilot, a line quoted anywhere, consent for that specific use is asked then, on the actual artifact, on the terms in [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md). Keep other people's material out of the first message. If your practice involves colleagues, clients, or participants, say so in general terms, and the private route in [SECURITY.md](SECURITY.md) applies before anything of theirs moves.
-
-The reply answers at the scale you ran. One person's own information intake is one conversation. An organization's shared attention is a different one, with different affected people and a different consent basis. Running the method on your own practice does not license a reading of the practice you share with colleagues. That second question needs its own Scope.
-
-If the exchange surfaces something a single reply cannot hold, the [PureLand Field Pilot](OFFERING.md) is the paid form of the same method run together. It comes up inside that conversation or not at all. Asking for a reply commits you to nothing, and a pilot proposal is still only an invitation to scope one.
+A run can end here with no one else involved. For an optional exchange or a pilot proposal, read the current [arrangement and reply boundary](OFFERING.md#present-arrangement). That page owns the terms and available routes.
 
 ## When a run ends
 

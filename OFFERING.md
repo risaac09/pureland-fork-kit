@@ -4,6 +4,14 @@ The field pilot is Rubinstein Productions' offering. PureLand is the toolbox tha
 
 The future consultancy is an application layer on a 10-to-15-year horizon. The present phase is criticism from outside and small field proofs.
 
+## Present arrangement
+
+The public invitation currently permits scoping. Engagement model, whether to charge, price, capacity, and terms remain [reserved]. The maintainer must settle them before accepting work. Research participation requires its own decision. A favorable result or publication cannot be assumed as a condition of an exchange.
+
+An ordinary reply may concern a public-safe description of your own practice. Keep reports and private inventory files with you. The maintainer has not established a response expectation or verified mail handling and retention terms. Those decisions remain [reserved]. The kit therefore makes no reply or deletion promise. Contact remains optional; the scoping route below remains available.
+
+Before receiving protected material, the maintainer must document the responsible role, storage boundary, access and AI-processing decisions, retention event, backup and deletion limits, response expectation, and reviewer-unavailable fallback. Channel and custody terms remain [reserved]. Rehearse receipt, withdrawal, and a disputed interpretation with synthetic material before opening that route. Until then, follow the [Stage 2 pause](RIGHTS-AND-CONSENT.md#stage-2-private-rights-review).
+
 ## Who the pilot is for
 
 The pilot is for a person or small group who runs, takes part in, or is affected by an information practice. Examples include facilitation, participatory media, evaluation, community archives, organizational knowledge, and AI-enabled workflows. The practice must be specific enough to draw a boundary around. A prospective collaborator must be able to describe the practice in public-safe terms and say what must stay private.
@@ -47,7 +55,7 @@ Participant and client material, consent and relationship records, personal note
 
 ## What the pilot does not claim
 
-The pilot does not claim validation, causal proof, safety certification, attention sovereignty as an outcome, a moral verdict, a combined openness score, or a general finding from one case. It does not promise pricing, duration, session count, certification, guaranteed outcomes, or a film deliverable by default. The commercial structure and other future consultancy details remain unresolved.
+The pilot does not claim validation, causal proof, safety certification, attention sovereignty as an outcome, a moral verdict, a combined openness score, or a general finding from one case. It does not promise pricing, duration, session count, certification, guaranteed outcomes, or a film deliverable by default. See the [present arrangement](#present-arrangement) for unresolved terms.
 
 ## How to propose a pilot
 
@@ -61,6 +69,6 @@ Stage 1 is a public-safe scoping note. Open an [issue](https://github.com/risaac
 
 Do not include evidence links, excerpts, participant material, identifying or indirectly identifying data, confidential or client records, consent records, or protected community knowledge. A proposal is an invitation to scope a pilot. It is not an acceptance or a promise of work, publication, or outcome.
 
-There is a second way in. Someone who has run [the method](METHOD.md) alone can write to Isaac at Report with what they did and get [one reply](METHOD.md#a-reply). A pilot comes up inside that exchange when the question turns out to need one, and every condition above still applies.
+A person may propose scoping directly or after an optional reply exchange. Both routes follow the [present arrangement](#present-arrangement).
 
 Stage 2 begins only if the maintainer establishes an appropriate private review channel and confirms the rights basis for the proposed review. Do not send participant or protected material while that channel or authority remains unresolved. See [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md).
