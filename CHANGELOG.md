@@ -4,6 +4,7 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Closed the classification gap in `scripts/check_repo.py`: a record could claim `supports-tested-context` while human Attend was not performed, its predefined action's own observed result never improved, a party's follow-up impact stayed pending, and the follow-up window stayed open, and pass every existing check with zero errors. Four new guards in `check_record_rules()` close it, and `scripts/test_classification_gap.py` lands the previously-passing fixture as a failing regression test, built from FT-001's own public record and run with `python3 scripts/test_classification_gap.py`. `llms.txt`'s account of the checker's semantic rules now names the four new guards. FT-001 itself is unaffected: its outcome stays `unmeasurable`.
 - Added a predefined agency action and a materiality-rule question to Scope in templates/run-with-a-model.md, clarified that Stage 1 is public-safe scoping rather than the completed record itself, and warned against saving a draft record under this kit's data/ directory.
 - Named the "Understandable" count in SCORECARD.md a documentation indicator, not a test of whether a reader understood the practice.
 - Added two sentences to METHOD.md's Scope: a private run on your own practice needs no public field-test record, and Scope now asks what the person running it can change directly, what needs another person's decision, and what happens if that person refuses.

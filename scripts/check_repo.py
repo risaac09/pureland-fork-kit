@@ -242,6 +242,41 @@ def has_material_increase(record: dict[str, Any]) -> bool:
     return False
 
 
+def has_favorable_predefined_action(record: dict[str, Any]) -> bool:
+    """A predefined action that was observed at both ends and improved.
+
+    has_observed_action_outcome() only asks whether the baseline and the
+    follow-up were each *observed*; an action's own `result` field can still
+    read `no-change`, `weakened`, `mixed`, or `pending` and pass that check.
+    A record could then claim `supports-tested-context` from an action that
+    was watched but did not, on its own record, improve.
+    """
+    for action in record.get("agency_actions", []):
+        if (
+            action.get("predefined_before_analysis") is True
+            and action.get("baseline", {}).get("status") == "observed"
+            and action.get("follow_up", {}).get("status") == "observed"
+            and action.get("result") == "improved"
+        ):
+            return True
+    return False
+
+
+def has_pending_follow_up_impact(record: dict[str, Any]) -> bool:
+    """Any affected party with a follow-up impact still marked pending.
+
+    has_material_increase() only catches an explicit `true`; a `pending`
+    reading with `material_increase` left `null` passes it silently. A
+    support claim needs every party's follow-up impact resolved one way or
+    the other, not merely not yet known.
+    """
+    for impact in record.get("party_impacts", []):
+        for dimension in ("exposure", "extractability", "shifted_burden"):
+            if impact.get("follow_up", {}).get(dimension, {}).get("status") == "pending":
+                return True
+    return False
+
+
 def content_files() -> list[Path]:
     """Every file subject to orphan detection: repo content, not tooling."""
     return sorted(
@@ -412,6 +447,24 @@ def check_record_rules(path: Path, record: dict[str, Any], errors: list[str]) ->
         or record.get("contestability", {}).get("affected_party_tested") is not True
     ):
         errors.append(f"{record_label} cannot support the hypothesis without tested, usable contestability")
+    if outcome == "supports-tested-context" and not has_favorable_predefined_action(record):
+        errors.append(
+            f"{record_label} cannot support the hypothesis without a predefined action "
+            "whose own observed result improved"
+        )
+    if outcome == "supports-tested-context" and has_pending_follow_up_impact(record):
+        errors.append(
+            f"{record_label} cannot support the hypothesis while a party's follow-up "
+            "impact is still pending"
+        )
+    if outcome == "supports-tested-context" and record.get("follow_up", {}).get("status") != "complete":
+        errors.append(f"{record_label} cannot support the hypothesis with an unclosed follow-up window")
+    if (
+        outcome == "supports-tested-context"
+        and record.get("station_completion", {}).get("observe", {}).get("required") is True
+        and record.get("human_observe", {}).get("status") != "performed"
+    ):
+        errors.append(f"{record_label} cannot support the hypothesis without performed human Attend")
 
     rights_review = record.get("rights_review", {})
     allowed_public_permissions = {"granted", "not-required"}
