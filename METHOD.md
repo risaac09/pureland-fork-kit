@@ -81,7 +81,11 @@ Scope records:
 - the person whose practice it is and every affected person or group;
 - the permission the inquiry needs and the rights-review status;
 - at least one predefined agency action: stop, continue, question, correct, adapt, or refuse;
-- the baseline for each action and what follow-up would count as change.
+- the baseline for each action and what follow-up would count as change;
+- what this person can change alone, what needs a decision from somebody else, and what follows if that decision-maker refuses;
+- the dependence worth keeping, recorded beside the dependence they want gone.
+
+Some of what a run surfaces is not the person's to change. Somebody required to use a system needs a policy decision, and closer self-observation will not produce a refusal that carries no penalty. Naming the decision-maker keeps that limit visible and stops it being read as a personal failure. Stopping is not automatically better than continuing.
 
 This is the [before-use discipline](TESTING.md#before-a-test) of field testing. The disconfirming condition comes first because confirmation alone is weak evidence.
 
