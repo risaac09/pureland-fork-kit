@@ -262,17 +262,23 @@ def has_favorable_predefined_action(record: dict[str, Any]) -> bool:
     return False
 
 
-def has_pending_follow_up_impact(record: dict[str, Any]) -> bool:
-    """Any affected party with a follow-up impact still marked pending.
+RESOLVED_IMPACT_STATUSES = {"observed", "estimated"}
 
-    has_material_increase() only catches an explicit `true`; a `pending`
-    reading with `material_increase` left `null` passes it silently. A
-    support claim needs every party's follow-up impact resolved one way or
-    the other, not merely not yet known.
+
+def has_unresolved_follow_up_impact(record: dict[str, Any]) -> bool:
+    """Any affected party with a follow-up impact not actually resolved.
+
+    has_material_increase() only catches an explicit `true`; a `pending`,
+    `not-observed`, or `unmeasurable` reading with `material_increase` left
+    `null` passes it silently. An earlier version of this guard checked only
+    for `pending` and missed `unmeasurable`, the same gap by another name. A
+    support claim needs every party's follow-up impact actually read as
+    `observed` or `estimated`, not merely not yet known.
     """
     for impact in record.get("party_impacts", []):
         for dimension in ("exposure", "extractability", "shifted_burden"):
-            if impact.get("follow_up", {}).get(dimension, {}).get("status") == "pending":
+            status = impact.get("follow_up", {}).get(dimension, {}).get("status")
+            if status not in RESOLVED_IMPACT_STATUSES:
                 return True
     return False
 
@@ -452,10 +458,10 @@ def check_record_rules(path: Path, record: dict[str, Any], errors: list[str]) ->
             f"{record_label} cannot support the hypothesis without a predefined action "
             "whose own observed result improved"
         )
-    if outcome == "supports-tested-context" and has_pending_follow_up_impact(record):
+    if outcome == "supports-tested-context" and has_unresolved_follow_up_impact(record):
         errors.append(
             f"{record_label} cannot support the hypothesis while a party's follow-up "
-            "impact is still pending"
+            "impact is not resolved to observed or estimated"
         )
     if outcome == "supports-tested-context" and record.get("follow_up", {}).get("status") != "complete":
         errors.append(f"{record_label} cannot support the hypothesis with an unclosed follow-up window")
