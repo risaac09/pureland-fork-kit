@@ -2,7 +2,7 @@
 
 The PureLand method is a bounded inquiry into one information practice, encounter, or system. It begins with a question and ends with a report, a refusal, a private result, or an explicit `unmeasurable` result. It has six steps, run in order on one real practice of your own: Scope, Attend, Read, Trace, Adapt, Report. Every instrument in the repository sits in this sequence, as a step or a conditional branch; none of them is meant as a first door. A field test of a single step stays valid; the full sequence is the recommended way in, not a new gate.
 
-There are two ways to run it: yourself, starting at Scope, or with Isaac as a [PureLand Field Pilot](OFFERING.md), which is the same method run as a small, bounded inquiry done together.
+There are two ways to run it: yourself, starting at Scope, or with Isaac as a [PureLand Field Pilot](OFFERING.md), which is the same method run as a small, bounded inquiry done together. Running it yourself has a smaller size than the record below describes. See [running it privately](#running-it-privately).
 
 This is the human lane. It is run, on a schedule, by someone the answer can reach. A model reading this repository is addressed by [llms.txt](llms.txt), which is the agent lane rather than a paraphrase of this one. The [crosswalk](CROSSWALK.md) sets the two lanes side by side. Attend is the row where the agent lane has no counterpart at all.
 
@@ -51,6 +51,25 @@ If neither applies, the six steps below are the whole method.
 
 Recording is optional. Retention, named-reviewer access, publication, approval of each artifact version, research use, AI processing, and model training are separate decisions.
 
+## Running it privately
+
+The six steps below are written for a test another reader can inspect. That record is what makes a result weighable by someone who was not there, and it costs a great deal to produce. The method also runs at a size that keeps nothing.
+
+The private path is one pass through the same order, at the smallest size that still asks the questions:
+
+- **Scope.** Name one practice and one boundary. Write down what you can change on your own, and what would need a decision from somebody else.
+- **Attend.** Notice one thing about your own attention inside that practice.
+- **Read.** Ask what you can actually see about the practice from where you stand.
+- **Trace.** Ask who gains and who carries the cost.
+- **Adapt.** Try one reversible change and set a date to look again.
+- **Report.** Keep a private note, or keep nothing.
+
+No record is required and no template applies. Nothing leaves your own notes.
+
+The rights boundary does not shrink with the size of the run. Other people's material and community-held knowledge stay under [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md) at every size, and a recorded encounter still follows the [facilitation protocol](PROTOCOL.md).
+
+A private run supports no research claim, and it is not a partial execution of one. Nobody is owed a report on it. A result another person can weigh needs the full record below, and this path does not produce one.
+
 ## 1. Scope
 
 Name the practice, the system boundary, the purpose, and the affected people. Record what evidence exists before you score anything, and obtain permission for any participant material before it enters the run. Then write one result that would count against the method.
@@ -62,7 +81,11 @@ Scope records:
 - the person whose practice it is and every affected person or group;
 - the permission the inquiry needs and the rights-review status;
 - at least one predefined agency action: stop, continue, question, correct, adapt, or refuse;
-- the baseline for each action and what follow-up would count as change.
+- the baseline for each action and what follow-up would count as change;
+- what this person can change alone, what needs a decision from somebody else, and what follows if that decision-maker refuses;
+- the dependence worth keeping, recorded beside the dependence they want gone.
+
+Some of what a run surfaces is not the person's to change. Somebody required to use a system needs a policy decision, and closer self-observation will not produce a refusal that carries no penalty. Naming the decision-maker keeps that limit visible and stops it being read as a personal failure. Stopping is not automatically better than continuing.
 
 This is the [before-use discipline](TESTING.md#before-a-test) of field testing. The disconfirming condition comes first because confirmation alone is weak evidence.
 
@@ -104,7 +127,7 @@ What you send is read by one person and kept only for the exchange. Nothing is d
 
 The reply answers at the scale you ran. One person's own information intake is one conversation. An organization's shared attention is a different one, with different affected people and a different consent basis. Running the method on your own practice does not license a reading of the practice you share with colleagues. That second question needs its own Scope.
 
-If the exchange surfaces something a single reply cannot hold, the [PureLand Field Pilot](OFFERING.md) is the paid form of the same method run together. It comes up inside that conversation or not at all. Asking for a reply commits you to nothing, and a pilot proposal is still only an invitation to scope one.
+If the exchange surfaces something a single reply cannot hold, the [PureLand Field Pilot](OFFERING.md) is the same method run together as a bounded engagement. OFFERING.md is the one place that describes the arrangement, records that its commercial structure is unresolved, and names both ways in. Asking for a reply commits you to nothing, and a pilot proposal is still only an invitation to scope one.
 
 ## When a run ends
 
