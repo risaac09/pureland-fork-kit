@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-11 roadmap gate reconciliation
+
+| Field | Record |
+|---|---|
+| Tool | OpenAI Codex |
+| Task | Reconciling the unmerged Gate 1 and Gate 2 work with the current method, public offer, rights architecture, field-test records, release state, and repository checks |
+| Material provided | The current public repository at `655ea84`; preserved Gate 1 commit `b256f85`; preserved Gate 2 commit `d8b3610`; the maintainer's decision that the Field Pilot should be public, may use commissioned, funded, or limited voluntary terms, and should publish no price |
+| Source verification | The change was checked against `METHOD.md`, `OFFERING.md`, `RIGHTS-AND-CONSENT.md`, `GOVERNANCE.md`, `CURRENT-EVIDENCE.md`, the issue form, the FT-001 report and record, both workflows, and `scripts/check_repo.py` |
+| Corrections after verification | Replaced the retired journey vocabulary with Scope, Attend, Read, Trace, Adapt, Report; kept the private no-record path; separated co-research from the public Field Pilot; required a completed charter before Stage 2; kept fees and funding separate from research, publication, and material-use permission |
+| Human review | The maintainer chose the public resource model and the no-public-price rule. Review of the integrated branch remains required before push, pull request, merge, release, or publication |
+| Sensitive material | None involved; no participant, client, identifying, confidential, consent, or protected community material entered the repository |
+
 ## 2026-09-04 method vocabulary
 
 | Field | Record |

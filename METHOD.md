@@ -2,7 +2,7 @@
 
 The PureLand method is a bounded inquiry into one information practice, encounter, or system. It begins with a question and ends with a report, a refusal, a private result, or an explicit `unmeasurable` result. It has six steps, run in order on one real practice of your own: Scope, Attend, Read, Trace, Adapt, Report. Every instrument in the repository sits in this sequence, as a step or a conditional branch; none of them is meant as a first door. A field test of a single step stays valid; the full sequence is the recommended way in, not a new gate.
 
-There are two ways to run it: yourself, starting at Scope, or with Isaac as a [PureLand Field Pilot](OFFERING.md), which is the same method run as a small, bounded inquiry done together. Running it yourself has a smaller size than the record below describes. See [running it privately](#running-it-privately).
+There are three ways to run it: yourself with the [self-guided packet](templates/run-it-yourself.md), with a language model using the [run-with-a-model packet](templates/run-with-a-model.md), or with Isaac as a [PureLand Field Pilot](OFFERING.md), which is the same method run as a small, bounded inquiry done together. A private run has a smaller size than the record below describes. See [running it privately](#running-it-privately).
 
 This is the human lane. It is run, on a schedule, by someone the answer can reach. A model reading this repository is addressed by [llms.txt](llms.txt), which is the agent lane rather than a paraphrase of this one. The [crosswalk](CROSSWALK.md) sets the two lanes side by side. Attend is the row where the agent lane has no counterpart at all.
 
@@ -39,6 +39,10 @@ Alchemy is a tool with deliberate constraints, not a validated instrument. The m
 ## Running it with a model
 
 A person and a language model can run the six steps together with the [run-with-a-model packet](templates/run-with-a-model.md), on the practice of that person's own use of language models. The model asks the questions in step order and hands each human cell back. Attend stays the person's there too, and the model has to stop and wait while they do it.
+
+## Running it yourself with a record
+
+The [run-it-yourself packet](templates/run-it-yourself.md) gives one person a worksheet for the six steps. It links back to the canonical instruments and can end as a private note, a refusal, or an `unmeasurable` result. A person who wants another reader to weigh the result must use the full record and rights process below.
 
 ## Two branch questions
 
@@ -127,7 +131,7 @@ What you send is read by one person and kept only for the exchange. Nothing is d
 
 The reply answers at the scale you ran. One person's own information intake is one conversation. An organization's shared attention is a different one, with different affected people and a different consent basis. Running the method on your own practice does not license a reading of the practice you share with colleagues. That second question needs its own Scope.
 
-If the exchange surfaces something a single reply cannot hold, the [PureLand Field Pilot](OFFERING.md) is the same method run together as a bounded engagement. OFFERING.md is the one place that describes the arrangement, records that its commercial structure is unresolved, and names both ways in. Asking for a reply commits you to nothing, and a pilot proposal is still only an invitation to scope one.
+If the exchange surfaces something a single reply cannot hold, the [PureLand Field Pilot](OFFERING.md) is the same method run together as a bounded engagement. OFFERING.md is the one place that describes the arrangement, names its commissioned, funded, and limited voluntary forms, and keeps the terms in a private conversation after Stage 1. Asking for a reply commits you to nothing, and a pilot proposal is still only an invitation to scope one.
 
 ## When a run ends
 
