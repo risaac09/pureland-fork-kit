@@ -39,7 +39,7 @@ A person and a model read this repository differently. [The method](METHOD.md) i
 
 The [open-research lane](research/README.md) indexes provenance, AI-assistance, research-status, field-test, and audit records. A model or agent reading the repository can start from [llms.txt](llms.txt).
 
-Run [the method](METHOD.md): Scope, Attend, Read, Trace, Adapt, Report. Use the [self-guided packet](templates/run-it-yourself.md), use the [run-with-a-model packet](templates/run-with-a-model.md) on your own model practice, or propose a [PureLand Field Pilot](https://github.com/risaac09/pureland-fork-kit/issues/new?template=field-test.yml), the same method run with Isaac as a small, bounded inquiry.
+Run [the method](METHOD.md): Scope, Attend, Read, Trace, Adapt, Report. Use the [self-guided packet](templates/run-it-yourself.md), use the [run-with-a-model packet](templates/run-with-a-model.md) on your own model practice, or propose a [PureLand Field Pilot](OFFERING.md).
 
 The toolbox includes the [practice frame](PRACTICE-FRAME.md), [openness scorecard](SCORECARD.md), [extraction check](EXTRACTION-CHECK.md), [facilitation protocol](PROTOCOL.md), [AI system annex](AI-SYSTEM-ANNEX.md), and the [field-testing discipline](TESTING.md) inside the testing program.
 

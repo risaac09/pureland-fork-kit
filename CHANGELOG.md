@@ -4,6 +4,8 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Put the method's route paragraph first and point duplicated pilot descriptions to the offering. (#NN)
+
 - Shorten the front-page entry, route Field Pilot proposals through the offering, and link the reply to its canonical page. (#NN)
 
 - Move the practice frame's self-observation prompts before its theory and link the extraction check to those prompts. (#NN)
