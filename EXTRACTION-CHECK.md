@@ -53,7 +53,7 @@ The old extraction coefficient has been retired. Multiplying subjective ratings 
 - What cue starts the contact?
 - Can the person stop without a penalty or a manufactured sense of loss?
 - Does the system show its duration, its state, and its consequences?
-- Which poison or hindrance may be present in my own use or design?
+- Which [poison or hindrance](PRACTICE-FRAME.md#self-observation-prompts) may be present in my own use or design?
 - What evidence would prove my reading wrong?
 
 The contemplative category is a prompt, not a score.

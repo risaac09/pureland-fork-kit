@@ -4,6 +4,8 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Move the practice frame's self-observation prompts before its theory and link the extraction check to those prompts. (#NN)
+
 - Put each instrument's use before its place in the method and link the scorecard's counting instruction to Scope. (#NN)
 
 - Disclose the reader-entry and model-discovery work on both maintenance branches. (#NN)
