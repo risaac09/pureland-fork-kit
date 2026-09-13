@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-13 reader entry and model discovery
+
+| Field | Record |
+|---|---|
+| Tool | OpenAI Codex, GPT-6; exact model variant and effort unavailable in the task context |
+| Task | 2026-09-13. Read the kit at `88216c0`, report, and prepare changes on `share/readiness-2026-09-13` and `share/watch-carrier-2026-09-13` |
+| Material provided | The maintainer's execution prompt, outside the kit, and the repository at `88216c0` |
+| Source verification | Pending. The private report will record completed checks and reviews before publication |
+| Corrections after verification | Pending |
+| Human review | Pending. Model review and automated checks supply no independent field evidence or maintainer approval |
+| Sensitive material | No participant material was used. The execution prompt and private report remain outside the repository |
+
 ## 2026-09-12 reconciliation review
 
 | Field | Record |
