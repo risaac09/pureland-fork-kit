@@ -1,6 +1,6 @@
 # Extraction check
 
-This is the Trace step of [the method](METHOD.md#4-trace). Use this after the [openness scorecard](SCORECARD.md), or before opening a system further. Apply it to your own practice first.
+Use this after the [openness scorecard](SCORECARD.md), or before opening a system further. Apply this check to your own practice first. This is the Trace step of [the method](METHOD.md#4-trace).
 
 ## 1. Trace value
 

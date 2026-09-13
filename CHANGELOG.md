@@ -4,6 +4,8 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Put each instrument's use before its place in the method and link the scorecard's counting instruction to Scope. (#NN)
+
 - Disclose the reader-entry and model-discovery work on both maintenance branches. (#NN)
 
 - Tightened record checks after malformed reports passed review probes: compare the identity fields and ledger version column, match the exact artifact version, and require the kit commit to remain reachable from a Git ref or HEAD. Added seven regression cases, including compatibility with the current report template. Added the charter requirement to Stage 1 intake and the action baseline, materiality rule, and challenge route to the self-guided packet.

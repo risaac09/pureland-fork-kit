@@ -1,6 +1,6 @@
 # Practice frame: attention, poison, hindrance, response
 
-This is the Attend step of [the method](METHOD.md#2-attend).
+Use this frame to notice what captures your attention, within the project's [stated lineage boundary](PROVENANCE.md#naming-and-symbolism-boundary). This is the Attend step of [the method](METHOD.md#2-attend).
 
 ## The claim
 
