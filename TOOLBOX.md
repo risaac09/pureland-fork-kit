@@ -24,6 +24,7 @@ Everything listed here is an instrument. The repository's two readerships, the h
 ## Test and report
 
 - [TESTING.md](TESTING.md): the primary testable claim, the testing program, the evidence gates, and the before, during, and after-use discipline for one test.
+- [CAPTURE-GUIDE.md](CAPTURE-GUIDE.md): what to record during a run, what each kind of raw material can stand behind, and what stays private.
 - [templates/field-test.md](templates/field-test.md): public-safe report template.
 - [data/field-test.schema.json](data/field-test.schema.json): structured record schema.
 - [research/field-tests/ft-001-alchemy.md](research/field-tests/ft-001-alchemy.md): the only maintainer-side partial dry run.
