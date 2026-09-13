@@ -153,8 +153,8 @@
   }
 }
 
-/* On a phone the horizon sits lower and the band follows it. The Observe
-   scene shortens so the walk stays walkable with a thumb. */
+/* On a phone the horizon sits lower and the band follows it. The Attend
+   scene shortens so the sequence stays readable with a thumb. */
 @media (max-width: 640px) {
   :root {
     --horizon-y: 30vh;
