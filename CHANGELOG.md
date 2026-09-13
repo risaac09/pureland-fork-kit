@@ -4,6 +4,8 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Shorten the front-page entry, route Field Pilot proposals through the offering, and link the reply to its canonical page. (#NN)
+
 - Move the practice frame's self-observation prompts before its theory and link the extraction check to those prompts. (#NN)
 
 - Put each instrument's use before its place in the method and link the scorecard's counting instruction to Scope. (#NN)
