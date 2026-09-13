@@ -1,8 +1,16 @@
 # PureLand Field Pilot
 
-The field pilot is Rubinstein Productions' offering. PureLand is the toolbox that practice shares, and the pilot is the same practice run with Isaac Rubinstein, who maintains this repository and runs the studio. It is a small, bounded inquiry into one real information practice, done together. It runs [the method](METHOD.md), all six steps, on the collaborator's practice. It is not a mature consultancy, a certification, a treatment, or an audit clearance, and it does not guarantee any outcome.
+The Field Pilot is a small, bounded inquiry into one real information practice, run with Isaac Rubinstein through Rubinstein Productions. It follows all six steps of [the method](METHOD.md) on the collaborator's practice and ends with a private decision record, even when the result is refusal, correction, private learning, or `unmeasurable`.
+
+Each pilot needs sustainable terms. It may be commissioned, funded by another institution, or accepted as a limited voluntary inquiry. An unfunded proposal from someone without an existing research relationship defaults to a paid engagement. Price, scope, timing, custody, and exchange terms are set privately after Stage 1. The public repository publishes no price and accepts no engagement through an issue alone.
+
+The agreed resources support the inquiry and its record. They do not purchase an outcome, public evidence, research participation, or access to protected material.
 
 The future consultancy is an application layer on a 10-to-15-year horizon. The present phase is criticism from outside and small field proofs.
+
+## Co-research is separate
+
+Isaac may invite a named collaborator to help test or revise the method under a separate co-research agreement. Co-research is not a public option for someone arriving through Stage 1. A commissioned or funded Field Pilot and co-research do not run as one engagement.
 
 ## Who the pilot is for
 
@@ -27,7 +35,7 @@ Collaborator authority is not participant authority or community authority. A co
 - the consent, rights, credit, and value-return questions;
 - a review of what stays public and what stays private;
 - a second-reader arrangement where practical; and
-- a record of failure, disagreement, refusal, or method revision, rather than an endorsement.
+- a private decision record that preserves failure, disagreement, refusal, or method revision rather than turning it into an endorsement.
 
 ## What happens together
 
@@ -41,17 +49,21 @@ The pilot does not require participant recordings, transcripts, names, film prod
 
 Publication is not compensation, reciprocity, or proof of collaboration. No participant or community should be pressured to publish, accept attribution, or provide public evidence as a form of return.
 
+Payment or funding cannot depend on publication, a favorable result, research participation, marketing permission, or contribution to PureLand's evidence ledger. Recording, transcription, AI processing, model training, reviewer access, research use, marketing use, quotation, reuse, and public release require separate decisions for the exact material or artifact version. Payment and funding grant none of them.
+
+Before Stage 2, the parties complete the [Field Pilot charter](templates/field-pilot-charter.md). The charter names what the collaborator and affected people receive, how either party can stop, who holds each decision, and how the parties handle custody, correction, complaint, and review.
+
 ## What remains private
 
 Participant and client material, consent and relationship records, personal notes, protected community knowledge, credentials, identifying data, confidential records, and third-party material without clear reuse rights all stay outside the public repository. The limits on withdrawal must be stated before collection. See [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md).
 
 ## What the pilot does not claim
 
-The pilot does not claim validation, causal proof, safety certification, attention sovereignty as an outcome, a moral verdict, a combined openness score, or a general finding from one case. It does not promise pricing, duration, session count, certification, guaranteed outcomes, or a film deliverable by default. The commercial structure and other future consultancy details remain unresolved.
+The pilot does not claim validation, causal proof, safety certification, attention sovereignty as an outcome, a moral verdict, a combined openness score, or a general finding from one case. It promises no standard duration, session count, guaranteed outcome, or film deliverable. Each inquiry sets its resource and time terms in private before Stage 2.
 
 ## How to propose a pilot
 
-Stage 1 is a public-safe scoping note. Open an [issue](https://github.com/risaac09/pureland-fork-kit/issues) containing only:
+Stage 1 is a public-safe scoping note. Open the public [Field test form](https://github.com/risaac09/pureland-fork-kit/issues/new?template=field-test.yml) containing only:
 
 - the practice, and why the question matters now;
 - the proposed scope;
@@ -63,4 +75,4 @@ Do not include evidence links, excerpts, participant material, identifying or in
 
 There is a second way in. Someone who has run [the method](METHOD.md) alone can write to Isaac at Report with what they did and get [one reply](METHOD.md#a-reply). A pilot comes up inside that exchange when the question turns out to need one, and every condition above still applies.
 
-Stage 2 begins only if the maintainer establishes an appropriate private review channel and confirms the rights basis for the proposed review. Do not send participant or protected material while that channel or authority remains unresolved. See [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md).
+Stage 2 begins only if the maintainer establishes an appropriate private review channel, confirms the rights basis, and completes the charter with the named decision-makers. Do not send participant or protected material while that channel, authority, or agreement remains unresolved. See [RIGHTS-AND-CONSENT.md](RIGHTS-AND-CONSENT.md).

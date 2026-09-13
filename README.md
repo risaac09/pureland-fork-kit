@@ -11,7 +11,7 @@ PureLand is a research-program prototype for asking whether an information pract
 
 The forkable instruments, templates, and controls make up the toolbox. The public architecture gives distinct jobs to the argument, the method, the instruments, the testable claim with the program that tests it, and the evidence record.
 
-This is version 0.1. Its instruments are unvalidated. It does not certify that anything is open or safe. It has one maintainer-side partial dry run and no independent field result.
+This is version 0.1. Its instruments are unvalidated. It does not certify that anything is open or safe. It has one maintainer-side partial dry run and no independent field result. The public site follows `main`; the [changelog](CHANGELOG.md) distinguishes unreleased changes from tagged releases.
 
 ## The research spine
 
@@ -39,7 +39,7 @@ A person and a model read this repository differently. [The method](METHOD.md) i
 
 The [open-research lane](research/README.md) indexes provenance, AI-assistance, research-status, field-test, and audit records. A model or agent reading the repository can start from [llms.txt](llms.txt).
 
-Run [the method](METHOD.md): Scope, Attend, Read, Trace, Adapt, Report. Bring one real information practice and start on your own, or propose a [PureLand Field Pilot](OFFERING.md), the same method run with Isaac as a small, bounded inquiry. A person with a model can run it together, on their own use of language models, with the [run-with-a-model packet](templates/run-with-a-model.md).
+Run [the method](METHOD.md): Scope, Attend, Read, Trace, Adapt, Report. Use the [self-guided packet](templates/run-it-yourself.md), use the [run-with-a-model packet](templates/run-with-a-model.md) on your own model practice, or propose a [PureLand Field Pilot](https://github.com/risaac09/pureland-fork-kit/issues/new?template=field-test.yml), the same method run with Isaac as a small, bounded inquiry.
 
 The toolbox includes the [practice frame](PRACTICE-FRAME.md), [openness scorecard](SCORECARD.md), [extraction check](EXTRACTION-CHECK.md), [facilitation protocol](PROTOCOL.md), [AI system annex](AI-SYSTEM-ANNEX.md), and the [field-testing discipline](TESTING.md) inside the testing program.
 

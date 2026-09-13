@@ -4,6 +4,10 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Tightened record checks after malformed reports passed review probes: compare the identity fields and ledger version column, match the exact artifact version, and require the kit commit to remain reachable from a Git ref or HEAD. Added seven regression cases, including compatibility with the current report template. Added the charter requirement to Stage 1 intake and the action baseline, materiality rule, and challenge route to the self-guided packet.
+
+- Added three public routes into the method: the self-guided human packet, the model-assisted packet, and the Field Pilot intake. The Field Pilot can use commissioned, external-funding, or limited-voluntary terms, while price and the rest of the agreement stay in a private conversation after Stage 1.
+- Added the Field Pilot charter and cross-artifact record gates. The checker now ties every conformant record to one ID, filename, report, ledger row, artifact version, and reachable kit commit; prints independent-record and distinct-practice counts; and warns when the changelog contains unreleased changes. The warning requires a separate check of live Pages and release state.
 - Added four per-test predeclaration lines to `templates/field-test.md`: which of the three uncertainties the test speaks to, the comparator, the success condition, and the likely competing explanation. The classification rule and the before-a-test list in `TESTING.md` are unchanged.
 - Named the understandable count in `SCORECARD.md` a documentation indicator.
 - Added a predefined agency action and a materiality-rule question to Scope in `templates/run-with-a-model.md`, reworded the Stage 1 sentence so the completed record no longer reads as entering through scoping, and warned against saving a draft under `data/`.

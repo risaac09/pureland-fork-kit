@@ -13,6 +13,30 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-12 reconciliation review
+
+| Field | Record |
+|---|---|
+| Tool | OpenAI Codex |
+| Task | Review the local reconciliation candidate against current main and the held pull requests, repair reproduced inconsistencies, and prepare it for maintainer review |
+| Material provided | Public repository at `655ea84`, local candidate `f3b4d60`, pull requests 44 and 45, and the maintainer's handoff and resource decisions |
+| Source verification | Read the changed files against the rights guide, method, testing discipline, FT-001 report and record, ledger, workflows, and GitHub state. The original checker accepted a wrong report ID, a wrong kit version accompanied by a stray correct mention, and an artifact version with an extra suffix |
+| Corrections after verification | Bound checks to identity fields and exact artifact versions; required Git reachability; added regression cases; aligned intake with the charter; added action and materiality prompts; made the release warning state only what the local check observes; linked the public routes to rendered repository packets |
+| Human review | Pending. Automated tests and this model review do not count as maintainer approval or independent field evidence |
+| Sensitive material | No participant material was used. Local paths and working history remain outside the repository |
+
+## 2026-09-11 roadmap gate reconciliation
+
+| Field | Record |
+|---|---|
+| Tool | OpenAI Codex |
+| Task | Reconciling the unmerged Gate 1 and Gate 2 work with the current method, public offer, rights architecture, field-test records, release state, and repository checks |
+| Material provided | The current public repository at `655ea84`; preserved Gate 1 commit `b256f85`; preserved Gate 2 commit `d8b3610`; the maintainer's decision that the Field Pilot should be public, may use commissioned, funded, or limited voluntary terms, and should publish no price |
+| Source verification | The change was checked against `METHOD.md`, `OFFERING.md`, `RIGHTS-AND-CONSENT.md`, `GOVERNANCE.md`, `CURRENT-EVIDENCE.md`, the issue form, the FT-001 report and record, both workflows, and `scripts/check_repo.py` |
+| Corrections after verification | Replaced the retired journey vocabulary with Scope, Attend, Read, Trace, Adapt, Report; kept the private no-record path; separated co-research from the public Field Pilot; required a completed charter before Stage 2; kept fees and funding separate from research, publication, and material-use permission |
+| Human review | The maintainer chose the public resource model and the no-public-price rule. Review of the integrated branch remains required before push, pull request, merge, release, or publication |
+| Sensitive material | None involved; no participant, client, identifying, confidential, consent, or protected community material entered the repository |
+
 ## 2026-09-04 method vocabulary
 
 | Field | Record |
