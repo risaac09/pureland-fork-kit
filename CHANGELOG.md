@@ -4,19 +4,19 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
-- Restore sourced AI disclosures and missing PR references, update live Attend vocabulary, and identify the commit requested by Stage 1 intake. (#NN)
+- Restore sourced AI disclosures and missing PR references, update live Attend vocabulary, and identify the commit requested by Stage 1 intake. (#48)
 
-- Complete model-index discovery, serve checker and citation links as raw text, and test repository-owned raw URL validation. (#NN)
+- Complete model-index discovery, serve checker and citation links as raw text, and test repository-owned raw URL validation. (#48)
 
-- Put the method's route paragraph first and point duplicated pilot descriptions to the offering. (#NN)
+- Put the method's route paragraph first and point duplicated pilot descriptions to the offering. (#48)
 
-- Shorten the front-page entry, route Field Pilot proposals through the offering, and link the reply to its canonical page. (#NN)
+- Shorten the front-page entry, route Field Pilot proposals through the offering, and link the reply to its canonical page. (#48)
 
-- Move the practice frame's self-observation prompts before its theory and link the extraction check to those prompts. (#NN)
+- Move the practice frame's self-observation prompts before its theory and link the extraction check to those prompts. (#48)
 
-- Put each instrument's use before its place in the method and link the scorecard's counting instruction to Scope. (#NN)
+- Put each instrument's use before its place in the method and link the scorecard's counting instruction to Scope. (#48)
 
-- Disclose the reader-entry and model-discovery work on both maintenance branches. (#NN)
+- Disclose the reader-entry and model-discovery work on both maintenance branches. (#48)
 
 - Tightened record checks after malformed reports passed review probes: compare the identity fields and ledger version column, match the exact artifact version, and require the kit commit to remain reachable from a Git ref or HEAD. Added seven regression cases, including compatibility with the current report template. Added the charter requirement to Stage 1 intake and the action baseline, materiality rule, and challenge route to the self-guided packet. (#47)
 
