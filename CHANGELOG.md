@@ -4,6 +4,8 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Complete model-index discovery, serve checker and citation links as raw text, and test repository-owned raw URL validation. (#NN)
+
 - Put the method's route paragraph first and point duplicated pilot descriptions to the offering. (#NN)
 
 - Shorten the front-page entry, route Field Pilot proposals through the offering, and link the reply to its canonical page. (#NN)
