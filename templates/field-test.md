@@ -273,4 +273,4 @@ This section records nothing in the JSON record. Fill it to decide where the rep
 - Material withheld from the route:
 - Scale of the question asked: the practice of the person who ran it, or a practice shared with other people
 
-A reply is one message from the maintainer on what you did, described at the method's [Report step](../METHOD.md#a-reply). Write to isaac@rubinsteinproductions.com in your own words, with or without this report. Nothing is done with what you send without asking you first. Keep other people's material out of it until a private channel exists. A private result, a refusal, and an `unmeasurable` outcome are complete endings that need no route at all.
+A reply is one message from the maintainer on what you did, described at the method's [Report step](../METHOD.md#a-reply). Keep other people's material out of it until a private channel exists. A private result, a refusal, and an `unmeasurable` outcome are complete endings that need no route at all.
