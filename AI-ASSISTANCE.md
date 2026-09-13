@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-12 reconciliation review
+
+| Field | Record |
+|---|---|
+| Tool | OpenAI Codex |
+| Task | Review the local reconciliation candidate against current main and the held pull requests, repair reproduced inconsistencies, and prepare it for maintainer review |
+| Material provided | Public repository at `655ea84`, local candidate `f3b4d60`, pull requests 44 and 45, and the maintainer's handoff and resource decisions |
+| Source verification | Read the changed files against the rights guide, method, testing discipline, FT-001 report and record, ledger, workflows, and GitHub state. The original checker accepted a wrong report ID, a wrong kit version accompanied by a stray correct mention, and an artifact version with an extra suffix |
+| Corrections after verification | Bound checks to identity fields and exact artifact versions; required Git reachability; added regression cases; aligned intake with the charter; added action and materiality prompts; made the release warning state only what the local check observes; linked the public routes to rendered repository packets |
+| Human review | Pending. Automated tests and this model review do not count as maintainer approval or independent field evidence |
+| Sensitive material | No participant material was used. Local paths and working history remain outside the repository |
+
 ## 2026-09-11 roadmap gate reconciliation
 
 | Field | Record |

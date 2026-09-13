@@ -43,6 +43,10 @@ Use the [before-a-test discipline](../TESTING.md#before-a-test).
 | Which decision can you make alone? | |
 | Which decision belongs to somebody else? | |
 | Which result would count against the method? | |
+| Which action will you test: stop, continue, question, correct, adapt, or refuse? | |
+| What can the person do now, and what follow-up will you observe? | |
+| Before analysis, what increase in exposure, extractability, or shifted burden would count as material for each affected party? | |
+| How can an affected person challenge the reading, request correction, or refuse? | |
 
 ## Attend
 

@@ -11,7 +11,7 @@ PureLand is a research-program prototype for asking whether an information pract
 
 The forkable instruments, templates, and controls make up the toolbox. The public architecture gives distinct jobs to the argument, the method, the instruments, the testable claim with the program that tests it, and the evidence record.
 
-This is version 0.1. Its instruments are unvalidated. It does not certify that anything is open or safe. It has one maintainer-side partial dry run and no independent field result.
+This is version 0.1. Its instruments are unvalidated. It does not certify that anything is open or safe. It has one maintainer-side partial dry run and no independent field result. The public site follows `main`; the [changelog](CHANGELOG.md) distinguishes unreleased changes from tagged releases.
 
 ## The research spine
 

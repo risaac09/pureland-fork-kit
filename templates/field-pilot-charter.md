@@ -65,6 +65,7 @@ Record each decision as yes, no, or not yet. Name the person or authority who ca
 | Reviewer access | | | |
 | Research use | | | |
 | Quotation or attribution | | | |
+| Reuse | | | |
 | AI processing | | | |
 | Model training | | | |
 | Marketing use | | | |

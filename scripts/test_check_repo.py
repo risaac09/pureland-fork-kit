@@ -20,8 +20,8 @@ LEDGER = Path("CURRENT-EVIDENCE.md")
 VERSION = "62259ec"
 ARTIFACT_VERSION = "FT-001-integrated-v0.1-2026-08-24"
 UNRELEASED_DRIFT_WARNING = (
-    "the live site deploys main and carries unreleased changes; "
-    "cut a release or accept the drift."
+    "CHANGELOG.md contains unreleased changes; before publication, "
+    "verify Pages and release state, then cut a release or accept the drift."
 )
 
 
@@ -218,6 +218,64 @@ class CheckRepoConsistencyTests(unittest.TestCase):
     def test_malformed_json(self) -> None:
         (self.repo / RECORD).write_text("{not json}\n", encoding="utf-8")
         self.assert_failed_with("invalid JSON: data/field-tests/ft-001-alchemy.json")
+
+    def test_wrong_report_id(self) -> None:
+        self.replace(REPORT, "| Record ID | FT-001 |", "| Record ID | FT-999 |")
+        self.assert_failed_with("paired report Record ID does not match")
+
+    def test_stray_version_does_not_clear_wrong_identity(self) -> None:
+        self.replace(REPORT, VERSION, "1111111")
+        report = self.repo / REPORT
+        report.write_text(report.read_text() + f"\nEarlier unrelated commit: {VERSION}\n")
+        self.assert_failed_with(f"kit_version {VERSION} is missing from research/field-tests")
+
+    def test_artifact_version_suffix_is_mismatch(self) -> None:
+        self.replace(REPORT, ARTIFACT_VERSION, ARTIFACT_VERSION + "-wrong")
+        self.assert_failed_with(f"public-safe artifact_version '{ARTIFACT_VERSION}' is missing")
+
+    def test_ledger_version_must_be_in_version_column(self) -> None:
+        self.replace(LEDGER, f"| {VERSION} |", f"| 1111111 |")
+        self.replace(LEDGER, "Maintainer's side,", f"Earlier commit {VERSION}; Maintainer's side,")
+        self.assert_failed_with(f"kit_version {VERSION} is missing from its CURRENT-EVIDENCE.md ledger row")
+
+    def test_commit_object_without_retained_ref_is_unreachable(self) -> None:
+        self.init_git()
+        tree = subprocess.check_output(["git", "rev-parse", "HEAD^{tree}"], cwd=self.repo, text=True).strip()
+        commit = subprocess.check_output(
+            ["git", "-c", "user.name=PureLand Test", "-c",
+             "user.email=pureland-test@example.invalid", "commit-tree", tree,
+             "-m", "unreferenced fixture"], cwd=self.repo, text=True,
+        ).strip()
+        self.set_version(commit)
+        self.assert_failed_with(f"kit_version commit is unreachable in the full clone: {commit}")
+
+    def test_commit_reachable_from_head_passes(self) -> None:
+        self.init_git()
+        commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=self.repo, text=True).strip()
+        self.set_version(commit)
+        result = self.run_checker()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertNotIn("kit_version commit", result.stdout)
+
+    def test_current_report_template_identity_and_version_pass(self) -> None:
+        template = (SOURCE / "templates/field-test.md").read_text()
+        identity = template.split("## Record identity and tested hypothesis\n", 1)[1].split("\n## ", 1)[0]
+        identity = identity.replace("- Record ID (`record_id`):", "- Record ID (`record_id`): FT-001")
+        identity = identity.replace("- Kit version or commit (`kit_version`):", f"- Kit version or commit (`kit_version`): {VERSION}")
+        report = self.repo / REPORT
+        text = re.sub(
+            r"(?ms)^## Record identity and status\n.*?(?=^## )",
+            "## Record identity and tested hypothesis\n" + identity + "\n",
+            report.read_text(), count=1,
+        )
+        text = re.sub(
+            r"(?m)^- Artifact:.*$",
+            f"- Artifact ID: FT-001-public-report-and-record\n- Exact artifact version: {ARTIFACT_VERSION}",
+            text, count=1,
+        )
+        report.write_text(text)
+        result = self.run_checker()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
 
 if __name__ == "__main__":

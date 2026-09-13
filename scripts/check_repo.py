@@ -607,13 +607,13 @@ THROUGH_DATE = re.compile(r"\bthrough (\d{4}-\d{2}-\d{2})")
 FOLLOW_UP_LINE = re.compile(r"follow-?up", re.IGNORECASE)
 CURRENT_EVIDENCE = ROOT / "CURRENT-EVIDENCE.md"
 UNRELEASED_DRIFT_WARNING = (
-    "the live site deploys main and carries unreleased changes; "
-    "cut a release or accept the drift."
+    "CHANGELOG.md contains unreleased changes; before publication, "
+    "verify Pages and release state, then cut a release or accept the drift."
 )
 
 
 def git_commit_status(commit: str) -> tuple[bool | None, str | None]:
-    """Return whether a commit resolves, plus a reason when it cannot be checked."""
+    """Check that a commit is reachable from HEAD or a retained Git ref."""
     try:
         shallow = subprocess.run(
             ["git", "rev-parse", "--is-shallow-repository"],
@@ -630,7 +630,7 @@ def git_commit_status(commit: str) -> tuple[bool | None, str | None]:
 
     try:
         resolved = subprocess.run(
-            ["git", "cat-file", "-e", f"{commit}^{{commit}}"],
+            ["git", "rev-parse", "--verify", f"{commit}^{{commit}}"],
             cwd=ROOT,
             capture_output=True,
             text=True,
@@ -639,7 +639,17 @@ def git_commit_status(commit: str) -> tuple[bool | None, str | None]:
     except OSError:
         return None, "git is unavailable"
     if resolved.returncode == 0:
-        return True, None
+        try:
+            history = subprocess.run(
+                ["git", "rev-list", "--all", "HEAD"], cwd=ROOT,
+                capture_output=True, text=True, check=False,
+            )
+        except OSError:
+            return None, "git is unavailable"
+        if history.returncode != 0:
+            return None, "Git history could not be read"
+        if resolved.stdout.strip() in history.stdout.splitlines():
+            return True, None
     if shallow.stdout.strip() == "true":
         return None, "the checkout is shallow"
     return False, None
@@ -701,6 +711,28 @@ def changelog_has_unreleased_entries() -> bool:
     return bool(section.strip())
 
 
+def report_identity_field(text: str, field: str) -> str:
+    """Read the legacy table or current template, refusing duplicate fields."""
+    section = markdown_h2_section(text, "Record identity and status") + "\n" + markdown_h2_section(text, "Record identity and tested hypothesis")
+    bullet = {
+        "Record ID": "Record ID (`record_id`)",
+        "Kit version": "Kit version or commit (`kit_version`)",
+    }[field]
+    values = []
+    for line in section.splitlines():
+        if line.startswith(f"- {bullet}:"):
+            values.append(line.split(":", 1)[1].strip().strip("`"))
+        cells = [cell.strip().strip("`") for cell in line.strip().strip("|").split("|")]
+        if len(cells) == 2 and cells[0].casefold() == field.casefold():
+            values.append(cells[1])
+    return values[0] if len(values) == 1 else ""
+
+
+def leading_commit(text: str) -> str:
+    match = re.match(r"\s*`?([0-9a-fA-F]{7,40})\b", text)
+    return match.group(1).lower() if match else ""
+
+
 def check_record_consistency(
     conformant: set[Path],
     json_data: dict[Path, Any],
@@ -745,7 +777,10 @@ def check_record_consistency(
         if not report.is_file():
             errors.append(f"{label} missing paired report: {relative(report)}")
 
-        matching_rows = [line for line in ledger_lines if path.name in line]
+        matching_rows = [
+            line for line in ledger_lines
+            if line.strip().startswith("|") and relative(path) in LINK.findall(line)
+        ]
         if len(matching_rows) != 1:
             errors.append(
                 f"{label} must have exactly one CURRENT-EVIDENCE.md ledger row naming "
@@ -757,10 +792,12 @@ def check_record_consistency(
         if match is None:
             errors.append(f"{label} kit_version has no leading hexadecimal commit: {kit_version!r}")
             continue
-        commit = match.group(1)
-        if report.is_file() and commit not in report_text:
+        commit = match.group(1).lower()
+        if report.is_file() and report_identity_field(report_text, "Record ID") != record_id:
+            errors.append(f"{label} paired report Record ID does not match: {relative(report)}")
+        if report.is_file() and leading_commit(report_identity_field(report_text, "Kit version")) != commit:
             errors.append(f"{label} kit_version {commit} is missing from {relative(report)}")
-        if len(matching_rows) == 1 and commit not in matching_rows[0]:
+        if len(matching_rows) == 1 and leading_commit(matching_rows[0].strip().strip("|").split("|")[-1]) != commit:
             errors.append(
                 f"{label} kit_version {commit} is missing from its CURRENT-EVIDENCE.md ledger row"
             )
@@ -768,7 +805,17 @@ def check_record_consistency(
         artifact_version = str(
             record.get("public_safe_review", {}).get("artifact_version", "")
         )
-        if report.is_file() and artifact_version not in public_safe_report_section(report_text):
+        report_versions = re.findall(
+            r"(?m)^- Artifact:.*?\bversion `([^`]+)`\.",
+            public_safe_report_section(report_text),
+        )
+        report_versions.extend(
+            value.strip().strip("`") for value in re.findall(
+                r"(?m)^- Exact artifact version:[ \t]*([^\n]*)$",
+                public_safe_report_section(report_text),
+            )
+        )
+        if report.is_file() and report_versions != [artifact_version]:
             errors.append(
                 f"{label} public-safe artifact_version {artifact_version!r} is missing from "
                 f"{relative(report)}'s public-safe section"
