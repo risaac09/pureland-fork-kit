@@ -20,8 +20,8 @@ AI output is not a source. Cite the document that supports the claim. Every entr
 | Tool | OpenAI Codex, GPT-6; exact model variant and effort unavailable in the task context |
 | Task | 2026-09-13. Read the kit at `88216c0`, report, and prepare changes on `share/readiness-2026-09-13` and `share/watch-carrier-2026-09-13` |
 | Material provided | The maintainer's execution prompt, outside the kit, and the repository at `88216c0` |
-| Source verification | Pending. The private report will record completed checks and reviews before publication |
-| Corrections after verification | Pending |
+| Source verification | Read the source files and PR metadata at the pinned base. The working branch passed the checker, 25 regression tests, and three classification probes; the held branch passed its 22-test suite. The combined tree passed all checks and YAML parsing. The overdue simulation failed on FT-001 as expected. A Codex source audit and draft diff review completed. Frozen files, model prohibitions, license text, desktop and phone layout, and required-file discovery passed direct checks. Publication checks and final heads appear in the pull requests |
+| Corrections after verification | Anchored the imported PR #45 verification to its historical branch. Marked unknown PR #46 provenance owed. Preserved schema keys while repairing live step names; added raw-link regression tests |
 | Human review | Pending. Model review and automated checks supply no independent field evidence or maintainer approval |
 | Sensitive material | No participant material was used. The execution prompt and private report remain outside the repository |
 
@@ -62,6 +62,8 @@ AI output is not a source. Cite the document that supports the claim. Every entr
 | Sensitive material | Owed; the commit alone does not establish what material the model received |
 
 ## 2026-09-06 maintainer-side revision round
+
+The rows below preserve [PR #45](https://github.com/risaac09/pureland-fork-kit/pull/45)'s historical account against `38ce830`. In these rows, "this branch" means that revision branch and the verification describes that round.
 
 | Field | Record |
 |---|---|
