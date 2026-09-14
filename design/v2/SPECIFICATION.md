@@ -44,7 +44,7 @@ Green communicates identity, not success. Diagram text labels carry meaning inde
 - System sans: 16 px default body at 1.65 line height; hero lead 18 px on desktop. Use system medium for document titles and primary action labels. Individual supporting passages use 14–15 px; keep long prose in the default body size.
 - IBM Plex Mono, weight 400: short labels, minimum 12 px for normal content labels. Decorative SVG annotations and the draft-only utility strip may be smaller. Avoid paragraphs or primary navigation in monospace.
 - Navigation: 14 px with a 44 px minimum target height. Primary action: at least 50 px high.
-- Layout: maximum outer width 76 rem, with 20 px minimum mobile gutters and up to 64 px desktop gutters. Spacing steps are multiples of 4 px. Main sections have 80 px vertical padding on desktop and 56 px on phones.
+- Layout: maximum outer width 76 rem, with 20 px minimum mobile gutters and up to 64 px desktop gutters. Main sections have 80 px vertical padding on desktop and 56 px on phones.
 - Body measure: about 45–60 characters where the grid permits. Large hero copy can use editorial line breaks; reassess those breaks at every breakpoint.
 
 No additional font download is needed. Reusing an existing family preserves continuity and its recorded license. The system-sans body improves the functional contrast between instructions and display type.
