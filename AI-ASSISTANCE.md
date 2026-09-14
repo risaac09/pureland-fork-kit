@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-14 front-page promotion
+
+| Field | Record |
+|---|---|
+| Tool | Claude Fable 5.1 in Claude Code |
+| Task | 2026-09-14. Promote the Field & Form draft merged in #50 into the root page, the README, and the active design assets, following the integration sequence in the draft's specification, after the maintainer viewed the desktop and phone layouts and asked for the promotion |
+| Material provided | The repository at `0e853f5`, the draft's specification and review, and the maintainer's instruction in conversation. No participant material |
+| Source verification | The root page is the reconciled draft with its asset paths resolved, the draft strip removed, and anchors for the two retired fragments; its body copy was not changed, and the title, description, and footer line are the promotion's. `design/tokens.json` was written from `design/tokens.css` and a new checker rule fails when they differ, with seven regression tests. `scripts/check_repo.py`, the regression tests, and the classification probes passed. The page rendered at 1280 and 390 px from the branch without horizontal overflow, with both themes, the fragment routes, the legacy anchors, and the script-free structure checked. A review pass of three finders read the page and assets against the merged draft, the records and the visual-language document against the code, and the checker rule against constructed fixtures; a second pass ran before push |
+| Corrections after verification | The mark asset files lost their only link when the old banner went, so the visual-language document now links them, and they still carried the retired palette's hex values, so they now take Mineral on paper and Lichen on the ink ground. The first anchor for a retired fragment sat inside a grid section and became a grid item; both anchors are zero-height blocks before their sections. The checker rule read its block before stripping comments, stopped at a semicolon inside quotes, ignored a second `:root` block, and stayed silent when one file was missing; it now strips comments first, brace-matches every block, tolerates quoted semicolons, reports a declaration it cannot read, and errors on a conflicting duplicate or a missing counterpart, with four tests covering those cases. The model index said the rule fails only on a differing value; it now says differing or missing. The visual-language document claimed a medium-weight primary action, Brass guide lines on the plate, and the documented easing on hover; both sentences now match the code and the hover transition now uses the easing |
+| Human review | The maintainer accepted the design on the draft's rendering and asked for the promotion. No first-time reader has read the page; the specification's reader test remains owed before any claim that the page is easier to understand |
+| Sensitive material | None involved |
+
 ## 2026-09-14 second visual-system draft
 
 | Field | Record |

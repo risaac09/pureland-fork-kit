@@ -14,7 +14,7 @@ if (control) {
   label();
   control.addEventListener('click', () => {
     root.dataset.theme = isInk() ? 'paper' : 'ink';
-    try { localStorage.setItem('pureland-v2-theme', root.dataset.theme); } catch { /* Storage is optional. */ }
+    try { localStorage.setItem('pureland-theme', root.dataset.theme); } catch { /* Storage is optional. */ }
     label();
   });
   if (preference.addEventListener) preference.addEventListener('change', label);
