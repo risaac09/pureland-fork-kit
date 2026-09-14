@@ -1,0 +1,81 @@
+/* Field & Form, a second visual-system draft. This is its token source. */
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/cormorant-garamond-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/ibm-plex-mono-400.woff2") format("woff2");
+}
+:root {
+  color-scheme: light;
+  --paper: #F4F1E9;
+  --mineral: #283F38;
+  --lichen: #DDE3D8;
+  --clay: #865944;
+  --ink: #252B27;
+  --stone: #596259;
+  --brass: #BCA77E;
+  --ground: var(--paper);
+  --surface: #ECEAE1;
+  --text: var(--ink);
+  --secondary: var(--stone);
+  --primary: var(--mineral);
+  --on-primary: var(--paper);
+  --accent-text: var(--clay);
+  --line: #C9CCC1;
+  --control-line: #7A8478;
+  --focus: #865944;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-label: "IBM Plex Mono", monospace;
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --measure: 60ch;
+  --page-width: 76rem;
+  --motion-response: 160ms;
+  --motion-draw: 800ms;
+  --motion-ease: cubic-bezier(.2,.65,.3,1);
+}
+:root[data-theme="ink"] {
+  color-scheme: dark;
+  --ground: #1E2924;
+  --surface: #29382F;
+  --text: #F4F1E9;
+  --secondary: #C0C8BA;
+  --primary: #DDE3D8;
+  --on-primary: #283F38;
+  --accent-text: #D4AF96;
+  --line: #536154;
+  --control-line: #99A592;
+  --focus: #D4AF96;
+}
+/* System preference is the no-script fallback; explicit choice wins. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --ground: #1E2924;
+    --surface: #29382F;
+    --text: #F4F1E9;
+    --secondary: #C0C8BA;
+    --primary: #DDE3D8;
+    --on-primary: #283F38;
+    --accent-text: #D4AF96;
+    --line: #536154;
+    --control-line: #99A592;
+    --focus: #D4AF96;
+  }
+}
