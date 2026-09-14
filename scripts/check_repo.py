@@ -962,6 +962,95 @@ def check_version_claims(errors: list[str]) -> None:
             )
 
 
+def check_token_parity(errors: list[str]) -> None:
+    """Tie design/tokens.json to the :root declarations in design/tokens.css.
+
+    The stylesheet is the source of the visual roles and the JSON is the copy
+    for tools that cannot read CSS. Two hand-maintained palettes drift the
+    first time an edit misses one of them, so every custom property in the
+    stylesheet's :root block must appear in the JSON's "tokens" map with the
+    same value, and the map must name nothing the stylesheet does not. Values
+    are compared after whitespace is collapsed; light-dark() and var() stay
+    unresolved, because the copy is of the declaration, not of a rendering.
+    Neither file is required architecture, so the rule stays quiet only when
+    both are absent; one without the other is an error.
+    """
+    css_path = ROOT / "design/tokens.css"
+    json_path = ROOT / "design/tokens.json"
+    if not css_path.is_file() and not json_path.is_file():
+        return
+    if not (css_path.is_file() and json_path.is_file()):
+        present, missing = (
+            ("design/tokens.css", "design/tokens.json")
+            if css_path.is_file()
+            else ("design/tokens.json", "design/tokens.css")
+        )
+        errors.append(f"token parity: {present} exists but {missing} is missing; the two travel together")
+        return
+    # Comments go first, so a brace inside one cannot end a block early.
+    css = re.sub(r"/\*.*?\*/", "", css_path.read_text(encoding="utf-8"), flags=re.S)
+    # Every bare :root block counts, wherever it sits, so a value redeclared in
+    # a media query cannot hide from the comparison; a role declared twice
+    # with different values is itself the drift this check exists to stop.
+    declared: dict[str, str] = {}
+    blocks = 0
+    for opening in re.finditer(r":root\s*\{", css):
+        depth, start, index = 1, opening.end(), opening.end()
+        while index < len(css) and depth:
+            depth += {"{": 1, "}": -1}.get(css[index], 0)
+            index += 1
+        if depth:
+            errors.append("design/tokens.css has an unclosed :root block")
+            return
+        blocks += 1
+        # A value may carry a quoted string, and a semicolon inside the
+        # quotes does not end the declaration. A declaration the pattern
+        # cannot read, such as one with an unclosed quote, is an error
+        # rather than a silent omission.
+        body = css[start : index - 1]
+        parsed = re.findall(r"(--[\w-]+)\s*:\s*((?:\"[^\"]*\"|'[^']*'|[^;\"'])+);", body)
+        readable = {name for name, _ in parsed}
+        for name in re.findall(r"(--[\w-]+)\s*:", body):
+            if name not in readable:
+                errors.append(
+                    f"token parity: {name} in design/tokens.css could not be read as a "
+                    "declaration; check its quotes and semicolon"
+                )
+        for name, value in parsed:
+            value = re.sub(r"\s+", " ", value.strip())
+            if name in declared and declared[name] != value:
+                errors.append(
+                    f"token parity: {name} is declared twice in design/tokens.css with different "
+                    f"values, {declared[name]!r} and {value!r}; declare each role once"
+                )
+            declared[name] = value
+    if not blocks:
+        errors.append("design/tokens.css has no :root block to compare with design/tokens.json")
+        return
+    try:
+        mirrored = json.loads(json_path.read_text(encoding="utf-8")).get("tokens")
+    except (json.JSONDecodeError, AttributeError):
+        mirrored = None
+    if not isinstance(mirrored, dict):
+        errors.append('design/tokens.json needs a "tokens" object mirroring design/tokens.css')
+        return
+    for name, value in declared.items():
+        if name not in mirrored:
+            errors.append(
+                f"token parity: {name} is declared in design/tokens.css but missing from design/tokens.json"
+            )
+        elif re.sub(r"\s+", " ", str(mirrored[name]).strip()) != value:
+            errors.append(
+                f"token parity: {name} is {value!r} in design/tokens.css and "
+                f"{mirrored[name]!r} in design/tokens.json"
+            )
+    for name in mirrored:
+        if name not in declared:
+            errors.append(
+                f"token parity: {name} is in design/tokens.json but not declared in design/tokens.css"
+            )
+
+
 def check_ceiling_copy(errors: list[str]) -> None:
     """Tie the page's evidence ceiling to CURRENT-EVIDENCE.md's first sentence.
 
@@ -1108,6 +1197,7 @@ def main(argv: list[str] | None = None) -> int:
 
     check_version_claims(errors)
     check_ceiling_copy(errors)
+    check_token_parity(errors)
 
     json_data: dict[Path, Any] = {}
     for path in files(".json"):

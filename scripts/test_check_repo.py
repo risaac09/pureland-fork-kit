@@ -288,6 +288,72 @@ class CheckRepoConsistencyTests(unittest.TestCase):
         result = self.run_checker()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
+    def test_token_parity_rejects_a_changed_stylesheet_value(self) -> None:
+        tokens = self.repo / "design/tokens.css"
+        text = tokens.read_text(encoding="utf-8")
+        self.assertIn("--paper: #F4F1E9;", text)
+        tokens.write_text(text.replace("--paper: #F4F1E9;", "--paper: #FFFFFF;"), encoding="utf-8")
+        self.assert_failed_with("token parity: --paper is '#FFFFFF' in design/tokens.css")
+
+    def test_token_parity_rejects_a_token_missing_from_the_json(self) -> None:
+        mirror = self.repo / "design/tokens.json"
+        data = json.loads(mirror.read_text(encoding="utf-8"))
+        del data["tokens"]["--mineral"]
+        mirror.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+        self.assert_failed_with(
+            "token parity: --mineral is declared in design/tokens.css but missing from design/tokens.json"
+        )
+
+    def test_token_parity_rejects_a_token_the_stylesheet_lacks(self) -> None:
+        mirror = self.repo / "design/tokens.json"
+        data = json.loads(mirror.read_text(encoding="utf-8"))
+        data["tokens"]["--ghost"] = "#000000"
+        mirror.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+        self.assert_failed_with(
+            "token parity: --ghost is in design/tokens.json but not declared in design/tokens.css"
+        )
+
+    def test_token_parity_rejects_a_role_declared_twice_with_different_values(self) -> None:
+        tokens = self.repo / "design/tokens.css"
+        text = tokens.read_text(encoding="utf-8")
+        tokens.write_text(
+            text + "\n@media (prefers-color-scheme: dark) {\n  :root {\n    --paper: #000000;\n  }\n}\n",
+            encoding="utf-8",
+        )
+        self.assert_failed_with("token parity: --paper is declared twice in design/tokens.css")
+
+    def test_token_parity_rejects_a_missing_counterpart_file(self) -> None:
+        (self.repo / "design/tokens.json").unlink()
+        self.assert_failed_with("token parity: design/tokens.css exists but design/tokens.json is missing")
+
+    def test_token_parity_reads_past_comment_braces_and_quoted_semicolons(self) -> None:
+        tokens = self.repo / "design/tokens.css"
+        text = tokens.read_text(encoding="utf-8")
+        text = text.replace(
+            "  --paper: #F4F1E9;",
+            "  /* a comment with a brace at column zero:\n}\n     ends here */\n  --paper: #F4F1E9;\n  --separator: \";\";",
+        )
+        tokens.write_text(text, encoding="utf-8")
+        mirror = self.repo / "design/tokens.json"
+        data = json.loads(mirror.read_text(encoding="utf-8"))
+        data["tokens"]["--separator"] = '";"'
+        mirror.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+        result = self.run_checker()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertNotIn("token parity", result.stdout)
+        data["tokens"]["--separator"] = '","'
+        mirror.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+        self.assert_failed_with("token parity: --separator is '\";\"' in design/tokens.css")
+
+    def test_token_parity_reports_a_declaration_it_cannot_read(self) -> None:
+        tokens = self.repo / "design/tokens.css"
+        text = tokens.read_text(encoding="utf-8")
+        tokens.write_text(
+            text.replace("  --paper: #F4F1E9;", "  --paper: #F4F1E9;\n  --broken: \"oops;"),
+            encoding="utf-8",
+        )
+        self.assert_failed_with("token parity: --broken in design/tokens.css could not be read as a declaration")
+
     def test_current_report_template_identity_and_version_pass(self) -> None:
         template = (SOURCE / "templates/field-test.md").read_text()
         identity = template.split("## Record identity and tested hypothesis\n", 1)[1].split("\n## ", 1)[0]
