@@ -4,6 +4,8 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Added the Field & Form second visual-system draft under `design/v2/`: a homepage, a specimen board, a README candidate, a specification with an integration sequence, and the review that measured the live page against it. The active Ink & Bone system, the root page, and the README are unchanged. (#50)
+
 - Tightened record checks after malformed reports passed review probes: compare the identity fields and ledger version column, match the exact artifact version, and require the kit commit to remain reachable from a Git ref or HEAD. Added seven regression cases, including compatibility with the current report template. Added the charter requirement to Stage 1 intake and the action baseline, materiality rule, and challenge route to the self-guided packet.
 
 - Added three public routes into the method: the self-guided human packet, the model-assisted packet, and the Field Pilot intake. The Field Pilot can use commissioned, external-funding, or limited-voluntary terms, while price and the rest of the agreement stay in a private conversation after Stage 1.

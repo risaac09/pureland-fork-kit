@@ -96,3 +96,7 @@ The palette, type stacks, spacing, and rules above are published as [design/toke
 ## Licensing note
 
 Design assets in this directory are original text, diagrams, and marks made for PureLand, and are licensed the same way as the project's eligible text: [CC BY-SA 4.0](../LICENSE). See [LICENSE.md](../LICENSE.md) for the full boundary, including what stays excluded from that license.
+
+## Second-system draft
+
+[Field & Form](v2/REVIEW.md) is a local alternative for review. Its [homepage](v2/index.html) and [visual specification](v2/system.html) do not replace the active Ink & Bone system above.
