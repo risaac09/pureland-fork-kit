@@ -26,6 +26,7 @@ PLACEHOLDER = re.compile(r"\b(TODO|TBD|INSERT[_ -]?HERE)\b", re.IGNORECASE)
 METHOD_COMPLETION = re.compile(r"\bmethod completion\b", re.IGNORECASE)
 PAGES_BASE = "https://risaac09.github.io/pureland-fork-kit/"
 BLOB_BASE = "https://github.com/risaac09/pureland-fork-kit/blob/main/"
+RAW_BASE = "https://raw.githubusercontent.com/risaac09/pureland-fork-kit/main/"
 RELEASE_CLAIM = re.compile(r"\bThis is version (\d+)\.(\d+)\.")
 # A sentence ends at a period followed by space and a capital. An
 # abbreviation before a lowercase word or a digit does not end one.
@@ -365,6 +366,10 @@ def check_targets(
         # than rewritten to "/" and passed as an existing path.
         elif clean.startswith(BLOB_BASE) and len(clean) > len(BLOB_BASE):
             clean = "/" + clean[len(BLOB_BASE):]
+        # Check our raw/main files through the same local path and anchor
+        # rules. Other repositories and pinned refs stay external.
+        elif clean.startswith(RAW_BASE) and len(clean) > len(RAW_BASE):
+            clean = "/" + clean[len(RAW_BASE):]
         if not clean or clean.startswith(("http://", "https://", "mailto:", "data:", "//")):
             continue
         # A leading "/" is repo-root-relative (as GitHub treats it), not a
