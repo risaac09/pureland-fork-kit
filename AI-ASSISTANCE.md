@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-14 second visual-system draft
+
+| Field | Record |
+|---|---|
+| Tool | OpenAI Codex for the draft; model variant and effort are not recorded in the draft's own record. Claude Fable 5.1 in Claude Code for the reconciliation, the review passes, and the pull request |
+| Task | 2026-09-14. Review the live front page and repository against a first-time reader's needs, draft a second visual system under `design/v2/` (homepage, specimen board, README candidate, specification, review), then reconcile the draft's copy with PR #48 and the checker's contracts and prepare it for maintainer review |
+| Material provided | The public repository at `88216c0`, the live page, PR #48's diff, and the maintainer's instructions outside the kit. No participant material |
+| Source verification | Claims on the draft pages were taken from the canonical files named in `design/v2/SPECIFICATION.md` and read back against them after the reconciliation. `scripts/check_repo.py`, the 22 regression tests, and the three classification probes passed before and after the reconciliation. The draft rendered at 320, 390, 768, and 1280 px without horizontal overflow, in both themes, with keyboard disclosure and script-free fallback checked; the reconciled page was measured again at 390 and 1280 px. Two adversarial review passes ran on the branch before push |
+| Corrections after verification | The draft restated the Field Pilot's terms on three surfaces, omitted the reply at Report, and announced the release as "Version 0.1", which `check_version_claims` would reject on promotion; all three were reconciled to PR #48's wording. A link inside step copy inherited the 44 px block-link rule, and the phone status row lost its alignment when a sentence wrapped; both stylesheet rules were narrowed. The README candidate had dropped the sentence that names the repository as the record behind the front page; restored |
+| Human review | Pending. The maintainer decides whether the direction is adopted, and no first-time reader has read either page. Layout measurements are browser observations, not evidence that the method or the page works |
+| Sensitive material | None involved. No participant, client, identifying, confidential, consent, or protected community material entered the draft; local paths, the originating brief, and the session record stay outside the repository |
+
 ## 2026-09-12 reconciliation review
 
 | Field | Record |

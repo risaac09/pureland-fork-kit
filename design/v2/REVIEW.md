@@ -88,10 +88,12 @@ Nothing in PR #48 changes the page structure this draft proposes; its front-page
 
 ## Scope and remaining decisions
 
-This is a reviewable local draft, not a deployed change. No push, PR creation, merge, or publication occurred. Review the [visual system](system.html) and [README candidate](README-preview.md) together. Their common introduction, palette, fork image, research-map order, and source labels create continuity within GitHub's native UI constraints.
+This draft is carried by pull request #NN for review. No merge, deployment, release, or reader test has occurred. Review the [visual system](system.html) and [README candidate](README-preview.md) together. Their common introduction, palette, fork image, research-map order, and source labels create continuity within GitHub's native UI constraints.
 
 Before adoption: reconcile with PR #48, review the shorter front-page copy, preserve legacy fragment routes, update active token contracts together, and run first-time-reader comprehension checks. [SPECIFICATION.md](SPECIFICATION.md) gives a bounded implementation sequence and acceptance criteria.
 
 ## AI assistance
 
 OpenAI Codex inspected the live public page and repository, drafted the HTML/CSS/JavaScript and SVG assets, and wrote this review. Project claims came from the public repository. No participant material or confidential records entered the draft. The design and shorter copy still need maintainer review before adoption. AI-produced layout measurements are browser observations; they are not research evidence that PureLand works.
+
+Claude Fable 5.1 in Claude Code continued the work on 2026-09-14: committed the draft as received, read it against PR #48 and the repository checker, made the changes in the reconciliation table, reran the checks and the renders, ran two adversarial review passes, and opened the pull request. The entry in [AI-ASSISTANCE.md](../../AI-ASSISTANCE.md) is the disclosure of record.
