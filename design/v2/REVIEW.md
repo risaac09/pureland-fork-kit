@@ -66,6 +66,26 @@ The first test attempt used a Python 3.12 installation without the required json
 
 Remaining validation: the reduced-motion media rules were inspected in source, not exercised with an operating-system preference change. Browser zoom at 200%, a full screen-reader audit, cross-browser testing, and first-time-reader comprehension have not run. This draft is not a WCAG conformance claim. Production acceptance remains governed by the specification.
 
+## Reconciliation with PR #48
+
+Added 2026-09-14 in Claude Code, after the draft above was received. [PR #48](https://github.com/risaac09/pureland-fork-kit/pull/48) is the approved content base for the front page and README until it merges, so the draft's copy was read against its diff and against the contracts in `scripts/check_repo.py` that a promoted page must satisfy. Each row names what PR #48 or the checker settles, what the draft did, and what changed.
+
+| Settled by PR #48 or the checker | Draft as received | Disposition |
+|---|---|---|
+| Field Pilot proposals route through `OFFERING.md`, not the issue form, on the page and in the README | Already linked `OFFERING.md` from the pilot block and the README candidate | No change |
+| Pilot descriptions consolidate into `OFFERING.md`; the page and README drop the Stage 1 and bounded-inquiry sentences | Restated "small, bounded inquiry", "terms agreed privately", and the Stage 1 sentence on the page, in the README candidate, and on the system board | Cut to a pointer in all three places: "The offering is the one description of the pilot and its terms." |
+| The Report step links one reply to `METHOD.md#a-reply` | Omitted the reply route | Added the sentence and its link to the Report disclosure. A link inside step copy inherited the 44 px block-link rule, so that rule now applies to the block link only |
+| `check_version_claims` requires a "This is version N.M." sentence on `index.html` and compares the README when it carries one | Status line said "Version 0.1"; the README candidate and the board said "Version 0.1. Instruments unvalidated." | Status line reads "This is version 0.1." and "The instruments are unvalidated."; the candidate and the board carry "This is version 0.1. Its instruments are unvalidated." |
+| `check_ceiling_copy` requires `CURRENT-EVIDENCE.md`'s first sentence exactly once on the page | Present once, in the evidence band | No change |
+| The README opens by naming the front page and the repository as the record behind it (#36) | Replaced with a link row | Restored the sentence ahead of the two secondary links, in the candidate and on the board |
+| The live page keeps its two-readerships band and the exit line | Neither appears on the draft page; the README candidate keeps two readerships | Left for the maintainer as a design decision, not a reconciliation |
+| Legacy fragments `#spine`, `#readerships`, `#what-it-studies`, and the six step IDs | Six step IDs and `#what-it-studies` kept; `#spine` and `#readerships` absent | No file in the repository links to the absent fragments. Keep aliases at promotion for links from outside the repository |
+| `design/tokens.css` and `tokens.json` change comment text only, Observe to Attend | Separate token source under `design/v2/` | No conflict. One active palette at promotion, as the specification requires |
+| `AI-ASSISTANCE.md` and `CHANGELOG.md` gain entries at the top of their lists | Not yet recorded | Entries added on this branch. They insert where PR #48 and the capture-guide branch insert, so whichever lands second takes a trivial rebase |
+| The README carries a light and dark banner pair under `design/assets/` | One banner with a fixed paper ground | Left for promotion: add a dark variant or keep the `<picture>` element |
+
+Nothing in PR #48 changes the page structure this draft proposes; its front-page edits are wording and link targets, and the draft now reflects them. Files under `design/v2/` stay outside `REQUIRED_ARCHITECTURE`, `llms.txt`, and the version and ceiling checks until promotion.
+
 ## Scope and remaining decisions
 
 This is a reviewable local draft, not a deployed change. No push, PR creation, merge, or publication occurred. Review the [visual system](system.html) and [README candidate](README-preview.md) together. Their common introduction, palette, fork image, research-map order, and source labels create continuity within GitHub's native UI constraints.

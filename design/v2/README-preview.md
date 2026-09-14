@@ -4,9 +4,9 @@
 
 A research-program prototype for examining your control over an information practice and the exposure it can create.
 
-**[Visit the public front page](https://risaac09.github.io/pureland-fork-kit/)** · [Read the method](https://github.com/risaac09/pureland-fork-kit/blob/main/METHOD.md) · [Inspect the evidence](https://github.com/risaac09/pureland-fork-kit/blob/main/CURRENT-EVIDENCE.md)
+**The public front page is [risaac09.github.io/pureland-fork-kit](https://risaac09.github.io/pureland-fork-kit/). This repository is the record behind it.** [Read the method](https://github.com/risaac09/pureland-fork-kit/blob/main/METHOD.md) · [Inspect the evidence](https://github.com/risaac09/pureland-fork-kit/blob/main/CURRENT-EVIDENCE.md)
 
-Version 0.1. Instruments unvalidated. PureLand has one maintainer-side, AI-assisted partial dry run and no independent field trial. The current evidence does not show that the method works.
+This is version 0.1. Its instruments are unvalidated. PureLand has one maintainer-side, AI-assisted partial dry run and no independent field trial. The current evidence does not show that the method works.
 
 The public site follows `main`. The [changelog](https://github.com/risaac09/pureland-fork-kit/blob/main/CHANGELOG.md) distinguishes unreleased work from tagged releases.
 
@@ -16,7 +16,7 @@ Run the six steps in order: Scope, Attend, Read, Trace, Adapt, Report. Use the [
 
 You may stop at any step. Recording is optional. Private learning, refusal, and an unmeasurable result can end without a public report.
 
-To work with Isaac, read the [Field Pilot terms](https://github.com/risaac09/pureland-fork-kit/blob/main/OFFERING.md). Stage 1 is public-safe scoping and starts no engagement. Scope and sustainable terms are agreed privately before the inquiry begins.
+To work with Isaac, propose a [Field Pilot](https://github.com/risaac09/pureland-fork-kit/blob/main/OFFERING.md). The offering is the one description of the pilot and its terms.
 
 ## The research record
 
@@ -58,4 +58,4 @@ Isaac Rubinstein maintains the project and holds merge and release authority. Th
 
 ---
 
-This is a README candidate in the [Field & Form design draft](system.html#repository). It has not replaced the repository's README. On promotion, move the banner to its final asset path and convert canonical GitHub links to repository-relative links. [Review](REVIEW.md) · [Specification](SPECIFICATION.md).
+This is a README candidate in the [Field & Form design draft](system.html#repository). It has not replaced the repository's README. On promotion, move the banner to its final asset path, give it a dark variant or keep the current `<picture>` pair, and convert canonical GitHub links to repository-relative links. [Review](REVIEW.md) · [Specification](SPECIFICATION.md).
