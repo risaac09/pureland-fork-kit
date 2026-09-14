@@ -1,164 +1,61 @@
 /*
-  Ink & Bone: design tokens for the PureLand research-program prototype.
-  See design/VISUAL-LANGUAGE.md for the full spec.
+  Field & Form: design tokens for the PureLand research-program prototype.
+  This file is the source. design/tokens.json mirrors its :root declarations
+  verbatim and scripts/check_repo.py fails when the two differ. See
+  design/VISUAL-LANGUAGE.md for the full spec.
 */
 
-/* Self-hosted latin subsets, one face per weight and style the page
-   actually sets. The shared unicode-range is the "latin" block Google
-   Fonts serves for these three families: it excludes U+2192, so the
-   fallback in each stack still renders the caption arrow. font-display is
-   fallback, not swap: a short blank beats text that re-wraps after the
-   reader has started, which is motion the hand did not make. */
-@font-face {
-  font-family: "Cormorant Garamond";
-  font-style: italic;
-  font-weight: 500;
-  font-display: fallback;
-  src: url("fonts/cormorant-garamond-500-italic.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+/* Self-hosted latin subsets under the OFL. The unicode-range is the latin
+   block those subsets carry, so a glyph outside it falls back to the stack's
+   next face instead of a missing-glyph box. */
 @font-face {
   font-family: "Cormorant Garamond";
   font-style: normal;
   font-weight: 600;
-  font-display: fallback;
+  font-display: swap;
   src: url("fonts/cormorant-garamond-600.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "EB Garamond";
-  font-style: normal;
-  font-weight: 400;
-  font-display: fallback;
-  src: url("fonts/eb-garamond-400.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "EB Garamond";
-  font-style: normal;
-  font-weight: 400;
-  font-display: fallback;
-  src: url("fonts/eb-garamond-400-latin-ext.woff2") format("woff2");
-  /* The body face alone carries the latin-extended block: the page sets
-     one word in it, and a fallback glyph mid-word would show. */
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: "EB Garamond";
-  font-style: italic;
-  font-weight: 400;
-  font-display: fallback;
-  src: url("fonts/eb-garamond-400-italic.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
   font-family: "IBM Plex Mono";
   font-style: normal;
   font-weight: 400;
-  font-display: fallback;
+  font-display: swap;
   src: url("fonts/ibm-plex-mono-400.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-
 :root {
-  /* Palette */
-  --color-ink: #1C1815;
-  --color-bone: #F3EDE0;
-  --color-brass: #B4945F;
-  --color-oxblood: #7B2D26;
-  --color-celadon: #8FAE9B;
-  --color-graphite: #6B6257;
-
-  /* Roles (light ground by default) */
-  --color-ground: var(--color-bone);
-  --color-text: var(--color-ink);
-  --color-text-secondary: var(--color-graphite);
-  --color-accent: var(--color-brass);
-  --color-extraction: var(--color-oxblood);
-  --color-return: var(--color-celadon);
-  --color-rule: var(--color-graphite);
-
-  /* Typography */
-  --font-display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
-  --font-body: "EB Garamond", Georgia, "Times New Roman", serif;
-  --font-ledger: "IBM Plex Mono", "Courier Prime", "Courier New", monospace;
-
-  --letter-spacing-display: 0.08em;
-  --letter-spacing-ledger: 0.12em;
-
-  /* Spacing scale */
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 40px;
-  --space-xxl: 64px;
-
-  /* Layout */
-  --measure: 62ch;
-
-  /* Rules. --rule-hairline-color is an alias of --color-rule, not a second
-     value: they named the same graphite and would otherwise diverge the moment
-     one of them is adjusted for a dark ground. */
-  --rule-hairline-weight: 1px;
-  --rule-hairline-color: var(--color-rule);
-  --rule-hairline-opacity: 0.35;
-  --rule-key-weight: 2px;
-  --rule-key-color: var(--color-brass);
-
-  /* Motion. Two classes only: the event (draws once, stays) and the dial
-     (scroll-linked, retreats with the hand, never moves on its own). */
-
-  /* An event stroke lays down at a hand's pace. */
-  --motion-draw-duration: 2s;
-
-  /* Strokes arrive in order, not at once. */
-  --motion-draw-stagger: 0.24s;
-
-  /* Ink moves and then settles, the way a stroke ends. */
-  --motion-ease-settle: cubic-bezier(0.4, 0, 0.2, 1);
-
-  /* Secondary marks arrive without their own event. */
-  --motion-fade-duration: 1.4s;
-
-  /* A dial maps position. Easing on a dial misreports the hand. */
-  --motion-ease-linked: linear;
-
-  /* The nib: the thread's view-timeline band, a 4vh window on the horizon.
-     Pairs with --horizon-y. Change them together. */
-  --motion-thread-inset: 40% 56%;
-
-  /* Held-scene traverse heights. Modest on purpose: extra scroll is
-     manufactured dwell. */
-  --motion-scene-observe: 180vh;
-  --motion-scene-trace: 150vh;
-
-  /* The horizon's height. It lives here, not in index.html, so the
-     thread band and the plate pins cannot drift from the line they aim
-     at. */
-  --horizon-y: 42vh;
+  /* The reader's system preference applies until they choose; the two rules
+     below make an explicit choice win. Every role is declared once, paper
+     value first, ink value second, and color-scheme picks between them. */
+  color-scheme: light dark;
+  /* Pigments. These do not change with the theme. */
+  --paper: #F4F1E9;
+  --mineral: #283F38;
+  --lichen: #DDE3D8;
+  --clay: #865944;
+  --ink: #252B27;
+  --stone: #596259;
+  --brass: #BCA77E;
+  --ink-ground: #1E2924;
+  /* Roles. */
+  --ground: light-dark(var(--paper), var(--ink-ground));
+  --surface: light-dark(#ECEAE1, #29382F);
+  --text: light-dark(var(--ink), var(--paper));
+  --secondary: light-dark(var(--stone), #C0C8BA);
+  --primary: light-dark(var(--mineral), var(--lichen));
+  --on-primary: light-dark(var(--paper), var(--mineral));
+  --accent-text: light-dark(var(--clay), #D4AF96);
+  --line: light-dark(#C9CCC1, #536154);
+  --control-line: light-dark(#7A8478, #99A592);
+  --focus: light-dark(var(--clay), #D4AF96);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-label: "IBM Plex Mono", monospace;
+  --page-width: 76rem;
+  --motion-response: 160ms;
+  --motion-draw: 800ms;
+  --motion-ease: cubic-bezier(.2,.65,.3,1);
 }
-
-/* Swap ground/text roles for dark contexts. Accents stay the same:
-   brass, oxblood, and celadon are accent-only on either ground.
-   Text-secondary and rule are lightened toward bone: graphite on ink
-   is 2.95:1, which fails WCAG AA for text. The mix keeps the same
-   graphite hue instead of introducing a seventh palette color. */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-ground: var(--color-ink);
-    --color-text: var(--color-bone);
-    --color-text-secondary: color-mix(in srgb, var(--color-graphite), var(--color-bone) 40%);
-    --color-rule: color-mix(in srgb, var(--color-graphite), var(--color-bone) 40%);
-  }
-}
-
-/* On a phone the horizon sits lower and the band follows it. The Observe
-   scene shortens so the walk stays walkable with a thumb. */
-@media (max-width: 640px) {
-  :root {
-    --horizon-y: 30vh;
-    --motion-thread-inset: 28% 68%;
-    --motion-scene-observe: 140vh;
-  }
-}
+:root[data-theme="paper"] { color-scheme: light; }
+:root[data-theme="ink"] { color-scheme: dark; }

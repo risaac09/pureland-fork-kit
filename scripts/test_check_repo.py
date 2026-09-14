@@ -257,6 +257,31 @@ class CheckRepoConsistencyTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertNotIn("kit_version commit", result.stdout)
 
+    def test_token_parity_rejects_a_changed_stylesheet_value(self) -> None:
+        tokens = self.repo / "design/tokens.css"
+        text = tokens.read_text(encoding="utf-8")
+        self.assertIn("--paper: #F4F1E9;", text)
+        tokens.write_text(text.replace("--paper: #F4F1E9;", "--paper: #FFFFFF;"), encoding="utf-8")
+        self.assert_failed_with("token parity: --paper is '#FFFFFF' in design/tokens.css")
+
+    def test_token_parity_rejects_a_token_missing_from_the_json(self) -> None:
+        mirror = self.repo / "design/tokens.json"
+        data = json.loads(mirror.read_text(encoding="utf-8"))
+        del data["tokens"]["--mineral"]
+        mirror.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+        self.assert_failed_with(
+            "token parity: --mineral is declared in design/tokens.css but missing from design/tokens.json"
+        )
+
+    def test_token_parity_rejects_a_token_the_stylesheet_lacks(self) -> None:
+        mirror = self.repo / "design/tokens.json"
+        data = json.loads(mirror.read_text(encoding="utf-8"))
+        data["tokens"]["--ghost"] = "#000000"
+        mirror.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+        self.assert_failed_with(
+            "token parity: --ghost is in design/tokens.json but not declared in design/tokens.css"
+        )
+
     def test_current_report_template_identity_and_version_pass(self) -> None:
         template = (SOURCE / "templates/field-test.md").read_text()
         identity = template.split("## Record identity and tested hypothesis\n", 1)[1].split("\n## ", 1)[0]

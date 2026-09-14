@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-14 front-page promotion
+
+| Field | Record |
+|---|---|
+| Tool | Claude Fable 5.1 in Claude Code |
+| Task | 2026-09-14. Promote the Field & Form draft merged in #50 into the root page, the README, and the active design assets, following the integration sequence in the draft's specification, after the maintainer viewed the desktop and phone layouts and asked for the promotion |
+| Material provided | The repository at `0e853f5`, the draft's specification and review, and the maintainer's instruction in conversation. No participant material |
+| Source verification | The root page is the reconciled draft with its asset paths resolved, the draft strip removed, and anchors for the two retired fragments; its copy was not changed. `design/tokens.json` was written from `design/tokens.css` and a new checker rule fails when they differ, with three regression tests. `scripts/check_repo.py`, the regression tests, and the classification probes passed. The page rendered at 320, 390, 768, and 1280 px in both themes without horizontal overflow, with the fragment routes, keyboard disclosure, and script-free fallback checked. Two adversarial review passes ran before push |
+| Corrections after verification | The mark asset files lost their only link when the old banner went, so the visual-language document now links them |
+| Human review | The maintainer accepted the design on the draft's rendering and asked for the promotion. No first-time reader has read the page; the specification's reader test remains owed before any claim that the page is easier to understand |
+| Sensitive material | None involved |
+
 ## 2026-09-14 second visual-system draft
 
 | Field | Record |

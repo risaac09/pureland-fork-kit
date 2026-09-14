@@ -4,6 +4,8 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Promoted Field & Form to the front page, the README, and the active design assets. `index.html` is the reconciled draft with its asset paths resolved and anchors for the retired `#spine` and `#readerships` fragments; `design/tokens.css`, `design/styles.css`, and `design/theme.js` are the active system; `design/tokens.json` mirrors the token file and `scripts/check_repo.py` fails when a value differs, with regression tests; the README takes the candidate with a paper and ink banner pair; `design/VISUAL-LANGUAGE.md` describes the system. Ink & Bone, its tokens, the EB Garamond and italic Cormorant subsets, and the `design/v2/` draft with its specification, review, and specimen board live complete at `0e853f5`. No first-time reader has read the page. (#NN)
+
 - Added the Field & Form second visual-system draft under `design/v2/`: a homepage, a specimen board, a README candidate, a specification with an integration sequence, and the review that measured the live page against it. The active Ink & Bone system, the root page, and the README are unchanged. (#50)
 
 - Tightened record checks after malformed reports passed review probes: compare the identity fields and ledger version column, match the exact artifact version, and require the kit commit to remain reachable from a Git ref or HEAD. Added seven regression cases, including compatibility with the current report template. Added the charter requirement to Stage 1 intake and the action baseline, materiality rule, and challenge route to the self-guided packet.
