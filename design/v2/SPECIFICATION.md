@@ -44,7 +44,7 @@ Green communicates identity, not success. Diagram text labels carry meaning inde
 - System sans: 16 px default body at 1.65 line height; hero lead 18 px on desktop. Use system medium for document titles and primary action labels. Individual supporting passages use 14–15 px; keep long prose in the default body size.
 - IBM Plex Mono, weight 400: short labels, minimum 12 px for normal content labels. Decorative SVG annotations and the draft-only utility strip may be smaller. Avoid paragraphs or primary navigation in monospace.
 - Navigation: 14 px with a 44 px minimum target height. Primary action: at least 50 px high.
-- Layout: maximum outer width 76 rem, with 20 px minimum mobile gutters and up to 64 px desktop gutters. Use the 4 px spacing scale in tokens. Main sections have 80 px vertical padding on desktop and 56 px on phones.
+- Layout: maximum outer width 76 rem, with 20 px minimum mobile gutters and up to 64 px desktop gutters. Spacing steps are multiples of 4 px. Main sections have 80 px vertical padding on desktop and 56 px on phones.
 - Body measure: about 45–60 characters where the grid permits. Large hero copy can use editorial line breaks; reassess those breaks at every breakpoint.
 
 No additional font download is needed. Reusing an existing family preserves continuity and its recorded license. The system-sans body improves the functional contrast between instructions and display type.
@@ -74,7 +74,7 @@ GitHub owns the surrounding navigation, fonts, and color scheme. Improve the REA
 
 ## Integration sequence for AI-assisted development
 
-Recommended continuation setting: GPT-6 Astra, high reasoning. One writer in an isolated worktree; no delegation required.
+Recommended continuation: one writer in an isolated worktree at high reasoning effort; no delegation required.
 
 1. Fetch and read the final `main` and PR #48 content. Both #48 and this direction touch homepage presentation. Retain the final approved wording, link coverage, and test contracts from that work before applying the new layout. Do not merge a stale whole-page replacement over it.
 2. Review this local draft as a visual direction. Recheck wording against the canonical owner table. Retain the clear separation between the five document functions and six method steps.

@@ -58,4 +58,4 @@ Isaac Rubinstein maintains the project and holds merge and release authority. Th
 
 ---
 
-This is a README candidate in the [Field & Form design draft](system.html#repository). It has not replaced the repository's README. On promotion, move the banner to its final asset path, give it a dark variant or keep the current `<picture>` pair, and convert canonical GitHub links to repository-relative links. [Review](REVIEW.md) · [Specification](SPECIFICATION.md).
+This is a README candidate in the [Field & Form design draft](system.html#repository). It has not replaced the repository's README. On promotion, move the banner to its final asset path, give it a dark variant or keep the live README's `<picture>` pair, and convert canonical GitHub links to repository-relative links. [Review](REVIEW.md) · [Specification](SPECIFICATION.md).

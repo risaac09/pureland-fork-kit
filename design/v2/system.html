@@ -1,9 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="description" content="Field &amp; Form, a second visual-system draft for PureLand: palette, type, movement, contrast, and repository alignment.">
 <title>Field &amp; Form · PureLand visual system 02</title>
-<link rel="stylesheet" href="styles.css"><script src="theme.js" defer></script>
+<link rel="preload" href="../fonts/cormorant-garamond-600.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="../fonts/ibm-plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+<script>try { var t = localStorage.getItem('pureland-v2-theme'); if (t === 'paper' || t === 'ink') document.documentElement.dataset.theme = t; } catch (e) { /* Storage is optional. */ }</script>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="styles.css"><script src="theme.js" defer></script>
 <style>
   .system-intro { padding-block: 4rem; max-width: 65ch; }
   .system-intro h1 { font-size: clamp(4rem,8vw,6.5rem); margin-block: 1rem 1.5rem; }
@@ -36,7 +38,6 @@
   .repo-preview .label { margin-top:2rem; }
   .implementation { max-width:75ch; }
   .implementation li { margin-bottom:.85rem; }
-  code { font:.86em var(--font-label); }
   @media(max-width:680px) {
     .swatches { grid-template-columns:repeat(2,1fr); }
     .swatch-color { height:80px; }
@@ -48,20 +49,20 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="draft-strip"><div class="wrap"><span>PureLand · second visual-system draft</span><a href="index.html">Homepage preview ↗</a></div></div>
+<div class="draft-strip"><div class="wrap"><span>PureLand · second visual-system draft</span><a href="index.html">Homepage preview <span aria-hidden="true">↗</span></a></div></div>
 <div class="wrap"><header class="masthead"><a class="brand" href="index.html"><span class="brand-name">PureLand</span></a><nav aria-label="Design system navigation"><a href="#palette">Palette</a><a href="#type">Type</a><a href="#movement">Movement</a><a href="#repository">Repository</a></nav><button class="theme" id="theme-toggle" aria-label="Change color theme" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10 3a7 7 0 0 1 0 14Z" fill="currentColor"/></svg></button></header>
-<main id="main">
+<main id="main" tabindex="-1">
 <section class="system-intro"><p class="label">Visual system 02 / 14 September 2026</p><h1>Field &amp; Form</h1><p>Warm paper and mineral color. A field ledger with enough scale to orient a first-time reader. The irregularity lives in the material and the drawn line; the interface stays precise.</p></section>
 <section class="system-section" id="palette"><span class="label">01 / Color</span><h2>Muted color.<br>Readable contrast.</h2>
 <div class="swatches">
-  <div class="swatch"><div class="swatch-color" style="background:#F4F1E9;border:1px solid #C9CCC1"></div><p class="swatch-name">Paper</p><p class="label">#F4F1E9</p><p class="small">The main reading surface.</p></div>
-  <div class="swatch"><div class="swatch-color" style="background:#283F38"></div><p class="swatch-name">Mineral</p><p class="label">#283F38</p><p class="small">Headings, actions, evidence ground.</p></div>
-  <div class="swatch"><div class="swatch-color" style="background:#DDE3D8"></div><p class="swatch-name">Lichen</p><p class="label">#DDE3D8</p><p class="small">Linework on the mineral ground.</p></div>
-  <div class="swatch"><div class="swatch-color" style="background:#865944"></div><p class="swatch-name">Clay</p><p class="label">#865944</p><p class="small">Small annotations and focus.</p></div>
-  <div class="swatch"><div class="swatch-color" style="background:#252B27"></div><p class="swatch-name">Ink</p><p class="label">#252B27</p><p class="small">Primary text on paper.</p></div>
-  <div class="swatch"><div class="swatch-color" style="background:#596259"></div><p class="swatch-name">Stone</p><p class="label">#596259</p><p class="small">Readable secondary text.</p></div>
-  <div class="swatch"><div class="swatch-color" style="background:#BCA77E"></div><p class="swatch-name">Brass</p><p class="label">#BCA77E</p><p class="small">Decorative rules on mineral.</p></div>
-  <div class="swatch"><div class="swatch-color" style="background:#1E2924"></div><p class="swatch-name">Ink ground</p><p class="label">#1E2924</p><p class="small">The optional dark reading surface.</p></div>
+  <div class="swatch"><div class="swatch-color" style="background:var(--paper);border:1px solid var(--line)"></div><p class="swatch-name">Paper</p><p class="label">#F4F1E9</p><p class="small">The main reading surface.</p></div>
+  <div class="swatch"><div class="swatch-color" style="background:var(--mineral)"></div><p class="swatch-name">Mineral</p><p class="label">#283F38</p><p class="small">Headings, actions, evidence ground.</p></div>
+  <div class="swatch"><div class="swatch-color" style="background:var(--lichen)"></div><p class="swatch-name">Lichen</p><p class="label">#DDE3D8</p><p class="small">Linework on the mineral ground.</p></div>
+  <div class="swatch"><div class="swatch-color" style="background:var(--clay)"></div><p class="swatch-name">Clay</p><p class="label">#865944</p><p class="small">Small annotations and focus.</p></div>
+  <div class="swatch"><div class="swatch-color" style="background:var(--ink)"></div><p class="swatch-name">Ink</p><p class="label">#252B27</p><p class="small">Primary text on paper.</p></div>
+  <div class="swatch"><div class="swatch-color" style="background:var(--stone)"></div><p class="swatch-name">Stone</p><p class="label">#596259</p><p class="small">Readable secondary text.</p></div>
+  <div class="swatch"><div class="swatch-color" style="background:var(--brass)"></div><p class="swatch-name">Brass</p><p class="label">#BCA77E</p><p class="small">Decorative rules on mineral.</p></div>
+  <div class="swatch"><div class="swatch-color" style="background:var(--ink-ground)"></div><p class="swatch-name">Ink ground</p><p class="label">#1E2924</p><p class="small">The optional dark reading surface.</p></div>
 </div>
 <p class="small secondary" style="margin-top:1.5rem">Color names describe visual roles. Green never indicates a validated result; clay never turns a missing observation into a warning score.</p>
 </section>
@@ -82,15 +83,15 @@
 <section class="system-section" id="repository"><span class="label">05 / Repository alignment</span><h2>The same project,<br>in GitHub's own language.</h2><p class="secondary" style="max-width:65ch;margin-bottom:2rem">Use a shared banner and the same plain-language introduction. Let GitHub render the documents in its native type and colors. Keep the five research functions visible and use direct links to their canonical files.</p>
 <div class="repo-preview" aria-label="Proposed README introduction">
 <img src="banner.svg" alt="PureLand. A closer look at your information practices. Research-program prototype. Instruments unvalidated." width="1200" height="300">
-<h3 class="repo-title">PureLand</h3><p>A research-program prototype for examining your control over an information practice and the exposure it can create.</p><p><strong>The public front page is <a href="index.html">risaac09.github.io/pureland-fork-kit</a>. This repository is the record behind it.</strong> <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/METHOD.md">Read the method</a> · <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CURRENT-EVIDENCE.md">Inspect the evidence</a></p>
-<p><strong>This is version 0.1. Its instruments are unvalidated.</strong> One maintainer-side, AI-assisted partial dry run; no independent field trial. The current evidence does not show that the method works.</p>
+<h3 class="repo-title">PureLand</h3><p>A research-program prototype for examining your control over an information practice and the exposure it can create.</p><p><strong>The public front page is <a href="https://risaac09.github.io/pureland-fork-kit/">risaac09.github.io/pureland-fork-kit</a>. This repository is the record behind it.</strong> <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/METHOD.md">Read the method</a> · <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/CURRENT-EVIDENCE.md">Inspect the evidence</a></p>
+<p><strong>This is version 0.1. Its instruments are unvalidated.</strong> PureLand has one maintainer-side, AI-assisted partial dry run and no independent field trial. The current evidence does not show that the method works.</p>
 <h3>Start with your own practice</h3><p>Use the <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/templates/run-it-yourself.md">self-guided packet</a>, or examine your own language-model use with the <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/templates/run-with-a-model.md">model-use packet</a>. To work with Isaac, propose a <a href="https://github.com/risaac09/pureland-fork-kit/blob/main/OFFERING.md">Field Pilot</a>. The offering is the one description of the pilot and its terms.</p>
-<h3>The research record</h3><table class="contrast-table"><thead><tr><th>Document</th><th>Its job</th></tr></thead><tbody><tr><td>Thesis</td><td>The organizing argument and its limits.</td></tr><tr><td>Method</td><td>The six-step inquiry.</td></tr><tr><td>Toolbox</td><td>The forkable instruments and templates.</td></tr><tr><td>Testing</td><td>The claim and what would count against it.</td></tr><tr><td>Current evidence</td><td>The records and their limits.</td></tr></tbody></table>
+<h3>The research record</h3><table class="contrast-table"><thead><tr><th>Document</th><th>Its job</th></tr></thead><tbody><tr><td>Thesis</td><td>The organizing argument and its limits.</td></tr><tr><td>Method</td><td>The repeatable inquiry from Scope to Report.</td></tr><tr><td>Toolbox</td><td>Forkable instruments, templates, controls, and public-safe records.</td></tr><tr><td>Testing</td><td>The testable claim and what would count against it.</td></tr><tr><td>Current evidence</td><td>Accepted records, counterexplanations, missing evidence, and the current conclusion.</td></tr></tbody></table>
 <p class="label">Rendered concept · GitHub controls its own interface</p>
-</div><a class="text-link" href="README-preview.md">Read the complete Markdown candidate ↗</a>
+</div><a class="text-link" href="README-preview.md">Read the complete Markdown candidate <span aria-hidden="true">↗</span></a>
 </section>
 <section class="system-section implementation"><span class="label">06 / AI-assisted implementation contract</span><h2>Make the decisions explicit.</h2><ol><li><strong>Content belongs to the canonical documents.</strong> The homepage introduces each source and links to it. Check every changed claim against its owner.</li><li><strong>CSS tokens own the visual roles.</strong> The specimen page demonstrates them. Additional token formats should be generated and checked for parity.</li><li><strong>Keep behavior native.</strong> Anchors navigate; details reveal method steps. JavaScript controls the optional theme preference.</li><li><strong>Review the rendered result.</strong> Test 390 px, 768 px, and desktop layouts, then keyboard interaction, both themes, and the no-script fallback.</li><li><strong>Reconcile before promotion.</strong> PR #48 changes the same homepage and tokens. Choose its final content base before moving this second system onto the public entry point.</li></ol><p><a href="SPECIFICATION.md">Design and integration specification</a> · <a href="REVIEW.md">Audit and verification record</a></p></section>
-</main><footer class="footer"><a class="text-link" href="index.html">Back to the homepage draft ↗</a></footer>
+</main><footer class="footer"><a class="text-link" href="index.html">Back to the homepage draft <span aria-hidden="true">↗</span></a></footer>
 </div>
 </body>
 </html>

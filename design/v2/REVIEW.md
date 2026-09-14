@@ -6,7 +6,7 @@ Reviewed 2026-09-14. [Homepage draft](index.html) · [Visual system](system.html
 
 The public page and repository are technically aligned. The design makes a first-time reader work too hard to find the method and evidence. The best next step is a clearer front door, with the same research character and evidence limits.
 
-Field & Form is a second visual-system draft. It uses warm paper, mineral green, large mixed-case display type, and a system-sans reading face. It retains the original fork mark as a supporting illustration. Native disclosures make the method inspectable without the existing long scenes.
+Field & Form is a second visual-system draft. It uses warm paper, mineral green, large mixed-case display type, and a system-sans reading face. It keeps the fork mark in the masthead and redraws it at a larger scale as a supporting illustration. Native disclosures make the method inspectable without the existing long scenes.
 
 ## Live state
 
@@ -39,9 +39,9 @@ Same browser, 1280 × 720. Measurements are CSS pixels with default font size, a
 
 | Measure | Live Ink & Bone | Field & Form draft |
 |---|---:|---:|
-| First prominent action, y | 1142 | 600 |
-| Evidence section, y | 7613 | 1675 |
-| Initial document height | 10108 | 4224 |
+| First prominent action, y | 1142 | 606 |
+| Evidence section, y | 7613 | 1687 |
+| Initial document height | 10108 | 4259 |
 | Navigation type | 11.2 px | 14 px |
 
 Initial height falls about 58%. Evidence appears about 78% earlier in document distance. These are layout measurements, not a measured gain in understanding, task success, or attention sovereignty. Disclosure expansion changes document height. No tenfold usability claim is supported.
@@ -50,12 +50,13 @@ Initial height falls about 58%. Evidence appears about 78% earlier in document d
 
 Completed:
 
-- Rendered the homepage at 320, 390, 768, and 1280 px. No horizontal overflow at those widths. The primary action begins at y=522 at 320 px, y=512 at 390 px, y=519 at 768 px, and y=600 at 1280 px. Viewport heights were 812, 844, 1024, and 720 px respectively.
+- Rendered the homepage at 320, 390, 768, and 1280 px. No horizontal overflow at those widths. The primary action begins at y=522 at 320 px, y=512 at 390 px, y=521 at 768 px, and y=606 at 1280 px, measured after the review pass below. Viewport heights were 812, 844, 1024, and 720 px respectively.
 - Inspected paper and ink themes in the browser. Theme switching updates its accessible action name and persists the local preference.
 - Opened and closed Attend with Enter/Space. The disclosure retained native keyboard behavior and a visible 3 px focus outline. Verified the primary method and evidence anchor links.
 - Rendered a temporary copy with all script tags removed: zero scripts, one H1, one main landmark, hidden theme control, and Attend opened through its native disclosure. The temporary fixture was removed after checking.
 - Reviewed the repository banner and README composition in the specimen page. That page produced no captured warning or error logs during the check. This is a rendered README concept, not a screenshot of a published README.
 - Calculated the declared text contrast: Ink/Paper 12.80:1, Stone/Paper 5.61:1, Mineral/Paper 10.01:1, Clay/Paper 5.28:1, dark secondary/Ink ground 8.74:1. Decorative lines are separate from functional boundaries.
+- An adversarial review pass on 2026-09-14, five finders and a sweep with each finding verified against the files, found the defects listed in the [AI-assistance record](../../AI-ASSISTANCE.md); this branch carries the fixes, and the checks and renders in this section were rerun after them.
 - `python3 scripts/check_repo.py`: passed, with the existing unreleased-changelog warning. The checker resolves the new Markdown, HTML, CSS, image, and font links as part of its repository walk.
 - `python3 -m unittest scripts/test_check_repo.py`: all 22 existing tests passed.
 - `python3 scripts/test_classification_gap.py`: all three probes passed.
@@ -82,7 +83,7 @@ Added 2026-09-14 in Claude Code, after the draft above was received. [PR #48](ht
 | Legacy fragments `#spine`, `#readerships`, `#what-it-studies`, and the six step IDs | Six step IDs and `#what-it-studies` kept; `#spine` and `#readerships` absent | No file in the repository links to the absent fragments. Keep aliases at promotion for links from outside the repository |
 | `design/tokens.css` and `tokens.json` change comment text only, Observe to Attend | Separate token source under `design/v2/` | No conflict. One active palette at promotion, as the specification requires |
 | `AI-ASSISTANCE.md` and `CHANGELOG.md` gain entries at the top of their lists | Not yet recorded | Entries added on this branch. They insert where PR #48 and the capture-guide branch insert, so whichever lands second takes a trivial rebase |
-| The README carries a light and dark banner pair under `design/assets/` | One banner with a fixed paper ground | Left for promotion: add a dark variant or keep the `<picture>` element |
+| The README carries a light and dark banner pair under `design/assets/` | One banner with a fixed paper ground | Left for promotion: add a dark variant or keep the live README's `<picture>` element |
 
 Nothing in PR #48 changes the page structure this draft proposes; its front-page edits are wording and link targets, and the draft now reflects them. Files under `design/v2/` stay outside `REQUIRED_ARCHITECTURE`, `llms.txt`, and the version and ceiling checks until promotion.
 
@@ -90,10 +91,10 @@ Nothing in PR #48 changes the page structure this draft proposes; its front-page
 
 This draft is carried by pull request #NN for review. No merge, deployment, release, or reader test has occurred. Review the [visual system](system.html) and [README candidate](README-preview.md) together. Their common introduction, palette, fork image, research-map order, and source labels create continuity within GitHub's native UI constraints.
 
-Before adoption: reconcile with PR #48, review the shorter front-page copy, preserve legacy fragment routes, update active token contracts together, and run first-time-reader comprehension checks. [SPECIFICATION.md](SPECIFICATION.md) gives a bounded implementation sequence and acceptance criteria.
+Before adoption: review the shorter front-page copy, settle the items the reconciliation table leaves to the maintainer, preserve legacy fragment routes, update active token contracts together, and run first-time-reader comprehension checks. [SPECIFICATION.md](SPECIFICATION.md) gives a bounded implementation sequence and acceptance criteria.
 
 ## AI assistance
 
 OpenAI Codex inspected the live public page and repository, drafted the HTML/CSS/JavaScript and SVG assets, and wrote this review. Project claims came from the public repository. No participant material or confidential records entered the draft. The design and shorter copy still need maintainer review before adoption. AI-produced layout measurements are browser observations; they are not research evidence that PureLand works.
 
-Claude Fable 5.1 in Claude Code continued the work on 2026-09-14: committed the draft as received, read it against PR #48 and the repository checker, made the changes in the reconciliation table, reran the checks and the renders, ran two adversarial review passes, and opened the pull request. The entry in [AI-ASSISTANCE.md](../../AI-ASSISTANCE.md) is the disclosure of record.
+Claude Fable 5.1 in Claude Code continued the work on 2026-09-14: committed the draft as received, read it against PR #48 and the repository checker, made the changes in the reconciliation table, reran the checks and the renders, ran an adversarial review pass whose fixes the branch carries, and prepared the pull request. The entry in [AI-ASSISTANCE.md](../../AI-ASSISTANCE.md) is the disclosure of record.
