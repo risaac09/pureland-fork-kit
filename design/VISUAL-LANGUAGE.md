@@ -44,7 +44,7 @@ Targets are 4.5:1 for normal text and 3:1 for functional boundaries. Decorative 
 ## Typography
 
 - **Display.** Cormorant Garamond, weight 600, mixed case, self-hosted as a latin woff2 subset in `design/fonts/`. Tight line height and modest negative tracking apply only at display sizes. The hero heading is about 83 px at 1280 px wide, about 51 px at 390 px, and 37 px at 320 px.
-- **Body.** The reader's system sans, `-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`, at 16 px with a 1.65 line height; the hero lead is 18 px on desktop. Document titles and the status sentences use the medium weight.
+- **Body.** The reader's system sans, `-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`, at 16 px with a 1.65 line height; the hero lead is 18 px on desktop. Document titles, the status sentences, and the pilot sentence's lead use the medium weight.
 - **Labels.** IBM Plex Mono, weight 400, self-hosted, for short record labels only. Twelve pixels is the floor for a label that carries content. Never set paragraphs or primary navigation in monospace.
 - **Navigation** is 14 px sans with a 44 px minimum target, and the primary action is at least 50 px high.
 

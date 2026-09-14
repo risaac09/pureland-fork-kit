@@ -999,10 +999,19 @@ def check_token_parity(errors: list[str]) -> None:
             return
         blocks += 1
         # A value may carry a quoted string, and a semicolon inside the
-        # quotes does not end the declaration.
-        for name, value in re.findall(
-            r"(--[\w-]+)\s*:\s*((?:\"[^\"]*\"|'[^']*'|[^;\"'])+);", css[start : index - 1]
-        ):
+        # quotes does not end the declaration. A declaration the pattern
+        # cannot read, such as one with an unclosed quote, is an error
+        # rather than a silent omission.
+        body = css[start : index - 1]
+        parsed = re.findall(r"(--[\w-]+)\s*:\s*((?:\"[^\"]*\"|'[^']*'|[^;\"'])+);", body)
+        readable = {name for name, _ in parsed}
+        for name in re.findall(r"(--[\w-]+)\s*:", body):
+            if name not in readable:
+                errors.append(
+                    f"token parity: {name} in design/tokens.css could not be read as a "
+                    "declaration; check its quotes and semicolon"
+                )
+        for name, value in parsed:
             value = re.sub(r"\s+", " ", value.strip())
             if name in declared and declared[name] != value:
                 errors.append(

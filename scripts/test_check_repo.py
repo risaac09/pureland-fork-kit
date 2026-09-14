@@ -310,6 +310,18 @@ class CheckRepoConsistencyTests(unittest.TestCase):
         result = self.run_checker()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertNotIn("token parity", result.stdout)
+        data["tokens"]["--separator"] = '","'
+        mirror.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+        self.assert_failed_with("token parity: --separator is '\";\"' in design/tokens.css")
+
+    def test_token_parity_reports_a_declaration_it_cannot_read(self) -> None:
+        tokens = self.repo / "design/tokens.css"
+        text = tokens.read_text(encoding="utf-8")
+        tokens.write_text(
+            text.replace("  --paper: #F4F1E9;", "  --paper: #F4F1E9;\n  --broken: \"oops;"),
+            encoding="utf-8",
+        )
+        self.assert_failed_with("token parity: --broken in design/tokens.css could not be read as a declaration")
 
     def test_current_report_template_identity_and_version_pass(self) -> None:
         template = (SOURCE / "templates/field-test.md").read_text()
