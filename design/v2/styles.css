@@ -47,7 +47,8 @@ h3 { font-size: 2rem; line-height: 1.15; }
 .specimen-plate > svg { width: 100%; height: 290px; position: relative; }
 .plate-foot { font: .75rem/1.7 var(--font-label); color: #CCD3C5; position: relative; border-top: 1px solid #5B7164; padding-top: .8rem; }
 .specimen figcaption { display: flex; justify-content: space-between; gap: 1rem; color: var(--secondary); margin-top: .8rem; font-size: .75rem; }
-.status-line { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding-block: 1.3rem; display: grid; grid-template-columns: 1fr 1fr auto; gap: 1.5rem; align-items: center; }
+.status-line { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding-block: 1.3rem; display: grid; grid-template-columns: 1fr 1fr auto; gap: 1.5rem; align-items: start; }
+.status-line > .text-link { align-self: center; }
 .status-line strong { font-size: .9rem; font-weight: 500; }
 .status-line .label { display: block; margin-bottom: .25rem; }
 .section { padding-block: 5rem; }
@@ -153,7 +154,7 @@ details[open] .expand::after { transform: rotate(0); }
   .hero-lead { font-size: 1.0625rem; margin-top: 1.4rem; }
   .hero-actions { margin-top: 1.5rem; }
   .specimen { display: none; }
-  .status-line { grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start; }
+  .status-line { grid-template-columns: 1fr 1fr; gap: 1rem; }
   .status-line > .text-link { grid-column: 1 / -1; min-height: 32px; }
   .section, .paths { padding-block: 3.5rem; }
   .section-grid, .evidence-top, .rights .wrap { grid-template-columns: 1fr; gap: 2rem; }
