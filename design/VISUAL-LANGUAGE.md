@@ -44,7 +44,7 @@ Targets are 4.5:1 for normal text and 3:1 for functional boundaries. Decorative 
 ## Typography
 
 - **Display.** Cormorant Garamond, weight 600, mixed case, self-hosted as a latin woff2 subset in `design/fonts/`. Tight line height and modest negative tracking apply only at display sizes. The hero heading is about 83 px at 1280 px wide, about 51 px at 390 px, and 37 px at 320 px.
-- **Body.** The reader's system sans, `-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`, at 16 px with a 1.65 line height; the hero lead is 18 px on desktop. Document titles and the primary action use the medium weight.
+- **Body.** The reader's system sans, `-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`, at 16 px with a 1.65 line height; the hero lead is 18 px on desktop. Document titles and the status sentences use the medium weight.
 - **Labels.** IBM Plex Mono, weight 400, self-hosted, for short record labels only. Twelve pixels is the floor for a label that carries content. Never set paragraphs or primary navigation in monospace.
 - **Navigation** is 14 px sans with a 44 px minimum target, and the primary action is at least 50 px high.
 
@@ -59,7 +59,7 @@ The page is one column of at most 76 rem, with gutters from 20 px on a phone to 
 - **Roman numerals** number the six method steps and nothing else on the page. The five research documents carry arabic numbers, so the two sequences cannot be confused.
 - **Hairline rules**, one pixel in the line role, divide sections and rows without shouting.
 - **Monospace labels** mark record fields: the release, the research status, a record's date and outcome.
-- **The specimen plate.** The fork mark sits on a Mineral plate with Brass guide lines and monospace annotations, a study in line rather than a logo.
+- **The specimen plate.** The fork mark sits on a Mineral plate with faint green guide lines, Brass pointer ticks, and monospace annotations, a study in line rather than a logo.
 - **Native disclosures.** The six steps are `<details>` elements. All six can stand open at once for comparison, and a link to a step opens that step.
 
 ## Movement

@@ -967,21 +967,52 @@ def check_token_parity(errors: list[str]) -> None:
     same value, and the map must name nothing the stylesheet does not. Values
     are compared after whitespace is collapsed; light-dark() and var() stay
     unresolved, because the copy is of the declaration, not of a rendering.
+    Neither file is required architecture, so the rule stays quiet only when
+    both are absent; one without the other is an error.
     """
     css_path = ROOT / "design/tokens.css"
     json_path = ROOT / "design/tokens.json"
-    if not css_path.is_file() or not json_path.is_file():
+    if not css_path.is_file() and not json_path.is_file():
         return
-    css = css_path.read_text(encoding="utf-8")
-    block = re.search(r":root\s*\{(.*?)\n\}", css, re.S)
-    if block is None:
+    if not (css_path.is_file() and json_path.is_file()):
+        present, missing = (
+            ("design/tokens.css", "design/tokens.json")
+            if css_path.is_file()
+            else ("design/tokens.json", "design/tokens.css")
+        )
+        errors.append(f"token parity: {present} exists but {missing} is missing; the two travel together")
+        return
+    # Comments go first, so a brace inside one cannot end a block early.
+    css = re.sub(r"/\*.*?\*/", "", css_path.read_text(encoding="utf-8"), flags=re.S)
+    # Every bare :root block counts, wherever it sits, so a value redeclared in
+    # a media query cannot hide from the comparison; a role declared twice
+    # with different values is itself the drift this check exists to stop.
+    declared: dict[str, str] = {}
+    blocks = 0
+    for opening in re.finditer(r":root\s*\{", css):
+        depth, start, index = 1, opening.end(), opening.end()
+        while index < len(css) and depth:
+            depth += {"{": 1, "}": -1}.get(css[index], 0)
+            index += 1
+        if depth:
+            errors.append("design/tokens.css has an unclosed :root block")
+            return
+        blocks += 1
+        # A value may carry a quoted string, and a semicolon inside the
+        # quotes does not end the declaration.
+        for name, value in re.findall(
+            r"(--[\w-]+)\s*:\s*((?:\"[^\"]*\"|'[^']*'|[^;\"'])+);", css[start : index - 1]
+        ):
+            value = re.sub(r"\s+", " ", value.strip())
+            if name in declared and declared[name] != value:
+                errors.append(
+                    f"token parity: {name} is declared twice in design/tokens.css with different "
+                    f"values, {declared[name]!r} and {value!r}; declare each role once"
+                )
+            declared[name] = value
+    if not blocks:
         errors.append("design/tokens.css has no :root block to compare with design/tokens.json")
         return
-    body = re.sub(r"/\*.*?\*/", "", block.group(1), flags=re.S)
-    declared = {
-        name: re.sub(r"\s+", " ", value.strip())
-        for name, value in re.findall(r"(--[\w-]+)\s*:\s*([^;]+);", body)
-    }
     try:
         mirrored = json.loads(json_path.read_text(encoding="utf-8")).get("tokens")
     except (json.JSONDecodeError, AttributeError):
