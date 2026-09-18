@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-17 collaborator provenance entry
+
+| Field | Record |
+|---|---|
+| Tool | Claude Fable 5.1 in Claude Code |
+| Task | 2026-09-17. Add a `PROVENANCE.md` entry for Samara's Sanctuary Studios' theory of change, after the maintainer attributed the four-term outcome framing he is drafting toward to that source and asked for the entry |
+| Material provided | The repository at `bbddae0`; the maintainer's statement and attribution in conversation; a private transcript of Justin Taylor's S³ prototype presentation; the public Open Collective, Substack, and Say Why pages the entry links. No participant material |
+| Source verification | The quoted sentence was fetched from the Open Collective page on 2026-09-17 and matches verbatim. The Substack post was fetched the same day; it carries the developmental-infrastructure framing and not the sentence, so the entry cites it for the account of the studio only. The Say Why page was fetched and names Justin Taylor and the studio, spelled there as Samara Sanctuary Studios. The spoken variant in the private transcript, "generates harmonic organizations for prosperous work," is not quoted in the kit. `scripts/check_repo.py` and the unit tests pass |
+| Corrections after verification | The first draft of the maintainer's private note on this source treated it as unfetchable and gated naming Justin Taylor on a consent decision. Both were wrong: the sentence is published under S³'s name, and the Say Why episode naming him has been public since 2026-06-30. The maintainer's instruction, name the source and quote it with a link, set the entry's form. Program outcome figures spoken in the private transcript were left out because they are not on the linked pages |
+| Human review | The maintainer asked for the entry and reviews and merges the pull request. The maintainer vouches for the attribution on the basis of the working relationship; corrections from S³ enter through `CONTRIBUTING.md` |
+| Sensitive material | The private presentation transcript and the maintainer's private notes stay outside the repository |
+
 ## 2026-09-14 front-page promotion
 
 | Field | Record |
