@@ -98,6 +98,8 @@ details[open] .expand::after { transform: rotate(0); }
 .path h3 { margin-block: .65rem 1rem; }
 .path p { color: var(--secondary); max-width: 46ch; }
 .path .text-link { margin-top: 1rem; }
+.private { display: flex; align-items: center; gap: 3rem; justify-content: space-between; padding: 1.5rem 0; border-top: 1px solid var(--line); }
+.private p { color: var(--secondary); max-width: 62ch; }
 .pilot { display: flex; align-items: center; gap: 3rem; justify-content: space-between; padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
 .pilot p { font-size: .9rem; color: var(--secondary); max-width: 69ch; }
 .pilot strong { color: var(--text); font-weight: 500; }
@@ -169,6 +171,8 @@ details[open] .expand::after { transform: rotate(0); }
   .path-grid { grid-template-columns: 1fr; }
   .path { padding: 1.5rem 0; }
   .path + .path { padding: 1.5rem 0; border-left: 0; border-top: 1px solid var(--line); }
+  .private { display: block; }
+  .private a { margin-top: .7rem; }
   .pilot { display: block; }
   .pilot a { margin-top: .7rem; }
   .library { padding-bottom: 3.5rem; }
