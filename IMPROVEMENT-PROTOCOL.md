@@ -152,8 +152,38 @@ The first proposal is alone because it is the only one that changes what a
 conformant record asserts. The remaining six are prose and navigation, and none
 of them changes an instrument, a construct, a falsifier, or the ceiling.
 
-None of the seven is made by the walk or by this file. Each is a maintainer
-decision, and a decline belongs in [Declined](#declined) above.
+Neither the walk nor this file makes any of the seven.
+
+### How the batch actually landed
+
+All seven were made in pull request #55, by a different session, before this
+file reached `main`. That makes the batch the first test of the triage above
+against an outcome it did not produce, and the triage was wrong in two places.
+Both are recorded here rather than corrected away, because a procedure that
+only ever reports its own success is the thing the [never](#what-a-change-may-never-do)
+section exists to prevent.
+
+- **The grouping prediction failed.** The table proposed one change alone and
+  two groups of three. The work landed as one pull request carrying all three
+  bundles. The grouping column read a change's cost as a claim about how it
+  should be shipped, and those are different questions. Cost decides what a
+  change owes; it does not decide how many pull requests it takes.
+- **The `owes` column was incomplete on the row that mattered most.** It asked
+  the schema change for a fixture that fails before and passes after, and for a
+  statement about what previously conformant records asserted. #55 delivered
+  both and something the column did not name: it wrote the new binding into
+  `templates/field-test.md` and `TESTING.md`, so a person who writes `performed`
+  learns what it commits instead of meeting a conformance error naming JSON
+  paths. A rule that changes what a person must supply owes that person a
+  sentence in the place they are working, and the table did not say so.
+
+One thing the triage got right: the schema row was the only one that changes
+what a conformant record asserts, and it is the one that needed a test that can
+fail. #55's `scripts/test_performed_gap.py` exits 1 against the pre-repair
+schema.
+
+A decline still belongs in [Declined](#declined) above. This batch produced
+none.
 
 ## What this protocol does not do
 
