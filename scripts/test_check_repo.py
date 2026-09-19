@@ -116,6 +116,25 @@ class CheckRepoConsistencyTests(unittest.TestCase):
         )
 
     def test_unreleased_entries_warn_from_changelog(self) -> None:
+        """An entry under Unreleased warns, whatever the release state is.
+
+        This wrote its own entry from release 0.1.1 on. Before that it read
+        the repository's own Unreleased section and passed because one
+        happened to be there, so cutting a release turned a true statement
+        about the rule into a failing test. The sibling below already built
+        the empty case rather than borrowing it; this now matches, and the
+        pair covers both branches from fixtures either way.
+        """
+        changelog = self.repo / "CHANGELOG.md"
+        text = changelog.read_text(encoding="utf-8")
+        seeded = re.sub(
+            r"(?ms)(^## Unreleased\s*\n).*?(?=^## )",
+            r"\1\n- A pending entry, written by this test. (#0)\n\n",
+            text,
+            count=1,
+        )
+        self.assertNotEqual(seeded, text, "the Unreleased section was not seeded")
+        changelog.write_text(seeded, encoding="utf-8")
         result = self.run_checker()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertIn(UNRELEASED_DRIFT_WARNING, result.stdout)

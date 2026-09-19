@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-19 release 0.1.1
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code, remote session. The model attribution is carried by the commit trailer rather than restated here |
+| Task | 2026-09-19. Cut release 0.1.1 on request: move the `## Unreleased` entries under a dated heading, draft the release framing, bump `CITATION.cff`, and add the missing changelog line for #56 |
+| Material provided | The repository at `c7b2061`. `GOVERNANCE.md` for what a release decision requires, `TESTING.md` for the version 0.2 gate, `scripts/check_repo.py` for `check_version_claims` and the drift warning, and the GitHub release and tag list. No participant material |
+| Source verification | The version number was decided from the code and the gate rather than from convention. `check_version_claims` states that the patch level stays `CITATION.cff`'s alone while the prose names major and minor, so `0.1.1` leaves the three entry-point sentences correct and unedited; the checker confirms it. `0.2` was refused because `TESTING.md` makes it a research gate of five to ten independent applications across at least three contexts and `CURRENT-EVIDENCE.md` records none. The twenty pull request numbers in the new section were counted from the section itself, not from memory. The previous release was read from the GitHub release list: `v0.1.0`, tag at `53ebf43`, published 2026-09-02. `scripts/check_repo.py` now reports 0 warnings, the drift warning having cleared, and the 32 unit tests, `test_classification_gap.py`, and `test_performed_gap.py` pass |
+| Corrections after verification | A first framing said "Nineteen pull requests since 0.1.0". Two faults: #56 had merged that day with no changelog line at all, and "since 0.1.0" would have had to account for #45, closed unmerged, and #53, which corrected #37's bullet in place rather than adding one. The missing #56 entry was written and the sentence became "Twenty pull requests are named below", which is checkable against the section. #53 still has no line of its own, which is the existing convention for a correction to an entry rather than a change to the kit. Cutting the release then broke a test: `test_unreleased_entries_warn_from_changelog` asserted the drift warning while reading the repository's own `## Unreleased` section, so emptying that section failed it. The rule was left alone and the test was given its own seeded entry, matching the sibling that already built the empty case, then checked against a deliberately disabled drift rule to confirm it still fails when the rule is wrong |
+| Human review | Pending. The maintainer decides whether to cut the release. `GOVERNANCE.md` reserves that decision, including the verification of Pages and release state that no check performs, and the tag and GitHub release are not created by this change |
+| Sensitive material | None involved |
+
 ## 2026-09-19 improvement protocol
 
 | Field | Record |
