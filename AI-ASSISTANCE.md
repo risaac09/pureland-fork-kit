@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-19 improvement protocol
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code, remote session. The model attribution is carried by the commit trailer rather than restated here |
+| Task | 2026-09-19. Draft `IMPROVEMENT-PROTOCOL.md` on request, after the agent-lane walk produced seven proposals and the kit had no stated procedure for what happens to a finding. Linked it from `METHOD.md`, `TOOLBOX.md`, `CONTRIBUTING.md`, and `llms.txt`, and added its two falsifiers to `RESEARCH-STATUS.md` |
+| Material provided | The repository at `b0d0fbc`, read for what `CONTRIBUTING.md`, `GOVERNANCE.md`, `TESTING.md`, `RESEARCH-STATUS.md`, `CURRENT-EVIDENCE.md`, and `AI-ASSISTANCE.md` each already own, so the new file would restate none of them. The maintainer's choice between three readings of the request, made in conversation. No participant material |
+| Source verification | Every ownership boundary the file claims was read from the file that holds it rather than assumed. The one worked case in the never-weaken section, the traceable construct revised after FT-001 read intentional deletion as a provenance gap, was taken from `research/field-tests/ft-001-alchemy.md` and `CURRENT-EVIDENCE.md`, both of which record the revision as untested and neither of which records a re-read. The seven triaged proposals are the walk's own, unchanged. `scripts/check_repo.py` passes at 38 Markdown files with the standing changelog warning, and the 32 unit tests pass |
+| Corrections after verification | A first outline gave the file an intake form and a merge checklist, which `CONTRIBUTING.md` and `GOVERNANCE.md` already own; both were cut and replaced with pointers, because a second copy drifts from the first. A first draft asserted the declined-proposal table was empty because nothing had been declined; the table now says an empty table is the current state and not a claim that nothing has ever been turned down |
+| Human review | Pending. The maintainer decides whether the procedure is adopted. A procedure written by the person holding merge authority does not constrain that person, which the file says about itself in its closing section |
+| Sensitive material | None involved |
+
 ## 2026-09-19 agent-lane walk
 
 | Field | Record |
