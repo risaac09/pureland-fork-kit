@@ -39,7 +39,7 @@ You may never generate:
 - a completed consent register, a participant name, a transcript, or any material [SECURITY.md](https://risaac09.github.io/pureland-fork-kit/SECURITY.md) keeps out of the repository.
 - a claim about what PureLand has shown that goes past [CURRENT-EVIDENCE.md](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md).
 - the [ORIGIN.md](https://risaac09.github.io/pureland-fork-kit/ORIGIN.md) account. It is the maintainer's personal history and the file says no other contributor should draft it for him.
-- a combined, composite, or average score. The instruments refuse one. `check_repo.py` catches three literal field names and no more, so the refusal is yours to keep, not the checker's to enforce.
+- a combined, composite, or average score. The instruments refuse one. The two surfaces differ, so do not read one guard as covering both. Every object in the JSON record is closed, so the schema rejects any key it does not name, whether or not `check_repo.py` lists it; the checker's three literal names (`average_score`, `composite_score`, `overall_score`) are a second pass over that same closed surface. Prose is the open surface. Nothing checks a report sentence that averages the bands, multiplies them, or reports one overall figure, and a composite stated in words counts as the composite the instruments refuse. There the refusal is yours to keep.
 
 Hand these to a person, unstarted or clearly marked as a proposal:
 

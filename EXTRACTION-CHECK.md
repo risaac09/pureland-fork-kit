@@ -2,6 +2,8 @@
 
 Use this after the [openness scorecard](SCORECARD.md), or before opening a system further. Apply this check to your own practice first. This is the Trace step of [the method](METHOD.md#4-trace).
 
+This instrument is unvalidated. It has no reliability or validity result, and no independent test has shown that two readers applying it reach the same bands. Completing it establishes that you applied a checklist and recorded your reasons. It does not establish that your reading is correct, that the practice is extractive, or that any system is open or safe. [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md) holds the evidence record and caps every claim about what PureLand has shown. [RESEARCH-STATUS.md](RESEARCH-STATUS.md) holds the claim-by-claim status.
+
 ## 1. Trace value
 
 Value means anything that leaves a person and piles up somewhere else. Include attention, narrative, relationship, data, labor, money, status, and decision power.
@@ -72,4 +74,4 @@ One person's consent may not settle the use of a community's knowledge. Ask who 
 |---|---|---|---|---|---|
 | | | | | | |
 
-Re-run the check after the change. Keep the record of what failed and who disagreed. The result is a profile for discussion, not a moral verdict or a certification.
+Re-run the check after the change. Keep the record of what failed and who disagreed. The result is a profile for discussion, not a moral verdict or a certification. What this check has been shown to do is recorded in [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md).
