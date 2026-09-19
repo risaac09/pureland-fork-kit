@@ -1,6 +1,6 @@
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PureLand fork mark">
   <title>PureLand fork mark</title>
-  <g fill="none" stroke="#F3EDE0" stroke-linecap="round" stroke-linejoin="round">
+  <g fill="none" stroke="#DDE3D8" stroke-linecap="round" stroke-linejoin="round">
     <!-- Stem: one path, unbranched, up to the fork point. -->
     <path d="M 50 90 L 50 52" stroke-width="4"/>
     <!-- Two branches: the chain proliferating past thinking. -->

@@ -8,13 +8,12 @@ body:
       value: |
         This issue is public. It begins Stage 1 scoping only. Use general terms. Do not include evidence links, excerpts, participant material, direct or indirect identifiers, client or confidential records, consent records, or protected community knowledge.
 
-        If protected material may be involved, do not place it here. Stage 2 starts only after the maintainer establishes an appropriate private review channel and confirms the rights basis. No participant material should enter a public issue while that channel or authority remains unresolved. Submitting this form does not mean the proposal is accepted.
+        If protected material may be involved, do not place it here. Stage 2 starts only after the maintainer establishes an appropriate private review channel, confirms the rights basis, and completes the [Field Pilot charter](https://github.com/risaac09/pureland-fork-kit/blob/main/templates/field-pilot-charter.md) with the named decision-makers. Resource terms belong in that private conversation; payment or funding grants no material-use or publication permission. No participant material should enter a public issue while that channel or authority remains unresolved. Submitting this form does not mean the proposal is accepted.
   - type: input
     id: version
     attributes:
-      label: Kit version or commit
-    validations:
-      required: true
+      label: Kit commit (kit_version)
+      description: Optional. The short hash from github.com/risaac09/pureland-fork-kit/commits/main, with the date. The maintainer records the accepted commit if the proposal reaches Stage 2.
   - type: dropdown
     id: instrument
     attributes:

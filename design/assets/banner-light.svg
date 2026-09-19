@@ -1,23 +1,13 @@
-<svg viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PureLand. Research-program prototype and forkable toolbox.">
-  <title>PureLand. Research-program prototype and forkable toolbox.</title>
-  <rect x="0" y="0" width="1200" height="300" fill="#F3EDE0"/>
-
-  <!-- PureLand fork mark: one stem, two branches, the chain proliferating past thinking. -->
-  <g transform="translate(70,80) scale(1.4)" fill="none" stroke="#1C1815" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 50 90 L 50 52" stroke-width="4"/>
-    <path d="M 50 52 C 40 40, 32 28, 26 14" stroke-width="3.5"/>
-    <path d="M 50 52 C 60 40, 68 28, 74 14" stroke-width="3.5"/>
-  </g>
-
-  <!-- title -->
-  <text x="252" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="56" letter-spacing="8" fill="#1C1815">PURELAND</text>
-
-  <!-- hairline rule -->
-  <line x1="252" y1="174" x2="950" y2="174" stroke="#B4945F" stroke-width="1.5" opacity="0.9"/>
-
-  <!-- caption -->
-  <text x="252" y="206" font-family="'Courier New', monospace" font-size="15" letter-spacing="2" fill="#6B6257">RESEARCH-PROGRAM PROTOTYPE &#183; FORKABLE TOOLBOX</text>
-
-  <!-- restrained roman-numeral annotation -->
-  <text x="1140" y="270" text-anchor="end" font-family="'Courier New', monospace" font-size="14" letter-spacing="2" fill="#6B6257">I &#183; II &#183; III &#183; IV &#183; V &#183; VI</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+<title id="title">PureLand</title><desc id="desc">A closer look at your information practices. Research-program prototype. Instruments unvalidated.</desc>
+<rect width="1200" height="300" fill="#F4F1E9"/>
+<rect x="880" width="320" height="300" fill="#283F38"/>
+<path d="M40 250H820" fill="none" stroke="#C9CCC1"/>
+<text x="48" y="51" font-family="Arial,sans-serif" font-size="13" letter-spacing="1.5" fill="#596259">AN OPEN RESEARCH PROTOTYPE</text>
+<text x="44" y="148" font-family="Georgia,serif" font-size="76" letter-spacing="-3" fill="#283F38">PureLand</text>
+<text x="48" y="200" font-family="Arial,sans-serif" font-size="24" fill="#252B27">A closer look at your information practices.</text>
+<text x="48" y="277" font-family="monospace" font-size="12" letter-spacing="1" fill="#596259">INSTRUMENTS UNVALIDATED</text>
+<g fill="none" stroke="#5B7164" stroke-width="1"><path d="M920 50H1160 M920 250H1160 M945 32V269 M1135 32V269"/></g>
+<g fill="none" stroke="#DDE3D8" stroke-linecap="round" stroke-width="3"><path d="M1040 245V153 C1011 120 991 89 975 52 M1040 153 C1069 120 1089 89 1105 52"/></g>
+<circle cx="1040" cy="153" r="5" stroke="#BCA77E" stroke-width="1" fill="#283F38"/>
 </svg>

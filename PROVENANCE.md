@@ -51,6 +51,16 @@ These sources support the questions. They do not validate PureLand's instruments
 
 The editing interval in [PROTOCOL.md](PROTOCOL.md#wait-before-editing) and the returning-and-not-keeping default in [FILMING-FORMS.md](FILMING-FORMS.md) come from one filmmaking practice, used across a small number of engagements. That practice is not named here, and whether to name it is an open maintainer decision. Until it is named, the attribution is undisclosed rather than anonymous: a reader cannot check the source, judge whether its conditions resemble their own, or weigh the five-day figure against anything. Record that as a traceability limit on both claims, not as a settled anonymous source.
 
+## Collaborator theory of change
+
+- Samara's Sanctuary Studios (S³), founded by Justin Taylor, states its theory of change on the [S³ Genesis Design Challenge page](https://opencollective.com/samaras-sanctuary-studios/projects/genesis-design-challenge) at Open Collective: "Self-love in collective resonance harmonically organizes prosperous work." Taylor's own account of the studio is ["Samara's Sanctuary Studios: Building the Human Infrastructure for a Regenerative Future"](https://samarastartupshaman.substack.com/p/samaras-sanctuary-studios-building), 2025.
+
+What it supports: an outcome framing the maintainer is drafting toward for a later version of the thesis, in which a person's sovereignty is read by what they can contribute, along the four terms of that sentence: self-love, collective resonance, harmonic organizing, prosperous work. [THESIS.md](THESIS.md) defines attention sovereignty as practical agency over contact and return as what comes back to the person or community that generated value. S³'s sentence reads the same relation from the contributor's side. That reading touches the limit the thesis keeps open about centering an autonomous individual; this entry does not settle it. Both readings are the maintainer's inference, not S³'s claim about PureLand. The source shapes the drafting of the thesis's next revision rather than any released claim, and it is recorded now so that the origin is visible when the thesis moves.
+
+What it does not support: no claim in version 0.1 rests on it. It supplies no evidence that the PureLand method changes any of the four terms, and S³'s reporting about its own programs is evidence about those programs, not about this method. If a later thesis revision adopts the chain as an outcome construct, the claim enters [RESEARCH-STATUS.md](RESEARCH-STATUS.md) with its own evidence-needed column, and the four terms stay separate, since nothing in [METHOD.md](METHOD.md) produces a combined score.
+
+Justin Taylor and the maintainer have a working relationship. Its public record is Say Why episode 001, ["What's Mine to Do Here"](https://isaacrubinstein.substack.com/p/whats-mine-to-do-here), which the maintainer recorded and published in 2026. The source is cited by name and link with that relationship in view. Corrections from S³ enter through [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Open and AI system references
 
 - [Creative Commons BY-SA 4.0 legal code](https://creativecommons.org/licenses/by-sa/4.0/legalcode) controls the license applied to eligible repository material.

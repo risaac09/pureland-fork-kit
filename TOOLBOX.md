@@ -7,6 +7,7 @@ Everything listed here is an instrument. The repository's two readerships, the h
 ## Run the method
 
 - [METHOD.md](METHOD.md): the six steps, run in order: Scope, Attend, Read, Trace, Adapt, Report.
+- [templates/run-it-yourself.md](templates/run-it-yourself.md): the self-guided human worksheet for a recorded run.
 - [PRACTICE-FRAME.md](PRACTICE-FRAME.md): prompts for self-observation at Attend.
 - [SCORECARD.md](SCORECARD.md): four separate access questions for Read.
 - [EXTRACTION-CHECK.md](EXTRACTION-CHECK.md): consent, attribution, value return, attention sovereignty, burden, and collective authority at Trace.
@@ -23,6 +24,7 @@ Everything listed here is an instrument. The repository's two readerships, the h
 ## Test and report
 
 - [TESTING.md](TESTING.md): the primary testable claim, the testing program, the evidence gates, and the before, during, and after-use discipline for one test.
+- [CAPTURE-GUIDE.md](CAPTURE-GUIDE.md): what to record during a run, what each kind of raw material can stand behind, and what stays private.
 - [templates/field-test.md](templates/field-test.md): public-safe report template.
 - [data/field-test.schema.json](data/field-test.schema.json): structured record schema.
 - [research/field-tests/ft-001-alchemy.md](research/field-tests/ft-001-alchemy.md): the only maintainer-side partial dry run.
@@ -37,6 +39,7 @@ Everything listed here is an instrument. The repository's two readerships, the h
 ## Use or adapt
 
 - [OFFERING.md](OFFERING.md): the bounded PureLand Field Pilot.
+- [templates/field-pilot-charter.md](templates/field-pilot-charter.md): the terms that must be completed privately before Stage 2 begins.
 - [CONTRIBUTING.md](CONTRIBUTING.md): corrections, tests, disagreements, refusals, and adaptations.
 - [GOVERNANCE.md](GOVERNANCE.md): review and release authority.
 

@@ -7,6 +7,7 @@ import datetime as dt
 import json
 import os
 import re
+import subprocess
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -25,6 +26,7 @@ PLACEHOLDER = re.compile(r"\b(TODO|TBD|INSERT[_ -]?HERE)\b", re.IGNORECASE)
 METHOD_COMPLETION = re.compile(r"\bmethod completion\b", re.IGNORECASE)
 PAGES_BASE = "https://risaac09.github.io/pureland-fork-kit/"
 BLOB_BASE = "https://github.com/risaac09/pureland-fork-kit/blob/main/"
+RAW_BASE = "https://raw.githubusercontent.com/risaac09/pureland-fork-kit/main/"
 RELEASE_CLAIM = re.compile(r"\bThis is version (\d+)\.(\d+)\.")
 # A sentence ends at a period followed by space and a capital. An
 # abbreviation before a lowercase word or a digit does not end one.
@@ -61,6 +63,8 @@ REQUIRED_ARCHITECTURE = [
     "data/README.md",
     "data/field-test.schema.json",
     "templates/field-test.md",
+    "templates/field-pilot-charter.md",
+    "templates/run-it-yourself.md",
     "templates/run-with-a-model.md",
     "research/field-tests/ft-001-alchemy.md",
 ]
@@ -362,6 +366,10 @@ def check_targets(
         # than rewritten to "/" and passed as an existing path.
         elif clean.startswith(BLOB_BASE) and len(clean) > len(BLOB_BASE):
             clean = "/" + clean[len(BLOB_BASE):]
+        # Check our raw/main files through the same local path and anchor
+        # rules. Other repositories and pinned refs stay external.
+        elif clean.startswith(RAW_BASE) and len(clean) > len(RAW_BASE):
+            clean = "/" + clean[len(RAW_BASE):]
         if not clean or clean.startswith(("http://", "https://", "mailto:", "data:", "//")):
             continue
         # A leading "/" is repo-root-relative (as GitHub treats it), not a
@@ -603,6 +611,239 @@ def overdue_follow_ups(
 THROUGH_DATE = re.compile(r"\bthrough (\d{4}-\d{2}-\d{2})")
 FOLLOW_UP_LINE = re.compile(r"follow-?up", re.IGNORECASE)
 CURRENT_EVIDENCE = ROOT / "CURRENT-EVIDENCE.md"
+UNRELEASED_DRIFT_WARNING = (
+    "CHANGELOG.md contains unreleased changes; before publication, "
+    "verify Pages and release state, then cut a release or accept the drift."
+)
+
+
+def git_commit_status(commit: str) -> tuple[bool | None, str | None]:
+    """Check that a commit is reachable from HEAD or a retained Git ref."""
+    try:
+        shallow = subprocess.run(
+            ["git", "rev-parse", "--is-shallow-repository"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+    except OSError:
+        return None, "git is unavailable"
+
+    if shallow.returncode != 0:
+        return None, "Git metadata is unavailable"
+
+    try:
+        resolved = subprocess.run(
+            ["git", "rev-parse", "--verify", f"{commit}^{{commit}}"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+    except OSError:
+        return None, "git is unavailable"
+    if resolved.returncode == 0:
+        try:
+            history = subprocess.run(
+                ["git", "rev-list", "--all", "HEAD"], cwd=ROOT,
+                capture_output=True, text=True, check=False,
+            )
+        except OSError:
+            return None, "git is unavailable"
+        if history.returncode != 0:
+            return None, "Git history could not be read"
+        if resolved.stdout.strip() in history.stdout.splitlines():
+            return True, None
+    if shallow.stdout.strip() == "true":
+        return None, "the checkout is shallow"
+    return False, None
+
+
+def public_safe_report_section(text: str) -> str:
+    """Return the report text from its artifact-version public-safe marker onward."""
+    lines = text.splitlines()
+    marker = next(
+        (
+            index
+            for index, line in enumerate(lines)
+            if "artifact-version public-safe" in line.lower()
+        ),
+        None,
+    )
+    if marker is None:
+        return ""
+    end = next(
+        (
+            index
+            for index in range(marker + 1, len(lines))
+            if lines[index].startswith("## ")
+        ),
+        len(lines),
+    )
+    return "\n".join(lines[marker:end])
+
+
+def markdown_h2_section(text: str, heading: str) -> str:
+    """Return one level-two Markdown section without later peer sections."""
+    lines = text.splitlines()
+    start = next(
+        (
+            index + 1
+            for index, line in enumerate(lines)
+            if line.strip().lower() == f"## {heading.lower()}"
+        ),
+        None,
+    )
+    if start is None:
+        return ""
+    end = next(
+        (index for index in range(start, len(lines)) if lines[index].startswith("## ")),
+        len(lines),
+    )
+    return "\n".join(lines[start:end])
+
+
+def changelog_has_unreleased_entries() -> bool:
+    """Read the release record rather than maintaining a second status copy."""
+    changelog = ROOT / "CHANGELOG.md"
+    if not changelog.is_file():
+        return False
+    section = markdown_h2_section(
+        changelog.read_text(encoding="utf-8"), "Unreleased"
+    )
+    section = re.sub(r"<!--.*?-->", "", section, flags=re.DOTALL)
+    return bool(section.strip())
+
+
+def report_identity_field(text: str, field: str) -> str:
+    """Read the legacy table or current template, refusing duplicate fields."""
+    section = markdown_h2_section(text, "Record identity and status") + "\n" + markdown_h2_section(text, "Record identity and tested hypothesis")
+    bullet = {
+        "Record ID": "Record ID (`record_id`)",
+        "Kit version": "Kit version or commit (`kit_version`)",
+    }[field]
+    values = []
+    for line in section.splitlines():
+        if line.startswith(f"- {bullet}:"):
+            values.append(line.split(":", 1)[1].strip().strip("`"))
+        cells = [cell.strip().strip("`") for cell in line.strip().strip("|").split("|")]
+        if len(cells) == 2 and cells[0].casefold() == field.casefold():
+            values.append(cells[1])
+    return values[0] if len(values) == 1 else ""
+
+
+def leading_commit(text: str) -> str:
+    match = re.match(r"\s*`?([0-9a-fA-F]{7,40})\b", text)
+    return match.group(1).lower() if match else ""
+
+
+def check_record_consistency(
+    conformant: set[Path],
+    json_data: dict[Path, Any],
+    errors: list[str],
+    warnings: list[str],
+) -> tuple[int, int]:
+    """Tie each conformant record to its report, ledger row, and kit commit."""
+    records = [
+        (path, json_data[path])
+        for path in sorted(conformant)
+        if isinstance(json_data.get(path), dict)
+    ]
+    ids: defaultdict[str, list[Path]] = defaultdict(list)
+    for path, record in records:
+        ids[str(record.get("record_id", ""))].append(path)
+    for record_id, paths in sorted(ids.items()):
+        if record_id and len(paths) > 1:
+            errors.append(
+                f"duplicate record_id {record_id}: "
+                + ", ".join(relative(path) for path in paths)
+            )
+
+    ledger_lines = (
+        markdown_h2_section(
+            CURRENT_EVIDENCE.read_text(encoding="utf-8"), "The ledger"
+        ).splitlines()
+        if CURRENT_EVIDENCE.is_file()
+        else []
+    )
+
+    for path, record in records:
+        record_id = str(record.get("record_id", ""))
+        label = record_id or relative(path)
+        expected_prefix = record_id.lower() + "-"
+        if record_id and not path.stem.startswith(expected_prefix):
+            errors.append(
+                f"{label} record filename must begin {expected_prefix!r}: {relative(path)}"
+            )
+
+        report = ROOT / "research" / "field-tests" / f"{path.stem}.md"
+        report_text = report.read_text(encoding="utf-8") if report.is_file() else ""
+        if not report.is_file():
+            errors.append(f"{label} missing paired report: {relative(report)}")
+
+        matching_rows = [
+            line for line in ledger_lines
+            if line.strip().startswith("|") and relative(path) in LINK.findall(line)
+        ]
+        if len(matching_rows) != 1:
+            errors.append(
+                f"{label} must have exactly one CURRENT-EVIDENCE.md ledger row naming "
+                f"{path.name}; found {len(matching_rows)}"
+            )
+
+        kit_version = str(record.get("kit_version", ""))
+        match = re.match(r"\s*([0-9a-fA-F]{7,40})\b", kit_version)
+        if match is None:
+            errors.append(f"{label} kit_version has no leading hexadecimal commit: {kit_version!r}")
+            continue
+        commit = match.group(1).lower()
+        if report.is_file() and report_identity_field(report_text, "Record ID") != record_id:
+            errors.append(f"{label} paired report Record ID does not match: {relative(report)}")
+        if report.is_file() and leading_commit(report_identity_field(report_text, "Kit version")) != commit:
+            errors.append(f"{label} kit_version {commit} is missing from {relative(report)}")
+        if len(matching_rows) == 1 and leading_commit(matching_rows[0].strip().strip("|").split("|")[-1]) != commit:
+            errors.append(
+                f"{label} kit_version {commit} is missing from its CURRENT-EVIDENCE.md ledger row"
+            )
+
+        artifact_version = str(
+            record.get("public_safe_review", {}).get("artifact_version", "")
+        )
+        report_versions = re.findall(
+            r"(?m)^- Artifact:.*?\bversion `([^`]+)`\.",
+            public_safe_report_section(report_text),
+        )
+        report_versions.extend(
+            value.strip().strip("`") for value in re.findall(
+                r"(?m)^- Exact artifact version:[ \t]*([^\n]*)$",
+                public_safe_report_section(report_text),
+            )
+        )
+        if report.is_file() and report_versions != [artifact_version]:
+            errors.append(
+                f"{label} public-safe artifact_version {artifact_version!r} is missing from "
+                f"{relative(report)}'s public-safe section"
+            )
+
+        reachable, reason = git_commit_status(commit)
+        if reachable is False:
+            errors.append(f"{label} kit_version commit is unreachable in the full clone: {commit}")
+        elif reachable is None:
+            warnings.append(
+                f"{label} kit_version commit {commit} was not verified because {reason}"
+            )
+
+    independent = sum(
+        record.get("assessor", {}).get("independence") == "independent"
+        for _, record in records
+    )
+    practices = {
+        name
+        for _, record in records
+        if isinstance((name := record.get("practice", {}).get("name")), str) and name
+    }
+    return independent, len(practices)
 
 
 def check_follow_up_date_copies(path: Path, record: dict[str, Any], errors: list[str]) -> None:
@@ -718,6 +959,95 @@ def check_version_claims(errors: list[str]) -> None:
             errors.append(
                 f"{relative(path)} announces version {announced[0]}.{announced[1]}, "
                 f"but CITATION.cff released {current[0]}.{current[1]}"
+            )
+
+
+def check_token_parity(errors: list[str]) -> None:
+    """Tie design/tokens.json to the :root declarations in design/tokens.css.
+
+    The stylesheet is the source of the visual roles and the JSON is the copy
+    for tools that cannot read CSS. Two hand-maintained palettes drift the
+    first time an edit misses one of them, so every custom property in the
+    stylesheet's :root block must appear in the JSON's "tokens" map with the
+    same value, and the map must name nothing the stylesheet does not. Values
+    are compared after whitespace is collapsed; light-dark() and var() stay
+    unresolved, because the copy is of the declaration, not of a rendering.
+    Neither file is required architecture, so the rule stays quiet only when
+    both are absent; one without the other is an error.
+    """
+    css_path = ROOT / "design/tokens.css"
+    json_path = ROOT / "design/tokens.json"
+    if not css_path.is_file() and not json_path.is_file():
+        return
+    if not (css_path.is_file() and json_path.is_file()):
+        present, missing = (
+            ("design/tokens.css", "design/tokens.json")
+            if css_path.is_file()
+            else ("design/tokens.json", "design/tokens.css")
+        )
+        errors.append(f"token parity: {present} exists but {missing} is missing; the two travel together")
+        return
+    # Comments go first, so a brace inside one cannot end a block early.
+    css = re.sub(r"/\*.*?\*/", "", css_path.read_text(encoding="utf-8"), flags=re.S)
+    # Every bare :root block counts, wherever it sits, so a value redeclared in
+    # a media query cannot hide from the comparison; a role declared twice
+    # with different values is itself the drift this check exists to stop.
+    declared: dict[str, str] = {}
+    blocks = 0
+    for opening in re.finditer(r":root\s*\{", css):
+        depth, start, index = 1, opening.end(), opening.end()
+        while index < len(css) and depth:
+            depth += {"{": 1, "}": -1}.get(css[index], 0)
+            index += 1
+        if depth:
+            errors.append("design/tokens.css has an unclosed :root block")
+            return
+        blocks += 1
+        # A value may carry a quoted string, and a semicolon inside the
+        # quotes does not end the declaration. A declaration the pattern
+        # cannot read, such as one with an unclosed quote, is an error
+        # rather than a silent omission.
+        body = css[start : index - 1]
+        parsed = re.findall(r"(--[\w-]+)\s*:\s*((?:\"[^\"]*\"|'[^']*'|[^;\"'])+);", body)
+        readable = {name for name, _ in parsed}
+        for name in re.findall(r"(--[\w-]+)\s*:", body):
+            if name not in readable:
+                errors.append(
+                    f"token parity: {name} in design/tokens.css could not be read as a "
+                    "declaration; check its quotes and semicolon"
+                )
+        for name, value in parsed:
+            value = re.sub(r"\s+", " ", value.strip())
+            if name in declared and declared[name] != value:
+                errors.append(
+                    f"token parity: {name} is declared twice in design/tokens.css with different "
+                    f"values, {declared[name]!r} and {value!r}; declare each role once"
+                )
+            declared[name] = value
+    if not blocks:
+        errors.append("design/tokens.css has no :root block to compare with design/tokens.json")
+        return
+    try:
+        mirrored = json.loads(json_path.read_text(encoding="utf-8")).get("tokens")
+    except (json.JSONDecodeError, AttributeError):
+        mirrored = None
+    if not isinstance(mirrored, dict):
+        errors.append('design/tokens.json needs a "tokens" object mirroring design/tokens.css')
+        return
+    for name, value in declared.items():
+        if name not in mirrored:
+            errors.append(
+                f"token parity: {name} is declared in design/tokens.css but missing from design/tokens.json"
+            )
+        elif re.sub(r"\s+", " ", str(mirrored[name]).strip()) != value:
+            errors.append(
+                f"token parity: {name} is {value!r} in design/tokens.css and "
+                f"{mirrored[name]!r} in design/tokens.json"
+            )
+    for name in mirrored:
+        if name not in declared:
+            errors.append(
+                f"token parity: {name} is in design/tokens.json but not declared in design/tokens.css"
             )
 
 
@@ -867,6 +1197,7 @@ def main(argv: list[str] | None = None) -> int:
 
     check_version_claims(errors)
     check_ceiling_copy(errors)
+    check_token_parity(errors)
 
     json_data: dict[Path, Any] = {}
     for path in files(".json"):
@@ -897,6 +1228,18 @@ def main(argv: list[str] | None = None) -> int:
             check_record_rules(path, record, errors)
             overdue_follow_ups(path, record, today, follow_up_notices)
             check_follow_up_date_copies(path, record, errors)
+
+    independent_count, practice_count = check_record_consistency(
+        conformant, json_data, errors, warnings
+    )
+    print(
+        "Gate accounting (counts, not scores): "
+        f"independent records={independent_count}; "
+        f"distinct practice.name values={practice_count}."
+    )
+
+    if changelog_has_unreleased_entries():
+        warnings.append(UNRELEASED_DRIFT_WARNING)
 
     # Where these land depends on who is asking. The scheduled watch wants a
     # red run; everyone else wants a note that does not block their work.

@@ -13,6 +13,116 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-17 collaborator provenance entry
+
+| Field | Record |
+|---|---|
+| Tool | Claude Fable 5.1 in Claude Code |
+| Task | 2026-09-17. Add a `PROVENANCE.md` entry for Samara's Sanctuary Studios' theory of change, after the maintainer attributed the four-term outcome framing he is drafting toward to that source and asked for the entry |
+| Material provided | The repository at `bbddae0`; the maintainer's statement and attribution in conversation; a private transcript of Justin Taylor's S³ prototype presentation; the public Open Collective, Substack, and Say Why pages the entry links. No participant material |
+| Source verification | The quoted sentence was fetched from the Open Collective page on 2026-09-17 and matches verbatim. The Substack post was fetched the same day; it carries the developmental-infrastructure framing and not the sentence, so the entry cites it for the account of the studio only. The Say Why page was fetched and names Justin Taylor and the studio, spelled there as Samara Sanctuary Studios. The spoken variant in the private transcript, "generates harmonic organizations for prosperous work," is not quoted in the kit. `scripts/check_repo.py` and the unit tests pass |
+| Corrections after verification | The first draft of the maintainer's private note on this source treated it as unfetchable and gated naming Justin Taylor on a consent decision. Both were wrong: the sentence is published under S³'s name, and the Say Why episode naming him has been public since 2026-06-30. The maintainer's instruction, name the source and quote it with a link, set the entry's form. Program outcome figures spoken in the private transcript were left out because they are not on the linked pages |
+| Human review | The maintainer asked for the entry and reviews and merges the pull request. The maintainer vouches for the attribution on the basis of the working relationship; corrections from S³ enter through `CONTRIBUTING.md` |
+| Sensitive material | The private presentation transcript and the maintainer's private notes stay outside the repository |
+
+## 2026-09-14 front-page promotion
+
+| Field | Record |
+|---|---|
+| Tool | Claude Fable 5.1 in Claude Code |
+| Task | 2026-09-14. Promote the Field & Form draft merged in #50 into the root page, the README, and the active design assets, following the integration sequence in the draft's specification, after the maintainer viewed the desktop and phone layouts and asked for the promotion |
+| Material provided | The repository at `0e853f5`, the draft's specification and review, and the maintainer's instruction in conversation. No participant material |
+| Source verification | The root page is the reconciled draft with its asset paths resolved, the draft strip removed, and anchors for the two retired fragments; its body copy was not changed, and the title, description, and footer line are the promotion's. `design/tokens.json` was written from `design/tokens.css` and a new checker rule fails when they differ, with seven regression tests. `scripts/check_repo.py`, the regression tests, and the classification probes passed. The page rendered at 1280 and 390 px from the branch without horizontal overflow, with both themes, the fragment routes, the legacy anchors, and the script-free structure checked. A review pass of three finders read the page and assets against the merged draft, the records and the visual-language document against the code, and the checker rule against constructed fixtures; a second pass ran before push |
+| Corrections after verification | The mark asset files lost their only link when the old banner went, so the visual-language document now links them, and they still carried the retired palette's hex values, so they now take Mineral on paper and Lichen on the ink ground. The first anchor for a retired fragment sat inside a grid section and became a grid item; both anchors are zero-height blocks before their sections. The checker rule read its block before stripping comments, stopped at a semicolon inside quotes, ignored a second `:root` block, and stayed silent when one file was missing; it now strips comments first, brace-matches every block, tolerates quoted semicolons, reports a declaration it cannot read, and errors on a conflicting duplicate or a missing counterpart, with four tests covering those cases. The model index said the rule fails only on a differing value; it now says differing or missing. The visual-language document claimed a medium-weight primary action, Brass guide lines on the plate, and the documented easing on hover; both sentences now match the code and the hover transition now uses the easing |
+| Human review | The maintainer accepted the design on the draft's rendering and asked for the promotion. No first-time reader has read the page; the specification's reader test remains owed before any claim that the page is easier to understand |
+| Sensitive material | None involved |
+
+## 2026-09-14 second visual-system draft
+
+| Field | Record |
+|---|---|
+| Tool | OpenAI Codex for the draft; model variant and effort are not recorded in the draft's own record. Claude Fable 5.1 in Claude Code for the reconciliation, the review passes, and pull request #50 |
+| Task | 2026-09-14. Review the live front page and repository against a first-time reader's needs, draft a second visual system under `design/v2/` (homepage, specimen board, README candidate, specification, review), then reconcile the draft's copy with PR #48 and the checker's contracts and prepare it for maintainer review |
+| Material provided | The public repository at `88216c0`, the live page, PR #48's diff, and the maintainer's instructions outside the kit. No participant material |
+| Source verification | Claims on the draft pages were taken from the canonical files named in `design/v2/SPECIFICATION.md` and read back against them after the reconciliation. `scripts/check_repo.py`, the 22 regression tests, and the three classification probes passed before and after the reconciliation. The draft rendered at 320, 390, 768, and 1280 px without horizontal overflow, in both themes, with keyboard disclosure and script-free fallback checked; the reconciled page was measured again at 320, 390, 768, and 1280 px. One adversarial review pass, five finders and a sweep with each finding verified against the files, ran on the branch after the reconciliation; its corrections are listed below. A second pass over the fix commit before push found no code regression and two prose corrections, applied |
+| Corrections after verification | The draft restated the Field Pilot's terms on three surfaces, omitted the reply at Report, and announced the release as "Version 0.1", which `check_version_claims` would reject on promotion; all three were reconciled to PR #48's wording. A link inside step copy inherited the 44 px block-link rule, and the status row lost its alignment wherever a sentence wrapped; both stylesheet rules were narrowed. The README candidate had dropped the sentence that names the repository as the record behind the front page; restored. The review pass found and the branch fixes: a saved theme flashed the wrong palette before the deferred script ran (an inline script now applies it before first paint); the print stylesheet kept ink-theme colors and dropped the specimen's ground (print now forces the paper scheme and keeps the ground); a link to a step landed on a closed disclosure (the script opens the step named in the fragment); the phone status link had a 32 px target, the figcaption link none, and twelve arrow glyphs were read aloud (all corrected); the heading sizes inverted between the tablet and phone queries (the phone cap now matches); the two fork paths drew at once (the second branch now waits for the stem); the dark tokens were declared twice and eleven tokens were unused (one declaration per role with light-dark(); the spacing scale and measure removed, brass now referenced by the specimen board); the specimen board hardcoded its swatches and the research table was worded three ways (one wording now); a render-blocking import, an unused rule, and an imperceptible grain layer were removed; the README mockup linked the draft where it named the live page and shortened the evidence sentence (both now match the candidate); the Adapt step omitted two of the method's seven record fields (restored from METHOD.md); the research list's visible numbers doubled the list's own numbering for screen readers (hidden from assistive technology); the system board lacked a description and font hints (added); the specification named a model in its continuation advice (now tool-agnostic); and the review had stated a pull request in the past tense before one existed (reworded) |
+| Human review | Pending. The maintainer decides whether the direction is adopted, and no first-time reader has read either page. Layout measurements are browser observations, not evidence that the method or the page works |
+| Sensitive material | None involved. No participant, client, identifying, confidential, consent, or protected community material entered the draft; local paths, the originating brief, and the session record stay outside the repository |
+
+## 2026-09-13 capture guide
+
+| Field | Record |
+|---|---|
+| Tool | Claude Fable 5.1 in Claude Code, desktop app; the effort setting is not exposed in the task context |
+| Task | 2026-09-13. Draft `CAPTURE-GUIDE.md` on `docs/capture-guide-2026-09-13` from `88216c0`; link it from `TOOLBOX.md` and `llms.txt`; add its two falsifiers to `RESEARCH-STATUS.md` |
+| Material provided | The maintainer's brief, given in conversation: which raw material a run produces for a person on a tool, a live facilitation practice, and an organization, and that screen recording with audio or a voice note is the easiest capture for a person on a tool. The repository at `88216c0`, read for the packet, the filming forms, the protocol, the rights guide, the consent register, the schema, the agent lane, and the research-status ledger |
+| Source verification | The checker and both test scripts passed on the branch at each commit, with the expected unreleased-changelog warning; every link and anchor in the new file resolves under the checker, and the file is reachable from `README.md` through `TOOLBOX.md`. Four read-only review agents read the draft against the linked files and returned 24 findings, each quoting the source it relied on; the maintainer's assistant re-checked the quoted lines before acting. This is software review, not human reader evidence |
+| Corrections after verification | The draft said every evidence field holds a review status; the schema's evidence item carries an ID, description, source, and a before-analysis flag, and the review status lives in the report template. The draft attributed the leave-the-worksheet instruction to the practice frame; it is the packet's. The draft let a model transcribe a voice note, which the agent lane's never-generate list reads as a transcript; the person or a named tool now transcribes and the model may only quote. The draft sent an assessor's own transcription tool into the AI system annex, which is scoped to the assessed practice. The draft widened the repository boundary past its sources and restated the protocol's custody list; both now cite the source. The material-to-step mapping appeared twice and had already diverged; it is carried once. The two falsifiers had no ledger rows; they have them now. A pre-push pass moved the changelog line to the top of Unreleased, where the newest change sits, narrowed the Stage 2 sentence to runs that seek a public return, named the schema's public flag, and separated what footage cannot supply from what it cannot produce |
+| Human review | Pending. The maintainer has not read the draft |
+| Sensitive material | None. No participant, client, or identifying material was provided or produced. The brief named no person |
+
+## 2026-09-13 reader entry and model discovery
+
+| Field | Record |
+|---|---|
+| Tool | OpenAI Codex, GPT-6; exact model variant and effort unavailable in the task context |
+| Task | 2026-09-13. Read the kit at `88216c0`, report, and prepare changes on `share/readiness-2026-09-13` and `share/watch-carrier-2026-09-13` |
+| Material provided | The maintainer's execution prompt, outside the kit, and the repository at `88216c0` |
+| Source verification | Read the source files and PR metadata at the pinned base. The working branch passed the checker, 25 regression tests, and three classification probes; the held branch passed its 22-test suite. The combined tree passed all checks and YAML parsing. The overdue simulation failed on FT-001 as expected. A Codex source audit and draft diff review completed. Frozen files, model prohibitions, license text, desktop and phone layout, and required-file discovery passed direct checks. Publication checks and final heads appear in the pull requests |
+| Corrections after verification | Anchored the imported PR #45 verification to its historical branch. Marked unknown PR #46 provenance owed. Preserved schema keys while repairing live step names; added raw-link regression tests |
+| Human review | Pending. Model review and automated checks supply no independent field evidence or maintainer approval |
+| Sensitive material | No participant material was used. The execution prompt and private report remain outside the repository |
+
+## 2026-09-12 reconciliation review
+
+| Field | Record |
+|---|---|
+| Tool | OpenAI Codex |
+| Task | Review the local reconciliation candidate against current main and the held pull requests, repair reproduced inconsistencies, and prepare it for maintainer review |
+| Material provided | Public repository at `655ea84`, local candidate `f3b4d60`, pull requests 44 and 45, and the maintainer's handoff and resource decisions |
+| Source verification | Read the changed files against the rights guide, method, testing discipline, FT-001 report and record, ledger, workflows, and GitHub state. The original checker accepted a wrong report ID, a wrong kit version accompanied by a stray correct mention, and an artifact version with an extra suffix |
+| Corrections after verification | Bound checks to identity fields and exact artifact versions; required Git reachability; added regression cases; aligned intake with the charter; added action and materiality prompts; made the release warning state only what the local check observes; linked the public routes to rendered repository packets |
+| Human review | Pending. Automated tests and this model review do not count as maintainer approval or independent field evidence |
+| Sensitive material | No participant material was used. Local paths and working history remain outside the repository |
+
+## 2026-09-11 roadmap gate reconciliation
+
+| Field | Record |
+|---|---|
+| Tool | OpenAI Codex |
+| Task | Reconciling the unmerged Gate 1 and Gate 2 work with the current method, public offer, rights architecture, field-test records, release state, and repository checks |
+| Material provided | The current public repository at `655ea84`; preserved Gate 1 commit `b256f85`; preserved Gate 2 commit `d8b3610`; the maintainer's decision that the Field Pilot should be public, may use commissioned, funded, or limited voluntary terms, and should publish no price |
+| Source verification | The change was checked against `METHOD.md`, `OFFERING.md`, `RIGHTS-AND-CONSENT.md`, `GOVERNANCE.md`, `CURRENT-EVIDENCE.md`, the issue form, the FT-001 report and record, both workflows, and `scripts/check_repo.py` |
+| Corrections after verification | Replaced the retired journey vocabulary with Scope, Attend, Read, Trace, Adapt, Report; kept the private no-record path; separated co-research from the public Field Pilot; required a completed charter before Stage 2; kept fees and funding separate from research, publication, and material-use permission |
+| Human review | The maintainer chose the public resource model and the no-public-price rule. Review of the integrated branch remains required before push, pull request, merge, release, or publication |
+| Sensitive material | None involved; no participant, client, identifying, confidential, consent, or protected community material entered the repository |
+
+## 2026-09-09 arrival mark accent
+
+| Field | Record |
+|---|---|
+| Tool | Claude Fable 5.1, from PR #46's commit co-author trailer; execution surface owed |
+| Task | Change one stylesheet line in index.html in PR #46; no visible words changed |
+| Material provided | Owed |
+| Source verification | Owed |
+| Corrections after verification | Owed |
+| Human review | Owed |
+| Sensitive material | Owed; the commit alone does not establish what material the model received |
+
+## 2026-09-06 maintainer-side revision round
+
+The rows below preserve [PR #45](https://github.com/risaac09/pureland-fork-kit/pull/45)'s historical account against `38ce830`. In these rows, "this branch" means that revision branch and the verification describes that round.
+
+| Field | Record |
+|---|---|
+| Tool | Five models, one task. Candidates: Claude Opus 5 and Claude Sonnet 5 as Claude Code agent contexts with the effort setting unpinned; gpt-6-astra through the Codex CLI at reasoning xhigh, with network blocked inside its sandbox; Qwen3.6-35B-A3B at Q4 on a local llama-server as a control. Cross-readers: the same Opus 5, Sonnet 5, and gpt-6-astra, each excluded from its own candidate. Synthesis, gate, blind set, planted probe, and this branch: Claude Fable 5.1 in Claude Code, which produced no candidate |
+| Task | PRs #37, #38, #39, #40, #41, #42, and #43. 2026-09-05 to 2026-09-06. Each candidate model received the same packet against `38ce830` and returned a repair proposal, an instrument design, and a self-report, plus a local branch where it had repository access. A deterministic gate ran the checker and the overdue watch on every branch, a voice linter, a privacy scan, word caps, and a network-denied sandbox run of every shipped script. The candidates were relabelled by letter beside a planted probe and read blind by the other models. The synthesizer merged what converged into this branch, one commit per change, re-implemented from the base where branches conflicted, and held every contested item open for the maintainer |
+| Material provided | The packet: a public-safe task statement, the kit's facts of record at `38ce830`, a 23-row critique register compiled from two earlier model reads, the output contract, the invariants, and the reserved list, version r2. The repository at `38ce830`. The 22 published documents, fetched live by the two Claude candidates and byte-matched to the base; the Codex candidate worked from the local files. No participant material, no name, no price, no channel, and no message to anyone entered the packet or any output |
+| Source verification | Every register row was checked against the live files by each candidate before it was dispositioned. The classification gap was reproduced independently three times with in-memory fixtures; the fixture on this branch was seen passing the base checker with zero errors before the fix. `python3 scripts/check_repo.py` exits 0 at every commit on this branch, `PURELAND_TODAY=2026-11-23 python3 scripts/check_repo.py --fail-on-overdue-follow-up` still fails on FT-001 exactly as at the base, and `python3 scripts/test_classification_gap.py` passes and now runs in CI. Two adversarial review passes ran on this branch before push: the first found ten defects and the second two, all fixed in their own commits; one rule question was held for the maintainer instead of changed. The rights files, the consent register, the evidence record, TESTING.md, and the page are byte-identical to the base |
+| Corrections after verification | Owed |
+| Human review | Owed |
+| Sensitive material | None involved. The round's working files live outside this repository; the planted probe and the letter map are among them and are not part of the kit |
+
 ## 2026-09-04 method vocabulary
 
 | Field | Record |
