@@ -97,6 +97,8 @@ Every JSON evidence item must set `available_before_analysis` to `true`.
 
 AI or design analysis does not satisfy a required human Attend.
 
+`performed` binds the three lines above it. Name the performer, record at least one evidence item, and answer no to substitution. A record that claims `performed` while any of the three is blank, whitespace, or answered yes is refused on conformance. `not-performed` leaves all three free, and its evidence line is where to say why Attend did not happen.
+
 ## Access readings
 
 Keep all four readings separate. Record count categories and denominators where counts apply.

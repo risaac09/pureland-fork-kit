@@ -22,10 +22,20 @@ The conditional sits next to the rule that mandates the `performed` label on
 a complete record with Observe required, because that rule creates the
 obligation this one makes truthful.
 
+A code-review pass on the first repair found the gap surviving by another
+name, exactly as the follow-up impact gap did at #37. `minLength` counts
+characters and `minItems` counts items, so a performer of "   " and an
+evidence item of "   " satisfied both and the forged record was accepted
+again. The conditional now also requires a `\\S` match on the performer and
+on every evidence item, which counts content rather than length. The two
+whitespace cases below are that finding, turned into tests.
+
 The cases below cover the full forgery and each single-field forgery on its
 own, so that dropping any one leg of the conditional fails this test instead
-of surviving by another name. The final case validates FT-001's own published
-record unchanged: the rule constrains the `performed` branch only, and a
+of surviving by another name. Each refusal also asserts that no other
+human_observe field was refused, so a conditional that later over-reaches
+into the `not-performed` branch fails here rather than passing. The final
+case validates FT-001's own published record unchanged: the rule constrains the `performed` branch only, and a
 `not-performed` record must stay free to carry evidence explaining why Attend
 did not happen, which is what FT-001 carries today.
 
@@ -105,6 +115,20 @@ def expect_refused(
             failures.append(f"  - {describe(error)}")
         return failures
 
+    unexpected = sorted(
+        path
+        for path in seen
+        if path.startswith("human_observe") and path not in expected_paths
+    )
+    if unexpected:
+        failures.append(f"{label}: the rule refused field(s) the fixture did not forge:")
+        for path in unexpected:
+            failures.append(f"  - {path}")
+        failures.append(f"{label}: errors actually raised:")
+        for error in errors:
+            failures.append(f"  - {describe(error)}")
+        return failures
+
     print(f"PASS ({label}): refused by {len(errors)} schema error(s):")
     for error in errors:
         print(f"  - {describe(error)}")
@@ -151,9 +175,19 @@ def main() -> int:
             ["human_observe/performer"],
         ),
         (
+            "performed with a whitespace-only performer",
+            performed_fixture(performer="   "),
+            ["human_observe/performer"],
+        ),
+        (
             "performed with no evidence only",
             performed_fixture(evidence=[]),
             ["human_observe/evidence"],
+        ),
+        (
+            "performed with a whitespace-only evidence item",
+            performed_fixture(evidence=["   "]),
+            ["human_observe/evidence/0"],
         ),
         (
             "performed with AI analysis substituted only",

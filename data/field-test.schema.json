@@ -627,8 +627,8 @@
         "properties": {
           "human_observe": {
             "properties": {
-              "performer": {"type": "string", "minLength": 1},
-              "evidence": {"type": "array", "minItems": 1},
+              "performer": {"type": "string", "minLength": 1, "pattern": "\\S"},
+              "evidence": {"type": "array", "minItems": 1, "items": {"pattern": "\\S"}},
               "ai_or_design_analysis_substituted": {"const": false}
             },
             "required": ["performer", "evidence", "ai_or_design_analysis_substituted"]
