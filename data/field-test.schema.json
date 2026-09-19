@@ -619,6 +619,26 @@
     {
       "if": {
         "properties": {
+          "human_observe": {"properties": {"status": {"const": "performed"}}, "required": ["status"]}
+        },
+        "required": ["human_observe"]
+      },
+      "then": {
+        "properties": {
+          "human_observe": {
+            "properties": {
+              "performer": {"type": "string", "minLength": 1},
+              "evidence": {"type": "array", "minItems": 1},
+              "ai_or_design_analysis_substituted": {"const": false}
+            },
+            "required": ["performer", "evidence", "ai_or_design_analysis_substituted"]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
           "test_status": {"const": "complete"},
           "station_completion": {"properties": {"map": {"properties": {"required": {"const": true}}}}}
         },
