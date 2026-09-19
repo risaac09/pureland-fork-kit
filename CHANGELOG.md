@@ -4,6 +4,8 @@ Entries name the change and the pull request. The reasoning behind a change live
 
 ## Unreleased
 
+- Added `scripts/ecosystem_inventory.py`, a read-only local count of one person's own information surfaces: it reads only surfaces marked `yes` in a permission record written before its first read, takes names and modification dates without opening a file, writes one Markdown file, overwrites nothing, arms an audit hook that raises on any network event, and prints what it read, wrote, refused, and the command that removes what it made. No instrument document ships with it; a first run decides whether one should. (#44)
+
 ## 0.1.1 (2026-09-19)
 
 Twenty pull requests are named below. The method's six steps took their current names, the private path and the model-use packet opened two more ways in, the front page and the visual system were rebuilt, the capture guide and the filming forms joined the toolbox, and the checker grew the record gates, the classification gate, and the `performed` gate.
