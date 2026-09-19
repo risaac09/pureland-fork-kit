@@ -63,13 +63,7 @@ The pilot does not claim validation, causal proof, safety certification, attenti
 
 ## How to propose a pilot
 
-Stage 1 is a public-safe scoping note. Open the public [Field test form](https://github.com/risaac09/pureland-fork-kit/issues/new?template=field-test.yml) containing only:
-
-- the practice, and why the question matters now;
-- the proposed scope;
-- whether participant, client, confidential, community-held, or identifying material exists;
-- what must stay private; and
-- one result that would count against the method.
+Open the public [Field test form](https://github.com/risaac09/pureland-fork-kit/issues/new?template=field-test.yml) with only the information listed in [Stage 1 public-safe scoping](RIGHTS-AND-CONSENT.md#stage-1-public-safe-scoping).
 
 Do not include evidence links, excerpts, participant material, identifying or indirectly identifying data, confidential or client records, consent records, or protected community knowledge. A proposal is an invitation to scope a pilot. It is not an acceptance or a promise of work, publication, or outcome.
 
