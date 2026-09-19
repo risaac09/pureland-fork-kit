@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-18 changelog correction for #37
+
+| Field | Record |
+|---|---|
+| Tool | Claude Opus 5 in Claude Code |
+| Task | 2026-09-18. Correct the `CHANGELOG.md` bullet for #37, which understated the rule that pull request shipped |
+| Material provided | The repository at `66ea814`. The discrepancy surfaced while merging `main` into `v02/r1-merged-08` for #44, whose held branch carries a fuller wording of the same bullet. No participant material |
+| Source verification | `git log -S` traced all three understated facts to one commit, `f875275`, which is #37's own: the support-side incomplete-step rule in `scripts/check_repo.py`, the `incomplete_step_fixture` third variant in `scripts/test_classification_gap.py`, and the line adding that probe to `.github/workflows/validate.yml`. The commit's diff was read directly to confirm it added five support conditions where the bullet named four, and three probe fixtures where the bullet named two. `.github/workflows/validate.yml` was read for the trigger wording. The bullet sits under Unreleased, so no released record is rewritten. `scripts/check_repo.py`, the 32 unit tests, and the classification probes pass |
+| Corrections after verification | The first reading of this discrepancy assumed the fuller wording on #44's branch was the correct one and could simply be carried over. It was not carried over. The history check came first, because the alternative explanation, that a later pull request added the rule and the #37 bullet was accurate for #37, would have made the change wrong. The wording here is written from `f875275`'s diff rather than copied from the held branch, and the CI clause names the actual triggers |
+| Human review | The maintainer reviews and merges the pull request. This is a correction to the record of a change, not a change to the method or the instruments |
+| Sensitive material | None involved |
+
 ## 2026-09-17 collaborator provenance entry
 
 | Field | Record |
