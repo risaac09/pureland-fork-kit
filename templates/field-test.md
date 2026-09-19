@@ -2,6 +2,8 @@
 
 Complete this report and a JSON record that conforms to [`data/field-test.schema.json`](../data/field-test.schema.json) only after Stage 1 scoping and any required private rights review. Use the same IDs and facts in both files. Do not hide required facts in one context paragraph. Do not paste this completed report into the public Stage 1 issue.
 
+This template is a version 0.1 instrument and it is unvalidated. A completed report shows that one test was run and recorded. It does not show that the method works, and it certifies nothing about the system assessed. PureLand has one maintainer-side, AI-assisted partial dry run and no independent field trial. [CURRENT-EVIDENCE.md](../CURRENT-EVIDENCE.md) holds the evidence record and caps every claim about what PureLand has shown. [RESEARCH-STATUS.md](../RESEARCH-STATUS.md) holds the claim-by-claim status. Carry these two links with the report if you copy it anywhere.
+
 ## Record identity and tested hypothesis
 
 - Record ID (`record_id`):
@@ -96,6 +98,8 @@ Every JSON evidence item must set `available_before_analysis` to `true`.
 - AI or design analysis substituted: yes or no
 
 AI or design analysis does not satisfy a required human Attend.
+
+`performed` is not a label on its own. If you write it, name the performer, record at least one evidence item, and answer no to substitution. A record that claims `performed` while any of those three is blank, whitespace, or answered yes is refused on conformance. `not-performed` leaves all three free, and its evidence line is where to say why Attend did not happen.
 
 ## Access readings
 
@@ -273,4 +277,4 @@ This section records nothing in the JSON record. Fill it to decide where the rep
 - Material withheld from the route:
 - Scale of the question asked: the practice of the person who ran it, or a practice shared with other people
 
-A reply is one message from the maintainer on what you did, described at the method's [Report step](../METHOD.md#a-reply). Write to isaac@rubinsteinproductions.com in your own words, with or without this report. Nothing is done with what you send without asking you first. Keep other people's material out of it until a private channel exists. A private result, a refusal, and an `unmeasurable` outcome are complete endings that need no route at all.
+A reply is one message from the maintainer on what you did, described at the method's [Report step](../METHOD.md#a-reply). Keep other people's material out of it until a private channel exists. A private result, a refusal, and an `unmeasurable` outcome are complete endings that need no route at all.

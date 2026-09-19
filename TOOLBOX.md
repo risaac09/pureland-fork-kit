@@ -41,6 +41,7 @@ Everything listed here is an instrument. The repository's two readerships, the h
 - [OFFERING.md](OFFERING.md): the bounded PureLand Field Pilot.
 - [templates/field-pilot-charter.md](templates/field-pilot-charter.md): the terms that must be completed privately before Stage 2 begins.
 - [CONTRIBUTING.md](CONTRIBUTING.md): corrections, tests, disagreements, refusals, and adaptations.
+- [IMPROVEMENT-PROTOCOL.md](IMPROVEMENT-PROTOCOL.md): how a finding about this kit becomes a change to it, what each kind of change owes, and what a revision may never do.
 - [GOVERNANCE.md](GOVERNANCE.md): review and release authority.
 
 ## Reuse safely

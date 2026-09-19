@@ -34,3 +34,4 @@ Future packets should name their sources, the rights basis, the search coverage,
 
 - [field-tests/ft-001-alchemy.md](field-tests/ft-001-alchemy.md): FT-001, the maintainer-side partial dry run.
 - [data-maturity-audit.md](data-maturity-audit.md): a dated audit of the infrastructure that carries the evidence, maintainer-side and AI-assisted, with no second reader. It reads the boundary, the schema, the checker, and the records. It does not read the evidence.
+- [agent-lane-walk-2026-09-19.md](agent-lane-walk-2026-09-19.md): five readings of the repository by a model, from a different position each time, maintainer-side and AI-assisted, with no second reader. It records where the text, the navigation, and the checker held or gave way, and four mutation probes against the schema. It is not a field test and enters no ledger.

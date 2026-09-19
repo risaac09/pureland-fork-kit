@@ -93,6 +93,8 @@ Some of what a run surfaces is not the person's to change. Somebody required to 
 
 This is the [before-use discipline](TESTING.md#before-a-test) of field testing. The disconfirming condition comes first because confirmation alone is weak evidence.
 
+For a worked one, FT-001 wrote its condition before analysis: if the run surfaced nothing beyond what the practice's own documentation already stated, the method added no analytic value over an ordinary review. Read it in place in the [FT-001 report](research/field-tests/ft-001-alchemy.md#tested-hypothesis-and-disconfirming-condition), then see what the assessor concluded against it in [CURRENT-EVIDENCE.md](CURRENT-EVIDENCE.md#ft-001-interpretation). Its recorded assessment is `mixed`: some readings were not in those documents, others repeated them, and because no comparator was run the record could not settle which. Writing a condition you can still settle after the run is the hard part, and it is worth more to watch a real one come back unsettled than to be told about it again.
+
 ## 2. Attend
 
 Run the [practice frame](PRACTICE-FRAME.md). Notice what happens in your own attention and body, and which condition may be present in you before assigning it to the system. The contemplative categories are prompts for self-observation, not scores, and never labels for other people.
@@ -135,7 +137,7 @@ If the exchange surfaces something a single reply cannot hold, the [PureLand Fie
 
 ## When a run ends
 
-An outcome-capable run needs an affected person to challenge the reading. Without that challenge, record the limit and do not call the method complete. Keep the disagreement. Revise the method. The next run starts at Scope.
+An outcome-capable run needs an affected person to challenge the reading. Without that challenge, record the limit and do not call the method complete. Keep the disagreement. Revise the method through the [improvement protocol](IMPROVEMENT-PROTOCOL.md), which says what a finding licenses and what a revision may never do. The next run starts at Scope.
 
 A record may conform to the schema while documenting a partial execution. The method is complete only when every required step is complete, a human performed every required Attend, and someone affected by the change had a usable route to challenge the reading. Completion does not establish [validation or a favorable outcome](RESEARCH-STATUS.md).
 

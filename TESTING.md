@@ -93,7 +93,7 @@ Do not submit private participant material. If a test includes participant mater
 ## During a test
 
 - Record each step as `not-started`, `incomplete`, `complete`, or `not-applicable`. Use `not-applicable` only when the recorded scope makes the step unnecessary.
-- Record required human Attend work in `human_observe.status` as `performed` or `not-performed`. AI design analysis does not count as human Attend.
+- Record required human Attend work in `human_observe.status` as `performed` or `not-performed`. AI design analysis does not count as human Attend. `performed` requires a named performer, at least one evidence item, and substitution recorded as false. A record that claims it with any of the three absent is refused on conformance.
 - Keep understandable, reachable, adaptable, and traceable readings separate. An artifact denominator is not a person count.
 - Keep consent, attribution, and meaningful-return readings separate. A public artifact is not meaningful return.
 - Record exposure, extractability, and burden for each affected party at baseline and follow-up.

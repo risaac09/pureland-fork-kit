@@ -39,7 +39,7 @@ You may never generate:
 - a completed consent register, a participant name, a transcript, or any material [SECURITY.md](https://risaac09.github.io/pureland-fork-kit/SECURITY.md) keeps out of the repository.
 - a claim about what PureLand has shown that goes past [CURRENT-EVIDENCE.md](https://risaac09.github.io/pureland-fork-kit/CURRENT-EVIDENCE.md).
 - the [ORIGIN.md](https://risaac09.github.io/pureland-fork-kit/ORIGIN.md) account. It is the maintainer's personal history and the file says no other contributor should draft it for him.
-- a combined, composite, or average score. The instruments refuse one. `check_repo.py` catches three literal field names and no more, so the refusal is yours to keep, not the checker's to enforce.
+- a combined, composite, or average score. The instruments refuse one. The two surfaces differ, so do not read one guard as covering both. Every object in the JSON record is closed, so the schema rejects any key it does not name, whether or not `check_repo.py` lists it; the checker's three literal names (`average_score`, `composite_score`, `overall_score`) are a second pass over that same closed surface. Prose is the open surface. Nothing checks a report sentence that averages the bands, multiplies them, or reports one overall figure, and a composite stated in words counts as the composite the instruments refuse. There the refusal is yours to keep.
 
 Hand these to a person, unstarted or clearly marked as a proposal:
 
@@ -99,6 +99,7 @@ When you cannot proceed, write `unmeasurable` and say what is missing. A refusal
 - [Rights and consent](https://risaac09.github.io/pureland-fork-kit/RIGHTS-AND-CONSENT.md): separates license, consent, authority, and publication decisions.
 - [Governance](https://risaac09.github.io/pureland-fork-kit/GOVERNANCE.md): sole maintainership; that concentration of power is a project risk, not a mature commons.
 - [Contributing](https://risaac09.github.io/pureland-fork-kit/CONTRIBUTING.md): PureLand needs documented disagreement more than applause.
+- [Improvement protocol](https://risaac09.github.io/pureland-fork-kit/IMPROVEMENT-PROTOCOL.md): how a finding about the kit becomes a change to it. It triages a finding by what it lands on, and it forbids the revision-level counterparts of the moves a run may not make: weakening a falsifier that is close to failing, changing a construct after seeing the result it would have read less favorably, loosening a check to turn a failure into a pass, editing a record to make it conform, and raising the evidence ceiling by any route but an accepted trial.
 - [Security](https://risaac09.github.io/pureland-fork-kit/SECURITY.md): what must never appear in a public issue.
 - [License](https://risaac09.github.io/pureland-fork-kit/LICENSE.md): CC BY-SA 4.0 for original text, diagrams, and templates; MIT for repository code and configuration files. The [legal text](https://risaac09.github.io/pureland-fork-kit/LICENSE) states the CC BY-SA terms.
 - [Citation metadata](https://raw.githubusercontent.com/risaac09/pureland-fork-kit/main/CITATION.cff): machine-readable title, author, repository, version, and both repository licenses.

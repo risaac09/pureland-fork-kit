@@ -13,6 +13,54 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-19 release 0.1.1
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code, remote session. The model attribution is carried by the commit trailer rather than restated here |
+| Task | 2026-09-19. Cut release 0.1.1 on request: move the `## Unreleased` entries under a dated heading, draft the release framing, bump `CITATION.cff`, and add the missing changelog line for #56 |
+| Material provided | The repository at `c7b2061`. `GOVERNANCE.md` for what a release decision requires, `TESTING.md` for the version 0.2 gate, `scripts/check_repo.py` for `check_version_claims` and the drift warning, and the GitHub release and tag list. No participant material |
+| Source verification | The version number was decided from the code and the gate rather than from convention. `check_version_claims` states that the patch level stays `CITATION.cff`'s alone while the prose names major and minor, so `0.1.1` leaves the three entry-point sentences correct and unedited; the checker confirms it. `0.2` was refused because `TESTING.md` makes it a research gate of five to ten independent applications across at least three contexts and `CURRENT-EVIDENCE.md` records none. The twenty pull request numbers in the new section were counted from the section itself, not from memory. The previous release was read from the GitHub release list: `v0.1.0`, tag at `53ebf43`, published 2026-09-02. `scripts/check_repo.py` now reports 0 warnings, the drift warning having cleared, and the 32 unit tests, `test_classification_gap.py`, and `test_performed_gap.py` pass |
+| Corrections after verification | A first framing said "Nineteen pull requests since 0.1.0". Two faults: #56 had merged that day with no changelog line at all, and "since 0.1.0" would have had to account for #45, closed unmerged, and #53, which corrected #37's bullet in place rather than adding one. The missing #56 entry was written and the sentence became "Twenty pull requests are named below", which is checkable against the section. #53 still has no line of its own, which is the existing convention for a correction to an entry rather than a change to the kit. Cutting the release then broke a test: `test_unreleased_entries_warn_from_changelog` asserted the drift warning while reading the repository's own `## Unreleased` section, so emptying that section failed it. The rule was left alone and the test was given its own seeded entry, matching the sibling that already built the empty case, then checked against a deliberately disabled drift rule to confirm it still fails when the rule is wrong |
+| Human review | Pending. The maintainer decides whether to cut the release. `GOVERNANCE.md` reserves that decision, including the verification of Pages and release state that no check performs, and the tag and GitHub release are not created by this change |
+| Sensitive material | None involved |
+
+## 2026-09-19 improvement protocol
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code, remote session. The model attribution is carried by the commit trailer rather than restated here |
+| Task | 2026-09-19. Draft `IMPROVEMENT-PROTOCOL.md` on request, after the agent-lane walk produced seven proposals and the kit had no stated procedure for what happens to a finding. Linked it from `METHOD.md`, `TOOLBOX.md`, `CONTRIBUTING.md`, and `llms.txt`, and added its two falsifiers to `RESEARCH-STATUS.md` |
+| Material provided | The repository at `b0d0fbc`, read for what `CONTRIBUTING.md`, `GOVERNANCE.md`, `TESTING.md`, `RESEARCH-STATUS.md`, `CURRENT-EVIDENCE.md`, and `AI-ASSISTANCE.md` each already own, so the new file would restate none of them. The maintainer's choice between three readings of the request, made in conversation. No participant material |
+| Source verification | Every ownership boundary the file claims was read from the file that holds it rather than assumed. The one worked case in the never-weaken section, the traceable construct revised after FT-001 read intentional deletion as a provenance gap, was taken from `research/field-tests/ft-001-alchemy.md` and `CURRENT-EVIDENCE.md`, both of which record the revision as untested and neither of which records a re-read. The seven triaged proposals are the walk's own, unchanged. `scripts/check_repo.py` passes at 38 Markdown files with the standing changelog warning, and the 32 unit tests pass |
+| Corrections after verification | A first outline gave the file an intake form and a merge checklist, which `CONTRIBUTING.md` and `GOVERNANCE.md` already own; both were cut and replaced with pointers, because a second copy drifts from the first. A first draft asserted the declined-proposal table was empty because nothing had been declined; the table now says an empty table is the current state and not a claim that nothing has ever been turned down |
+| Human review | Pending. The maintainer decides whether the procedure is adopted. A procedure written by the person holding merge authority does not constrain that person, which the file says about itself in its closing section |
+| Sensitive material | None involved |
+
+## 2026-09-19 agent-lane walk
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code, remote session. The model attribution is carried by the commit trailer rather than restated here |
+| Task | 2026-09-19. Read the repository five times from a different position each time and record what held and what gave way, on request. Wrote `research/agent-lane-walk-2026-09-19.md`, listed it in the research lane index, and made this disclosure |
+| Material provided | The repository at `7543635`, read in full apart from the license texts, the fonts, and the binary design assets. No material from outside the repository. No participant material |
+| Source verification | Every claim in the walk was run before it was written. `scripts/check_repo.py` passes at `7543635` with one changelog warning, after `pip install -r requirements.txt`; it exits 1 on a missing dependency rather than skipping the record rules. The four mutation probes ran against a copy of the tree under a scratch directory, and the tracked record was restored and re-checked. The leftover-marker regex and the three prohibited score names were read from the script; the 39 closed objects and the `human_observe` requirements were counted from the schema. Word counts were measured with `wc`. The absent ceiling sentence in `templates/field-test.md` and the absent links out of `EXTRACTION-CHECK.md` were checked by grep over the whole file, not by reading the opening |
+| Corrections after verification | A first reading recorded the checker as exiting 0 on a missing dependency. That was wrong: the 0 came from a pipe, and a direct run exits 1. The claim was dropped rather than published. A first draft of the walk quoted the three leftover-marker tokens, which `scripts/check_repo.py` would have flagged in the quoting file; `CROSSWALK.md` already states why that quotation cannot be made, and the sentence was rewritten to point at the script. A first draft read `EXTRACTION-CHECK.md` as carrying no ceiling at all; it carries a weak one in its closing line, and the finding was narrowed to the missing link home and the missing word unvalidated |
+| Human review | Pending. The maintainer decides whether the reading belongs in the research lane and whether any of the seven proposed corrections is made. None of them is made by this pull request. The walk is one model's reading with no second reader, and its four probes are the only reproducible part |
+| Sensitive material | None involved. No participant, client, identifying, confidential, consent, or protected community material entered the walk. The scratch copy used for the probes stays outside the repository |
+
+## 2026-09-18 changelog correction for #37
+
+| Field | Record |
+|---|---|
+| Tool | Claude Opus 5 in Claude Code |
+| Task | 2026-09-18. Correct the `CHANGELOG.md` bullet for #37, which understated the rule that pull request shipped |
+| Material provided | The repository at `66ea814`. The discrepancy surfaced while merging `main` into `v02/r1-merged-08` for #44, whose held branch carries a fuller wording of the same bullet. No participant material |
+| Source verification | `git log -S` traced all three understated facts to one commit, `f875275`, which is #37's own: the support-side incomplete-step rule in `scripts/check_repo.py`, the `incomplete_step_fixture` third variant in `scripts/test_classification_gap.py`, and the line adding that probe to `.github/workflows/validate.yml`. The commit's diff was read directly to confirm it added five support conditions where the bullet named four, and three probe fixtures where the bullet named two. `.github/workflows/validate.yml` was read for the trigger wording. The bullet sits under Unreleased, so no released record is rewritten. `scripts/check_repo.py`, the 32 unit tests, and the classification probes pass |
+| Corrections after verification | The first reading of this discrepancy assumed the fuller wording on #44's branch was the correct one and could simply be carried over. It was not carried over. The history check came first, because the alternative explanation, that a later pull request added the rule and the #37 bullet was accurate for #37, would have made the change wrong. The wording here is written from `f875275`'s diff rather than copied from the held branch, and the CI clause names the actual triggers |
+| Human review | The maintainer reviews and merges the pull request. This is a correction to the record of a change, not a change to the method or the instruments |
+| Sensitive material | None involved |
+
 ## 2026-09-17 collaborator provenance entry
 
 | Field | Record |
@@ -119,8 +167,8 @@ The rows below preserve [PR #45](https://github.com/risaac09/pureland-fork-kit/p
 | Task | PRs #37, #38, #39, #40, #41, #42, and #43. 2026-09-05 to 2026-09-06. Each candidate model received the same packet against `38ce830` and returned a repair proposal, an instrument design, and a self-report, plus a local branch where it had repository access. A deterministic gate ran the checker and the overdue watch on every branch, a voice linter, a privacy scan, word caps, and a network-denied sandbox run of every shipped script. The candidates were relabelled by letter beside a planted probe and read blind by the other models. The synthesizer merged what converged into this branch, one commit per change, re-implemented from the base where branches conflicted, and held every contested item open for the maintainer |
 | Material provided | The packet: a public-safe task statement, the kit's facts of record at `38ce830`, a 23-row critique register compiled from two earlier model reads, the output contract, the invariants, and the reserved list, version r2. The repository at `38ce830`. The 22 published documents, fetched live by the two Claude candidates and byte-matched to the base; the Codex candidate worked from the local files. No participant material, no name, no price, no channel, and no message to anyone entered the packet or any output |
 | Source verification | Every register row was checked against the live files by each candidate before it was dispositioned. The classification gap was reproduced independently three times with in-memory fixtures; the fixture on this branch was seen passing the base checker with zero errors before the fix. `python3 scripts/check_repo.py` exits 0 at every commit on this branch, `PURELAND_TODAY=2026-11-23 python3 scripts/check_repo.py --fail-on-overdue-follow-up` still fails on FT-001 exactly as at the base, and `python3 scripts/test_classification_gap.py` passes and now runs in CI. Two adversarial review passes ran on this branch before push: the first found ten defects and the second two, all fixed in their own commits; one rule question was held for the maintainer instead of changed. The rights files, the consent register, the evidence record, TESTING.md, and the page are byte-identical to the base |
-| Corrections after verification | Owed |
-| Human review | Owed |
+| Corrections after verification | Owed at the round. No human had read the branch, and the maintainer's own gate outside this repository had not been met. The sequence recorded then was the disagreement ledger first, then the candidate, then the pull requests, each merged, revised, or held |
+| Human review | Owed at the round. The blind cross-read is a second reading by other models, and a model reading another model counts as no human review |
 | Sensitive material | None involved. The round's working files live outside this repository; the planted probe and the letter map are among them and are not part of the kit |
 
 ## 2026-09-04 method vocabulary
