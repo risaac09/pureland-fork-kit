@@ -257,6 +257,37 @@ class CheckRepoConsistencyTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertNotIn("kit_version commit", result.stdout)
 
+    def test_raw_repository_links_resolve_existing_files_and_anchors(self) -> None:
+        index = self.repo / "llms.txt"
+        with index.open("a") as stream:
+            stream.write("\n[raw method](https://raw.githubusercontent.com/risaac09/pureland-fork-kit/main/METHOD.md#1-scope)\n")
+        result = self.run_checker()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_raw_repository_links_reject_missing_files_fragments_and_escapes(self) -> None:
+        index = self.repo / "llms.txt"
+        original = index.read_text()
+        for target, diagnostic in [
+            ("missing-file.md", "broken local link"),
+            ("METHOD.md#missing-section", "broken anchor"),
+            ("../outside.md", "link escapes repository"),
+        ]:
+            with self.subTest(target=target):
+                index.write_text(original + "\n[raw target](https://raw.githubusercontent.com/risaac09/pureland-fork-kit/main/" + target + ")\n")
+                self.assert_failed_with(diagnostic)
+
+    def test_other_raw_repositories_and_refs_remain_external(self) -> None:
+        index = self.repo / "llms.txt"
+        with index.open("a") as stream:
+            for target in [
+                "https://raw.githubusercontent.com/example/other/main/missing.md",
+                "https://raw.githubusercontent.com/risaac09/pureland-fork-kit/88216c0/missing.md",
+                "https://raw.githubusercontent.com/risaac09/pureland-fork-kit/main/",
+            ]:
+                stream.write("\n[external target](" + target + ")\n")
+        result = self.run_checker()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
     def test_token_parity_rejects_a_changed_stylesheet_value(self) -> None:
         tokens = self.repo / "design/tokens.css"
         text = tokens.read_text(encoding="utf-8")

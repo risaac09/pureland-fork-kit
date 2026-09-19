@@ -49,6 +49,30 @@ AI output is not a source. Cite the document that supports the claim. Every entr
 | Human review | Pending. The maintainer decides whether the direction is adopted, and no first-time reader has read either page. Layout measurements are browser observations, not evidence that the method or the page works |
 | Sensitive material | None involved. No participant, client, identifying, confidential, consent, or protected community material entered the draft; local paths, the originating brief, and the session record stay outside the repository |
 
+## 2026-09-13 capture guide
+
+| Field | Record |
+|---|---|
+| Tool | Claude Fable 5.1 in Claude Code, desktop app; the effort setting is not exposed in the task context |
+| Task | 2026-09-13. Draft `CAPTURE-GUIDE.md` on `docs/capture-guide-2026-09-13` from `88216c0`; link it from `TOOLBOX.md` and `llms.txt`; add its two falsifiers to `RESEARCH-STATUS.md` |
+| Material provided | The maintainer's brief, given in conversation: which raw material a run produces for a person on a tool, a live facilitation practice, and an organization, and that screen recording with audio or a voice note is the easiest capture for a person on a tool. The repository at `88216c0`, read for the packet, the filming forms, the protocol, the rights guide, the consent register, the schema, the agent lane, and the research-status ledger |
+| Source verification | The checker and both test scripts passed on the branch at each commit, with the expected unreleased-changelog warning; every link and anchor in the new file resolves under the checker, and the file is reachable from `README.md` through `TOOLBOX.md`. Four read-only review agents read the draft against the linked files and returned 24 findings, each quoting the source it relied on; the maintainer's assistant re-checked the quoted lines before acting. This is software review, not human reader evidence |
+| Corrections after verification | The draft said every evidence field holds a review status; the schema's evidence item carries an ID, description, source, and a before-analysis flag, and the review status lives in the report template. The draft attributed the leave-the-worksheet instruction to the practice frame; it is the packet's. The draft let a model transcribe a voice note, which the agent lane's never-generate list reads as a transcript; the person or a named tool now transcribes and the model may only quote. The draft sent an assessor's own transcription tool into the AI system annex, which is scoped to the assessed practice. The draft widened the repository boundary past its sources and restated the protocol's custody list; both now cite the source. The material-to-step mapping appeared twice and had already diverged; it is carried once. The two falsifiers had no ledger rows; they have them now. A pre-push pass moved the changelog line to the top of Unreleased, where the newest change sits, narrowed the Stage 2 sentence to runs that seek a public return, named the schema's public flag, and separated what footage cannot supply from what it cannot produce |
+| Human review | Pending. The maintainer has not read the draft |
+| Sensitive material | None. No participant, client, or identifying material was provided or produced. The brief named no person |
+
+## 2026-09-13 reader entry and model discovery
+
+| Field | Record |
+|---|---|
+| Tool | OpenAI Codex, GPT-6; exact model variant and effort unavailable in the task context |
+| Task | 2026-09-13. Read the kit at `88216c0`, report, and prepare changes on `share/readiness-2026-09-13` and `share/watch-carrier-2026-09-13` |
+| Material provided | The maintainer's execution prompt, outside the kit, and the repository at `88216c0` |
+| Source verification | Read the source files and PR metadata at the pinned base. The working branch passed the checker, 25 regression tests, and three classification probes; the held branch passed its 22-test suite. The combined tree passed all checks and YAML parsing. The overdue simulation failed on FT-001 as expected. A Codex source audit and draft diff review completed. Frozen files, model prohibitions, license text, desktop and phone layout, and required-file discovery passed direct checks. Publication checks and final heads appear in the pull requests |
+| Corrections after verification | Anchored the imported PR #45 verification to its historical branch. Marked unknown PR #46 provenance owed. Preserved schema keys while repairing live step names; added raw-link regression tests |
+| Human review | Pending. Model review and automated checks supply no independent field evidence or maintainer approval |
+| Sensitive material | No participant material was used. The execution prompt and private report remain outside the repository |
+
 ## 2026-09-12 reconciliation review
 
 | Field | Record |
@@ -72,6 +96,32 @@ AI output is not a source. Cite the document that supports the claim. Every entr
 | Corrections after verification | Replaced the retired journey vocabulary with Scope, Attend, Read, Trace, Adapt, Report; kept the private no-record path; separated co-research from the public Field Pilot; required a completed charter before Stage 2; kept fees and funding separate from research, publication, and material-use permission |
 | Human review | The maintainer chose the public resource model and the no-public-price rule. Review of the integrated branch remains required before push, pull request, merge, release, or publication |
 | Sensitive material | None involved; no participant, client, identifying, confidential, consent, or protected community material entered the repository |
+
+## 2026-09-09 arrival mark accent
+
+| Field | Record |
+|---|---|
+| Tool | Claude Fable 5.1, from PR #46's commit co-author trailer; execution surface owed |
+| Task | Change one stylesheet line in index.html in PR #46; no visible words changed |
+| Material provided | Owed |
+| Source verification | Owed |
+| Corrections after verification | Owed |
+| Human review | Owed |
+| Sensitive material | Owed; the commit alone does not establish what material the model received |
+
+## 2026-09-06 maintainer-side revision round
+
+The rows below preserve [PR #45](https://github.com/risaac09/pureland-fork-kit/pull/45)'s historical account against `38ce830`. In these rows, "this branch" means that revision branch and the verification describes that round.
+
+| Field | Record |
+|---|---|
+| Tool | Five models, one task. Candidates: Claude Opus 5 and Claude Sonnet 5 as Claude Code agent contexts with the effort setting unpinned; gpt-6-astra through the Codex CLI at reasoning xhigh, with network blocked inside its sandbox; Qwen3.6-35B-A3B at Q4 on a local llama-server as a control. Cross-readers: the same Opus 5, Sonnet 5, and gpt-6-astra, each excluded from its own candidate. Synthesis, gate, blind set, planted probe, and this branch: Claude Fable 5.1 in Claude Code, which produced no candidate |
+| Task | PRs #37, #38, #39, #40, #41, #42, and #43. 2026-09-05 to 2026-09-06. Each candidate model received the same packet against `38ce830` and returned a repair proposal, an instrument design, and a self-report, plus a local branch where it had repository access. A deterministic gate ran the checker and the overdue watch on every branch, a voice linter, a privacy scan, word caps, and a network-denied sandbox run of every shipped script. The candidates were relabelled by letter beside a planted probe and read blind by the other models. The synthesizer merged what converged into this branch, one commit per change, re-implemented from the base where branches conflicted, and held every contested item open for the maintainer |
+| Material provided | The packet: a public-safe task statement, the kit's facts of record at `38ce830`, a 23-row critique register compiled from two earlier model reads, the output contract, the invariants, and the reserved list, version r2. The repository at `38ce830`. The 22 published documents, fetched live by the two Claude candidates and byte-matched to the base; the Codex candidate worked from the local files. No participant material, no name, no price, no channel, and no message to anyone entered the packet or any output |
+| Source verification | Every register row was checked against the live files by each candidate before it was dispositioned. The classification gap was reproduced independently three times with in-memory fixtures; the fixture on this branch was seen passing the base checker with zero errors before the fix. `python3 scripts/check_repo.py` exits 0 at every commit on this branch, `PURELAND_TODAY=2026-11-23 python3 scripts/check_repo.py --fail-on-overdue-follow-up` still fails on FT-001 exactly as at the base, and `python3 scripts/test_classification_gap.py` passes and now runs in CI. Two adversarial review passes ran on this branch before push: the first found ten defects and the second two, all fixed in their own commits; one rule question was held for the maintainer instead of changed. The rights files, the consent register, the evidence record, TESTING.md, and the page are byte-identical to the base |
+| Corrections after verification | Owed |
+| Human review | Owed |
+| Sensitive material | None involved. The round's working files live outside this repository; the planted probe and the letter map are among them and are not part of the kit |
 
 ## 2026-09-04 method vocabulary
 

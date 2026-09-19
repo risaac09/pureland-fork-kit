@@ -1,10 +1,10 @@
 # Openness scorecard
 
-This is the Read step of [the method](METHOD.md#3-read). This experimental instrument measures four kinds of access: whether a practice is understandable, reachable, adaptable, and traceable from the outside. It does not produce a combined score or a certification. Pair every use with the [extraction check](EXTRACTION-CHECK.md).
+This experimental instrument measures four kinds of access: whether a practice is understandable, reachable, adaptable, and traceable from the outside. This is the Read step of [the method](METHOD.md#3-read). It does not produce a combined score or a certification. Pair every use with the [extraction check](EXTRACTION-CHECK.md).
 
 ## Rules
 
-1. Before counting anything, name what you are counting: the unit, the full set, the time window, and the denominator.
+1. Before counting anything, [name what you are counting](METHOD.md#1-scope): the unit, the full set, the time window, and the denominator.
 2. Attach evidence for every classification.
 3. Keep the four measures separate.
 4. When evidence is missing, write `unmeasurable`.

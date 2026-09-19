@@ -1,8 +1,8 @@
 # The PureLand method
 
-The PureLand method is a bounded inquiry into one information practice, encounter, or system. It begins with a question and ends with a report, a refusal, a private result, or an explicit `unmeasurable` result. It has six steps, run in order on one real practice of your own: Scope, Attend, Read, Trace, Adapt, Report. Every instrument in the repository sits in this sequence, as a step or a conditional branch; none of them is meant as a first door. A field test of a single step stays valid; the full sequence is the recommended way in, not a new gate.
+There are three ways to run it: yourself with the [self-guided packet](templates/run-it-yourself.md), with a language model using the [run-with-a-model packet](templates/run-with-a-model.md), or with Isaac as a [PureLand Field Pilot](OFFERING.md). A private run has a smaller size than the record below describes. See [running it privately](#running-it-privately).
 
-There are three ways to run it: yourself with the [self-guided packet](templates/run-it-yourself.md), with a language model using the [run-with-a-model packet](templates/run-with-a-model.md), or with Isaac as a [PureLand Field Pilot](OFFERING.md), which is the same method run as a small, bounded inquiry done together. A private run has a smaller size than the record below describes. See [running it privately](#running-it-privately).
+The PureLand method is a bounded inquiry into one information practice, encounter, or system. It begins with a question and ends with a report, a refusal, a private result, or an explicit `unmeasurable` result. It has six steps, run in order on one real practice of your own: Scope, Attend, Read, Trace, Adapt, Report. Every instrument in the repository sits in this sequence, as a step or a conditional branch; none of them is meant as a first door. A field test of a single step stays valid; the full sequence is the recommended way in, not a new gate.
 
 This is the human lane. It is run, on a schedule, by someone the answer can reach. A model reading this repository is addressed by [llms.txt](llms.txt), which is the agent lane rather than a paraphrase of this one. The [crosswalk](CROSSWALK.md) sets the two lanes side by side. Attend is the row where the agent lane has no counterpart at all.
 
@@ -131,7 +131,7 @@ What you send is read by one person and kept only for the exchange. Nothing is d
 
 The reply answers at the scale you ran. One person's own information intake is one conversation. An organization's shared attention is a different one, with different affected people and a different consent basis. Running the method on your own practice does not license a reading of the practice you share with colleagues. That second question needs its own Scope.
 
-If the exchange surfaces something a single reply cannot hold, the [PureLand Field Pilot](OFFERING.md) is the same method run together as a bounded engagement. OFFERING.md is the one place that describes the arrangement, names its commissioned, funded, and limited voluntary forms, and keeps the terms in a private conversation after Stage 1. Asking for a reply commits you to nothing, and a pilot proposal is still only an invitation to scope one.
+If the exchange surfaces something a single reply cannot hold, the [PureLand Field Pilot](OFFERING.md) is the same method run together as a bounded engagement. OFFERING.md is the one place that describes the arrangement and its terms. Asking for a reply commits you to nothing, and a pilot proposal is still only an invitation to scope one.
 
 ## When a run ends
 
