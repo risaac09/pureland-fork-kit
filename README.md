@@ -15,7 +15,11 @@ The public site follows `main`. The [changelog](CHANGELOG.md) distinguishes unre
 
 ## Start with your own practice
 
-Run the six steps in order: Scope, Attend, Read, Trace, Adapt, Report. Use the [self-guided packet](templates/run-it-yourself.md), or examine your own use of language models with the [model-use packet](templates/run-with-a-model.md).
+Run the six steps in order: Scope, Attend, Read, Trace, Adapt, Report.
+
+The smallest beginning is the [private path](METHOD.md#running-it-privately): one pass through the same six steps that keeps no record. No worksheet and nothing to submit. Start there if you want to know what the method asks of you before deciding whether to record anything.
+
+To produce a record another reader can inspect, use the [self-guided packet](templates/run-it-yourself.md), or examine your own use of language models with the [model-use packet](templates/run-with-a-model.md). If you are a model, or you are pointing one at this repository, [llms.txt](llms.txt) is the lane: what it may generate, what it may never generate, and what has to be handed back to a person.
 
 You may stop at any step. Recording is optional. Private learning, refusal, and an unmeasurable result can end without a public report.
 
