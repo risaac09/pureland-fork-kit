@@ -137,7 +137,7 @@ If the exchange surfaces something a single reply cannot hold, the [PureLand Fie
 
 ## When a run ends
 
-An outcome-capable run needs an affected person to challenge the reading. Without that challenge, record the limit and do not call the method complete. Keep the disagreement. Revise the method. The next run starts at Scope.
+An outcome-capable run needs an affected person to challenge the reading. Without that challenge, record the limit and do not call the method complete. Keep the disagreement. Revise the method through the [improvement protocol](IMPROVEMENT-PROTOCOL.md), which says what a finding licenses and what a revision may never do. The next run starts at Scope.
 
 A record may conform to the schema while documenting a partial execution. The method is complete only when every required step is complete, a human performed every required Attend, and someone affected by the change had a usable route to challenge the reading. Completion does not establish [validation or a favorable outcome](RESEARCH-STATUS.md).
 
