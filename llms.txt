@@ -80,6 +80,7 @@ When you cannot proceed, write `unmeasurable` and say what is missing. A refusal
 - [AI system annex](https://risaac09.github.io/pureland-fork-kit/AI-SYSTEM-ANNEX.md): use it at Read when a practice includes a model, automated decision, generative interface, recommender, transcription service, or agent. It reads AI as a subject of assessment, where this file addresses AI as a reader.
 - [Facilitation protocol](https://risaac09.github.io/pureland-fork-kit/PROTOCOL.md): use it when an inquiry records an encounter or draws on existing participant material.
 - [Filming forms](https://risaac09.github.io/pureland-fork-kit/FILMING-FORMS.md): self, dyadic, triadic, and environmental filming, each read for what it can witness and what it risks taking, with a separate axis for who holds the camera and the edit and a default of returning footage rather than keeping it; pair with the facilitation protocol whenever a camera is present.
+- [Capture guide](https://risaac09.github.io/pureland-fork-kit/CAPTURE-GUIDE.md): what a person records during a run and what each kind of raw material can stand behind. Raw material stays in private custody and never enters the repository.
 
 ## Data
 

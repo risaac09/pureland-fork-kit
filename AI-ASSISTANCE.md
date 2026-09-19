@@ -49,6 +49,18 @@ AI output is not a source. Cite the document that supports the claim. Every entr
 | Human review | Pending. The maintainer decides whether the direction is adopted, and no first-time reader has read either page. Layout measurements are browser observations, not evidence that the method or the page works |
 | Sensitive material | None involved. No participant, client, identifying, confidential, consent, or protected community material entered the draft; local paths, the originating brief, and the session record stay outside the repository |
 
+## 2026-09-13 capture guide
+
+| Field | Record |
+|---|---|
+| Tool | Claude Fable 5.1 in Claude Code, desktop app; the effort setting is not exposed in the task context |
+| Task | 2026-09-13. Draft `CAPTURE-GUIDE.md` on `docs/capture-guide-2026-09-13` from `88216c0`; link it from `TOOLBOX.md` and `llms.txt`; add its two falsifiers to `RESEARCH-STATUS.md` |
+| Material provided | The maintainer's brief, given in conversation: which raw material a run produces for a person on a tool, a live facilitation practice, and an organization, and that screen recording with audio or a voice note is the easiest capture for a person on a tool. The repository at `88216c0`, read for the packet, the filming forms, the protocol, the rights guide, the consent register, the schema, the agent lane, and the research-status ledger |
+| Source verification | The checker and both test scripts passed on the branch at each commit, with the expected unreleased-changelog warning; every link and anchor in the new file resolves under the checker, and the file is reachable from `README.md` through `TOOLBOX.md`. Four read-only review agents read the draft against the linked files and returned 24 findings, each quoting the source it relied on; the maintainer's assistant re-checked the quoted lines before acting. This is software review, not human reader evidence |
+| Corrections after verification | The draft said every evidence field holds a review status; the schema's evidence item carries an ID, description, source, and a before-analysis flag, and the review status lives in the report template. The draft attributed the leave-the-worksheet instruction to the practice frame; it is the packet's. The draft let a model transcribe a voice note, which the agent lane's never-generate list reads as a transcript; the person or a named tool now transcribes and the model may only quote. The draft sent an assessor's own transcription tool into the AI system annex, which is scoped to the assessed practice. The draft widened the repository boundary past its sources and restated the protocol's custody list; both now cite the source. The material-to-step mapping appeared twice and had already diverged; it is carried once. The two falsifiers had no ledger rows; they have them now. A pre-push pass moved the changelog line to the top of Unreleased, where the newest change sits, narrowed the Stage 2 sentence to runs that seek a public return, named the schema's public flag, and separated what footage cannot supply from what it cannot produce |
+| Human review | Pending. The maintainer has not read the draft |
+| Sensitive material | None. No participant, client, or identifying material was provided or produced. The brief named no person |
+
 ## 2026-09-13 reader entry and model discovery
 
 | Field | Record |
