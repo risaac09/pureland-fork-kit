@@ -12,6 +12,7 @@ Everything listed here is an instrument. The repository's two readerships, the h
 - [SCORECARD.md](SCORECARD.md): four separate access questions for Read.
 - [EXTRACTION-CHECK.md](EXTRACTION-CHECK.md): consent, attribution, value return, attention sovereignty, burden, and collective authority at Trace.
 - [templates/run-with-a-model.md](templates/run-with-a-model.md): the packet for running the method with a model, on your own use of language models. The model scaffolds; the human cells stay yours.
+- [scripts/ecosystem_inventory.py](scripts/ecosystem_inventory.py): a read-only local count of your own information surfaces, run against a permission record you write first. It reads only what you mark `yes`, takes names and modification times without opening a file, and asks for your estimate of each count before it counts. The distance between your estimate and the count is what it measures, one surface at a time, never added. It produces no score and no reading of you.
 
 ## Handle conditional material
 
