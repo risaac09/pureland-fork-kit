@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-21 improvement-protocol row for a new instrument
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code, remote session. The model attribution is carried by the commit trailer rather than restated here |
+| Task | 2026-09-21. Log the session's learnings on request. The one not already recorded was a gap in the triage table in `IMPROVEMENT-PROTOCOL.md`, found by #44; this adds the missing row, records the second batch against the table, and pays what the new row asks for on `scripts/ecosystem_inventory.py` |
+| Material provided | The repository at `aec2134`, and this session's own record of the two batches triaged against the protocol. No participant material |
+| Source verification | The gap was checked rather than assumed. All seven existing rows were read and each describes changing something that already exists: an instrument's wording, a construct's definition, a rule in the schema or checker, a falsifier, the ledger, the thesis. #44 added an instrument and matched none. The consequence was measured directly: `grep -i` over `RESEARCH-STATUS.md` and `TOOLBOX.md` returns nothing for the script, and `grep -rln` over every Markdown file finds it named only in `CHANGELOG.md`. The falsifier written into the new ledger row is the script's own, quoted from its module docstring, not one composed for it. `scripts/check_repo.py` passes with the standing changelog warning, and the 32 unit tests, `test_classification_gap.py` and `test_performed_gap.py` pass |
+| Corrections after verification | A first version of the ledger row waited for the first run before recording the claim, on the reasoning that a row needs evidence. That was backwards: `RESEARCH-STATUS.md` holds claims with the evidence they still need, and predeclaring is the discipline the kit asks for everywhere else. The row is written now, before any run, and says no run exists |
+| Human review | Pending. The maintainer decides whether the row belongs and whether the instrument's claim is stated correctly. Neither the protocol nor its triage table has been used by anyone other than this session |
+| Sensitive material | None involved |
+
 ## 2026-09-19 release 0.1.1
 
 | Field | Record |

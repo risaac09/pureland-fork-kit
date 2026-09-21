@@ -46,6 +46,7 @@ What a finding lands on decides what a change may do and what the change owes.
 | A construct definition in [TESTING.md](TESTING.md#classification-rule) | Change the definition | Everything an instrument change owes, plus the reading the old definition would have produced, kept beside the new one |
 | The schema or the checker | Tighten a rule, or loosen one that was wrong | A fixture that fails before the change and passes after, in `scripts/test_classification_gap.py` or `scripts/test_check_repo.py`. A statement of what a previously conformant record now asserts |
 | A falsifier, in `RESEARCH-STATUS.md` or an instrument | Replace it with a sharper one | The reason, and the old falsifier kept in the record. See the second rule below |
+| A new instrument, arriving as code or as a document | Land it | A row in [RESEARCH-STATUS.md](RESEARCH-STATUS.md) carrying its claim and its falsifier, an entry in [TOOLBOX.md](TOOLBOX.md), and a statement of what a first use would have to show for the instrument to have failed its own test. An instrument nobody can find and no ledger tracks is not in the kit, whatever the repository contains |
 | The [ledger](CURRENT-EVIDENCE.md#the-ledger) or the evidence ceiling | Nothing but an accepted trial moves these | The trial's own record, through [CONTRIBUTING.md](CONTRIBUTING.md#process) |
 | The thesis, or the [primary hypothesis](TESTING.md#primary-hypothesis) | Nothing but field evidence | The evidence, and what it does not establish |
 
@@ -184,6 +185,29 @@ schema.
 
 A decline still belongs in [Declined](#declined) above. This batch produced
 none.
+
+### A second batch, and a row that was missing
+
+Pull request #44 landed `scripts/ecosystem_inventory.py` on 2026-09-19, after
+this file reached `main`. It is the second batch triaged here and the first
+finding that fit no row at all.
+
+The table's rows all described changing something that already existed: an
+instrument's wording, a construct's definition, a rule, a falsifier. #44 added
+an instrument. Nothing said what a new one owes, so it landed carrying its own
+falsifiable claim with no row in `RESEARCH-STATUS.md`, no entry in
+`TOOLBOX.md`, and one mention in `CHANGELOG.md`. A reader of the toolbox cannot
+find it and the claim ledger does not know it exists.
+
+The row above is written from that case. #44 predates it, so this is a gap the
+protocol now catches rather than a rule anybody broke, and the same change that
+adds the row pays what the row asks for.
+
+Two batches, two findings against the triage. The grouping column answered a
+question cost does not settle; the `owes` column was silent on a rule change's
+debt to the person who must satisfy it; and the table had no row for the thing
+arriving rather than changing. A table revised three times by its first two
+real uses is a table that was written from one case.
 
 ## What this protocol does not do
 
