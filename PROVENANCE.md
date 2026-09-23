@@ -43,6 +43,15 @@ Isaac's own history with Zen practice, not yet written, belongs in [ORIGIN.md](O
 
 These sources support the questions. They do not validate PureLand's instruments.
 
+## Information systems framing
+
+- Russell L. Ackoff, "From Data to Wisdom," *Journal of Applied Systems Analysis* 16 (1989): 3–9, sets out a hierarchy from data through information, knowledge, and understanding to wisdom, written for organizations and the systems that serve them. No open-access copy of the paper was located, so the citation is bibliographic; a [reference record](https://www.scirp.org/reference/referencespapers?referenceid=2918522) carries the same details.
+- T. S. Eliot, Choruses from *The Rock* (1934), a [pageant play](https://en.wikipedia.org/wiki/The_Rock_(play)) first performed in London that year, is the poetic ancestor most people reach for when they say "data, information, knowledge, wisdom": "Where is the wisdom we have lost in knowledge?" Eliot's lines are a lament, not a model, and the two are often run together as if they were one source.
+
+What it supports: the second of the [two tracks of knowing](THESIS.md#two-tracks-of-knowing), a ladder for reading what a system does with what enters it. The Read and Trace steps use it as framing. Ackoff's ladder has five rungs; PureLand's prose usually names four and drops understanding, which is a simplification a reader should know about.
+
+What it does not support: any claim about how a person's own knowing develops. The ladder was not written for that, and PureLand's first track rests on the Buddhist sources above, not on Ackoff. It also does not support the claim that holding both tracks in one run does anything for a person. That pairing is PureLand synthesis with its own row in [RESEARCH-STATUS.md](RESEARCH-STATUS.md).
+
 ## Participatory practice precedent
 
 - Sara Asadullah and Soledad Muñiz, [*Participatory Video and the Most Significant Change*](https://insightshare.org/resources/participatory-video-and-the-most-significant-change/), InsightShare, 2015, combines participatory video with a structured evaluation method. PureLand is not the first open facilitation kit to join media practice and measurement.
