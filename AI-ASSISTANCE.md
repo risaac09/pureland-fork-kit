@@ -13,6 +13,18 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-09-23 two tracks of knowing and the Ackoff citation
+
+| Field | Record |
+|---|---|
+| Tool | Claude Fable 5.1 in Claude Code. The model attribution is also carried by the commit trailer |
+| Task | 2026-09-23. On request, write into the kit a distinction the maintainer dictated in conversation: embodied awareness developing into insight through mindfulness on one side, Ackoff's data-to-wisdom ladder for information systems and digital life on the other, and the kit's purpose of supporting awareness of how digital and embodied life integrate. Cite Ackoff. Landed as a section in `THESIS.md`, a source entry in `PROVENANCE.md`, a fields-and-limits row, two rows in `RESEARCH-STATUS.md`, and this record (#60) |
+| Material provided | The repository at `c8966fd`; the maintainer's dictation; a transcript of the maintainer's 2026-09-22 call with a collaborator, used only to confirm how he describes the kit's motivation in his own words. No participant material entered the repository |
+| Source verification | Ackoff's bibliographic details (journal, volume, year, pages) were checked against two independent reference records by web search; no open-access copy of the paper was located and the provenance entry says so. Eliot's chorus and the 1934 first performance were checked against the play's public record. The kit was searched for any existing use of the ladder before writing; none exists, and the maintainer's own 2025 essay in his private corpus is the only prior citation of Ackoff in his work. `scripts/check_repo.py` and the unit tests pass |
+| Corrections after verification | A first draft of the thesis section described the motivating claim as "unstated until now"; that characterized the maintainer's history rather than his words, and was cut. The section says the claim is his and marks it as an untested hypothesis. The improvement protocol reserves changes to the thesis for field evidence; the session read that as a bar on the organizing argument in the blockquote, which is unchanged, and not on framing prose beside it, and says so in the pull request so the maintainer can overrule the reading. A review pass on the branch found three more: the claim that everything a person can know arrives at a sense door rested on the Sabba Sutta, which the provenance record did not carry, so SN 35.23 was added and linked; the Ackoff paragraph read as a paraphrase of a paper no copy of was read, so the thesis and the provenance entry now say the description follows the standard summary; and "usually names four" overstated how often the kit names the ladder at all |
+| Human review | Pending. The maintainer reviews the section against what he meant, decides whether the two-track cut is the right one, and merges or not |
+| Sensitive material | The call transcript stayed in the session's scratch directory and in the maintainer's own files; nothing from it beyond the maintainer's own description of the kit was used, and no other party's words were quoted |
+
 ## 2026-09-21 human-review rows filled for four merged pull requests
 
 | Field | Record |

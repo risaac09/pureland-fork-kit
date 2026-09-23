@@ -54,10 +54,23 @@ The four access questions carry their own definitions in the [openness scorecard
 | Evaluation | Claims, evidence, baselines, limits, and disconfirming conditions | That the current instruments are validated measures |
 | Body-based practice | First-person information about what contact does in the body | An objective score or clinical judgment |
 | Technology theory | How a system's design, ownership, and openness shape what it can do to a person, and what an audit of it can see | That reading a system's documentation establishes what the system does |
+| Information systems theory | A ladder for reading what a system does with what enters it, rung by rung | That a system's ladder describes how a person's own knowing develops |
 
 Each field fails on its own. Measurement without attention or relationship can turn into one more machine for taking things from people. Contemplative and body-based practice without evidence can harden into private conviction. A map of information movement without permission, credit, and return can ignore who pays for that movement. A reading of a technology's design without the people it lands on can mistake a published architecture for an accountable one. That is why the thesis binds them together rather than picking one.
 
 PureLand uses the phrase **attention sovereignty** to name practical agency over contact. That language may center an autonomous individual in ways some Buddhist traditions do not. Version 0.1 keeps this tension open. It does not use Buddhist sources to settle it.
+
+## Two tracks of knowing
+
+PureLand runs on two accounts of how knowing develops, and keeps them apart because they describe different things.
+
+The first is embodied. At a sense door something is known bare, before a name is assigned. Held with mindfulness, that bare knowing can develop into insight into the conditions that shape attention and response. The [Sabba Sutta](PROVENANCE.md#buddhist-sources) names the six sense fields as the all there is to know, the [Madhupiṇḍika Sutta](PROVENANCE.md#buddhist-sources) describes the sequence at the door, and the [practice frame](PRACTICE-FRAME.md) works there. This track belongs to the Attend step. It has no rung above the door: everything a person can know arrives there, and what develops is the quality of the attention, not the category of the thing known.
+
+The second is systemic. Russell Ackoff's ladder from data to information to knowledge to wisdom, as it is usually summarized, describes how a larger system, an organization, a database, a feed, refines what enters it, each rung further from the raw event and more usable for a decision. It was written for organizations and the information systems that serve them, and it reads digital life well: what a platform takes in as data, what it turns that into, and who the resulting knowledge serves. This track belongs to the Read and Trace steps, where the scorecard and the extraction check work on the system rather than on the person. The source and its limits are in [PROVENANCE.md](PROVENANCE.md#information-systems-framing).
+
+The tracks are not rival ladders. One describes a person's knowing and the other a system's processing, and a digital life runs on both at once. PureLand's use for the pair is the seam between them. The digital and embodied parts of a life are integrating, and the kit is meant to give a person a way to see how each enters the other: what a system's ladder does to what they then meet at the door, and what arrives at the door that no ladder recorded. The maintainer's motivating claim is that in a time of that integration a person needs tools for wellbeing and for holistic embodied awareness as much as tools for reading systems, and that a method which holds both tracks in one run can support that awareness where either track alone cannot. That claim is a PureLand hypothesis with a row in [RESEARCH-STATUS.md](RESEARCH-STATUS.md). No run has tested it.
+
+What would count against it: if runs of the method show that the Attend step and the Read step produce readings a person cannot relate to each other, or that relating them adds nothing the person did not already know, the two-track framing is decoration and the kit should keep one track.
 
 ## Implications
 
