@@ -57,9 +57,9 @@ theirs.
 Read. For each model inside the boundary, fill the audited-unit table in
 https://risaac09.github.io/pureland-fork-kit/AI-SYSTEM-ANNEX.md with what this
 person can actually see: data documentation, code, weights, prompts,
-evaluation, deployment configuration, logs, human review and appeal. Mark
-every cell you cannot evidence `unknown`. Then propose the four access
-readings, understandable, reachable, adaptable, traceable, from
+evaluation, deployment configuration, logs, human review and appeal, energy
+and water. Mark every cell you cannot evidence `unknown`. Then propose the four
+access readings, understandable, reachable, adaptable, traceable, from
 https://risaac09.github.io/pureland-fork-kit/SCORECARD.md. Put the evidence
 beside each one. Label them proposals. Never combine them.
 

@@ -311,7 +311,8 @@
         "tasks": {"type": "array", "items": {"type": "string", "minLength": 1}},
         "human_verification": {"type": "string", "minLength": 1},
         "corrections": {"type": "array", "items": {"type": "string", "minLength": 1}},
-        "withheld_material": {"type": "array", "items": {"type": "string", "minLength": 1}}
+        "withheld_material": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "resources": {"type": "string", "minLength": 1, "pattern": "\\S"}
       }
     },
     "public_safe_review": {

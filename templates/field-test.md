@@ -234,6 +234,9 @@ Missing required action-outcome or rights evidence makes the result `unmeasurabl
 - Human verification:
 - Corrections after verification:
 - Material withheld:
+- Resources consumed:
+
+Write the agents, tokens, or minutes the tool reports, or `not recorded`. A blank line here reads as not recorded, never as none consumed. In the structured record `ai_assistance.resources` is optional, and when present it cannot be blank.
 
 ## Artifact-version public-safe review
 
