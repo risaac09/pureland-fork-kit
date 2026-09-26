@@ -17,10 +17,13 @@ Name the complete system boundary:
 | Deployment configuration | | | | |
 | Logs and feedback | | | | |
 | Human review and appeal | | | | |
+| Energy and water | | | | |
 
 Do not call a whole AI system open because one repository is visible. The [Open Source AI Definition](PROVENANCE.md#open-and-ai-system-references) asks whether people can use, study, modify, and share a system, with access to the preferred form for making changes.
 
 Running the assessed model on hardware you own is one way to close the deployment-configuration and logs rows of this table with first-hand evidence. It closes those two rows only. Locality is not openness, and it settles nothing about quality, bias, the consent behind the training data, or the labor that produced the model.
+
+The energy and water row asks what running the system draws from the ground it runs on: the electricity and the cooling water behind each use. Record what the operator or the provider publishes about this system, with the source and its date. Where nothing is published, the cell is the evidence gap. Do not borrow a figure measured on another system or estimated for an industry, because a number from elsewhere reads as a measurement of this one. Running the model on your own hardware lets you read your own meter, and that reading covers the inference you ran, not the training behind the weights. The row was added on 2026-09-25 and is untested: no run has used it.
 
 ## Lifecycle record
 

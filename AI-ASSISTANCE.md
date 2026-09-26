@@ -9,9 +9,25 @@ When AI assists with source discovery, synthesis, coding, or drafting, disclose:
 - the material provided to the system;
 - how a human verified the output;
 - the corrections made after verification;
-- the material withheld for consent or privacy.
+- the material withheld for consent or privacy;
+- the resources the assistance consumed, such as agents, tokens, or minutes, where the tool reports them, or `not recorded`.
+
+An absent resources line reads as not recorded, never as none.
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
+
+## 2026-09-25 energy and water row, and a resources line in this rule
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code. The model attribution is carried by the commit trailer |
+| Task | 2026-09-25. On the maintainer's request to ground his internal system's self-improvement in the kit's relation to the earth and the environment, find what the kit says about the physical cost of the AI systems it audits and about the cost of AI assistance to the kit itself, and propose the smallest change. Landed as an energy and water row in `AI-SYSTEM-ANNEX.md`, a resources line in this rule with an optional `ai_assistance.resources` field in `data/field-test.schema.json`, a sentence in `templates/field-test.md`, the new row named in `templates/run-with-a-model.md`, two tests in `scripts/test_check_repo.py`, and this record |
+| Material provided | The repository at `d741a7a`. The maintainer's request and his choice of scope among three offered options. No participant material entered the session or the repository |
+| Source verification | A search of every Markdown file in the kit for energy, electricity, water, carbon, and ecology returned nothing. That is the finding, and it is recorded in the pull request apart from the change. No external figure was used, and the row forbids borrowing one. `scripts/check_repo.py`, its 32 prior unit tests, and both gap probes pass. The new fixture fails against the pre-change schema with "Additional properties are not allowed ('resources' was unexpected)" and passes after |
+| Corrections after verification | The row was drafted as "Energy, water, and hardware". It carries the maintainer's own words, "energy and water", and hardware stays out until someone asks for it |
+| Resources | Part of a larger internal pass in the maintainer's private operations repository: 8 subagents, about 1.67M subagent tokens, 54 minutes before any change was written. The kit changes were made in the main session, whose share for this pull request was not recorded separately |
+| Human review | Pending. The maintainer decides whether the row and the rule change belong in the kit, and merges or not |
+| Sensitive material | None. Nothing from the private repository beyond the resource figures above entered this record |
 
 ## 2026-09-23 two tracks of knowing and the Ackoff citation
 

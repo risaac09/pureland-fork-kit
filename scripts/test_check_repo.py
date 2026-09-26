@@ -393,6 +393,37 @@ class CheckRepoConsistencyTests(unittest.TestCase):
         result = self.run_checker()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
+    def test_ai_assistance_may_state_the_resources_it_consumed(self) -> None:
+        """The disclosure rule's resources line has a place in the record.
+
+        Every object in the record is closed, so before the schema named
+        `resources` a record that disclosed what its assistance consumed failed
+        conformance. That made the rule impossible to follow in a structured
+        record. Written to fail against the pre-change schema.
+        """
+        record = self.read_record()
+        record["ai_assistance"]["resources"] = (
+            "Claude Code; agents, tokens, and minutes not recorded"
+        )
+        self.write_record(record)
+        result = self.run_checker()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_ai_assistance_resources_cannot_be_blank(self) -> None:
+        """A blank resources line is refused, not read as none consumed.
+
+        `minLength` counts characters, not content, so whitespace alone would
+        pass without the pattern: the same gap #55 closed for the performer.
+        """
+        for blank in ("", "   "):
+            with self.subTest(blank=repr(blank)):
+                record = self.read_record()
+                record["ai_assistance"]["resources"] = blank
+                self.write_record(record)
+                result = self.run_checker()
+                self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+                self.assertIn("resources", result.stdout + result.stderr)
+
 
 if __name__ == "__main__":
     unittest.main()
