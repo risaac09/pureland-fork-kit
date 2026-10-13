@@ -195,3 +195,24 @@ details[open] .expand::after { transform: rotate(0); }
   .section, .paths { padding-block: 2rem; }
   details > :not(summary) { display: block !important; }
 }
+/* plain.html: the plain-words reading. One column at a reading measure. */
+.plain-hero { padding-block: 4.25rem 3rem; max-width: 62ch; }
+.plain-hero .label { margin-bottom: 1.4rem; display: block; }
+.plain-hero .hero-lead { max-width: none; }
+.plain-section { padding-block: 3.5rem; border-bottom: 1px solid var(--line); max-width: 66ch; }
+.plain-section > .label { display: block; margin-bottom: 1rem; }
+.plain-section h2 { margin-bottom: 1.4rem; }
+.plain-section p, .plain-section li, .plain-section dd { font-size: 1.0625rem; line-height: 1.7; }
+.plain-section > p + .practice-note, .plain-section > p + .plain-terms { margin-top: 1.5rem; }
+.plain-terms { margin: 1.5rem 0; }
+.plain-terms div { padding-block: .9rem; border-top: 1px solid var(--line); }
+.plain-terms dt { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.2; }
+.plain-terms dd { margin: .3rem 0 0; color: var(--secondary); }
+.plain-steps { list-style: none; padding: 0; margin: 1.5rem 0; }
+.plain-steps li { padding-block: 1.4rem; border-top: 1px solid var(--line); }
+.plain-steps h3 { display: flex; align-items: baseline; gap: .8rem; margin-bottom: .6rem; }
+.plain-steps .step-number { font: .8rem/1 var(--font-label); color: var(--secondary); }
+.plain-example { color: var(--secondary); padding-left: 1rem; border-left: 2px solid var(--accent-text); }
+.plain-list { padding-left: 1.2rem; margin: 1rem 0; }
+.plain-list li + li { margin-top: .5rem; }
+.plain-section ~ .plain-section:last-child { border-bottom: 0; }
