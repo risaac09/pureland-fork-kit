@@ -7,7 +7,7 @@
 
 A research-program prototype for examining your control over an information practice and the exposure it can create.
 
-**The public front page is [risaac09.github.io/pureland-fork-kit](https://risaac09.github.io/pureland-fork-kit/). This repository is the record behind it.** [Read the method](METHOD.md) · [Inspect the evidence](CURRENT-EVIDENCE.md)
+**The public front page is [risaac09.github.io/pureland-fork-kit](https://risaac09.github.io/pureland-fork-kit/). This repository is the record behind it.** [Read the method](METHOD.md) · [Inspect the evidence](CURRENT-EVIDENCE.md) · [Read it in plain words](https://risaac09.github.io/pureland-fork-kit/plain.html)
 
 This is version 0.1. Its instruments are unvalidated. It does not certify that anything is open or safe. PureLand has one maintainer-side, AI-assisted partial dry run and no independent field trial. The current evidence does not show that the method works.
 

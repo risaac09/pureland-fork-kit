@@ -16,6 +16,19 @@ An absent resources line reads as not recorded, never as none.
 
 AI output is not a source. Cite the document that supports the claim. Every entry below is written against this rule, and [RESEARCH-STATUS.md](RESEARCH-STATUS.md) points here rather than restating it.
 
+## 2026-10-13 plain-words page
+
+| Field | Record |
+|---|---|
+| Tool | Claude Code. The model attribution is carried by the commit trailer |
+| Task | 2026-10-13. On the maintainer's request for a separate, plainer page than the front page, aimed at a tenth- or eleventh-grade reader, draft `plain.html` from the kit's own documents, style it in the active Field & Form system, and link it from `index.html` and the README |
+| Material provided | The repository at `4d8e204`. No participant material entered the session or the repository |
+| Source verification | Each claim on the page was drawn from `THESIS.md`, `METHOD.md`, `PRACTICE-FRAME.md`, `CURRENT-EVIDENCE.md`, `OFFERING.md`, `RIGHTS-AND-CONSENT.md`, and the front page, and the page says the record holds where the two differ. Reading level was estimated with the `textstat` library on the paragraph and list text of both pages: the front page reads at about a tenth- to eleventh-grade level, the first draft of the new page at about a fifth- to sixth-grade level, below the requested target. On the maintainer's request the prose was rewritten to a tenth-grade target and measured again at about a ninth- to tenth-grade level (Flesch-Kincaid 9.3, Gunning fog 11.3). Readability formulas count word and sentence length, not whether a reader understands. `scripts/check_repo.py` passes. The page was viewed at desktop and 375 px widths with no horizontal scroll |
+| Corrections after verification | A draft line described the maintainer's personal meditation practice, which the kit does not state publicly. It was removed. A draft called Alchemy a note-taking app; it now follows `METHOD.md` |
+| Resources | Not recorded |
+| Human review | Pending. No first-time reader has read the page. The maintainer decides whether it belongs in the kit, and merges or not |
+| Sensitive material | None |
+
 ## 2026-09-25 energy and water row, and a resources line in this rule
 
 | Field | Record |
